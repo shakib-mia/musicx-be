@@ -1,1 +1,6 @@
 # forevision-digital-be
+
+db_username=adztronaut
+db_password=pQcqkwyzI3caUt50
+access_token_secret=275259a3c99d0d3e53058f74da8b55417ec0f37b5a8f73fc9b1340082800f7354a3267f9cefcc0e8f0e05d87ab6ed0a2b60bfeade3254e6bf3c4f8a4f8d2638b
+port=5000
