@@ -43,6 +43,14 @@ async function run() {
       .db("forevision-digital")
       .collection("isrc-with-id"); // ISRC collection
 
+    const platformsCollection = await client
+      .db("forevision-digital")
+      .collection("platform-name"); // platform-name
+
+    const revenueCollections = await client
+      .db("forevision-digital")
+      .collection("demo-revenue"); // demo-revenue
+
     /**
      *
      * Getting all users
@@ -108,6 +116,13 @@ async function run() {
       });
     });
 
+    app.get("/platforms", async (req, res) => {
+      const platformsCursor = await platformsCollection.find({});
+      const platforms = await platformsCursor.toArray();
+
+      res.send(platforms);
+    });
+
     app.post("/login", async (req, res) => {
       const { email, password } = req.body;
       const admin = await adminsCollection.findOne({ email });
@@ -119,6 +134,15 @@ async function run() {
 
         res.send({ token });
       }
+    });
+
+    app.post("/revenue-upload", async (req, res) => {
+      const data = req.body;
+
+      const uploadCursor = await revenueCollections.insertMany(data);
+
+      res.send(uploadCursor);
+      // console.log(data);
     });
   } finally {
   }
