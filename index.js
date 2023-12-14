@@ -13,7 +13,7 @@ app.use(express());
 app.use(cors());
 app.use(express.json());
 
-const port = process.env.port;
+const port = process.env.port || 5000;
 
 app.get("/", (req, res) => {
   res.send(`from port ${port}`);
