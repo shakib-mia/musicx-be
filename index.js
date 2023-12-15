@@ -52,6 +52,9 @@ async function run() {
     const revenueCollections = await client
       .db("forevision-digital")
       .collection("demo-revenue"); // demo-revenue
+    const usersCollection = await client
+      .db("forevision-digital")
+      .collection("user-credentials-db");
 
     /**
      *
@@ -182,6 +185,16 @@ async function run() {
         });
       }
     );
+
+    app.post("/login", async (req, res) => {
+      const { email, password } = req.body;
+      const userCursor = await usersCollection.findOne({ emailId: email });
+      if (userCursor.password === password) {
+        res.send("success");
+      } else {
+        res.send("incorrect password");
+      }
+    });
   } finally {
   }
 }
