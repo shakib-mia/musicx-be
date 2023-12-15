@@ -186,11 +186,17 @@ async function run() {
       }
     );
 
-    app.post("/login", async (req, res) => {
+    app.post("/user-login", async (req, res) => {
       const { email, password } = req.body;
-      const userCursor = await usersCollection.findOne({ emailId: email });
+      const userCursor = await usersCollection.findOne({ user_email: email });
+      // console.log(userCursor);
       if (userCursor.password === password) {
-        res.send({ message: "success" });
+        // res.send({ message: "success" });
+        const token = jwt.sign({ email }, process.env.access_token_secret, {
+          expiresIn: "1h",
+        });
+
+        res.send({ token });
       } else {
         res.send({ message: "incorrect password" });
       }
