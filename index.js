@@ -190,9 +190,9 @@ async function run() {
       const { email, password } = req.body;
       const userCursor = await usersCollection.findOne({ emailId: email });
       if (userCursor.password === password) {
-        res.send("success");
+        res.send({ message: "success" });
       } else {
-        res.send("incorrect password");
+        res.send({ message: "incorrect password" });
       }
     });
   } finally {
