@@ -190,15 +190,19 @@ async function run() {
       const { email, password } = req.body;
       const userCursor = await usersCollection.findOne({ user_email: email });
       // console.log(userCursor);
-      if (userCursor.password === password) {
-        // res.send({ message: "success" });
-        const token = jwt.sign({ email }, process.env.access_token_secret, {
-          expiresIn: "1h",
-        });
+      if (userCursor !== null) {
+        if (userCursor.password === password) {
+          // res.send({ message: "success" });
+          const token = jwt.sign({ email }, process.env.access_token_secret, {
+            expiresIn: "1h",
+          });
 
-        res.send({ token });
+          res.send({ token });
+        } else {
+          res.send({ message: "incorrect password" });
+        }
       } else {
-        res.send({ message: "incorrect password" });
+        res.send({ message: "no user found" });
       }
     });
   } finally {
