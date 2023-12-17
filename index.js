@@ -23,7 +23,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const port = process.env.port || 5000;
+const port = process.env.port || 4000;
 
 app.get("/", (req, res) => {
   res.send(`from port ${port}`);
@@ -204,7 +204,19 @@ async function run() {
         revenueCursor !== null && revenues.push(revenueCursor);
       }
 
-      console.log(revenues.length);
+      res.send(isrcs);
+    });
+
+    app.get("/user-revenue/:isrc", async (req, res) => {
+      const revenueCursor = await revenueCollections.find({
+        isrc: req.params.isrc,
+      });
+      const revenues = await revenueCursor.toArray();
+      if (revenues.length > 0) {
+        res.send({ revenues });
+      } else {
+        res.send({ message: "no data found" });
+      }
     });
 
     app.delete(
