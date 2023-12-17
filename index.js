@@ -148,13 +148,18 @@ async function run() {
     app.post("/login", async (req, res) => {
       const { email, password } = req.body;
       const admin = await adminsCollection.findOne({ email });
+      // console.log(admin);
 
-      if (bcrypt.compareSync(password, admin.password)) {
-        const token = jwt.sign({ email }, process.env.access_token_secret, {
-          expiresIn: "1h",
-        });
+      if (admin !== null) {
+        if (bcrypt.compareSync(password, admin.password)) {
+          const token = jwt.sign({ email }, process.env.access_token_secret, {
+            expiresIn: "1h",
+          });
 
-        res.send({ token });
+          res.send({ token });
+        }
+      } else {
+        res.status(401).send({ message: "no user found" });
       }
     });
 
