@@ -23,7 +23,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const port = process.env.port || 4000;
+const port = process.env.port;
 
 app.get("/", (req, res) => {
   res.send(`from port ${port}`);
@@ -217,6 +217,15 @@ async function run() {
       } else {
         res.send({ message: "no data found" });
       }
+    });
+
+    app.post("/songs-for-isrc", async (req, res) => {
+      const { isrcs } = req.body;
+
+      const songs = await revenueCollections
+        .find({ isrc: { $in: isrcs } })
+        .toArray();
+      res.send(songs);
     });
 
     app.delete(
