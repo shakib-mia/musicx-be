@@ -180,12 +180,13 @@ async function run() {
       res.send(uploadCursor);
     });
 
-    app.get("/revenue", verifyJWT, async (req, res) => {
+    app.post("/revenue", verifyJWT, async (req, res) => {
+      const { page, currentPage } = req.body;
       const revenueCursor = await revenueCollections.find({});
-
       const revenues = await revenueCursor.toArray();
+      const data = revenues.splice(currentPage * 50, 50);
 
-      res.send(revenues);
+      res.send({ data, count: revenues.length });
     });
 
     app.get("/user-revenue", verifyJWT, async (req, res) => {
