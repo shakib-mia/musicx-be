@@ -14,6 +14,7 @@ app.use(express());
 app.use(
   cors({
     origin: "*",
+    optionsSuccessStatus: 200,
   })
 );
 app.use(express.json());
