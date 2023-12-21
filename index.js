@@ -11,7 +11,11 @@ const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 
 app.use(express());
-app.use(cors());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.use(express.json());
 app.use(bodyParser.json());
 
