@@ -25,7 +25,9 @@ app.use(express.json());
 app.use(bodyParser.json());
 
 const transporter = nodemailer.createTransport({
-  service: "Outlook", // e.g., 'Gmail', 'SMTP'
+  host: "smtp.hostinger.com", // Replace with your Hostinger SMTP server
+  port: 587, // Typically, SMTP uses port 587
+  secure: false, // Set to true if you are using SSL/TLS
   auth: {
     user: process.env.emailAddress,
     pass: process.env.emailPass,
@@ -282,10 +284,9 @@ async function run() {
     app.post("/reset-password", async (req, res) => {
       const { user_email } = req.body;
       const usersCursor = await usersCollection.findOne({ user_email });
-
       if (usersCursor.password) {
         var message = {
-          from: "abdullahalsamad@outlook.com",
+          from: process.env.emailAddress,
           to: user_email,
           subject: "Reset Password",
           // text: "Plaintext version of the message",
@@ -318,7 +319,7 @@ async function run() {
         const newPassword = generatePassword();
 
         var message = {
-          from: "abdullahalsamad@outlook.com",
+          from: process.env.emailAddress,
           to: user_email,
           subject: "Reset Password",
           // text: "Plaintext version of the message",
@@ -339,13 +340,18 @@ async function run() {
 
         const user = await usersCollection.findOne({ user_email });
 
-        const updateCursor = await usersCollection.updateOne(
-          { user_email },
-          { $set: { ...user, password: newPassword } },
-          { $upsert: true }
-        );
+        bcrypt.hash(newPassword, 10, async function (err, hash) {
+          // Store hash in your password DB.
+          if (hash.length) {
+            const updateCursor = await usersCollection.updateOne(
+              { user_email },
+              { $set: { ...user, user_password: hash } },
+              { $upsert: true }
+            );
 
-        res.send({ updateCursor });
+            res.send({ updateCursor });
+          }
+        });
       }
     });
 
