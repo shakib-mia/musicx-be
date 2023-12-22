@@ -263,7 +263,7 @@ async function run() {
     app.post("/user-login", async (req, res) => {
       const { email, password } = req.body;
       const userCursor = await usersCollection.findOne({ user_email: email });
-
+      const details = await userDetails.findOne({ user_email: email });
       if (userCursor !== null) {
         bcrypt.compare(password, userCursor.user_password, (err, result) => {
           if (result) {
@@ -272,7 +272,7 @@ async function run() {
               expiresIn: "1h",
             });
 
-            res.send({ token });
+            res.send({ token, details });
           } else {
             res.status(401).send({ message: "incorrect password" });
           }
