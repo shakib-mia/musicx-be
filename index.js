@@ -217,20 +217,22 @@ async function run() {
         revenueCursor !== null && revenues.push(revenueCursor);
       }
 
-      res.send(isrcs);
+      // console.log(revenues);
+
+      res.send(revenues);
     });
 
-    app.get("/user-revenue/:isrc", async (req, res) => {
-      const revenueCursor = await revenueCollections.find({
-        isrc: req.params.isrc,
-      });
-      const revenues = await revenueCursor.toArray();
-      if (revenues.length > 0) {
-        res.send({ revenues });
-      } else {
-        res.send({ message: "no data found" });
-      }
-    });
+    // app.get("/user-revenue/:isrc", async (req, res) => {
+    //   const revenueCursor = await revenueCollections.find({
+    //     isrc: req.params.isrc,
+    //   });
+    //   const revenues = await revenueCursor.toArray();
+    //   if (revenues.length > 0) {
+    //     res.send({ revenues });
+    //   } else {
+    //     res.send({ message: "no data found" });
+    //   }
+    // });
 
     app.post("/songs-for-isrc", async (req, res) => {
       const { isrcs } = req.body;
