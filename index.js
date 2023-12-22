@@ -314,7 +314,7 @@ async function run() {
       transporter.sendMail(message, async (error, info) => {
         if (error) {
           console.error(error);
-          res.status(500).send("Error sending email");
+          res.status(500).send(error);
         } else {
           // res.send("Email sent successfully");
           bcrypt.hash(newPassword, 10, async function (err, hash) {
