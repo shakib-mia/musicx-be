@@ -284,75 +284,53 @@ async function run() {
     app.post("/reset-password", async (req, res) => {
       const { user_email } = req.body;
       const usersCursor = await usersCollection.findOne({ user_email });
-      if (usersCursor.password) {
-        var message = {
-          from: process.env.emailAddress,
-          to: user_email,
-          subject: "Reset Password",
-          // text: "Plaintext version of the message",
-          html: `<div>
-          Your Password new is 
-          <h1>${usersCursor.password}</h1>
-          </div>`,
-        };
 
-        transporter.sendMail(message, (error, info) => {
-          if (error) {
-            console.error(error);
-            res.status(500).send("Error sending email");
-          } else {
-            res.send("Email sent successfully");
-          }
-        });
-      } else {
-        function generatePassword() {
-          var length = 8,
-            charset =
-              "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-            retVal = "";
-          for (var i = 0, n = charset.length; i < length; ++i) {
-            retVal += charset.charAt(Math.floor(Math.random() * n));
-          }
-          return retVal;
+      // res.send(usersCursor);
+
+      function generatePassword() {
+        var length = 8,
+          charset =
+            "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+          retVal = "";
+        for (var i = 0, n = charset.length; i < length; ++i) {
+          retVal += charset.charAt(Math.floor(Math.random() * n));
         }
+        return retVal;
+      }
 
-        const newPassword = generatePassword();
+      const newPassword = generatePassword();
 
-        var message = {
-          from: process.env.emailAddress,
-          to: user_email,
-          subject: "Reset Password",
-          // text: "Plaintext version of the message",
-          html: `<div>
-          Your Password new is 
+      var message = {
+        from: process.env.emailAddress,
+        to: user_email,
+        subject: "Reset Password",
+        // text: "Plaintext version of the message",
+        html: `<div>
+          Your New Password is
           <h1>${newPassword}</h1>
           </div>`,
-        };
+      };
 
-        transporter.sendMail(message, (error, info) => {
-          if (error) {
-            console.error(error);
-            res.status(500).send("Error sending email");
-          } else {
-            res.send("Email sent successfully");
-          }
-        });
+      transporter.sendMail(message, async (error, info) => {
+        if (error) {
+          console.error(error);
+          res.status(500).send("Error sending email");
+        } else {
+          // res.send("Email sent successfully");
+          bcrypt.hash(newPassword, 10, async function (err, hash) {
+            // Store hash in your password DB.
+            if (hash.length) {
+              const updateCursor = await usersCollection.updateOne(
+                { user_email },
+                { $set: { ...usersCursor, user_password: hash } },
+                { upsert: true }
+              );
 
-        const user = await usersCollection.findOne({ user_email });
-
-        bcrypt.hash(newPassword, 10, async function (err, hash) {
-          // Store hash in your password DB.
-          if (hash.length) {
-            const updateCursor = await usersCollection.updateOne(
-              { user_email },
-              { $set: { ...user, user_password: hash } },
-              { $upsert: true }
-            );
-
-            res.send({ updateCursor });
-          }
-        });
-      }
+              res.send(updateCursor);
+            }
+          });
+        }
+      });
     });
 
     app.get("/getUserData", async (req, res) => {
