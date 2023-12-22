@@ -194,7 +194,7 @@ async function run() {
 
     app.get("/user-revenue", verifyJWT, async (req, res) => {
       const { email } = jwt.decode(req.headers.token);
-      // console.log(email);
+
       const clientsCursor = await clientsCollection.findOne({
         user_email: email,
       });
@@ -206,33 +206,31 @@ async function run() {
       clientsCursor.content_isrc
         .split(",")
         .map((item) => isrcs.push(item.trim()));
+      res.send(isrcs);
 
       // isrcs.map((isrc) => {
       //   const revenueCursor = revenueCollections.findOne({ isrc });
-      //   console.log(revenueCursor);
       // });
-      const revenues = [];
-      for (const isrc of isrcs) {
-        const revenueCursor = await revenueCollections.findOne({ isrc });
-        revenueCursor !== null && revenues.push(revenueCursor);
-      }
+      // for (const isrc of isrcs) {
+      //   const revenueCursor = await revenueCollections.find({ isrc });
+      //   const allRevenues = await revenueCursor.toArray();
 
-      // console.log(revenues);
-
-      res.send(revenues);
+      //   // res.send(allRevenues);
+      //   // revenueCursor !== null && revenues.push(revenueCursor);
+      // }
     });
 
-    // app.get("/user-revenue/:isrc", async (req, res) => {
-    //   const revenueCursor = await revenueCollections.find({
-    //     isrc: req.params.isrc,
-    //   });
-    //   const revenues = await revenueCursor.toArray();
-    //   if (revenues.length > 0) {
-    //     res.send({ revenues });
-    //   } else {
-    //     res.send({ message: "no data found" });
-    //   }
-    // });
+    app.get("/user-revenue/:isrc", async (req, res) => {
+      const revenueCursor = await revenueCollections.find({
+        isrc: req.params.isrc,
+      });
+      const revenues = await revenueCursor.toArray();
+      if (revenues.length > 0) {
+        res.send({ revenues });
+      } else {
+        res.send({ message: "no data found" });
+      }
+    });
 
     app.post("/songs-for-isrc", async (req, res) => {
       const { isrcs } = req.body;
