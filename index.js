@@ -127,8 +127,8 @@ async function run() {
       const users = await usersCursor.toArray();
       const isrcCursor = await isrcCollection.find({});
       const isrc = await isrcCursor.toArray();
-      const revenueCursor = await revenueCollections.find({});
-      const revenues = await revenueCursor.toArray();
+      // const revenueCursor = await revenueCollections.find({});
+      // const revenues = await revenueCursor.toArray();
 
       const topContributor = users.reduce(
         (max, obj) =>
@@ -136,16 +136,16 @@ async function run() {
         users[0]
       );
 
-      const topSong = revenues.reduce(
-        (max, obj) => (obj[" Royalty "] > max[" Royalty "] ? obj : max),
-        revenues[0]
-      );
+      // const topSong = revenues.reduce(
+      //   (max, obj) => (obj[" Royalty "] > max[" Royalty "] ? obj : max),
+      //   revenues[0]
+      // );
 
       res.send({
         usersCount: users.length,
         isrcCount: isrc.length,
         topContributor,
-        topSong,
+        // topSong,
       });
     });
 
@@ -184,9 +184,10 @@ async function run() {
 
     app.post("/revenue", verifyJWT, async (req, res) => {
       const { page, currentPage } = req.body;
-      const revenueCursor = await revenueCollections.find({});
+      const revenueCursor = await revenueCollections.find({}).limit(100);
       const revenues = await revenueCursor.toArray();
-      const data = revenues.splice(currentPage * 50, 50);
+      // const data = revenues.splice(currentPage * 50, 50);
+      const data = revenues;
 
       res.send({ data, count: revenues.length });
     });
