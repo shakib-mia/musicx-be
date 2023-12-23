@@ -11,12 +11,12 @@ const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 
 app.use(express());
-app.use(
-  cors({
-    origin: "*",
-    optionsSuccessStatus: 200,
-  })
-);
+const corsOptions = {
+  origin: "*",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true, // Allow cookies and credentials
+};
+app.use(cors(corsOptions));
 app.options("*", cors());
 
 // app.options("/revenue", cors()); // Handle preflight requests
