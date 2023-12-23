@@ -17,9 +17,10 @@ app.use(
     optionsSuccessStatus: 200,
   })
 );
+app.options("*", cors());
 
-app.options("/revenue", cors()); // Handle preflight requests
-app.options("/dashboard", cors()); // Handle preflight requests
+// app.options("/revenue", cors()); // Handle preflight requests
+// app.options("/dashboard", cors()); // Handle preflight requests
 
 app.use(express.json());
 app.use(bodyParser.json());
