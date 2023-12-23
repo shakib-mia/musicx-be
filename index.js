@@ -197,17 +197,17 @@ async function run() {
       const { email } = jwt.decode(req.headers.token);
 
       const clientsCursor = await clientsCollection.findOne({
-        user_email: email,
+        emailId: email,
       });
+
+      console.log(clientsCursor);
 
       // const
 
       const isrcs = [];
 
       if (clientsCollection !== null) {
-        clientsCursor.content_isrc
-          .split(",")
-          .map((item) => isrcs.push(item.trim()));
+        clientsCursor.isrc.split(",").map((item) => isrcs.push(item.trim()));
         res.send(isrcs);
       }
 
