@@ -200,8 +200,6 @@ async function run() {
         emailId: email,
       });
 
-      console.log(clientsCursor);
-
       // const
 
       const isrcs = [];
@@ -263,7 +261,7 @@ async function run() {
       }
     );
 
-    app.post("/user-login", async (req, res) => {
+    app.post("/user-login", cors(), async (req, res) => {
       const { email, password } = req.body;
       const userCursor = await usersCollection.findOne({ user_email: email });
       const details = await userDetails.findOne({ user_email: email });
