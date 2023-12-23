@@ -204,10 +204,12 @@ async function run() {
 
       const isrcs = [];
 
-      clientsCursor.content_isrc
-        .split(",")
-        .map((item) => isrcs.push(item.trim()));
-      res.send(isrcs);
+      if (clientsCollection !== null) {
+        clientsCursor.content_isrc
+          .split(",")
+          .map((item) => isrcs.push(item.trim()));
+        res.send(isrcs);
+      }
 
       // isrcs.map((isrc) => {
       //   const revenueCursor = revenueCollections.findOne({ isrc });
