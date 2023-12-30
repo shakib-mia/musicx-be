@@ -205,7 +205,7 @@ async function run() {
       const isrcs = [];
 
       if (clientsCollection !== null) {
-        if (clientsCursor !== null && clientsCursor.isrc) {
+        if (clientsCursor !== null) {
           clientsCursor.isrc.split(",").map((item) => isrcs.push(item.trim()));
           res.send(isrcs);
         } else {
