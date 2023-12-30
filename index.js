@@ -263,8 +263,8 @@ async function run() {
         },
       ];
 
-      const result = await revenueCollections.aggregate(pipeline).toArray();
-      res.send(result);
+      const revenues = await revenueCollections.aggregate(pipeline).toArray();
+      res.send({ revenues });
     });
 
     app.post("/songs-for-isrc", async (req, res) => {
