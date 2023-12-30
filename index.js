@@ -222,15 +222,44 @@ async function run() {
     });
 
     app.get("/user-revenue/:isrc", async (req, res) => {
-      const revenueCursor = await revenueCollections.find({
-        isrc: req.params.isrc,
-      });
-      const revenues = await revenueCursor.toArray();
-      if (revenues.length > 0) {
-        res.send({ revenues });
-      } else {
-        res.send({ message: "no data found" });
-      }
+      // const revenueCursor = await revenueCollections.find(
+      //   {
+      //     isrc: req.params.isrc,
+      //   },
+      //   {
+      //     track_artist: 1,
+      //   }
+      // );
+      // const revenues = await revenueCursor.toArray();
+      // if (revenues.length > 0) {
+      //   res.send({ revenues });
+      // } else {
+      //   res.send({ message: "no data found" });
+      // }
+
+      const pipeline = [
+        {
+          $match: { isrc: req.params.isrc },
+        },
+        {
+          $project: {
+            _id: 0,
+            "final revenue": 1,
+            song_name: 1,
+            platform_name: 1,
+            Album: 1,
+            track_artist: 1,
+            label: 1,
+            isrc: 1,
+            total: 1,
+            "after tds revenue": 1,
+            "final revenue": 1,
+          },
+        },
+      ];
+
+      const result = await revenueCollections.aggregate(pipeline).toArray();
+      res.send(result);
     });
 
     app.post("/songs-for-isrc", async (req, res) => {
