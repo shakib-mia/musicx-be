@@ -253,7 +253,7 @@ async function run() {
             "final revenue": 1,
             song_name: 1,
             platform_name: 1,
-            Album: 1,
+            album: 1,
             track_artist: 1,
             label: 1,
             isrc: 1,
