@@ -204,9 +204,15 @@ async function run() {
 
       const isrcs = [];
 
-      if (clientsCursor !== null) {
-        clientsCursor.isrc.split(",").map((item) => isrcs.push(item.trim()));
-        res.send(isrcs);
+      if (clientsCollection !== null) {
+        if (clientsCursor !== null && clientsCursor.isrc) {
+          clientsCursor.isrc.split(",").map((item) => isrcs.push(item.trim()));
+          res.send(isrcs);
+        } else {
+          res.send({ message: "No isrc found in clientsCursor" });
+        }
+      } else {
+        res.send({ message: "clientsCollection is null" });
       }
 
       // isrcs.map((isrc) => {
