@@ -280,18 +280,11 @@ async function run() {
       "/revenue/:month/:year/:platform",
       verifyJWT,
       async (req, res) => {
-        const revenueCursor = await revenueCollections.find({
+        const deleteCursor = await revenueCollections.deleteMany({
+          uploadDate: `${req.params.year}-${req.params.month}`,
           platformName: req.params.platform,
         });
-
-        const revenues = await revenueCursor.toArray();
-        revenues.filter((item) => item.date.split("-")[1] === req.body.date);
-
-        await revenues.map((item) => {
-          const deleteCursor = revenueCollections.deleteOne({
-            _id: new ObjectId(item._id),
-          });
-        });
+        res.send(deleteCursor);
       }
     );
 
