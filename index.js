@@ -124,30 +124,47 @@ async function run() {
     });
 
     app.get("/dashboard", verifyJWT, async (req, res) => {
-      const usersCursor = await clientsCollection.find({});
-      const users = await usersCursor.toArray();
-      const isrcCursor = await isrcCollection.find({});
-      const isrc = await isrcCursor.toArray();
-      // const revenueCursor = await revenueCollections.find({});
-      // const revenues = await revenueCursor.toArray();
+      try {
+        const usersCursor = await clientsCollection.find({});
+        const users = await usersCursor.toArray();
 
-      const topContributor = users.reduce(
-        (max, obj) =>
-          obj.isrc?.split(",").length > max.isrc?.split(",").length ? obj : max,
-        users[0]
-      );
+        const result = await clientsCollection
+          .aggregate([
+            {
+              $match: {
+                isrc: { $ne: null },
+              },
+            },
+            {
+              $group: {
+                _id: null,
+                totalISRCs: {
+                  $sum: {
+                    $size: { $split: ["$isrc", ","] },
+                  },
+                },
+              },
+            },
+          ])
+          .toArray();
 
-      // const topSong = revenues.reduce(
-      //   (max, obj) => (obj[" Royalty "] > max[" Royalty "] ? obj : max),
-      //   revenues[0]
-      // );
+        const topContributor = users.reduce(
+          (max, obj) =>
+            obj.isrc?.split(",").length > max.isrc?.split(",").length
+              ? obj
+              : max,
+          users[0]
+        );
 
-      res.send({
-        usersCount: users.length,
-        isrcCount: isrc.length,
-        topContributor,
-        // topSong,
-      });
+        res.send({
+          usersCount: users.length,
+          isrcCount: result[0].totalISRCs,
+          topContributor,
+        });
+      } catch (error) {
+        console.error("Error:", error);
+        res.status(500).send("Internal Server Error");
+      }
     });
 
     app.get("/platforms", verifyJWT, async (req, res) => {
