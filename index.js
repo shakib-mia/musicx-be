@@ -156,6 +156,8 @@ async function run() {
           users[0]
         );
 
+        // console.log(result);
+
         res.send({
           usersCount: users.length,
           isrcCount: result[0].totalISRCs,
@@ -330,7 +332,7 @@ async function run() {
     app.post("/reset-password", async (req, res) => {
       const { user_email } = req.body;
       const usersCursor = await usersCollection.findOne({ user_email });
-
+      // console.log(usersCursor === null);
       // res.send(usersCursor);
 
       function generatePassword() {
@@ -343,40 +345,43 @@ async function run() {
         }
         return retVal;
       }
+      if (usersCursor !== null) {
+        const newPassword = generatePassword();
 
-      const newPassword = generatePassword();
-
-      var message = {
-        from: process.env.emailAddress,
-        to: user_email,
-        subject: "Reset Password",
-        // text: "Plaintext version of the message",
-        html: `<div>
+        var message = {
+          from: process.env.emailAddress,
+          to: user_email,
+          subject: "Reset Password",
+          // text: "Plaintext version of the message",
+          html: `<div>
           Your New Password is
           <h1>${newPassword}</h1>
           </div>`,
-      };
+        };
 
-      transporter.sendMail(message, async (error, info) => {
-        if (error) {
-          console.error(error);
-          res.status(500).send(error);
-        } else {
-          // res.send("Email sent successfully");
-          bcrypt.hash(newPassword, 10, async function (err, hash) {
-            // Store hash in your password DB.
-            if (hash.length) {
-              const updateCursor = await usersCollection.updateOne(
-                { user_email },
-                { $set: { ...usersCursor, user_password: hash } },
-                { upsert: true }
-              );
+        transporter.sendMail(message, async (error, info) => {
+          if (error) {
+            console.error(error);
+            res.status(500).send(error);
+          } else {
+            // res.send("Email sent successfully");
+            bcrypt.hash(newPassword, 10, async function (err, hash) {
+              // Store hash in your password DB.
+              if (hash.length) {
+                const updateCursor = await usersCollection.updateOne(
+                  { user_email },
+                  { $set: { ...usersCursor, user_password: hash } },
+                  { upsert: false }
+                );
 
-              res.send(updateCursor);
-            }
-          });
-        }
-      });
+                res.send(updateCursor);
+              }
+            });
+          }
+        });
+      } else {
+        res.status(401).send({ message: "no user found" });
+      }
     });
 
     app.get("/getUserData", async (req, res) => {
@@ -424,6 +429,23 @@ async function run() {
 
         res.send(userDetailsCursor);
       }
+    });
+
+    app.get("/all-users", async (req, res) => {
+      const query = {};
+      const pipeline = [
+        {
+          $match: {},
+        },
+        {
+          $project: {
+            user_email: 1,
+          },
+        },
+      ];
+      const usersCursor = await usersCollection.aggregate(pipeline);
+      const users = await usersCursor.toArray();
+      res.send({ users });
     });
   } finally {
   }
