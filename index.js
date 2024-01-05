@@ -397,15 +397,21 @@ async function run() {
 
     app.post("/user-signup", async (req, res) => {
       const reqBody = req.body;
-      const userExist = await usersCollection.findOne({
+      const userExist = await userDetails.find({
+        user_email: reqBody.email,
+      });
+      const user = await usersCollection.findOne({
         user_email: reqBody.email,
       });
 
-      // if user doesn't exist
-      if (userExist === null) {
+      const users = await userExist.toArray();
+
+      // console.log();
+      if (users.length === 0 && user === null) {
         bcrypt.hash(reqBody.password, 10, async function (err, hash) {
-          // Store hash in your password DB.
           if (hash.length) {
+            // Store hash in your password DB.
+            // if (hash.length) {
             const user = {
               user_email: reqBody.email,
               user_password: hash,
@@ -413,10 +419,11 @@ async function run() {
 
             const registerCursor = await usersCollection.insertOne(user);
             res.send(registerCursor);
+            // console.log(registerCursor);
+            // }
           }
         });
       } else {
-        // if user exists
         res.status(401).send("user already exist");
       }
     });
