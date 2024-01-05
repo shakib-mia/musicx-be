@@ -38,7 +38,7 @@ const transporter = nodemailer.createTransport({
 const port = process.env.port;
 
 app.get("/", (req, res) => {
-  res.send(`from port ${port}`);
+  res.send(`from port: ${port}`);
 });
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
