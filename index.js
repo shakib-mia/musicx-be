@@ -398,7 +398,7 @@ async function run() {
     app.post("/user-signup", async (req, res) => {
       const reqBody = req.body;
       const userExist = await usersCollection.findOne({
-        email: reqBody.email,
+        user_email: reqBody.email,
       });
 
       // if user doesn't exist
@@ -417,7 +417,7 @@ async function run() {
         });
       } else {
         // if user exists
-        res.send("user already exist");
+        res.status(401).send("user already exist");
       }
     });
 
