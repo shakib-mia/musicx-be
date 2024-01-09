@@ -61,6 +61,10 @@ async function run() {
       .db("forevision-digital")
       .collection("client-with-isrc-collection"); // users collection
 
+    const demoClientsCollection = await client
+      .db("forevision-digital")
+      .collection("demo-clients"); // users collection
+
     const isrcCollection = await client
       .db("forevision-digital")
       .collection("isrc-with-id"); // ISRC collection
@@ -79,6 +83,10 @@ async function run() {
     const userDetails = await client
       .db("forevision-digital")
       .collection("user-details");
+
+    const demoClients = await client
+      .db("forevision-digital")
+      .collection("demo-clients");
 
     /**
      *
@@ -126,7 +134,22 @@ async function run() {
     app.get("/dashboard", verifyJWT, async (req, res) => {
       try {
         const usersCursor = await clientsCollection.find({});
+        const clientsCursor = await demoClientsCollection.find({});
+        const clients = await clientsCursor.toArray();
+
         const users = await usersCursor.toArray();
+        const pipeline = [
+          {
+            $project: {
+              _id: 0,
+              "final revenue": 1,
+            },
+          },
+        ];
+
+        const revenues = (
+          await revenueCollections.aggregate(pipeline).toArray()
+        ).map((item) => item["final revenue"]);
 
         const result = await clientsCollection
           .aggregate([
@@ -156,17 +179,33 @@ async function run() {
           users[0]
         );
 
-        // console.log(result);
-
         res.send({
           usersCount: users.length,
           isrcCount: result[0].totalISRCs,
           topContributor,
+          grandTotalRevenue: 0,
         });
       } catch (error) {
         console.error("Error:", error);
         res.status(500).send("Internal Server Error");
       }
+    });
+
+    app.get("/top-performer", async (req, res) => {
+      const allClientsCursor = await demoClients.find({});
+      const allClients = await allClientsCursor.toArray();
+      const revenues = allClients.map((item) => item.lifeTimeRevenue);
+      const existingRevenues = [];
+      for (const revenue of revenues) {
+        // console.log(revenue !== undefined);
+        if (revenue !== undefined && revenue.toString() !== "NaN") {
+          existingRevenues.push(revenue);
+        }
+      }
+
+      const max = Math.max(...existingRevenues);
+      res.send(allClients.find((item) => item.lifeTimeRevenue === max));
+      // console.log(Math.max(...existingRevenues));
     });
 
     app.get("/platforms", verifyJWT, async (req, res) => {
@@ -247,21 +286,6 @@ async function run() {
     });
 
     app.get("/user-revenue/:isrc", async (req, res) => {
-      // const revenueCursor = await revenueCollections.find(
-      //   {
-      //     isrc: req.params.isrc,
-      //   },
-      //   {
-      //     track_artist: 1,
-      //   }
-      // );
-      // const revenues = await revenueCursor.toArray();
-      // if (revenues.length > 0) {
-      //   res.send({ revenues });
-      // } else {
-      //   res.send({ message: "no data found" });
-      // }
-
       const pipeline = [
         {
           $match: { isrc: req.params.isrc },
@@ -439,20 +463,75 @@ async function run() {
     });
 
     app.get("/all-users", async (req, res) => {
-      const query = {};
-      const pipeline = [
-        {
-          $match: {},
-        },
-        {
-          $project: {
-            user_email: 1,
-          },
-        },
-      ];
-      const usersCursor = await usersCollection.aggregate(pipeline);
+      const usersCursor = await demoClientsCollection.find({});
       const users = await usersCursor.toArray();
-      res.send({ users });
+
+      res.send(users);
+    });
+
+    app.get("/all-users/:cat/:data", async (req, res) => {
+      const usersCursor = await demoClientsCollection.find({});
+      const users = await usersCursor.toArray();
+
+      const foundUser = [];
+
+      for (const user of users) {
+        if (user[req.params.cat]) {
+          // console.log(user);
+          if (user[req.params.cat].toLowerCase().includes(req.params.data)) {
+            foundUser.push(user);
+          }
+        }
+      }
+
+      res.send(foundUser);
+    });
+
+    app.get("/lifetime-revenue/:userId?", async (req, res) => {
+      try {
+        const user = await demoClients.findOne({
+          _id: new ObjectId(req.params.userId),
+        });
+
+        // console.log(user);
+
+        const isrcs = user.isrc.split(","); // Assuming ISRCs are provided as a comma-separated list
+
+        const pipeline = [
+          {
+            $match: { isrc: { $in: isrcs } },
+          },
+          {
+            $project: {
+              _id: 0,
+              "final revenue": 1,
+            },
+          },
+        ];
+        const revenues = (
+          await revenueCollections.aggregate(pipeline).toArray()
+        ).map((item) => item["final revenue"]);
+
+        res.send(revenues);
+
+        const sum = revenues.reduce(
+          (accumulator, currentValue) => accumulator + parseFloat(currentValue),
+          0
+        );
+
+        const updateCursor = await demoClients.updateOne(
+          { _id: new ObjectId(req.params.userId) },
+          { $set: { ...user, lifeTimeRevenue: sum } },
+          {
+            upsert: true,
+          }
+        );
+
+        // res.send(updateCursor);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal Server Error" });
+      }
     });
   } finally {
   }
