@@ -1,0 +1,31 @@
+const express = require("express");
+const router = express.Router();
+// const cors= require()
+const getCollections = require("../constants");
+
+router.post("/", async (req, res) => {
+  const { email, password } = req.body;
+  const { usersCollection, userDetails } = await getCollections();
+
+  const userCursor = await usersCollection.findOne({ user_email: email });
+  const details = await userDetails.findOne({ user_email: email });
+  console.log(req.body);
+  if (userCursor !== null) {
+    bcrypt.compare(password, userCursor.user_password, (err, result) => {
+      if (result) {
+        // res.send({ message: "success" });
+        const token = jwt.sign({ email }, process.env.access_token_secret, {
+          expiresIn: "1h",
+        });
+
+        res.send({ token, details });
+      } else {
+        res.status(401).send({ message: "incorrect password" });
+      }
+    });
+  } else {
+    res.status(401).send({ message: "no user found" });
+  }
+});
+
+module.exports = router;

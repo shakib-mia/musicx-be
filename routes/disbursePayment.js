@@ -19,7 +19,6 @@ router.post("/", verifyJWT, async (req, res) => {
       //   console.log(parseFloat(req.body.amount));
       client.accountBalance =
         client.lifeTimeRevenue - parseFloat(req.body.amount);
-      //   console.log(client);
 
       const updatedDoc = {
         $set: {

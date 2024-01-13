@@ -20,6 +20,602 @@ const revenueUpload = require("./routes/revenue-upload");
 const userRevenue = require("./routes/user-revenue");
 const postRevenue = require("./routes/post-revenue");
 const disbursePayment = require("./routes/disbursePayment");
+const songsForIsrc = require("./routes/songs-for-isrc");
+const userLogin = require("./routes/user-logn");
+
+const paidData = [
+  {
+    client_name: "Humanity-A Vision",
+    last_paid: "Sep-21",
+    amount: 24229,
+    emailId: "akashthakurmsva@gmail.com",
+  },
+  {
+    client_name: "Rohit Gopalakrishnan",
+    last_paid: "Dec-21",
+    amount: 11847,
+    emailId: "rohitextreme@gmail.com",
+  },
+  {
+    client_name: "Gujuu Entertainment",
+    last_paid: "Dec-21",
+    amount: 6392,
+    emailId: "Jaimaabadiya@gmail.com",
+  },
+  {
+    client_name: "Ravi Kansal",
+    last_paid: "Jan-21",
+    amount: 3662.37,
+    emailId: "kansal.ravi89@gmail.com",
+  },
+  {
+    client_name: "Bloomfair Music",
+    last_paid: "Jan-21",
+    amount: 3044.28,
+    emailId: "bloomfairproduction@gmail.com",
+  },
+  {
+    client_name: "Gujuu Entertainment",
+    last_paid: "Jan-22",
+    amount: 21292,
+    emailId: "Jaimaabadiya@gmail.com",
+  },
+  {
+    client_name: "Ravi Kansal",
+    last_paid: "Feb-22",
+    amount: 17391,
+    emailId: "kansal.ravi89@gmail.com",
+  },
+  {
+    client_name: "Rohit Gopalakrishnan",
+    last_paid: "Feb-22",
+    amount: 39385,
+    emailId: "rohitextreme@gmail.com",
+  },
+  {
+    client_name: "Vipin Agnihotri",
+    last_paid: "Feb-22",
+    amount: 1210,
+    emailId: "vipin.agnihotrijournalist@gmail.com",
+  },
+  {
+    client_name: "Raj Mirza",
+    last_paid: "Feb-22",
+    amount: 12837,
+  },
+  {
+    client_name: "Gujuu Entertainment",
+    last_paid: "Feb-22",
+    amount: 39542,
+    emailId: "Jaimaabadiya@gmail.com",
+  },
+  {
+    client_name: "Gujuu Entertainment",
+    last_paid: "Mar-22",
+    amount: 32749,
+    emailId: "Jaimaabadiya@gmail.com",
+  },
+  {
+    client_name: "Rohit Gopalakrishnan",
+    last_paid: "Mar-22",
+    amount: 51671,
+    emailId: "rohitextreme@gmail.com",
+  },
+  {
+    client_name: "D Land",
+    last_paid: "Mar-22",
+    amount: 35555,
+    emailId: "dlandmusic123@gmail.com",
+  },
+  {
+    client_name: "Rohit Gopalakrishnan",
+    last_paid: "May-22",
+    amount: 6352,
+    emailId: "rohitextreme@gmail.com",
+  },
+  {
+    client_name: "Band Fusion",
+    last_paid: "May-22",
+    amount: 3783,
+    emailId: "wrupsarkar@gmail.com",
+  },
+  {
+    client_name: "Murmu Muzik Production",
+    last_paid: "May-22",
+    amount: 3927,
+    emailId: "murmuproductionofficial@gmail.com",
+  },
+  {
+    client_name: "ASHOKSARAVANAN",
+    last_paid: "May-22",
+    amount: 1528,
+    emailId: "ashoksonsaravanan@gmail.com",
+  },
+  {
+    client_name: "Silent Entertainments",
+    last_paid: "May-22",
+    amount: 1500,
+    emailId: "behindshoots@gmail.com",
+  },
+  {
+    client_name: "Kokborok Music Entertainment",
+    last_paid: "May-22",
+    amount: 4793,
+    emailId: "gupidebbarma@gmail.com",
+  },
+  {
+    client_name: "Soul Track Music",
+    last_paid: "May-22",
+    amount: 2885,
+    emailId: "shubhsaxena555@gmail.com",
+  },
+  {
+    client_name: "Rahul Kiran",
+    last_paid: "Jul-22",
+    amount: 16068,
+    emailId: "sukiranavisions@gmail.com",
+  },
+  {
+    client_name: "Ajit Kumar Films",
+    last_paid: "Jul-22",
+    amount: 75000,
+    emailId: "beingodiotic@gmail.com",
+  },
+  {
+    client_name: "Bucks Boy",
+    last_paid: "Jul-22",
+    amount: 3402,
+    emailId: "sudarshansiddh27@gmail.com",
+  },
+  {
+    client_name: "Laibuma Creation",
+    last_paid: "Jul-22",
+    amount: 13583,
+    emailId: "salkadebbarma91@gmail.com",
+  },
+  {
+    client_name: "Suraj Palodia Films Netwood Tv",
+    last_paid: "Jul-22",
+    amount: 4350,
+    emailId: "palodiyasuraj1999@gmail.com",
+  },
+  {
+    client_name: "Anupam Dutta",
+    last_paid: "Aug-22",
+    amount: 1606,
+    emailId: "duttaa494@gmail.com",
+  },
+  {
+    client_name: "Ravi Kansal",
+    last_paid: "Aug-22",
+    amount: 26593,
+    emailId: "kansal.ravi89@gmail.com",
+  },
+  {
+    client_name: "Raj Mirza",
+    last_paid: "Aug-22",
+    amount: 21781,
+  },
+  {
+    client_name: "D Land",
+    last_paid: "Aug-22",
+    amount: 20701,
+    emailId: "dlandmusic123@gmail.com",
+  },
+  {
+    client_name: "Band Fusion",
+    last_paid: "Sep-22",
+    amount: 2310,
+    emailId: "wrupsarkar@gmail.com",
+  },
+  {
+    client_name: "Rahul Biswas",
+    last_paid: "Sep-22",
+    amount: 1055,
+  },
+  {
+    client_name: "Rohit Gopalakrishnan",
+    last_paid: "Sep-22",
+    amount: 40604,
+    emailId: "rohitextreme@gmail.com",
+  },
+  {
+    client_name: "Silent Entertainments",
+    last_paid: "Sep-22",
+    amount: 1361,
+    emailId: "behindshoots@gmail.com",
+  },
+  {
+    client_name: "Kokborok Music Entertainment",
+    last_paid: "Oct-22",
+    amount: 4138,
+    emailId: "gupidebbarma@gmail.com",
+  },
+  {
+    client_name: "Murmu Muzik Production",
+    last_paid: "Oct-22",
+    amount: 4448,
+    emailId: "murmuproductionofficial@gmail.com",
+  },
+  {
+    client_name: "Jeet Music Assamese",
+    last_paid: "Oct-22",
+    amount: 1073,
+    emailId: "zumanjeetofficial@gmail.com",
+  },
+  {
+    client_name: "ASHOKSARAVANAN",
+    last_paid: "Nov-22",
+    amount: 1712,
+    emailId: "ashoksonsaravanan@gmail.com",
+  },
+  {
+    client_name: "D Land",
+    last_paid: "Nov-22",
+    amount: 16613,
+    emailId: "dlandmusic123@gmail.com",
+  },
+  {
+    client_name: "Rahul Kiran",
+    last_paid: "Nov-22",
+    amount: 38180,
+    emailId: "sukiranavisions@gmail.com",
+  },
+  {
+    client_name: "Soul Track Music",
+    last_paid: "Dec-22",
+    amount: 1826,
+    emailId: "shubhsaxena555@gmail.com",
+  },
+  {
+    client_name: "Ajit Kumar Films",
+    last_paid: "Dec-22",
+    amount: 86443,
+    emailId: "beingodiotic@gmail.com",
+  },
+  {
+    client_name: "Being Odiotic",
+    last_paid: "Dec-22",
+    amount: 56932,
+    emailId: "beingodiotic@gmail.com",
+  },
+  {
+    client_name: "Rohit Gopalakrishnan",
+    last_paid: "Jan-23",
+    amount: 20471,
+    emailId: "rohitextreme@gmail.com",
+  },
+  {
+    client_name: "Kokborok Music Entertainment",
+    last_paid: "Jan-23",
+    amount: 3084,
+    emailId: "gupidebbarma@gmail.com",
+  },
+  {
+    client_name: "MRD Films International",
+    last_paid: "Feb-23",
+    amount: 2073,
+    emailId: "itsofficialrk@gmail.com",
+  },
+  {
+    client_name: "LST Enterprise",
+    last_paid: "Mar-23",
+    amount: 1133,
+    emailId: "langnehstudios@gmail.com",
+  },
+  {
+    client_name: "D Land",
+    last_paid: "Mar-23",
+    amount: 17969,
+    emailId: "dlandmusic123@gmail.com",
+  },
+  {
+    client_name: "Bucks Boy",
+    last_paid: "Mar-23",
+    amount: 60278,
+    emailId: "sudarshansiddh27@gmail.com",
+  },
+  {
+    client_name: "Muzical Mind Yo!",
+    last_paid: "Mar-23",
+    amount: 1060,
+    emailId: "muzicalmindyo@gmail.com",
+  },
+  {
+    client_name: "Ravi Kansal",
+    last_paid: "Mar-23",
+    amount: 1119,
+    emailId: "kansal.ravi89@gmail.com",
+  },
+  {
+    client_name: "Band Fusion",
+    last_paid: "Mar-23",
+    amount: 1258,
+    emailId: "wrupsarkar@gmail.com",
+  },
+  {
+    client_name: "KOK Creation",
+    last_paid: "Mar-23",
+    amount: 7093,
+    emailId: "opdewangan26@gmail.com",
+  },
+  {
+    client_name: "Rohit Gopalakrishnan",
+    last_paid: "Mar-23",
+    amount: 7101,
+    emailId: "rohitextreme@gmail.com",
+  },
+  {
+    client_name: "FiMiX Music",
+    last_paid: "Mar-23",
+    amount: 2243,
+    emailId: "fimixmusic.in@gmail.com",
+  },
+  {
+    client_name: "Perfect Sandhu",
+    last_paid: "Mar-23",
+    amount: 5944,
+    emailId: "perfectsandhuofficial@gmail.com",
+  },
+  {
+    client_name: "Pareek Brothers",
+    last_paid: "Mar-23",
+    amount: 1719,
+    emailId: "masterbadalpareek@gmail.com",
+  },
+  {
+    client_name: "Being Odiotic",
+    last_paid: "Apr-23",
+    amount: 5735,
+    emailId: "beingodiotic@gmail.com",
+  },
+  {
+    client_name: "Ajit Kumar Films",
+    last_paid: "Apr-23",
+    amount: 24882,
+    emailId: "beingodiotic@gmail.com",
+  },
+  {
+    client_name: "Laibuma Creation",
+    last_paid: "Apr-23",
+    amount: 13453,
+    emailId: "salkadebbarma91@gmail.com",
+  },
+  {
+    client_name: "Murmu Muzik Production",
+    last_paid: "Apr-23",
+    amount: 6225,
+    emailId: "murmuproductionofficial@gmail.com",
+  },
+  {
+    client_name: "Jayantho",
+    last_paid: "Apr-23",
+    amount: 6887,
+    emailId: "jayantho.15@gmail.com",
+  },
+  {
+    client_name: "Jeet Music Assamese",
+    last_paid: "May-23",
+    amount: 1850,
+    emailId: "zumanjeetofficial@gmail.com",
+  },
+  {
+    client_name: "Om Shantih Production",
+    last_paid: "May-23",
+    amount: 9086,
+    emailId: "omshantiproduction7023@gmail.com",
+  },
+  {
+    client_name: "Rahul Kiran",
+    last_paid: "May-23",
+    amount: 31270,
+    emailId: "sukiranavisions@gmail.com",
+  },
+  {
+    client_name: "Suraj Palodia Films Netwood Tv",
+    last_paid: "May-23",
+    amount: 2534,
+    emailId: "palodiyasuraj1999@gmail.com",
+  },
+  {
+    client_name: "Bucks Boy",
+    last_paid: "May-23",
+    amount: 14366,
+    emailId: "sudarshansiddh27@gmail.com",
+  },
+  {
+    client_name: "Laibuma Creation",
+    last_paid: "May-23",
+    amount: 22942,
+    emailId: "salkadebbarma91@gmail.com",
+  },
+  {
+    client_name: "D Land",
+    last_paid: "May-23",
+    amount: 15395,
+    emailId: "dlandmusic123@gmail.com",
+  },
+  {
+    client_name: "Humanity-A Vision",
+    last_paid: "May-23",
+    amount: 26987,
+    emailId: "akashthakurmsva@gmail.com",
+  },
+  {
+    client_name: "Samprit Tigga",
+    last_paid: "May-23",
+    amount: 4151,
+    emailId: "sadri.beatz@gmail.com",
+  },
+  {
+    client_name: "Perfect Sandhu",
+    last_paid: "Jun-23",
+    amount: 1550,
+    emailId: "perfectsandhuofficial@gmail.com",
+  },
+  {
+    client_name: "Silent Entertainments",
+    last_paid: "Jun-23",
+    amount: 1838,
+    emailId: "behindshoots@gmail.com",
+  },
+  {
+    client_name: "360India",
+    last_paid: "Jun-23",
+    amount: 6900,
+    emailId: "360meet@gmail.com",
+  },
+  {
+    client_name: "bharath varma",
+    last_paid: "Jun-23",
+    amount: 4683,
+    emailId: "bharathproductionsbvrm.2019@gmail.com",
+  },
+  {
+    client_name: "Rohit Gopalakrishnan",
+    last_paid: "Jul-23",
+    amount: 19172,
+    emailId: "rohitextreme@gmail.com",
+  },
+  {
+    client_name: "Anupam Dutta",
+    last_paid: "Jul-23",
+    amount: 4266,
+    emailId: "duttaa494@gmail.com",
+  },
+  {
+    client_name: "Kokborok Music Entertainment",
+    last_paid: "Jul-23",
+    amount: 3238,
+    emailId: "gupidebbarma@gmail.com",
+  },
+  {
+    client_name: "Rahul Sathe",
+    last_paid: "Jul-23",
+    amount: 1402,
+    emailId: "rahulsatheofficial@gmail.com",
+  },
+  {
+    client_name: "Ishwar Bhakti Ras",
+    last_paid: "Jul-23",
+    amount: 2758,
+    emailId: "sunilguptasinger@gmail.com",
+  },
+  {
+    client_name: "Aditya Dalai",
+    last_paid: "Aug-23",
+    amount: 1381,
+    emailId: "arinndalai@gmail.com",
+  },
+  {
+    client_name: "Being Odiotic",
+    last_paid: "Aug-23",
+    amount: 73897,
+    emailId: "beingodiotic@gmail.com",
+  },
+  {
+    client_name: "Ajit Kumar Films",
+    last_paid: "Aug-23",
+    amount: 123415,
+    emailId: "beingodiotic@gmail.com",
+  },
+  {
+    client_name: "Bucks Boy",
+    last_paid: "Aug-23",
+    amount: 39954,
+    emailId: "sudarshansiddh27@gmail.com",
+  },
+  {
+    client_name: "Jinni Music",
+    last_paid: "Aug-23",
+    amount: 1684,
+    emailId: "entertainmentjinni@gmail.com",
+  },
+  {
+    client_name: "Om Shantih Production",
+    last_paid: "Sep-23",
+    amount: 9748,
+    emailId: "omshantiproduction7023@gmail.com",
+  },
+  {
+    client_name: "Trendani Music",
+    last_paid: "Sep-23",
+    amount: 26006,
+    emailId: "trendanimusic@gmail.com",
+  },
+  {
+    client_name: "Perfect Sandhu",
+    last_paid: "Oct-23",
+    amount: 1061,
+    emailId: "perfectsandhuofficial@gmail.com",
+  },
+  {
+    client_name: "Gill Armaan",
+    last_paid: "Oct-23",
+    amount: 34124,
+    emailId: "hs59507@gmail.com",
+  },
+  {
+    client_name: "Pindhood Records",
+    last_paid: "Oct-23",
+    amount: 2819,
+    emailId: "pindhoodrecords@gmail.com",
+  },
+  {
+    client_name: "Anupam Dutta",
+    last_paid: "Oct-23",
+    amount: 2089,
+    emailId: "duttaa494@gmail.com",
+  },
+  {
+    client_name: "Mani Bhawanigarh",
+    last_paid: "Oct-23",
+    amount: 18980,
+    emailId: "manibhawanigarh7860@gmail.com",
+  },
+  {
+    client_name: "Muzical Mind Yo!",
+    last_paid: "Oct-23",
+    amount: 1416,
+    emailId: "muzicalmindyo@gmail.com",
+  },
+  {
+    client_name: "D Land",
+    last_paid: "Oct-23",
+    amount: 22304,
+    emailId: "dlandmusic123@gmail.com",
+  },
+  {
+    client_name: "Pareek Brothers",
+    last_paid: "Oct-23",
+    amount: 1379,
+    emailId: "masterbadalpareek@gmail.com",
+  },
+  {
+    client_name: "Gill Armaan",
+    last_paid: "Nov-23",
+    amount: 64796,
+    emailId: "hs59507@gmail.com",
+  },
+  {
+    client_name: "Om Shantih Production",
+    last_paid: "Dec-23",
+    amount: 3888,
+    emailId: "omshantiproduction7023@gmail.com",
+  },
+  {
+    client_name: "Bucks Boy",
+    last_paid: "Dec-23",
+    amount: 57559,
+    emailId: "sudarshansiddh27@gmail.com",
+  },
+  {
+    client_name: "The Future Music",
+    last_paid: "Dec-23",
+    amount: 1185,
+    emailId: "viparmar5@gmail.com",
+  },
+];
 
 app.use(express());
 const corsOptions = {
@@ -49,7 +645,13 @@ const transporter = nodemailer.createTransport({
 const port = process.env.port;
 
 app.get("/", (req, res) => {
-  res.send(`from port: ${port}`);
+  const token = jwt.sign(
+    { email: "beingodiotic@gmail.com" },
+    process.env.access_token_secret,
+    { expiresIn: "1h" }
+  );
+
+  res.send(`from port: ${port} ${token}`);
 });
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -110,6 +712,8 @@ async function run() {
     app.use("/user-revenue", userRevenue);
     app.use("/revenue", postRevenue);
     app.use("/disburse-payment", disbursePayment);
+    app.use("/songs-for-isrc", songsForIsrc);
+    // app.use("/user-login", userLogin);
 
     app.get("/demo-clients", async (req, res) => {
       const demoClientsCursor = await demoClients.find({});
@@ -117,6 +721,34 @@ async function run() {
 
       res.send(demoClientsList);
     });
+
+    app.get("/handle-payment", async (req, res) => {
+      // console.log(paidData);
+      for (const item of paidData) {
+        const user = await demoClients.findOne({ emailId: item.emailId });
+        // console.log(user);
+        if (user !== null) {
+          // console.log(user);
+          const newUser = { ...user, ...item };
+
+          newUser.accountBalance = newUser.lifeTimeRevenue - newUser.amount;
+          // console.log(newUser);
+          const updatedCursor = await demoClients.updateOne(
+            { emailId: item.emailId },
+            {
+              $set: {
+                ...newUser,
+              },
+            },
+            {
+              upsert: false,
+            }
+          );
+        }
+        res.send({ message: "updated" });
+      }
+    });
+
     /**
      *
      * Register Section
@@ -309,14 +941,14 @@ async function run() {
     //   res.send({ revenues });
     // });
 
-    app.post("/songs-for-isrc", async (req, res) => {
-      const { isrcs } = req.body;
+    // app.post("/songs-for-isrc", async (req, res) => {
+    //   const { isrcs } = req.body;
 
-      const songs = await revenueCollections
-        .find({ isrc: { $in: isrcs } })
-        .toArray();
-      res.send(songs);
-    });
+    //   const songs = await revenueCollections
+    //     .find({ isrc: { $in: isrcs } })
+    //     .toArray();
+    //   res.send(songs);
+    // });
 
     app.delete(
       "/revenue/:month/:year/:platform",
@@ -355,8 +987,6 @@ async function run() {
     app.post("/reset-password", async (req, res) => {
       const { user_email } = req.body;
       const usersCursor = await usersCollection.findOne({ user_email });
-      // console.log(usersCursor === null);
-      // res.send(usersCursor);
 
       function generatePassword() {
         var length = 8,
@@ -412,7 +1042,7 @@ async function run() {
       if (jwt.decode(token) !== null) {
         const { email } = jwt.decode(token);
 
-        const data = await userDetails.findOne({ user_email: email });
+        const data = await demoClients.findOne({ emailId: email });
         // console.log(data);
         res.send({ data });
       }
@@ -476,7 +1106,6 @@ async function run() {
 
       for (const user of users) {
         if (user[req.params.cat]) {
-          // console.log(user);
           if (user[req.params.cat].toLowerCase().includes(req.params.data)) {
             foundUser.push(user);
           }
@@ -511,7 +1140,11 @@ async function run() {
           await revenueCollections.aggregate(pipeline).toArray()
         ).map((item) => item["final revenue"]);
 
-        res.send(revenues);
+        for (const rev of revenues) {
+          if (parseFloat(rev) === NaN) {
+            // console.log("object");
+          }
+        }
 
         const sum = revenues.reduce(
           (accumulator, currentValue) => accumulator + parseFloat(currentValue),
@@ -526,6 +1159,7 @@ async function run() {
           }
         );
 
+        res.send(revenues);
         // res.send(updateCursor);
       } catch (error) {
         console.error(error);
