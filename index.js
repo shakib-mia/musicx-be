@@ -715,6 +715,24 @@ async function run() {
     app.use("/songs-for-isrc", songsForIsrc);
     // app.use("/user-login", userLogin);
 
+    // app.get('/calculate-revenue/:isrc', async (req,res) => {
+    //   const {isrc} = req.params;
+
+    // })
+
+    app.get("/getAllIsrcs", async (req, res) => {
+      let isrcs = "";
+
+      const users = await clientsCollection.find({}).toArray();
+
+      for (const user of users) {
+        if (user.isrc) {
+          isrcs = isrcs.trim() + "," + user.isrc.trim();
+        }
+      }
+      res.send(isrcs.split(","));
+    });
+
     app.get("/demo-clients", async (req, res) => {
       const demoClientsCursor = await demoClients.find({});
       const demoClientsList = await demoClientsCursor.toArray();

@@ -17,19 +17,33 @@ router.get("/", verifyJWT, async (req, res) => {
     const clients = await clientsCursor.toArray();
 
     const users = await usersCursor.toArray();
+    // const pipeline = [
+    //   {
+    //     $project: {
+    //       _id: 0,
+    //       lifeTimeRevenue: 1,
+    //       "final revenue": 1,
+    //     },
+    //   },
+    // ];
+
+    // const revenues = (
+    //   await demoClientsCollection.aggregate(pipeline).toArray()
+    // ).map((item) => item.lifeTimeRevenue);
+
     const pipeline = [
       {
         $project: {
           _id: 0,
           lifeTimeRevenue: 1,
-          "final revenue": 1,
+          royality: 1,
         },
       },
     ];
 
     const revenues = (
-      await demoClientsCollection.aggregate(pipeline).toArray()
-    ).map((item) => item.lifeTimeRevenue);
+      await revenueCollections.aggregate(pipeline).toArray()
+    ).map((item) => item.royality);
 
     // console.log(revenues);
 
