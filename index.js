@@ -651,7 +651,7 @@ app.get("/", (req, res) => {
     { expiresIn: "1h" }
   );
 
-  res.send(`from port: ${port} ${token}`);
+  res.send(`from port: ${port}`);
 });
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
