@@ -21,6 +21,7 @@ const userRevenue = require("./routes/user-revenue");
 const postRevenue = require("./routes/post-revenue");
 const disbursePayment = require("./routes/disbursePayment");
 const songsForIsrc = require("./routes/songs-for-isrc");
+const adminRevenue = require("./routes/adminRevenue");
 const userLogin = require("./routes/user-logn");
 
 const paidData = [
@@ -680,7 +681,7 @@ async function run() {
 
     const isrcCollection = await client
       .db("forevision-digital")
-      .collection("isrc-with-id"); // ISRC collection
+      .collection("isrcs"); // ISRC collection
 
     const platformsCollection = await client
       .db("forevision-digital")
@@ -713,6 +714,7 @@ async function run() {
     app.use("/revenue", postRevenue);
     app.use("/disburse-payment", disbursePayment);
     app.use("/songs-for-isrc", songsForIsrc);
+    app.use("/admin-royalty", adminRevenue);
     // app.use("/user-login", userLogin);
 
     // app.get('/calculate-revenue/:isrc', async (req,res) => {
@@ -723,14 +725,39 @@ async function run() {
     app.get("/getAllIsrcs", async (req, res) => {
       let isrcs = "";
 
-      const users = await clientsCollection.find({}).toArray();
+      const allIsrcs = await isrcCollection.find({}).toArray();
 
-      for (const user of users) {
-        if (user.isrc) {
-          isrcs = isrcs.trim() + "," + user.isrc.trim();
-        }
-      }
-      res.send(isrcs.split(","));
+      // for (const isrc of allIsrcs) {
+      //   const pipeline = [
+      //     {
+      //       $match: { isrc },
+      //     },
+      //     {
+      //       $project: {
+      //         _id: 0,
+      //         royality: 1,
+      //       },
+      //     },
+      //   ];
+      //   const cursor = await revenueCollections.aggregate(pipeline).toArray();
+      //   console.log(cursor);
+      // }
+
+      const pipeline = [
+        {
+          $match: { isrc: "INF232200285" },
+        },
+        {
+          $project: {
+            _id: 0,
+            royality: 1,
+          },
+        },
+      ];
+      const cursor = await revenueCollections.aggregate(pipeline).toArray();
+      console.log(cursor.length);
+
+      res.send(allIsrcs);
     });
 
     app.get("/demo-clients", async (req, res) => {

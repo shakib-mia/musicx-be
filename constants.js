@@ -22,9 +22,9 @@ const getCollections = async () => {
     .db("forevision-digital")
     .collection("demo-clients"); // users collection
 
-  const isrcCollection = await client
-    .db("forevision-digital")
-    .collection("isrc-with-id"); // ISRC collection
+  // const isrcCollection = await client
+  //   .db("forevision-digital")
+  //   .collection("isrc-with-id"); // ISRC collection
 
   const platformsCollection = await client
     .db("forevision-digital")
@@ -48,6 +48,10 @@ const getCollections = async () => {
   const paymentHistory = await client
     .db("forevision-digital")
     .collection("payment-history");
+
+  const isrcCollection = await client
+    .db("forevision-digital")
+    .collection("isrcs");
 
   return {
     adminsCollection,

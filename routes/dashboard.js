@@ -80,31 +80,42 @@ router.get("/", verifyJWT, async (req, res) => {
       ])
       .toArray();
 
-    const revenue = await demoClients
+    const rev = await demoClients
       .aggregate([
         {
           $match: {
-            isrc: { $ne: null },
+            amount: { $exists: true },
+          },
+        },
+        {
+          $project: {
+            _id: 0,
+            lifeTimeRevenue: {
+              $cond: {
+                if: {
+                  $or: [
+                    { $eq: ["$final revenue", NaN] },
+                    { $lt: ["$final revenue", 0] },
+                  ],
+                },
+                then: 0, // Replace NaN or negative values with 0
+                else: "$final revenue",
+              },
+            },
+            amount: 1, // Include the 'amount' field in the projection
           },
         },
         {
           $group: {
             _id: null,
-            totalRevenue: {
-              $sum: {
-                $cond: {
-                  if: { $eq: ["$final revenue", NaN] },
-                  then: 0, // Replace NaN with 0
-                  else: "$final revenue",
-                },
-              },
-            },
+            totalLifeTimeRevenue: { $sum: "$lifeTimeRevenue" },
+            totalPaid: { $sum: "$amount" },
           },
         },
       ])
       .toArray();
 
-    console.log(revenue);
+    // const due = finalRevenue - rev[0].totalPaid;
 
     const topContributor = users.reduce(
       (max, obj) =>
@@ -112,13 +123,12 @@ router.get("/", verifyJWT, async (req, res) => {
       users[0]
     );
 
-    // console.log(users);
-
     res.send({
       usersCount: users.length,
       isrcCount: result[0].totalISRCs,
       topContributor,
       finalRevenue,
+      // due,
     });
   } catch (error) {
     console.error("Error:", error);
