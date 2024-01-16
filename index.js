@@ -23,6 +23,7 @@ const disbursePayment = require("./routes/disbursePayment");
 const songsForIsrc = require("./routes/songs-for-isrc");
 const adminRevenue = require("./routes/adminRevenue");
 const userLogin = require("./routes/user-logn");
+const updateIsrcRoyalty = require("./routes/updateIsrcRoyalty");
 
 const paidData = [
   {
@@ -715,6 +716,7 @@ async function run() {
     app.use("/disburse-payment", disbursePayment);
     app.use("/songs-for-isrc", songsForIsrc);
     app.use("/admin-royalty", adminRevenue);
+    app.use("/update-isrc-royalty", updateIsrcRoyalty);
     // app.use("/user-login", userLogin);
 
     // app.get('/calculate-revenue/:isrc', async (req,res) => {
