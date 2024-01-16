@@ -23,7 +23,6 @@ const disbursePayment = require("./routes/disbursePayment");
 const songsForIsrc = require("./routes/songs-for-isrc");
 const adminRevenue = require("./routes/adminRevenue");
 const userLogin = require("./routes/user-logn");
-const updateIsrcRoyalty = require("./routes/updateIsrcRoyalty");
 
 const paidData = [
   {
@@ -625,7 +624,7 @@ const corsOptions = {
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true, // Allow cookies and credentials
 };
-app.use(cors());
+app.use(cors(corsOptions));
 app.options("*", cors());
 
 // app.options("/revenue", cors()); // Handle preflight requests
@@ -716,8 +715,7 @@ async function run() {
     app.use("/disburse-payment", disbursePayment);
     app.use("/songs-for-isrc", songsForIsrc);
     app.use("/admin-royalty", adminRevenue);
-    app.use("/update-isrc-royalty", updateIsrcRoyalty);
-    app.use("/user-login", userLogin);
+    // app.use("/user-login", userLogin);
 
     // app.get('/calculate-revenue/:isrc', async (req,res) => {
     //   const {isrc} = req.params;
@@ -1009,27 +1007,27 @@ async function run() {
       }
     );
 
-    // app.post("/user-login", cors(), async (req, res) => {
-    //   const { email, password } = req.body;
-    //   const userCursor = await usersCollection.findOne({ user_email: email });
-    //   const details = await userDetails.findOne({ user_email: email });
-    //   if (userCursor !== null) {
-    //     bcrypt.compare(password, userCursor.user_password, (err, result) => {
-    //       if (result) {
-    //         // res.send({ message: "success" });
-    //         const token = jwt.sign({ email }, process.env.access_token_secret, {
-    //           expiresIn: "1h",
-    //         });
+    app.post("/user-login", cors(), async (req, res) => {
+      const { email, password } = req.body;
+      const userCursor = await usersCollection.findOne({ user_email: email });
+      const details = await userDetails.findOne({ user_email: email });
+      if (userCursor !== null) {
+        bcrypt.compare(password, userCursor.user_password, (err, result) => {
+          if (result) {
+            // res.send({ message: "success" });
+            const token = jwt.sign({ email }, process.env.access_token_secret, {
+              expiresIn: "1h",
+            });
 
-    //         res.send({ token, details });
-    //       } else {
-    //         res.status(401).send({ message: "incorrect password" });
-    //       }
-    //     });
-    //   } else {
-    //     res.status(401).send({ message: "no user found" });
-    //   }
-    // });
+            res.send({ token, details });
+          } else {
+            res.status(401).send({ message: "incorrect password" });
+          }
+        });
+      } else {
+        res.status(401).send({ message: "no user found" });
+      }
+    });
 
     app.post("/reset-password", async (req, res) => {
       const { user_email } = req.body;
