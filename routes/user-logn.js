@@ -5,7 +5,12 @@ const jwt = require("jsonwebtoken");
 const cors = require("cors");
 const getCollections = require("../constants");
 
-router.post("/", cors(), async (req, res) => {
+const corsOptions = {
+  origin: "*",
+  optionsSuccessStatus: 200,
+};
+
+router.post("/", cors(corsOptions), async (req, res) => {
   const { email, password } = req.body;
   const { usersCollection, userDetails } = await getCollections();
 
