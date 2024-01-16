@@ -4,6 +4,8 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const uri = `mongodb+srv://${process.env.db_username}:${process.env.db_password}@cluster0.i4vpazx.mongodb.net/?retryWrites=true&w=majority`;
 const express = require("express");
 const app = express();
+const path = require("path");
+const multer = require("multer");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const verifyJWT = require("./verifyJWT");
@@ -717,10 +719,31 @@ async function run() {
     app.use("/admin-royalty", adminRevenue);
     // app.use("/user-login", userLogin);
 
-    // app.get('/calculate-revenue/:isrc', async (req,res) => {
-    //   const {isrc} = req.params;
+    const storage = multer.diskStorage({
+      destination: function (req, file, cb) {
+        cb(null, "uploads/"); // Specify the destination folder
+      },
+      filename: function (req, file, cb) {
+        // Use Date.now() to make sure each file has a unique name
+        cb(null, Date.now() + path.extname(file.originalname));
+      },
+    });
 
-    // })
+    const upload = multer({ storage: storage });
+
+    // Serve static files from the 'uploads' folder
+    app.use("/uploads", express.static("uploads"));
+
+    // Define a route for file upload
+    app.post("/upload", upload.single("file"), (req, res) => {
+      // 'file' in upload.single('file') should match the name attribute in your form
+
+      if (!req.file) {
+        return res.status(400).send("No file uploaded.");
+      }
+
+      res.send("File uploaded successfully!");
+    });
 
     app.get("/getAllIsrcs", async (req, res) => {
       let isrcs = "";
