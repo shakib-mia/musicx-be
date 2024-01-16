@@ -2,10 +2,10 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-// const cors= require()
+const cors = require("cors");
 const getCollections = require("../constants");
 
-router.post("/", async (req, res) => {
+router.post("/", cors(), async (req, res) => {
   const { email, password } = req.body;
   const { usersCollection, userDetails } = await getCollections();
 
