@@ -11,7 +11,7 @@ router.post("/", async (req, res) => {
 
   const userCursor = await usersCollection.findOne({ user_email: email });
   const details = await userDetails.findOne({ user_email: email });
-  console.log(req.body);
+  // console.log(req.body);
   if (userCursor !== null) {
     bcrypt.compare(password, userCursor.user_password, (err, result) => {
       if (result) {
