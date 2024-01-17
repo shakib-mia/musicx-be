@@ -724,8 +724,12 @@ async function run() {
         cb(null, "uploads/"); // Specify the destination folder
       },
       filename: function (req, file, cb) {
-        // Use Date.now() to make sure each file has a unique name
-        cb(null, Date.now() + path.extname(file.originalname));
+        const originalname = file.originalname.split(".")[0]; // Extract the filename without the extension
+        const timestamp = Date.now(); // Get the current timestamp
+        const uniqueFilename = `${originalname}_${timestamp}${path.extname(
+          file.originalname
+        )}`;
+        cb(null, uniqueFilename);
       },
     });
 
