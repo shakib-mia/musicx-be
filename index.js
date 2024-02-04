@@ -25,6 +25,7 @@ const disbursePayment = require("./routes/disbursePayment");
 const songsForIsrc = require("./routes/songs-for-isrc");
 const adminRevenue = require("./routes/adminRevenue");
 const userLogin = require("./routes/user-logn");
+const calculateLifetimeRevenue = require("./routes/calculate-lifetime-revenue");
 
 const paidData = [
   {
@@ -649,7 +650,7 @@ const port = process.env.port;
 
 app.get("/", (req, res) => {
   const token = jwt.sign(
-    { email: "beingodiotic@gmail.com" },
+    { email: "surshyamgaushala@gmail.com" },
     process.env.access_token_secret,
     { expiresIn: "1h" }
   );
@@ -717,6 +718,7 @@ async function run() {
     app.use("/disburse-payment", disbursePayment);
     app.use("/songs-for-isrc", songsForIsrc);
     app.use("/admin-royalty", adminRevenue);
+    app.use("/calculate-lifetime-revenue", calculateLifetimeRevenue);
     // app.use("/user-login", userLogin);
 
     const storage = multer.diskStorage({
@@ -1117,6 +1119,8 @@ async function run() {
         const data = await demoClients.findOne({ emailId: email });
         // console.log(data);
         res.send({ data });
+      } else {
+        res.status(401).send("Unauthorized Access");
       }
     });
 
