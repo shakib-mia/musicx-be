@@ -16,7 +16,7 @@ router.get("/", verifyJWT, async (req, res) => {
     const clientsCursor = await demoClientsCollection.find({});
     const clients = await clientsCursor.toArray();
 
-    const users = await usersCursor.toArray();
+    const users = await demoClients.find({}).toArray();
     // const pipeline = [
     //   {
     //     $project: {

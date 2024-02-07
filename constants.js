@@ -53,6 +53,10 @@ const getCollections = async () => {
     .db("forevision-digital")
     .collection("isrcs");
 
+  const paymentRequest = await client
+    .db("forevision-digital")
+    .collection("payment-request");
+
   return {
     adminsCollection,
     clientsCollection,
@@ -64,6 +68,7 @@ const getCollections = async () => {
     userDetails,
     demoClientsCollection,
     paymentHistory,
+    paymentRequest,
   };
 };
 

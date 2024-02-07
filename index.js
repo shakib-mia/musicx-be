@@ -26,6 +26,8 @@ const songsForIsrc = require("./routes/songs-for-isrc");
 const adminRevenue = require("./routes/adminRevenue");
 const userLogin = require("./routes/user-logn");
 const calculateLifetimeRevenue = require("./routes/calculate-lifetime-revenue");
+const getDisbursePayment = require("./routes/getDisbursePayment");
+const history = require("./routes/history");
 
 const paidData = [
   {
@@ -719,6 +721,8 @@ async function run() {
     app.use("/songs-for-isrc", songsForIsrc);
     app.use("/admin-royalty", adminRevenue);
     app.use("/calculate-lifetime-revenue", calculateLifetimeRevenue);
+    app.use("/disburse-payment", getDisbursePayment);
+    app.use("/history", history);
     // app.use("/user-login", userLogin);
 
     const storage = multer.diskStorage({

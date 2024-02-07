@@ -15,10 +15,10 @@ router.get("/", async (req, res) => {
     client.lifetimeRevenue = 0;
     if (client.isrc) {
       const isrcs = client.isrc.split(",");
-      //   console.log(isrcs);
+
       for (const isrc of isrcs) {
         const collection = await revenueCollections.find({ isrc }).toArray();
-        // console.log(collection["final revenue"]);
+
         for (const item of collection) {
           client.lifetimeRevenue =
             client.lifetimeRevenue + item["final revenue"];
