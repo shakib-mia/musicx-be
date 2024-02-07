@@ -79,7 +79,7 @@ router.get("/", verifyJWT, async (req, res) => {
         },
       ])
       .toArray();
-
+    console.log(result);
     const rev = await demoClients
       .aggregate([
         {

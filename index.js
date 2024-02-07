@@ -28,6 +28,7 @@ const userLogin = require("./routes/user-logn");
 const calculateLifetimeRevenue = require("./routes/calculate-lifetime-revenue");
 const getDisbursePayment = require("./routes/getDisbursePayment");
 const history = require("./routes/history");
+const getCollections = require("./constants");
 
 const paidData = [
   {
@@ -755,6 +756,14 @@ async function run() {
       res.send("File uploaded successfully!");
     });
 
+    app.get("/demo-clients", async (req, res) => {
+      const { demoClientsCollection } = await getCollections();
+
+      const data = await demoClientsCollection.find({}).toArray();
+
+      res.send(data);
+    });
+
     app.get("/getAllIsrcs", async (req, res) => {
       let isrcs = "";
 
@@ -1119,9 +1128,10 @@ async function run() {
       const { token } = req.headers;
       if (jwt.decode(token) !== null) {
         const { email } = jwt.decode(token);
+        // console.log(email);
 
         const data = await demoClients.findOne({ emailId: email });
-        // console.log(data);
+        console.log(data);
         res.send({ data });
       } else {
         res.status(401).send("Unauthorized Access");
@@ -1164,6 +1174,7 @@ async function run() {
     app.post("/post-user-details", async (req, res) => {
       const { user_email } = req.body;
       const foundUserDetails = await userDetails.findOne({ user_email });
+      console.log(req.body);
       if (foundUserDetails === null) {
         const userDetailsCursor = await userDetails.insertOne(req.body);
 
