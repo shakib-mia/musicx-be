@@ -4,42 +4,42 @@ const getCollections = require("../constants");
 const router = Router();
 
 router.get("/", async (req, res) => {
-  const { revenueCollections, clientsCollection } = await getCollections();
-  const clientsCursor = await clientsCollection.find({});
+  try {
+    const { revenueCollections, clientsCollection } = await getCollections();
+    const clients = await clientsCollection.find({}).toArray();
 
-  //   all the clients
-  const clients = await clientsCursor.toArray();
-  const newArr = [];
+    for (const client of clients) {
+      let lifetimeRevenue = 0;
 
-  for (const client of clients) {
-    client.lifetimeRevenue = 0;
-    if (client.isrc) {
-      const isrcs = client.isrc.split(",");
-
-      for (const isrc of isrcs) {
-        const collection = await revenueCollections.find({ isrc }).toArray();
-
-        for (const item of collection) {
-          client.lifetimeRevenue =
-            client.lifetimeRevenue + item["final revenue"];
+      if (client.isrc) {
+        const isrcs = client.isrc.split(",");
+        for (const isrc of isrcs) {
+          const revenueItems = await revenueCollections
+            .find({ isrc })
+            .toArray();
+          revenueItems.forEach((item) => {
+            lifetimeRevenue += item["final revenue"];
+          });
         }
       }
+
+      // Update the client's lifetimeRevenue if it has changed
+      if (client.lifetimeRevenue !== lifetimeRevenue) {
+        await clientsCollection.updateOne(
+          { _id: client._id },
+          { $set: { lifetimeRevenue } }
+        );
+      }
+
+      // Reflect the updated lifetimeRevenue in the client object for response
+      client.lifetimeRevenue = lifetimeRevenue;
     }
 
-    if (!client.lifetimeRevenue) {
-      const updateCursor = await clientsCollection.updateOne(
-        { _id: client._id },
-        { $set: { ...client } },
-        { upsert: false }
-      );
-
-      console.log(updateCursor);
-    }
-
-    newArr.push(client);
+    res.send(clients);
+  } catch (error) {
+    console.error("Failed to calculate lifetimeRevenue:", error);
+    res.status(500).send("An error occurred while processing your request.");
   }
-
-  res.send(newArr);
 });
 
 module.exports = router;
