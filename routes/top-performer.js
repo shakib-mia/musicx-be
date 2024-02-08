@@ -4,9 +4,9 @@ const getCollections = require("../constants");
 const router = Router();
 
 router.get("/", async (req, res) => {
-  const { demoClients } = await getCollections();
+  const { demoClients, clientsCollection } = await getCollections();
 
-  const allClientsCursor = await demoClients.find({});
+  const allClientsCursor = await clientsCollection.find({});
   const allClients = await allClientsCursor.toArray();
 
   const revenues = allClients.map((item) => item.lifetimeRevenue);
