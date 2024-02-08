@@ -4,8 +4,8 @@ const getCollections = require("../constants");
 const router = Router();
 
 router.get("/", async (req, res) => {
-  const { demoClients, revenueCollections } = await getCollections();
-  const clientsCursor = await demoClients.find({});
+  const { revenueCollections, clientsCollection } = await getCollections();
+  const clientsCursor = await clientsCollection.find({});
 
   //   all the clients
   const clients = await clientsCursor.toArray();
@@ -27,7 +27,7 @@ router.get("/", async (req, res) => {
     }
 
     if (!client.lifetimeRevenue) {
-      const updateCursor = await demoClients.updateOne(
+      const updateCursor = await clientsCollection.updateOne(
         { _id: client._id },
         { $set: { ...client } },
         { upsert: false }
