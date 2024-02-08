@@ -653,12 +653,12 @@ const port = process.env.port;
 
 app.get("/", (req, res) => {
   const token = jwt.sign(
-    { email: "surshyamgaushala@gmail.com" },
+    { email: "prashanthg147@gmail.com" },
     process.env.access_token_secret,
     { expiresIn: "1h" }
   );
 
-  res.send(`from port: ${port}`);
+  res.send(`from port: ${port} ${token}`);
 });
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -1130,7 +1130,7 @@ async function run() {
         const { email } = jwt.decode(token);
         // console.log(email);
 
-        const data = await demoClients.findOne({ emailId: email });
+        const data = await userDetails.findOne({ user_email: email });
         console.log(data);
         res.send({ data });
       } else {
@@ -1179,18 +1179,20 @@ async function run() {
         const userDetailsCursor = await userDetails.insertOne(req.body);
 
         res.send(userDetailsCursor);
+      } else {
+        res.send("Already exists");
       }
     });
 
     app.get("/all-users", async (req, res) => {
-      const usersCursor = await demoClientsCollection.find({});
+      const usersCursor = await clientsCollection.find({});
       const users = await usersCursor.toArray();
 
       res.send(users);
     });
 
     app.get("/all-users/:cat/:data", async (req, res) => {
-      const usersCursor = await demoClientsCollection.find({});
+      const usersCursor = await clientsCollection.find({});
       const users = await usersCursor.toArray();
 
       const foundUser = [];

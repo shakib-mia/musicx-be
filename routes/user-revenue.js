@@ -8,7 +8,7 @@ router.get("/", verifyJWT, async (req, res) => {
   //   console.log("object");
   const { clientsCollection } = await getCollections();
   const { email } = jwt.decode(req.headers.token);
-
+  console.log(email);
   const clientsCursor = await clientsCollection.findOne({
     emailId: email,
   });
