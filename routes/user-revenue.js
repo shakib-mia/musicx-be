@@ -51,7 +51,7 @@ router.get("/:isrc", async (req, res) => {
         _id: 0,
         "final revenue": 1,
         song_name: 1,
-        platform_name: 1,
+        platformName: 1,
         album: 1,
         track_artist: 1,
         label: 1,
