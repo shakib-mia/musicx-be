@@ -59,6 +59,7 @@ router.get("/:isrc", async (req, res) => {
         total: 1,
         "after tds revenue": 1,
         date: 1,
+        uploadDate: 1,
       },
     },
   ];
