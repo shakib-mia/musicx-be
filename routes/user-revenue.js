@@ -65,7 +65,19 @@ router.get("/:isrc", async (req, res) => {
   ];
 
   const revenues = await revenueCollections.aggregate(pipeline).toArray();
-  res.send({ revenues });
+
+  const updatedArray = revenues.map((item) => {
+    // Destructure the item to separate uploadDate and the rest of the properties
+    const { uploadDate, ...rest } = item;
+    // Return a new object with the date property instead of uploadDate, and the rest of the original properties
+    if (uploadDate) {
+      return { ...rest, date: uploadDate };
+    } else {
+      return item;
+    }
+  });
+
+  res.send({ revenues: updatedArray });
 });
 
 module.exports = router;
