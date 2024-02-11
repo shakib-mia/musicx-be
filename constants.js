@@ -1,5 +1,6 @@
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const uri = `mongodb+srv://${process.env.db_username}:${process.env.db_password}@cluster0.i4vpazx.mongodb.net/?retryWrites=true&w=majority`;
+const uri2 = `mongodb+srv://${process.env.user_db}:${process.env.user_db_pass}@cluster0.ynlqa8v.mongodb.net/?retryWrites=true&w=majority`;
 
 const client = new MongoClient(uri, {
   serverApi: {
@@ -8,8 +9,23 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   },
 });
+const client2 = new MongoClient(uri2, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
+});
 
 const getCollections = async () => {
+  const userProfileCollection = await client2
+    .db("forevision-digital")
+    .collection("user-profile-data");
+
+  const fbInstaWhitelisting = await client2
+    .db("forevision-digital")
+    .collection("fb-insta-whitelisting");
+
   const adminsCollection = await client
     .db("forevision-digital")
     .collection("admins"); // admins collection
@@ -65,10 +81,12 @@ const getCollections = async () => {
     platformsCollection,
     revenueCollections,
     usersCollection,
+    userProfileCollection,
     userDetails,
     demoClientsCollection,
     paymentHistory,
     paymentRequest,
+    fbInstaWhitelisting,
   };
 };
 

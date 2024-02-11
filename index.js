@@ -2,6 +2,7 @@ require("dotenv").config();
 const cors = require("cors");
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const uri = `mongodb+srv://${process.env.db_username}:${process.env.db_password}@cluster0.i4vpazx.mongodb.net/?retryWrites=true&w=majority`;
+const uri2 = `mongodb+srv://${process.env.user_db}:${process.env.user_db_pass}@cluster0.ynlqa8v.mongodb.net/?retryWrites=true&w=majority`;
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -29,6 +30,8 @@ const calculateLifetimeRevenue = require("./routes/calculate-lifetime-revenue");
 const getDisbursePayment = require("./routes/getDisbursePayment");
 const history = require("./routes/history");
 const getCollections = require("./constants");
+const userDetail = require("./routes/user-profile");
+const fbInstaWhitelisting = require("./routes/fb-insta-whitelisting");
 
 const paidData = [
   {
@@ -653,7 +656,7 @@ const port = process.env.port;
 
 app.get("/", (req, res) => {
   const token = jwt.sign(
-    { email: "rohitextreme@gmail.com" },
+    { email: "smdshakibmia2001@gmail.com" },
     process.env.access_token_secret,
     { expiresIn: "1h" }
   );
@@ -670,28 +673,26 @@ const client = new MongoClient(uri, {
   },
 });
 
+const client2 = new MongoClient(uri2, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
+});
+
 async function run() {
   try {
     await client.connect();
-    const adminsCollection = await client
-      .db("forevision-digital")
-      .collection("admins"); // admins collection
+    await client2.connect();
 
     const clientsCollection = await client
       .db("forevision-digital")
       .collection("client-with-isrc-collection"); // users collection
 
-    const demoClientsCollection = await client
-      .db("forevision-digital")
-      .collection("demo-clients"); // users collection
-
     const isrcCollection = await client
       .db("forevision-digital")
       .collection("isrcs"); // ISRC collection
-
-    const platformsCollection = await client
-      .db("forevision-digital")
-      .collection("platform-name"); // platform-name
 
     const revenueCollections = await client
       .db("forevision-digital")
@@ -724,6 +725,8 @@ async function run() {
     app.use("/calculate-lifetime-revenue", calculateLifetimeRevenue);
     app.use("/disburse-payment", getDisbursePayment);
     app.use("/history", history);
+    app.use("/user-profile", userDetail);
+    app.use("/fb-insta-whitelisting", fbInstaWhitelisting);
     // app.use("/user-login", userLogin);
 
     const storage = multer.diskStorage({
@@ -756,13 +759,13 @@ async function run() {
       res.send("File uploaded successfully!");
     });
 
-    app.get("/demo-clients", async (req, res) => {
-      const { demoClientsCollection } = await getCollections();
+    // app.get("/demo-clients", async (req, res) => {
+    //   const { demoClientsCollection } = await getCollections();
 
-      const data = await demoClientsCollection.find({}).toArray();
+    //   const data = await demoClientsCollection.find({}).toArray();
 
-      res.send(data);
-    });
+    //   res.send(data);
+    // });
 
     app.get("/getAllIsrcs", async (req, res) => {
       let isrcs = "";
@@ -802,12 +805,12 @@ async function run() {
       res.send(allIsrcs);
     });
 
-    app.get("/demo-clients", async (req, res) => {
-      const demoClientsCursor = await demoClients.find({});
-      const demoClientsList = await demoClientsCursor.toArray();
+    // app.get("/demo-clients", async (req, res) => {
+    //   const demoClientsCursor = await demoClients.find({});
+    //   const demoClientsList = await demoClientsCursor.toArray();
 
-      res.send(demoClientsList);
-    });
+    //   res.send(demoClientsList);
+    // });
 
     app.get("/handle-payment", async (req, res) => {
       // console.log(paidData);
@@ -1091,7 +1094,7 @@ async function run() {
         var message = {
           from: process.env.emailAddress,
           to: user_email,
-          subject: "Reset Password",
+          subject: "Password Reset Request",
           // text: "Plaintext version of the message",
           html: `<div>
           Your New Password is
