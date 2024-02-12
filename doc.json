@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Facebook Instagram Whitelisting",
+    "url": "https://api.forevisiondigital.in/fb-insta-whitelisting",
+    "headers": {
+      "token": "{{token}}"
+    },
+    "body": {
+      "user_name": "",
+      "user_email": "",
+      "phone_no": "",
+      "record_label": "",
+      "facebook_url": "",
+      "instagram_url": ""
+    }
+  }
+]
