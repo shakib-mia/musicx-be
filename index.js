@@ -32,6 +32,9 @@ const history = require("./routes/history");
 const getCollections = require("./constants");
 const userDetail = require("./routes/user-profile");
 const fbInstaWhitelisting = require("./routes/fb-insta-whitelisting");
+const fbInstaProfile = require("./routes/link-facebook-instagram-profile");
+const withdrawalRequest = require("./routes/withdrawal-request");
+const file = require("./routes/file");
 
 const paidData = [
   {
@@ -709,25 +712,94 @@ async function run() {
       .db("forevision-digital")
       .collection("demo-clients");
 
-    app.use("/users", users);
-    app.use("/login", login);
-    app.use("/top-performer", topPerformer);
-    app.use("/register", register);
-    app.use("/user-signup", userSignup);
-    app.use("/dashboard", dashboard);
-    app.use("/platforms", platforms);
-    app.use("/revenue-upload", revenueUpload);
-    app.use("/user-revenue", userRevenue);
-    app.use("/revenue", postRevenue);
-    app.use("/disburse-payment", disbursePayment);
-    app.use("/songs-for-isrc", songsForIsrc);
-    app.use("/admin-royalty", adminRevenue);
-    app.use("/calculate-lifetime-revenue", calculateLifetimeRevenue);
-    // app.use("/disburse-payment", getDisbursePayment);
-    app.use("/history", history);
-    app.use("/user-profile", userDetail);
-    app.use("/fb-insta-whitelisting", fbInstaWhitelisting);
-    // app.use("/user-login", userLogin);
+    const apis = [
+      {
+        path: "/users",
+        element: users,
+      },
+      {
+        path: "/login",
+        element: login,
+      },
+      {
+        path: "/top-perfromer",
+        element: topPerformer,
+      },
+      {
+        path: "/register",
+        element: register,
+      },
+      {
+        path: "/user-signup",
+        element: userSignup,
+      },
+      {
+        path: "/dashboard",
+        element: dashboard,
+      },
+      {
+        path: "/platforms",
+        element: platforms,
+      },
+      {
+        path: "/revenue-upload",
+        element: revenueUpload,
+      },
+      {
+        path: "/user-revenue",
+        element: userRevenue,
+      },
+      {
+        path: "/revenue",
+        element: postRevenue,
+      },
+      {
+        path: "/login",
+        element: login,
+      },
+      {
+        path: "/disburse-payment",
+        element: disbursePayment,
+      },
+      {
+        path: "/songs-for-isrc",
+        element: songsForIsrc,
+      },
+      {
+        path: "/admin-royalty",
+        element: adminRevenue,
+      },
+      {
+        path: "/calculate-lifetime-revenue",
+        element: calculateLifetimeRevenue,
+      },
+      {
+        path: "/history",
+        element: history,
+      },
+      {
+        path: "/user-profile",
+        element: userDetail,
+      },
+      {
+        path: "/fb-insta-whitelisting",
+        element: fbInstaWhitelisting,
+      },
+      {
+        path: "/link-fb-insta-profile",
+        element: fbInstaProfile,
+      },
+      {
+        path: "/withdrawal-request",
+        element: withdrawalRequest,
+      },
+      {
+        path: "/file",
+        element: file,
+      },
+    ];
+
+    apis.map(({ path, element }) => app.use(path, element));
 
     const storage = multer.diskStorage({
       destination: function (req, file, cb) {

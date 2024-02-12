@@ -52,4 +52,6 @@ router.post("/:_id", async (req, res) => {
   res.send({ deleteCursor, addedCursor });
 });
 
+// need to send notification to user
+
 module.exports = router;

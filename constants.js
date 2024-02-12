@@ -22,10 +22,6 @@ const getCollections = async () => {
     .db("forevision-digital")
     .collection("user-profile-data");
 
-  const fbInstaWhitelisting = await client2
-    .db("forevision-digital")
-    .collection("fb-insta-whitelisting");
-
   const adminsCollection = await client
     .db("forevision-digital")
     .collection("admins"); // admins collection
@@ -73,6 +69,17 @@ const getCollections = async () => {
     .db("forevision-digital")
     .collection("payment-request");
 
+  const fbInstaWhitelisting = await client2
+    .db("forevision-digital")
+    .collection("fb-insta-whitelisting");
+
+  const fbInstaProfile = await client2
+    .db("forevision-digital")
+    .collection("fb-insta-profile");
+  const withdrawalRequest = await client2
+    .db("forevision-digital")
+    .collection("withdrawal-request");
+
   return {
     adminsCollection,
     clientsCollection,
@@ -87,6 +94,8 @@ const getCollections = async () => {
     paymentHistory,
     paymentRequest,
     fbInstaWhitelisting,
+    fbInstaProfile,
+    withdrawalRequest,
   };
 };
 

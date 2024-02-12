@@ -5,13 +5,14 @@ const getCollections = require("../constants");
 
 // Your /users route logic
 router.post("/", verifyJWT, async (req, res) => {
-  const { fbInstaWhitelisting } = await getCollections();
+  const { fbInstaProfile } = await getCollections();
 
   const fields = [
-    "rfacebook_insta_whitelisting_uname",
-    "rfacebook_insta_whitelisting_uemail",
-    "rfacebook_insta_whitelisting_phone",
-    "rfacebook_insta_whitelisting_record_label",
+    "link_facebook_insta_song_name",
+    "link_facebook_insta_song_isrc",
+    "link_facebook_insta_song_email",
+    "link_facebook_insta_song_url",
+    "link_facebook_insta_song_insta",
   ];
 
   function objectIncludesAllFields(obj) {
@@ -19,7 +20,7 @@ router.post("/", verifyJWT, async (req, res) => {
   }
 
   if (objectIncludesAllFields(req.body)) {
-    const insertCursor = await fbInstaWhitelisting.insertOne(req.body);
+    const insertCursor = await fbInstaProfile.insertOne(req.body);
 
     res.send(insertCursor);
   } else {
