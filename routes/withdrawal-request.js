@@ -13,9 +13,13 @@ const storage = multer.diskStorage({
   filename: function (req, file, cb) {
     // Replace spaces with underscores (or you could use hyphens)
     const sanitizedFilename = file.originalname.replace(/\s+/g, "_");
+    // console.log(sanitizedFilename.split(".")[0]);
     cb(
       null,
-      file.fieldname + "-" + Date.now() + path.extname(sanitizedFilename)
+      sanitizedFilename.split(".")[0] +
+        "_" +
+        Date.now() +
+        path.extname(sanitizedFilename)
     );
   },
 });
@@ -32,7 +36,7 @@ router.post("/", upload.single("file"), async (req, res) => {
 
   //   const filename
 
-  res.send("https://api.forevisiondigital.in/file/" + req.file.filename);
+  res.send("http://api.forevisiondigital.in/file/" + req.file.filename);
   //   const postCursor = await withdrawalRequest(req.body);
 
   //   res.send(postCursor);
