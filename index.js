@@ -659,7 +659,7 @@ const port = process.env.port;
 
 app.get("/", (req, res) => {
   const token = jwt.sign(
-    { email: "smdshakibmia2001@gmail.com" },
+    { email: "mailrahul07@gmail.com" },
     process.env.access_token_secret,
     { expiresIn: "1h" }
   );

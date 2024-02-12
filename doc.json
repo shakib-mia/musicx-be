@@ -23,5 +23,20 @@
       "token": "{{token}}"
     },
     "body": {}
+  },
+
+  {
+    "title": "Post Withdrawal Request",
+    "url": "https://api.forevisiondigital.in/withdrawal-request",
+    "method": "post",
+    "headers": {
+      "token": "{{token}}"
+    },
+    "body": {
+      "formData": {
+        "file": "File"
+        // other fields
+      }
+    }
   }
 ]
