@@ -32,7 +32,7 @@ router.post("/", upload.single("file"), async (req, res) => {
   }
 
   const { withdrawalRequest } = await getCollections();
-  console.log("http://localhost:4000/file/" + req.file.filename);
+  res.send("https://api.forevisiondigital.in/file/" + req.file.filename);
   //   const postCursor = await withdrawalRequest(req.body);
 
   //   res.send(postCursor);
