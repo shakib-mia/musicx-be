@@ -8,7 +8,7 @@ const path = require("path");
 // Set storage engine (from Step 2)
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./uploads/");
+    cb(null, "./uploads/gst-certificates");
   },
   filename: function (req, file, cb) {
     // Replace spaces with underscores (or you could use hyphens)
