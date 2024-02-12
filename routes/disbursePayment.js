@@ -3,46 +3,53 @@ const router = express.Router();
 const getCollections = require("../constants");
 const verifyJWT = require("../verifyJWT");
 
-router.post("/", verifyJWT, async (req, res) => {
-  const { paymentHistory, demoClients } = await getCollections();
+router.get("/", async (req, res) => {
+  const { paymentRequest } = await getCollections();
 
-  //   const paymentCursor = await paymentHistory.insertOne(req.body);
-  //   const paymentData = await paymentCursor.toArray();
+  const historyCursor = await paymentRequest.find({}).toArray();
+  res.send(historyCursor);
+});
 
-  const client = await demoClients.findOne({ emailId: req.body.user_email });
+router.post("/", async (req, res) => {
+  const { paymentRequest } = await getCollections();
 
-  //   console.log(client);
+  const insertCursor = await paymentRequest.insertOne(req.body);
 
-  if (client !== null) {
-    if (client.lifeTimeRevenue > 1000) {
-      //   const payment = await paymentHistory.insertOne(req.body);
-      //   console.log(parseFloat(req.body.amount));
-      client.accountBalance =
-        client.lifeTimeRevenue - parseFloat(req.body.amount);
+  res.send(insertCursor);
+});
 
-      const updatedDoc = {
-        $set: {
-          ...client,
-        },
-      };
+router.put("/:_id", async (req, res) => {
+  const { _id } = req.params;
+  const updatedDoc = req.body;
+  delete updatedDoc._id;
+  updatedDoc.disbursed = true;
 
-      const updateCursor = await demoClients.updateOne(
-        { emailId: req.body.user_email },
-        updatedDoc,
-        {
-          upsert: false,
-        }
-      );
+  const { paymentHistory, paymentRequest } = await getCollections();
 
-      res.send(updateCursor);
-    } else {
-      res.send("Insufficient Balance");
-    }
-  } else {
-    res.send("Invalid Email Id");
-  }
+  const deleteCursor = await paymentRequest.deleteOne({
+    _id: new ObjectId(_id),
+  });
 
-  //   res.end({ paymentCursor });
+  const addedCursor = await paymentHistory.insertOne(updatedDoc);
+
+  res.send({ deleteCursor, addedCursor });
+});
+
+router.post("/:_id", async (req, res) => {
+  const { _id } = req.params;
+  const { paymentHistory, paymentRequest } = await getCollections();
+
+  const deleteCursor = await paymentRequest.deleteOne({
+    _id: new ObjectId(_id),
+  });
+
+  const data = req.body;
+  data.declined = true;
+
+  delete data._id;
+
+  const addedCursor = await paymentHistory.insertOne(data);
+  res.send({ deleteCursor, addedCursor });
 });
 
 module.exports = router;

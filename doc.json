@@ -13,5 +13,15 @@
       "facebook_url": "",
       "instagram_url": ""
     }
+  },
+
+  {
+    "title": "Post Payment Request",
+    "url": "https://api.forevisiondigital.in/disburse-payment",
+    "method": "post",
+    "headers": {
+      "token": "{{token}}"
+    },
+    "body": {}
   }
 ]

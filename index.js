@@ -723,7 +723,7 @@ async function run() {
     app.use("/songs-for-isrc", songsForIsrc);
     app.use("/admin-royalty", adminRevenue);
     app.use("/calculate-lifetime-revenue", calculateLifetimeRevenue);
-    app.use("/disburse-payment", getDisbursePayment);
+    // app.use("/disburse-payment", getDisbursePayment);
     app.use("/history", history);
     app.use("/user-profile", userDetail);
     app.use("/fb-insta-whitelisting", fbInstaWhitelisting);
