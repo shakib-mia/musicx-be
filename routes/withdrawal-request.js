@@ -8,17 +8,14 @@ const path = require("path");
 // Set storage engine (from Step 2)
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./uploads/gst-certificates");
+    cb(null, "./uploads/");
   },
   filename: function (req, file, cb) {
-    // console.log(object);
+    // Replace spaces with underscores (or you could use hyphens)
+    const sanitizedFilename = file.originalname.replace(/\s+/g, "_");
     cb(
       null,
-      file.originalname.split(".")[0] +
-        "-" +
-        Date.now() +
-        "." +
-        file.originalname.split(".")[1]
+      file.fieldname + "-" + Date.now() + path.extname(sanitizedFilename)
     );
   },
 });
@@ -32,6 +29,9 @@ router.post("/", upload.single("file"), async (req, res) => {
   }
 
   const { withdrawalRequest } = await getCollections();
+
+  //   const filename
+
   res.send("https://api.forevisiondigital.in/file/" + req.file.filename);
   //   const postCursor = await withdrawalRequest(req.body);
 
