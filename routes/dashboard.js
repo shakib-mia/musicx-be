@@ -151,7 +151,6 @@ router.get("/", verifyJWT, async (req, res) => {
           _id: {
             isrc: "$isrc",
             song_name: "$song_name",
-            final_revenue: "$final revenue",
           }, // Group by both isrc and song_name
           // If there are other fields you want to include in the uniqueness criteria, add them here.
         },
@@ -161,7 +160,6 @@ router.get("/", verifyJWT, async (req, res) => {
           _id: 0,
           isrc: "$_id.isrc",
           song_name: "$_id.song_name",
-          final_revenue: "$_id['final revenue']",
         },
       },
     ];
