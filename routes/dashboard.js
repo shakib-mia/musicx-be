@@ -157,6 +157,7 @@ router.get("/", verifyJWT, async (req, res) => {
           _id: 0,
           isrc: "$_id.isrc",
           song_name: "$_id.song_name",
+          final_revenue: "$_id['final revenue']",
         },
       },
     ];
