@@ -797,6 +797,10 @@ async function run() {
         path: "/file",
         element: file,
       },
+      {
+        path: "/top-performer",
+        element: topPerformer,
+      },
     ];
 
     apis.map(({ path, element }) => app.use(path, element));
