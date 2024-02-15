@@ -140,38 +140,12 @@ router.get("/", verifyJWT, async (req, res) => {
       users[0]
     );
 
-    const { allISRCs } = result[0];
-
-    const pipeline2 = [
-      {
-        $match: { isrc: { $in: allISRCs } },
-      },
-      {
-        $group: {
-          _id: {
-            isrc: "$isrc",
-            song_name: "$song_name",
-          }, // Group by both isrc and song_name
-          // If there are other fields you want to include in the uniqueness criteria, add them here.
-        },
-      },
-      {
-        $project: {
-          _id: 0,
-          isrc: "$_id.isrc",
-          song_name: "$_id.song_name",
-        },
-      },
-    ];
-
-    const songs = await revenueCollections.aggregate(pipeline2).toArray();
-
     res.send({
       usersCount: users.length,
       isrcCount: result[0].allISRCs.length,
       topContributor,
       finalRevenue,
-      songs,
+
       // isrcs: result[0].allISRCs,
       // due,
     });
