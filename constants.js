@@ -79,6 +79,9 @@ const getCollections = async () => {
   const withdrawalRequest = await client2
     .db("forevision-digital")
     .collection("withdrawal-request");
+  const songsCollection = await client2
+    .db("forevision-digital")
+    .collection("mother-isrc-collection");
 
   return {
     adminsCollection,
@@ -96,6 +99,7 @@ const getCollections = async () => {
     fbInstaWhitelisting,
     fbInstaProfile,
     withdrawalRequest,
+    songsCollection,
   };
 };
 
