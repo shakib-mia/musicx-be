@@ -34,6 +34,9 @@ const userDetail = require("./routes/user-profile");
 const fbInstaWhitelisting = require("./routes/fb-insta-whitelisting");
 const fbInstaProfile = require("./routes/link-facebook-instagram-profile");
 const withdrawalRequest = require("./routes/withdrawal-request");
+const uploadAadharCards = require("./routes/upload-aadhar-cards");
+const uploadPanCards = require("./routes/upload-pan-cards");
+const uploadCancelledCheques = require("./routes/cancelledCheque");
 const file = require("./routes/file");
 
 const paidData = [
@@ -801,6 +804,18 @@ async function run() {
         path: "/top-performer",
         element: topPerformer,
       },
+      {
+        path: "/upload-aadhar-cards",
+        element: uploadAadharCards,
+      },
+      {
+        path: "/upload-pan-cards",
+        element: uploadPanCards,
+      },
+      {
+        path: "/upload-cancelled-cheques",
+        element: uploadCancelledCheques,
+      },
     ];
 
     apis.map(({ path, element }) => app.use(path, element));
@@ -848,22 +863,6 @@ async function run() {
 
       const allIsrcs = await isrcCollection.find({}).toArray();
 
-      // for (const isrc of allIsrcs) {
-      //   const pipeline = [
-      //     {
-      //       $match: { isrc },
-      //     },
-      //     {
-      //       $project: {
-      //         _id: 0,
-      //         royality: 1,
-      //       },
-      //     },
-      //   ];
-      //   const cursor = await revenueCollections.aggregate(pipeline).toArray();
-      //   console.log(cursor);
-      // }
-
       const pipeline = [
         {
           $match: { isrc: "INF232200285" },
@@ -880,13 +879,6 @@ async function run() {
 
       res.send(allIsrcs);
     });
-
-    // app.get("/demo-clients", async (req, res) => {
-    //   const demoClientsCursor = await demoClients.find({});
-    //   const demoClientsList = await demoClientsCursor.toArray();
-
-    //   res.send(demoClientsList);
-    // });
 
     app.get("/handle-payment", async (req, res) => {
       // console.log(paidData);
@@ -913,6 +905,24 @@ async function run() {
         }
         res.send({ message: "updated" });
       }
+    });
+
+    app.get("/check-duplicates", async (req, res) => {
+      function hasDuplicates(array, key) {
+        const seenValues = {};
+        for (const item of array) {
+          if (seenValues[item[key]]) {
+            return true; // Found a duplicate
+          }
+          seenValues[item[key]] = true;
+        }
+        return false; // No duplicates found
+      }
+
+      const { usersCollection } = await getCollections();
+      const songs = await usersCollection.find({}).toArray();
+
+      res.send(hasDuplicates(songs, "emailId"));
     });
 
     /**

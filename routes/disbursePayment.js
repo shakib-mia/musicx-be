@@ -2,6 +2,18 @@ const express = require("express");
 const router = express.Router();
 const getCollections = require("../constants");
 const verifyJWT = require("../verifyJWT");
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + "-" + Date.now() + "-" + file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
 
 router.get("/", async (req, res) => {
   const { paymentRequest } = await getCollections();
@@ -10,13 +22,14 @@ router.get("/", async (req, res) => {
   res.send(historyCursor);
 });
 
-router.post("/", async (req, res) => {
-  const { paymentRequest } = await getCollections();
+// router.post("/", upload.array("uploads/gst-certificates"), async (req, res) => {
+//   const { paymentRequest } = await getCollections();
+//   console.log(req);
 
-  const insertCursor = await paymentRequest.insertOne(req.body);
+//   // const insertCursor = await paymentRequest.insertOne(req.body);
 
-  res.send(insertCursor);
-});
+//   // res.send(insertCursor);
+// });
 
 router.put("/:_id", async (req, res) => {
   const { _id } = req.params;
