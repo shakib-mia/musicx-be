@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const fs = require("fs");
+const cors = require("cors");
 
 // Ensure the directory exists before setting up the multer storage
 const uploadDir = "uploads/aadhar-cards/";
@@ -19,7 +20,13 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.use("/uploads/aadhar-cards", express.static("uploads/aadhar-cards"));
+router.use(
+  "/uploads/aadhar-cards",
+  express.static("uploads/aadhar-cards"),
+  cors({
+    origin: "*",
+  })
+);
 
 router.post("/", upload.single("file"), (req, res) => {
   console.log(req.file, "aadhar");
