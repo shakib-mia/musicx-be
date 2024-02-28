@@ -65,9 +65,9 @@ const getCollections = async () => {
     .db("forevision-digital")
     .collection("isrcs");
 
-  const paymentRequest = await client
+  const paymentRequest = await client2
     .db("forevision-digital")
-    .collection("payment-request");
+    .collection("withdrawal-request");
 
   const fbInstaWhitelisting = await client2
     .db("forevision-digital")
