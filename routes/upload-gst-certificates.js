@@ -3,6 +3,7 @@ const router = express.Router();
 const verifyJWT = require("../verifyJWT"); // Make sure to provide the correct path
 const multer = require("multer");
 const fs = require("fs");
+const jwt = require("jsonwebtoken");
 
 // Ensure the directory exists before setting up the multer storage
 const uploadDir = "uploads/gst-certificates/";
@@ -14,8 +15,22 @@ const storage = multer.diskStorage({
     cb(null, uploadDir);
   },
   filename: function (req, file, cb) {
-    // console.log(file);
-    cb(null, file.fieldname + "-" + Date.now() + "-" + file.originalname);
+    // console.log(req.headers);
+    const { token } = req.headers;
+
+    const { email } = jwt.decode(token);
+    // console.log();
+
+    cb(
+      null,
+      file.originalname.split(".")[0] +
+        "-" +
+        email.split("@")[0] +
+        "-" +
+        Date.now() +
+        "." +
+        file.originalname.split(".")[1]
+    );
   },
 });
 
@@ -26,7 +41,8 @@ router.use(
   express.static("uploads/gst-certificates")
 );
 
-router.post("/", verifyJWT, async (req, res) => {
-  console.log(req.file, "gst");
+router.post("/", upload.single("file"), async (req, res) => {
   res.send({ url: `${req.protocol}://${req.get("host")}/${req.file.path}` });
 });
+
+module.exports = router;

@@ -37,6 +37,7 @@ const withdrawalRequest = require("./routes/withdrawal-request");
 const uploadAadharCards = require("./routes/upload-aadhar-cards");
 const uploadPanCards = require("./routes/upload-pan-cards");
 const uploadCancelledCheques = require("./routes/cancelledCheque");
+const uploadGstCertificate = require("./routes/upload-gst-certificates");
 const file = require("./routes/file");
 
 const paidData = [
@@ -816,6 +817,10 @@ async function run() {
         path: "/upload-cancelled-cheques",
         element: uploadCancelledCheques,
       },
+      {
+        path: "/upload-gst-certificate",
+        element: uploadGstCertificate,
+      },
     ];
 
     apis.map(({ path, element }) => app.use(path, element));
@@ -925,207 +930,6 @@ async function run() {
       res.send(hasDuplicates(songs, "emailId"));
     });
 
-    /**
-     *
-     * Register Section
-     *
-     *
-     * **/
-
-    // app.post("/register", async (req, res) => {
-    //   const userExist = await adminsCollection.findOne({
-    //     email: req.body.email,
-    //   });
-
-    //   // if user doesn't exist
-    //   if (userExist === null) {
-    //     // encrypting
-    //     const salt = bcrypt.genSaltSync(10);
-    //     const hash = bcrypt.hashSync(req.body.password, salt);
-
-    //     const user = {
-    //       email: req.body.email,
-    //       password: hash,
-    //     };
-
-    //     const registerCursor = await adminsCollection.insertOne(user);
-    //     res.send(registerCursor);
-    //   } else {
-    //     // if user exists
-    //     res.send("user already exist");
-    //   }
-    // });
-
-    // app.get("/dashboard", verifyJWT, async (req, res) => {
-    //   try {
-    //     const usersCursor = await clientsCollection.find({});
-    //     const clientsCursor = await demoClientsCollection.find({});
-    //     const clients = await clientsCursor.toArray();
-
-    //     const users = await usersCursor.toArray();
-    //     const pipeline = [
-    //       {
-    //         $project: {
-    //           _id: 0,
-    //           "final revenue": 1,
-    //         },
-    //       },
-    //     ];
-
-    //     const revenues = (
-    //       await revenueCollections.aggregate(pipeline).toArray()
-    //     ).map((item) => item["final revenue"]);
-
-    //     const result = await clientsCollection
-    //       .aggregate([
-    //         {
-    //           $match: {
-    //             isrc: { $ne: null },
-    //           },
-    //         },
-    //         {
-    //           $group: {
-    //             _id: null,
-    //             totalISRCs: {
-    //               $sum: {
-    //                 $size: { $split: ["$isrc", ","] },
-    //               },
-    //             },
-    //           },
-    //         },
-    //       ])
-    //       .toArray();
-
-    //     const topContributor = users.reduce(
-    //       (max, obj) =>
-    //         obj.isrc?.split(",").length > max.isrc?.split(",").length
-    //           ? obj
-    //           : max,
-    //       users[0]
-    //     );
-
-    //     res.send({
-    //       usersCount: users.length,
-    //       isrcCount: result[0].totalISRCs,
-    //       topContributor,
-    //       grandTotalRevenue: 0,
-    //     });
-    //   } catch (error) {
-    //     console.error("Error:", error);
-    //     res.status(500).send("Internal Server Error");
-    //   }
-    // });
-
-    // app.get("/top-performer", async (req, res) => {
-    //   const allClientsCursor = await demoClients.find({});
-    //   const allClients = await allClientsCursor.toArray();
-    //   const revenues = allClients.map((item) => item.lifeTimeRevenue);
-    //   const existingRevenues = [];
-    //   for (const revenue of revenues) {
-    //     // console.log(revenue !== undefined);
-    //     if (revenue !== undefined && revenue.toString() !== "NaN") {
-    //       existingRevenues.push(revenue);
-    //     }
-    //   }
-
-    //   const max = Math.max(...existingRevenues);
-    //   res.send(allClients.find((item) => item.lifeTimeRevenue === max));
-    //   // console.log(Math.max(...existingRevenues));
-    // });
-
-    // app.get("/platforms", verifyJWT, async (req, res) => {
-    //   const platformsCursor = await platformsCollection.find({});
-    //   const platforms = await platformsCursor.toArray();
-
-    //   res.send(platforms);
-    // });
-
-    // app.post("/revenue-upload", verifyJWT, async (req, res) => {
-    //   const data = req.body;
-
-    //   const uploadCursor = await revenueCollections.insertMany(data);
-
-    //   res.send(uploadCursor);
-    // });
-
-    // app.post("/revenue", verifyJWT, async (req, res) => {
-    //   const { page, currentPage } = req.body;
-    //   const revenueCursor = await revenueCollections.find({}).limit(100);
-    //   const revenues = await revenueCursor.toArray();
-    //   // const data = revenues.splice(currentPage * 50, 50);
-    //   const data = revenues;
-
-    //   res.send({ data, count: revenues.length });
-    // });
-
-    // app.get("/user-revenue", verifyJWT, async (req, res) => {
-    //   const { email } = jwt.decode(req.headers.token);
-
-    //   const clientsCursor = await clientsCollection.findOne({
-    //     emailId: email,
-    //   });
-
-    //   // const
-
-    //   const isrcs = [];
-
-    //   if (clientsCollection !== null) {
-    //     if (clientsCursor !== null) {
-    //       clientsCursor.isrc.split(",").map((item) => isrcs.push(item.trim()));
-    //       res.send(isrcs);
-    //     } else {
-    //       res.send({ message: "No isrc found in clientsCursor" });
-    //     }
-    //   } else {
-    //     res.send({ message: "clientsCollection is null" });
-    //   }
-
-    //   // isrcs.map((isrc) => {
-    //   //   const revenueCursor = revenueCollections.findOne({ isrc });
-    //   // });
-    //   // for (const isrc of isrcs) {
-    //   //   const revenueCursor = await revenueCollections.find({ isrc });
-    //   //   const allRevenues = await revenueCursor.toArray();
-
-    //   //   // res.send(allRevenues);
-    //   //   // revenueCursor !== null && revenues.push(revenueCursor);
-    //   // }
-    // });
-
-    // app.get("/user-revenue/:isrc", async (req, res) => {
-    //   const pipeline = [
-    //     {
-    //       $match: { isrc: req.params.isrc },
-    //     },
-    //     {
-    //       $project: {
-    //         _id: 0,
-    //         "final revenue": 1,
-    //         song_name: 1,
-    //         platform_name: 1,
-    //         album: 1,
-    //         track_artist: 1,
-    //         label: 1,
-    //         isrc: 1,
-    //         total: 1,
-    //         "after tds revenue": 1,
-    //       },
-    //     },
-    //   ];
-
-    //   const revenues = await revenueCollections.aggregate(pipeline).toArray();
-    //   res.send({ revenues });
-    // });
-
-    // app.post("/songs-for-isrc", async (req, res) => {
-    //   const { isrcs } = req.body;
-
-    //   const songs = await revenueCollections
-    //     .find({ isrc: { $in: isrcs } })
-    //     .toArray();
-    //   res.send(songs);
-    // });
-
     app.delete(
       "/revenue/:month/:year/:platform",
       verifyJWT,
@@ -1219,8 +1023,7 @@ async function run() {
         const { email } = jwt.decode(token);
         // console.log(email);
 
-        const data = await userDetails.findOne({ user_email: email });
-        console.log(data);
+        const data = await clientsCollection.findOne({ emailId: email });
         res.send({ data });
       } else {
         res.status(401).send("Unauthorized Access");

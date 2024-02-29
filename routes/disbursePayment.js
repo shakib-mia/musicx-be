@@ -3,6 +3,7 @@ const router = express.Router();
 const getCollections = require("../constants");
 const verifyJWT = require("../verifyJWT");
 const multer = require("multer");
+const { ObjectId } = require("mongodb");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -22,24 +23,17 @@ router.get("/", async (req, res) => {
   res.send(historyCursor);
 });
 
-// router.post("/", upload.array("uploads/gst-certificates"), async (req, res) => {
-//   const { paymentRequest } = await getCollections();
-//   console.log(req);
-
-//   // const insertCursor = await paymentRequest.insertOne(req.body);
-
-//   // res.send(insertCursor);
-// });
-
 router.put("/:_id", async (req, res) => {
   const { _id } = req.params;
   const updatedDoc = req.body;
   delete updatedDoc._id;
   updatedDoc.disbursed = true;
 
-  const { paymentHistory, paymentRequest } = await getCollections();
+  console.log(updatedDoc);
 
-  const deleteCursor = await paymentRequest.deleteOne({
+  const { paymentHistory, withdrawalRequest } = await getCollections();
+
+  const deleteCursor = await withdrawalRequest.deleteOne({
     _id: new ObjectId(_id),
   });
 
@@ -50,9 +44,9 @@ router.put("/:_id", async (req, res) => {
 
 router.post("/:_id", async (req, res) => {
   const { _id } = req.params;
-  const { paymentHistory, paymentRequest } = await getCollections();
+  const { paymentHistory, withdrawalRequest } = await getCollections();
 
-  const deleteCursor = await paymentRequest.deleteOne({
+  const deleteCursor = await withdrawalRequest.deleteOne({
     _id: new ObjectId(_id),
   });
 
