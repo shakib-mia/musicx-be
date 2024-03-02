@@ -39,6 +39,7 @@ const uploadPanCards = require("./routes/upload-pan-cards");
 const uploadCancelledCheques = require("./routes/cancelledCheque");
 const uploadGstCertificate = require("./routes/upload-gst-certificates");
 const file = require("./routes/file");
+const deleteData = require("./routes/delete");
 
 const paidData = [
   {
@@ -820,6 +821,10 @@ async function run() {
       {
         path: "/upload-gst-certificate",
         element: uploadGstCertificate,
+      },
+      {
+        path: "/delete-data",
+        element: deleteData,
       },
     ];
 
