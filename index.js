@@ -40,6 +40,8 @@ const uploadCancelledCheques = require("./routes/cancelledCheque");
 const uploadGstCertificate = require("./routes/upload-gst-certificates");
 const file = require("./routes/file");
 const deleteData = require("./routes/delete");
+const secondaryUid = require("./routes/upload-secondary-uid");
+const uploadGovtId = require("./routes/upload-govt-id");
 
 const paidData = [
   {
@@ -825,6 +827,14 @@ async function run() {
       {
         path: "/delete-data",
         element: deleteData,
+      },
+      {
+        path: "/upload-govt-id",
+        element: uploadGovtId,
+      },
+      {
+        path: "/upload-secondary-uid",
+        element: secondaryUid,
       },
     ];
 
