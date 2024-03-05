@@ -42,6 +42,7 @@ const file = require("./routes/file");
 const deleteData = require("./routes/delete");
 const secondaryUid = require("./routes/upload-secondary-uid");
 const uploadGovtId = require("./routes/upload-govt-id");
+// const { customLog } = require("./constants");
 
 const paidData = [
   {
@@ -840,6 +841,23 @@ async function run() {
 
     apis.map(({ path, element }) => app.use(path, element));
 
+    app.get("/get2025", async (req, res) => {
+      const pipeline = [
+        {
+          $match: { isrc: req.params.isrc },
+        },
+        {
+          $project: {
+            _id: 0,
+            uploadDate: 1,
+          },
+        },
+      ];
+
+      const revenueData = await revenueCollections.find({}).toArray();
+      res.send(revenueData);
+    });
+
     const storage = multer.diskStorage({
       destination: function (req, file, cb) {
         cb(null, "uploads/"); // Specify the destination folder
@@ -966,7 +984,7 @@ async function run() {
           if (result) {
             // res.send({ message: "success" });
             const token = jwt.sign({ email }, process.env.access_token_secret, {
-              expiresIn: "1h",
+              expiresIn: "2h",
             });
 
             res.send({ token, details });

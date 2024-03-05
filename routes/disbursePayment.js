@@ -28,18 +28,31 @@ router.put("/:_id", async (req, res) => {
   const updatedDoc = req.body;
   delete updatedDoc._id;
   updatedDoc.disbursed = true;
+  // console.log(updatedDoc);
 
-  console.log(updatedDoc);
+  const { paymentHistory, withdrawalRequest, clientsCollection } =
+    await getCollections();
 
-  const { paymentHistory, withdrawalRequest } = await getCollections();
+  const client = await clientsCollection.findOne({
+    emailId: updatedDoc.emailId,
+  });
+
+  client.lifetimeDisbursed =
+    (client.lifetimeDisbursed || 0) + client.lifetimeRevenue;
+  console.log(client);
 
   const deleteCursor = await withdrawalRequest.deleteOne({
     _id: new ObjectId(_id),
   });
 
   const addedCursor = await paymentHistory.insertOne(updatedDoc);
+  const updatedDocument = await clientsCollection.updateOne(
+    { emailId: client.emailId },
+    { $set: { ...client } },
+    { upsert: false }
+  );
 
-  res.send({ deleteCursor, addedCursor });
+  res.send({ deleteCursor, addedCursor, updatedDocument });
 });
 
 router.post("/:_id", async (req, res) => {

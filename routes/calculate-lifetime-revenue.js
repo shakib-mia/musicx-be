@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const getCollections = require("../constants");
+const { customLog } = require("../customlog");
 
 const router = Router();
 
@@ -78,8 +79,6 @@ router.get("/songs", async (req, res) => {
     );
 
     console.log(updateCursor, { ...newData });
-
-    // res.send(updateCursor);
   }
 
   res.send(songs);
