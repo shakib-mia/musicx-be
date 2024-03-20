@@ -667,7 +667,7 @@ const port = process.env.port;
 
 app.get("/", (req, res) => {
   const token = jwt.sign(
-    { email: "pulakchakraborty9735@gmail.com" },
+    { email: "mailrahul07@gmail.com" },
     process.env.access_token_secret,
     { expiresIn: "1h" }
   );
@@ -1056,7 +1056,7 @@ async function run() {
         const { email } = jwt.decode(token);
         // console.log(email);
 
-        const data = await userDetails.findOne({ emailId: email });
+        const data = await clientsCollection.findOne({ emailId: email });
         res.send({ data });
       } else {
         res.status(401).send("Unauthorized Access");
