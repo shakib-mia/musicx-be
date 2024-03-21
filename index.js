@@ -1056,7 +1056,7 @@ async function run() {
         const { email } = jwt.decode(token);
         // console.log(email);
 
-        const data = await clientsCollection.findOne({ emailId: email });
+        const data = await userDetails.findOne({ user_email: email });
         res.send({ data });
       } else {
         res.status(401).send("Unauthorized Access");
