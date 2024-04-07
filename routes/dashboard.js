@@ -3,7 +3,7 @@ const router = express.Router();
 const getCollections = require("../constants");
 const verifyJWT = require("../verifyJWT");
 
-router.get("/", verifyJWT, async (req, res) => {
+router.get("/", async (req, res) => {
   const {
     clientsCollection,
     demoClientsCollection,
@@ -140,11 +140,14 @@ router.get("/", verifyJWT, async (req, res) => {
       users[0]
     );
 
+    // console.log(result[0]);
+
     res.send({
       usersCount: users.length,
       isrcCount: result[0].allISRCs.length,
-      topContributor,
+      // topContributor,
       finalRevenue,
+      isrcs: result[0].allISRCs,
 
       // isrcs: result[0].allISRCs,
       // due,

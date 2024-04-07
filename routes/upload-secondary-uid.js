@@ -14,7 +14,19 @@ const storage = multer.diskStorage({
   },
 
   filename: function (req, file, cb) {
-    cb(null, file.fieldname + "-" + Date.now() + "-" + file.originalname);
+    const { authorization } = req.headers;
+    const { email } = jwt.decode(authorization);
+
+    cb(
+      null,
+      file.fieldname +
+        "-" +
+        email.split("@")[0] +
+        "-" +
+        Date.now() +
+        "-" +
+        file.originalname
+    );
   },
 });
 

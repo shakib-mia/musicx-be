@@ -5,10 +5,21 @@ const jwt = require("jsonwebtoken");
 const getCollections = require("../constants");
 
 router.post("/", verifyJWT, async (req, res) => {
-  const { withdrawalRequest } = await getCollections();
+  const { withdrawalRequest, clientsCollection } = await getCollections();
+  const { token } = req.headers;
+  // console.log();
+  const { email } = jwt.decode(token);
+
   // console.log(req.body);
   delete req.body._id;
-  const postCursor = await withdrawalRequest.insertOne(req.body);
+  const userData = await clientsCollection.findOne({ emailId: email });
+  // console.log(userData);
+  delete userData._id;
+
+  const postCursor = await withdrawalRequest.insertOne({
+    ...req.body,
+    ...userData,
+  });
   res.send(postCursor);
 });
 

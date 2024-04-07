@@ -8,7 +8,7 @@ router.get("/", verifyJWT, async (req, res) => {
   //   console.log("object");
   const { clientsCollection } = await getCollections();
   const { email } = jwt.decode(req.headers.token);
-  console.log(email);
+  // console.log(email);
   const clientsCursor = await clientsCollection.findOne({
     emailId: email,
   });
@@ -19,7 +19,7 @@ router.get("/", verifyJWT, async (req, res) => {
 
   if (clientsCollection !== null) {
     if (clientsCursor !== null) {
-      clientsCursor.isrc.split(",").map((item) => isrcs.push(item.trim()));
+      clientsCursor.isrc?.split(",").map((item) => isrcs.push(item.trim()));
       res.send(isrcs);
     } else {
       res.send({ message: "No isrc found in clientsCursor" });

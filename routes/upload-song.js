@@ -2,10 +2,11 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const fs = require("fs");
+const cors = require("cors");
 const jwt = require("jsonwebtoken");
 
 // Ensure the directory exists before setting up the multer storage
-const uploadDir = "uploads/pan-cards/";
+const uploadDir = "uploads/songs/";
 fs.mkdirSync(uploadDir, { recursive: true });
 
 const storage = multer.diskStorage({
@@ -15,6 +16,12 @@ const storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     const { authorization } = req.headers;
+    // console.log(req.headers);
+
+    const fileName = file.originalname?.includes(" ")
+      ? file.originalname?.split(" ").join("_")
+      : file.originalname;
+
     const { email } = jwt.decode(authorization);
     cb(
       null,
@@ -24,18 +31,29 @@ const storage = multer.diskStorage({
         "-" +
         Date.now() +
         "-" +
-        file.originalname
+        fileName
     );
   },
 });
 
 const upload = multer({ storage: storage });
 
-router.use("/uploads/pan-cards", express.static("uploads/pan-cards"));
+router.use(
+  "/uploads/songs",
+  express.static("uploads/songs"),
+  cors({
+    origin: "*",
+  })
+);
 
 router.post("/", upload.single("file"), (req, res) => {
-  // console.log(req.file, "pan");
-  res.send({ url: `${req.protocol}://${req.get("host")}/${req.file?.path}` });
+  // console.log(req.file, "aadhar");
+  const fileName = req.file?.path?.includes(" ")
+    ? req.file?.path?.split(" ").join("_")
+    : req.file?.path;
+  res.send({
+    songUrl: `${req.protocol}://${req.get("host")}/${fileName}`,
+  });
 });
 
 module.exports = router;

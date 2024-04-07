@@ -22,6 +22,7 @@ router.get("/", async (req, res) => {
   }
 
   const max = Math.max(...existingRevenues);
+  // console.log(allClients);
   res.send(allClients.find((item) => item.lifetimeRevenue === max));
   // console.log(Math.max(...existingRevenues));
 });

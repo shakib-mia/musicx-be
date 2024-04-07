@@ -1,4 +1,5 @@
 const express = require("express");
+// const getCollections = require("../constants");
 const router = express.Router();
 const multer = require("multer");
 const fs = require("fs");
@@ -6,7 +7,7 @@ const cors = require("cors");
 const jwt = require("jsonwebtoken");
 
 // Ensure the directory exists before setting up the multer storage
-const uploadDir = "uploads/aadhar-cards/";
+const uploadDir = "uploads/art-work/";
 fs.mkdirSync(uploadDir, { recursive: true });
 
 const storage = multer.diskStorage({
@@ -14,36 +15,38 @@ const storage = multer.diskStorage({
     // Now that the directory is guaranteed to exist, we can set it as the destination
     cb(null, uploadDir);
   },
+
   filename: function (req, file, cb) {
     const { authorization } = req.headers;
     // console.log(req.headers);
-    const { email } = jwt.decode(authorization);
-    cb(
-      null,
-      file.fieldname +
-        "-" +
-        email.split("@")[0] +
-        "-" +
-        Date.now() +
-        "-" +
-        file.originalname
-    );
+    const fileName = file.originalname?.includes(" ")
+      ? file.originalname?.split(" ").join("_")
+      : file.originalname;
+
+    // console.log(file.originalname?.split(" "));
+
+    cb(null, file.fieldname + "-" + Date.now() + "-" + fileName);
   },
 });
 
 const upload = multer({ storage: storage });
 
 router.use(
-  "/uploads/aadhar-cards",
-  express.static("uploads/aadhar-cards"),
+  "/uploads/art-work",
+  express.static("uploads/art-work"),
   cors({
     origin: "*",
   })
 );
 
 router.post("/", upload.single("file"), (req, res) => {
-  // console.log(req.file, "aadhar");
-  res.send({ url: `${req.protocol}://${req.get("host")}/${req.file?.path}` });
+  const fileName = req.file?.path?.includes(" ")
+    ? req.file?.path?.split(" ").join("_")
+    : req.file?.path;
+
+  res.send({
+    artWorkUrl: `${req.protocol}://${req.get("host")}/${fileName}`,
+  });
 });
 
 module.exports = router;

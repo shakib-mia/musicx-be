@@ -34,9 +34,12 @@ const getCollections = async () => {
     .db("forevision-digital")
     .collection("demo-clients"); // users collection
 
-  // const isrcCollection = await client
-  //   .db("forevision-digital")
-  //   .collection("isrc-with-id"); // ISRC collection
+  const isrcWithIDCollection = await client
+    .db("forevision-digital")
+    .collection("all-isrcs"); // ISRC collection
+  const recordLabelsCollection = await client2
+    .db("forevision-digital")
+    .collection("record-labels");
 
   const platformsCollection = await client
     .db("forevision-digital")
@@ -82,6 +85,9 @@ const getCollections = async () => {
   const songsCollection = await client2
     .db("forevision-digital")
     .collection("mother-isrc-collection");
+  const couponCodesCollection = await client2
+    .db("forevision-digital")
+    .collection("coupon-codes");
 
   function customLog(...messages) {
     const err = new Error();
@@ -114,6 +120,9 @@ const getCollections = async () => {
     withdrawalRequest,
     songsCollection,
     customLog,
+    isrcWithIDCollection,
+    recordLabelsCollection,
+    couponCodesCollection,
   };
 };
 

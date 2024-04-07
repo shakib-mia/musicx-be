@@ -1,42 +1,38 @@
 [
   {
-    "title": "Facebook Instagram Whitelisting",
-    "url": "https://api.forevisiondigital.in/fb-insta-whitelisting",
-    "headers": {
-      "token": "{{token}}"
-    },
-    "body": {
-      "user_name": "",
-      "user_email": "",
-      "phone_no": "",
-      "record_label": "",
-      "facebook_url": "",
-      "instagram_url": ""
-    }
+    "user_email": "abcd@admin.com",
+    "display_name": "Riya Sharma",
+    "user_password": "$2b$10$xMt27kuEYAFRZkU3tnXLjeOV5MU7QHtWu7OoxrnCAp5.PeDik7CIS"
   },
 
   {
-    "title": "Post Payment Request",
-    "url": "https://api.forevisiondigital.in/disburse-payment",
-    "method": "post",
-    "headers": {
-      "token": "{{token}}"
-    },
-    "body": {}
+    "user_email": "abc@admin.com",
+    "display_name": "Aman Thapa",
+    "user_password": "$2b$10$N3hdIwYIB.2.SeT3sMTOnufMW0gn/Hw2oNE2ooJWntQEt9YCIf01i"
   },
-
   {
-    "title": "Post Withdrawal Request",
-    "url": "https://api.forevisiondigital.in/withdrawal-request",
-    "method": "post",
-    "headers": {
-      "token": "{{token}}"
-    },
-    "body": {
-      "formData": {
-        "file": "File"
-        // other fields
-      }
-    }
+    "user_email": "adbc@admin.com",
+    "display_name": "mrinalini sanyal",
+    "user_password": "$2b$10$UwGsP.dl5u5..WA5/3PIru2EMPfKH9J3hmb.deDH5/VbYfzTGZty."
+  },
+  {
+    "user_email": "unique@admin.com",
+    "display_name": "mrinal das",
+    "user_password": "$2b$10$FhWtSibJHrSFS5FGrD23L.Ao0Of/.ADE7EJO6TpFPsncOm4aolmja"
+  },
+  {
+    "user_email": "abdf@admin.com",
+    "display_name": "akbar hossain",
+    "user_password": "$2b$10$l11WvjyXNr1Cs3tZAdJwBelet2jY3KQmX.r3kXLAVTPACQ1/7GcSi"
+  },
+  {
+    "user_email": "amar@admin.com",
+    "display_name": "amar boral",
+    "user_password": "$2b$10$ENNvg2iPMdyMd0HGyb5Xo.zrDQ1sbDEOsDxfb.yEvMoOCWLY0BXsK"
+  },
+  {
+    "user_email": "nitam@admin.com",
+    "display_name": "nitam sen",
+    "user_password": "$2b$10$5d/G8gu2Dm1AQjGgbBzeMuTkc2/tQ1.0k/7Os.HOZLtgyGzyHbytK"
   }
 ]

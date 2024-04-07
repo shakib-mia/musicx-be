@@ -26,8 +26,8 @@ router.use(
 );
 
 router.post("/", upload.single("file"), (req, res) => {
-  console.log(req.file, "pan");
-  res.send({ url: `${req.protocol}://${req.get("host")}/${req.file.path}` });
+  // console.log(req.file, "pan");
+  res.send({ url: `${req.protocol}://${req.get("host")}/${req.file?.path}` });
 });
 
 module.exports = router;
