@@ -42,6 +42,13 @@ const file = require("./routes/file");
 const deleteData = require("./routes/delete");
 const secondaryUid = require("./routes/upload-secondary-uid");
 const uploadGovtId = require("./routes/upload-govt-id");
+const generateIsrc = require("./routes/generateIsrc");
+const songUpload = require("./routes/upload-song");
+const checkIsrc = require("./routes/checkIsrc");
+const uploadArtWork = require("./routes/upload-artwork");
+const recordLabels = require("./routes/get-record-labels");
+const couponCodes = require("./routes/store-coupon-codes");
+const storeInvoice = require("./routes/store-invoice");
 // const { customLog } = require("./constants");
 
 const paidData = [
@@ -667,7 +674,7 @@ const port = process.env.port;
 
 app.get("/", (req, res) => {
   const token = jwt.sign(
-    { email: "mailrahul07@gmail.com" },
+    { email: "kshityiz2003@gmail.com" },
     process.env.access_token_secret,
     { expiresIn: "1h" }
   );
@@ -719,6 +726,9 @@ async function run() {
     const demoClients = await client
       .db("forevision-digital")
       .collection("demo-clients");
+    const paymentHistory = await client
+      .db("forevision-digital")
+      .collection("payment-history");
 
     const apis = [
       {
@@ -837,9 +847,65 @@ async function run() {
         path: "/upload-secondary-uid",
         element: secondaryUid,
       },
+      {
+        path: "/upload-song",
+        element: songUpload,
+      },
+      {
+        path: "/check-isrc",
+        element: checkIsrc,
+      },
+      {
+        path: "/upload-art-work",
+        element: uploadArtWork,
+      },
+      {
+        path: "/record-labels",
+        element: recordLabels,
+      },
+      {
+        path: "/coupon-codes",
+        element: couponCodes,
+      },
+      {
+        path: "/store-invoice",
+        element: storeInvoice,
+      },
     ];
 
     apis.map(({ path, element }) => app.use(path, element));
+
+    app.get("/fake-pass", async (req, res) => {
+      const salt = bcrypt.genSaltSync(10);
+      const hash = bcrypt.hashSync("12345", salt);
+      res.send(hash);
+    });
+
+    app.get("/generate-isrc", async (req, res) => {
+      const { isrcWithIDCollection } = await getCollections();
+      const pipeline = [{ $project: { _id: 0, isrc: 1 } }];
+      const isrcs = (
+        await isrcWithIDCollection.aggregate(pipeline).toArray()
+      ).map((doc) => doc.isrc.trim());
+
+      let newIsrc;
+      let startNum = 1;
+      do {
+        newIsrc = generateIsrc(startNum);
+        startNum++;
+      } while ([...isrcs].includes(newIsrc));
+
+      // Now `newIsrc` is guaranteed to be unique
+      // console.log("Unique ISRC generated:", newIsrc);
+      // const insertCursor = await isrcWithIDCollection.insertOne({
+      //   isrc: newIsrc,
+      // });
+
+      // Proceed with saving `newIsrc` to your collection or whatever your next step is
+      // ...
+
+      res.send({ newIsrc, existingIsrc: isrcs });
+    });
 
     app.get("/get2025", async (req, res) => {
       const pipeline = [
@@ -989,6 +1055,7 @@ async function run() {
 
             res.send({ token, details });
           } else {
+            console.log(err);
             res.status(401).send({ message: "incorrect password" });
           }
         });
@@ -1020,8 +1087,16 @@ async function run() {
           subject: "Password Reset Request",
           // text: "Plaintext version of the message",
           html: `<div>
-          Your New Password is
-          <h1>${newPassword}</h1>
+            Dear ${usersCursor.display_name} <br />
+
+            Thank you for reaching out to us.<br />
+            Here is your password - <h2>${newPassword}</h2>
+         
+            If you have any further questions or need assistance, feel free to reach out to our support team. 
+            We're here to help! <br /><br />
+            Best regards,
+            <br />
+            Team ForeVision Digital
           </div>`,
         };
 
@@ -1030,7 +1105,6 @@ async function run() {
             console.error(error);
             res.status(500).send(error);
           } else {
-            // res.send("Email sent successfully");
             bcrypt.hash(newPassword, 10, async function (err, hash) {
               // Store hash in your password DB.
               if (hash.length) {
@@ -1039,8 +1113,8 @@ async function run() {
                   { $set: { ...usersCursor, user_password: hash } },
                   { upsert: false }
                 );
-
                 res.send(updateCursor);
+                // res.status(200).send("message sent successfully");
               }
             });
           }
@@ -1055,12 +1129,102 @@ async function run() {
       if (jwt.decode(token) !== null) {
         const { email } = jwt.decode(token);
         // console.log(email);
-
         const data = await userDetails.findOne({ user_email: email });
-        res.send({ data });
+        const data2 = await clientsCollection.findOne({ emailId: email });
+        // console.log({ ...data, ...data2 });
+        res.send({ data: { ...data, ...data2 } });
       } else {
         res.status(401).send("Unauthorized Access");
       }
+    });
+
+    app.get("/client-with-isrc", async (req, res) => {
+      const data = await clientsCollection.find({}).toArray();
+      res.send(data);
+    });
+
+    /**
+     *
+     *
+     *
+     * Run this after '/calculate-account' to calculate balance and disbursed correctly
+     *
+     *
+     * */
+    app.get("/calculate-account-balance", async (req, res) => {
+      const clientsCursor = await clientsCollection.find({}).toArray();
+      const paymentHistoryList = await paymentHistory.find({}).toArray();
+      for (const item of paymentHistoryList) {
+        // console.log(item);
+        const found = await clientsCollection.findOne({
+          emailId: item["Email ID"],
+        });
+        console.log(found);
+        if (found !== null && !found.lifetimeDisbursed) {
+          found.lifetimeDisbursed = 0;
+        }
+      }
+
+      for (const item of clientsCursor) {
+        if (!item.lifetimeDisbursed) {
+          item.lifetimeDisbursed = 0;
+          item.accountBalance = item.lifetimeRevenue + item.lifetimeDisbursed;
+          delete item._id;
+          const updateCursor = await clientsCollection.updateOne(
+            { emailId: item.emailId },
+            { $set: { ...item } },
+            { upsert: true }
+          );
+
+          // console.log(updateCursor);
+        }
+      }
+
+      res.send(clientsCursor);
+    });
+
+    app.get("/calculate-account", async (req, res) => {
+      const paymentHistoryCursor = await paymentHistory.find({}).toArray();
+
+      // const
+      // res.send(paymentHistoryCursor);
+      const sorted = paymentHistoryCursor.sort((a, b) =>
+        a["Email ID"]?.localeCompare(b["Email ID"])
+      );
+
+      const sumByEmailAddress = sorted.reduce((acc, curr) => {
+        const email = curr["Email ID"];
+        if (!acc[email]) {
+          acc[email] = 0;
+        }
+        acc[email] += curr["Amount"];
+        return acc;
+      }, {});
+
+      Object.keys(sumByEmailAddress).map(async (item) => {
+        // console.log(sumByEmailAddress[item]);
+        const clients = await clientsCollection.findOne({ emailId: item });
+        // console.log(clients);
+        if (clients !== null) {
+          clients.lifetimeDisbursed = sumByEmailAddress[item];
+          // console.log(clients);
+          clients.accountBalance =
+            (clients.lifetimeRevenue || 0) - (clients.lifetimeDisbursed || 0);
+          // console.log(clients);
+
+          const updateCursor = await clientsCollection.updateOne(
+            { emailId: clients.emailId },
+            {
+              $set: { ...clients },
+            },
+            { upsert: true }
+          );
+
+          // res.send()
+        }
+      });
+
+      res.send(sorted);
     });
 
     // app.post("/user-signup", async (req, res) => {
