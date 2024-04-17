@@ -16,6 +16,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
+// for history
 router.get("/", async (req, res) => {
   const { paymentRequest } = await getCollections();
 
@@ -23,6 +24,19 @@ router.get("/", async (req, res) => {
   res.send(historyCursor);
 });
 
+// for getting specific data
+router.get("/:_id", async (req, res) => {
+  const { withdrawalRequest } = await getCollections();
+
+  const { _id } = req.params;
+
+  const data = await withdrawalRequest.findOne({ _id: new ObjectId(_id) });
+
+  // console.log(data);
+  res.send(data);
+});
+
+// for disbursement
 router.put("/:_id", async (req, res) => {
   const { _id } = req.params;
   const updatedDoc = req.body;
@@ -41,20 +55,21 @@ router.put("/:_id", async (req, res) => {
     (client.lifetimeDisbursed || 0) + client.lifetimeRevenue;
   console.log(client);
 
-  // const deleteCursor = await withdrawalRequest.deleteOne({
-  //   _id: new ObjectId(_id),
-  // });
+  const deleteCursor = await withdrawalRequest.deleteOne({
+    _id: new ObjectId(_id),
+  });
 
-  // const addedCursor = await paymentHistory.insertOne(updatedDoc);
-  // const updatedDocument = await clientsCollection.updateOne(
-  //   { emailId: client.emailId },
-  //   { $set: { ...client } },
-  //   { upsert: false }
-  // );
+  const addedCursor = await paymentHistory.insertOne(updatedDoc);
+  const updatedDocument = await clientsCollection.updateOne(
+    { emailId: client.emailId },
+    { $set: { ...client } },
+    { upsert: false }
+  );
 
-  // res.send({ deleteCursor, addedCursor, updatedDocument });
+  res.send({ deleteCursor, addedCursor, updatedDocument });
 });
 
+// for declining
 router.post("/:_id", async (req, res) => {
   const { _id } = req.params;
   const { paymentHistory, withdrawalRequest } = await getCollections();

@@ -19,7 +19,7 @@ const storage = multer.diskStorage({
     const { authorization } = req.headers;
 
     const { email } = jwt.decode(authorization);
-    // console.log();
+    console.log(file.originalname);
 
     cb(
       null,
@@ -29,7 +29,7 @@ const storage = multer.diskStorage({
         "-" +
         Date.now() +
         "." +
-        file.originalname.split(".")[1]
+        file.originalname.split(" ").join("-")
     );
   },
 });

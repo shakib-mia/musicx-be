@@ -2,9 +2,11 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const fs = require("fs");
+const cors = require("cors");
+const jwt = require("jsonwebtoken");
 
 // Ensure the directory exists before setting up the multer storage
-const uploadDir = "uploads/cancelled-cheques/";
+const uploadDir = "uploads/signatures/";
 fs.mkdirSync(uploadDir, { recursive: true });
 
 const storage = multer.diskStorage({
@@ -13,10 +15,14 @@ const storage = multer.diskStorage({
     cb(null, uploadDir);
   },
   filename: function (req, file, cb) {
-    console.log(file);
+    const { authorization } = req.headers;
+    // console.log(req.headers);
+    const { email } = jwt.decode(authorization);
     cb(
       null,
       file.fieldname +
+        "-" +
+        email.split("@")[0] +
         "-" +
         Date.now() +
         "-" +
@@ -28,12 +34,15 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 router.use(
-  "/uploads/cancelled-cheques",
-  express.static("uploads/cancelled-cheques")
+  "/uploads/signatures",
+  express.static("uploads/signatures"),
+  cors({
+    origin: "*",
+  })
 );
 
 router.post("/", upload.single("file"), (req, res) => {
-  // console.log(req.file, "pan");
+  // console.log(req.file, "aadhar");
   res.send({ url: `${req.protocol}://${req.get("host")}/${req.file?.path}` });
 });
 

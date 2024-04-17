@@ -7,7 +7,7 @@ const getCollections = require("../constants");
 router.post("/", verifyJWT, async (req, res) => {
   const { withdrawalRequest, clientsCollection } = await getCollections();
   const { token } = req.headers;
-  // console.log();
+  console.log(token);
   const { email } = jwt.decode(token);
 
   // console.log(req.body);

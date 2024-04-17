@@ -26,7 +26,7 @@ const storage = multer.diskStorage({
         "-" +
         Date.now() +
         "-" +
-        file.originalname
+        file.originalname.split(" ").join("-")
     );
   },
 });

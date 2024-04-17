@@ -49,6 +49,7 @@ const uploadArtWork = require("./routes/upload-artwork");
 const recordLabels = require("./routes/get-record-labels");
 const couponCodes = require("./routes/store-coupon-codes");
 const storeInvoice = require("./routes/store-invoice");
+const uploadSignature = require("./routes/upload-signature");
 // const { customLog } = require("./constants");
 
 const paidData = [
@@ -870,6 +871,10 @@ async function run() {
       {
         path: "/store-invoice",
         element: storeInvoice,
+      },
+      {
+        path: "/upload-signature",
+        element: uploadSignature,
       },
     ];
 

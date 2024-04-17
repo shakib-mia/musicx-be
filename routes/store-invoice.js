@@ -16,13 +16,13 @@ const storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     const { authorization } = req.headers;
-    // console.log(req.headers);
 
     const fileName = file.originalname?.includes(" ")
       ? file.originalname?.split(" ").join("_")
       : file.originalname;
 
     const { email } = jwt.decode(authorization);
+    //  console.log("file name", file);
     cb(
       null,
       file.fieldname +
@@ -31,7 +31,8 @@ const storage = multer.diskStorage({
         "-" +
         Date.now() +
         "-" +
-        fileName
+        fileName +
+        ".pdf"
     );
   },
 });
@@ -47,12 +48,15 @@ router.use(
 );
 
 router.post("/", upload.single("file"), (req, res) => {
-  // console.log(req.file, "aadhar");
+  //    console.log(req, "invoice");
   const fileName = req.file?.path?.includes(" ")
     ? req.file?.path?.split(" ").join("_")
     : req.file?.path;
+
+  console.log(req.file);
+
   res.send({
-    songUrl: `${req.protocol}://${req.get("host")}/${fileName}`,
+    pdfUrl: `${req.protocol}://${req.get("host")}/${fileName}`,
   });
 });
 
