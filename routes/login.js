@@ -17,6 +17,8 @@ router.post("/", async (req, res) => {
       });
 
       res.send({ token });
+    } else {
+      res.status(401).send("Wrong Password");
     }
   } else {
     res.status(401).send({ message: "You are not Authorized to login" });

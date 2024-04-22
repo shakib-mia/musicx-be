@@ -88,6 +88,9 @@ const getCollections = async () => {
   const couponCodesCollection = await client2
     .db("forevision-digital")
     .collection("coupon-codes");
+  const notificationsCollections = await client2
+    .db("forevision-digital")
+    .collection("notifications");
 
   function customLog(...messages) {
     const err = new Error();
@@ -123,6 +126,7 @@ const getCollections = async () => {
     isrcWithIDCollection,
     recordLabelsCollection,
     couponCodesCollection,
+    notificationsCollections,
   };
 };
 

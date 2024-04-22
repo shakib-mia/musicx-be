@@ -50,6 +50,9 @@ const recordLabels = require("./routes/get-record-labels");
 const couponCodes = require("./routes/store-coupon-codes");
 const storeInvoice = require("./routes/store-invoice");
 const uploadSignature = require("./routes/upload-signature");
+const notifications = require("./routes/handle-notifications");
+const tokenTime = require("./routes/token-time");
+const razorpay = require("./routes/payment");
 // const { customLog } = require("./constants");
 
 const paidData = [
@@ -875,6 +878,18 @@ async function run() {
       {
         path: "/upload-signature",
         element: uploadSignature,
+      },
+      {
+        path: "/notifications",
+        element: notifications,
+      },
+      {
+        path: "/token-time",
+        element: tokenTime,
+      },
+      {
+        path: "/razorpay",
+        element: razorpay,
       },
     ];
 
