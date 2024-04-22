@@ -52,9 +52,10 @@ router.post("/", verifyJWT, async (req, res) => {
     Hi,<br />
     We hope this email finds you well.<br />
     Thank you for submitting your invoice.<br />
-    
-    We have initiated the process to address your withdrawal request.<br />
-    You will receive your payment within few days from the Invoice date. Once the payment is done we will share the payment details with you.<br />
+   
+    We have initiated the process to address your withdrawal request.<br /> <br />
+
+    You will receive your payment within few days from the Invoice date. Once the payment is done we will share the payment details with you.<br /> <br />
     
     Thank you for choosing ForeVision Digital.<br />
     We appreciate your trust in us and look forward to serving you.<br />

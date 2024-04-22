@@ -154,6 +154,39 @@ router.post("/:_id", async (req, res) => {
     notification
   );
 
+  var message = {
+    from: `ForeVision Payments ${process.env.emailAddress}`,
+    // to: user_email,
+    to: "smdshakibmia2001@gmail.com",
+    subject: "Payment Rejection Notification and Resubmission Request",
+    // text: "Plaintext version of the message",
+    html: `<div>
+    Dear Artists, <br /> <br />
+
+    We hope this message finds you well. We would like to bring to your attention that your submission for last payment processing submitted to us has been rejected. 
+    After careful review, we discovered that the payment could not be processed due to <b>${req.body.reason}</b>.<br /><br /> 
+    
+    We apologize for any problem regarding this may have caused.<br /><br />
+    
+    In order to ensure that your payment is successfully processed, we kindly ask that you resubmit the payment at your earliest convenience. Please review the details of your payment method and ensure that all necessary information is accurate and up to date.<br /><br />
+    
+    Incase of any assistance, you can reach us at your earliest convenience.<br /><br />
+    
+    Best regards<br />
+    Team ForeVision Digital
+    </div>`,
+  };
+
+  transporter.sendMail(message, async (error, info) => {
+    if (error) {
+      console.error(error);
+      res.status(500).send(error);
+    } else {
+      // console.log("sent");
+      res.send({ message: "Success" });
+    }
+  });
+
   res.send({ deleteCursor, addedCursor, notification });
 });
 
