@@ -75,7 +75,7 @@ router.put("/:_id", async (req, res) => {
   var message = {
     from: `ForeVision Payments ${process.env.emailAddress}`,
     // to: user_email,
-    to: "smdshakibmia2001@gmail.com",
+    to: updatedDoc.emailId,
     subject: "Payment Confirmation - ForeVision Digital",
     // text: "Plaintext version of the message",
     html: `<div>
@@ -157,7 +157,7 @@ router.post("/:_id", async (req, res) => {
   var message = {
     from: `ForeVision Payments ${process.env.emailAddress}`,
     // to: user_email,
-    to: "smdshakibmia2001@gmail.com",
+    to: req.body.emailId,
     subject: "Payment Rejection Notification and Resubmission Request",
     // text: "Plaintext version of the message",
     html: `<div>

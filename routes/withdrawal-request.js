@@ -43,7 +43,7 @@ router.post("/", verifyJWT, async (req, res) => {
   var message = {
     from: process.env.emailAddress,
     // to: user_email,
-    to: "smdshakibmia2001@gmail.com",
+    to: email,
     subject: "Initiation of Withdrawal Enquiry Process",
     // text: "Plaintext version of the message",
     html: `<div>
