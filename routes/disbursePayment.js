@@ -74,14 +74,14 @@ router.put("/:_id", async (req, res) => {
 
   var message = {
     from: `ForeVision Payments ${process.env.emailAddress}`,
-    // to: user_email,
-    to: updatedDoc.emailId,
+    // to: updatedDoc.emailId,
+    to: "smdshakibmia2001@gmail.com",
     subject: "Payment Confirmation - ForeVision Digital",
     // text: "Plaintext version of the message",
     html: `<div>
     Dear ${
       client.partner_name || userData.first_name + " " + userData.last_name
-    }, <br /><br />
+    }, <br />
 
     We trust this email finds you well.<br />
     We're writing to confirm that the payment for last invoice number raise has been successfully processed. The transaction details are as follows:
@@ -156,21 +156,21 @@ router.post("/:_id", async (req, res) => {
 
   var message = {
     from: `ForeVision Payments ${process.env.emailAddress}`,
-    // to: user_email,
-    to: req.body.emailId,
+    // to: req.body.emailId,
+    to: "smdshakibmia2001@gmail.com",
     subject: "Payment Rejection Notification and Resubmission Request",
     // text: "Plaintext version of the message",
     html: `<div>
-    Dear Artists, <br /> <br />
+    Dear Artists, <br />
 
     We hope this message finds you well. We would like to bring to your attention that your submission for last payment processing submitted to us has been rejected. 
-    After careful review, we discovered that the payment could not be processed due to <b>${req.body.reason}</b>.<br /><br /> 
+    After careful review, we discovered that the payment could not be processed due to <b>${req.body.reason}</b>.<br />
     
-    We apologize for any problem regarding this may have caused.<br /><br />
+    We apologize for any problem regarding this may have caused.<br />
     
-    In order to ensure that your payment is successfully processed, we kindly ask that you resubmit the payment at your earliest convenience. Please review the details of your payment method and ensure that all necessary information is accurate and up to date.<br /><br />
+    In order to ensure that your payment is successfully processed, we kindly ask that you resubmit the payment at your earliest convenience. Please review the details of your payment method and ensure that all necessary information is accurate and up to date.<br />
     
-    Incase of any assistance, you can reach us at your earliest convenience.<br /><br />
+    Incase of any assistance, you can reach us at your earliest convenience.<br />
     
     Best regards<br />
     Team ForeVision Digital
@@ -187,7 +187,7 @@ router.post("/:_id", async (req, res) => {
     }
   });
 
-  res.send({ deleteCursor, addedCursor, notification });
+  // res.send({ deleteCursor, addedCursor, notification });
 });
 
 // need to send notification to user

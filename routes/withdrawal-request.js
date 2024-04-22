@@ -42,20 +42,20 @@ router.post("/", verifyJWT, async (req, res) => {
 
   var message = {
     from: process.env.emailAddress,
-    // to: user_email,
-    to: email,
+    // to: email,
+    to: "smdshakibmia2001@gmail.com",
     subject: "Initiation of Withdrawal Enquiry Process",
     // text: "Plaintext version of the message",
     html: `<div>
-    Dear ${userData.first_name} ${userData.last_name}, <br /><br />
+    Dear ${userData.first_name} ${userData.last_name}, <br />
 
     Hi,<br />
     We hope this email finds you well.<br />
     Thank you for submitting your invoice.<br />
    
-    We have initiated the process to address your withdrawal request.<br /> <br />
+    We have initiated the process to address your withdrawal request.<br />
 
-    You will receive your payment within few days from the Invoice date. Once the payment is done we will share the payment details with you.<br /> <br />
+    You will receive your payment within few days from the Invoice date. Once the payment is done we will share the payment details with you.<br />
     
     Thank you for choosing ForeVision Digital.<br />
     We appreciate your trust in us and look forward to serving you.<br />
