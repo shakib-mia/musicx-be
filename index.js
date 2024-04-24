@@ -53,6 +53,7 @@ const uploadSignature = require("./routes/upload-signature");
 const notifications = require("./routes/handle-notifications");
 const tokenTime = require("./routes/token-time");
 const razorpay = require("./routes/payment");
+const updateDisbursed = require("./routes/update-disbursement");
 // const { customLog } = require("./constants");
 
 const paidData = [
@@ -677,13 +678,13 @@ const transporter = nodemailer.createTransport({
 const port = process.env.port;
 
 app.get("/", (req, res) => {
-  const token = jwt.sign(
-    { email: "kshityiz2003@gmail.com" },
-    process.env.access_token_secret,
-    { expiresIn: "1h" }
-  );
+  // const token = jwt.sign(
+  //   { email: "harishmsme@gmail.com" },
+  //   process.env.access_token_secret,
+  //   { expiresIn: "1h" }
+  // );
 
-  res.send(`from port: ${port} ${token}`);
+  res.send(`from port: ${port}`);
 });
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -890,6 +891,10 @@ async function run() {
       {
         path: "/razorpay",
         element: razorpay,
+      },
+      {
+        path: "/update-disbursement",
+        element: updateDisbursed,
       },
     ];
 
