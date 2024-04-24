@@ -664,6 +664,7 @@ app.options("*", cors());
 
 app.use(express.json());
 app.use(bodyParser.json());
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const transporter = nodemailer.createTransport({
   host: "smtp.hostinger.com", // Replace with your Hostinger SMTP server
