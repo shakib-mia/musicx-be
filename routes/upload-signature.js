@@ -37,7 +37,9 @@ router.use(
   "/uploads/signatures",
   express.static("uploads/signatures"),
   cors({
-    origin: "*",
+    origin: "*", // Allows access from any origin
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE", // Optional: Specify allowed methods
+    allowedHeaders: "Content-Type,Authorization", // Optional: Specify allowed headers
   })
 );
 
