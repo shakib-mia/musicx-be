@@ -45,8 +45,8 @@ router.use(
 
 router.post("/", upload.single("file"), (req, res) => {
   // console.log(req.file, "aadhar");
-  console.log(req.protocol);
-  res.send({ url: `${req.protocol}://${req.get("host")}/${req.file?.path}` });
+  // console.log(req.protocol);
+  res.send({ url: `https://${req.get("host")}/${req.file?.path}` });
 });
 
 module.exports = router;
