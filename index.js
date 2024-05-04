@@ -54,6 +54,8 @@ const notifications = require("./routes/handle-notifications");
 const tokenTime = require("./routes/token-time");
 const razorpay = require("./routes/payment");
 const updateDisbursed = require("./routes/update-disbursement");
+const checkRequested = require("./routes/checkRequested");
+const phonePe = require("./routes/handlePhonePePayment");
 // const { customLog } = require("./constants");
 
 const paidData = [
@@ -678,7 +680,7 @@ const transporter = nodemailer.createTransport({
 
 const port = process.env.port;
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   // const token = jwt.sign(
   //   { email: "harishmsme@gmail.com" },
   //   process.env.access_token_secret,
@@ -896,6 +898,15 @@ async function run() {
       {
         path: "/update-disbursement",
         element: updateDisbursed,
+      },
+
+      {
+        path: "/phonepe-payment",
+        element: phonePe,
+      },
+      {
+        path: "/check-requested",
+        element: checkRequested,
       },
     ];
 

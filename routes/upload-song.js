@@ -15,14 +15,14 @@ const storage = multer.diskStorage({
     cb(null, uploadDir);
   },
   filename: function (req, file, cb) {
-    const { authorization } = req.headers;
+    const { token } = req.headers;
     // console.log(req.headers);
 
     const fileName = file.originalname?.includes(" ")
       ? file.originalname?.split(" ").join("_")
       : file.originalname;
 
-    const { email } = jwt.decode(authorization);
+    const { email } = jwt.decode(token);
     cb(
       null,
       file.fieldname +

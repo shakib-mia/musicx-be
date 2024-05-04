@@ -1,6 +1,7 @@
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const uri = `mongodb+srv://${process.env.db_username}:${process.env.db_password}@cluster0.i4vpazx.mongodb.net/?retryWrites=true&w=majority`;
 const uri2 = `mongodb+srv://${process.env.user_db}:${process.env.user_db_pass}@cluster0.ynlqa8v.mongodb.net/?retryWrites=true&w=majority`;
+const uri3 = `mongodb+srv://${process.env.payment_db}:${process.env.payment_db_pass}@cluster0.ynlqa8v.mongodb.net/?retryWrites=true&w=majority`;
 
 const client = new MongoClient(uri, {
   serverApi: {
@@ -10,6 +11,14 @@ const client = new MongoClient(uri, {
   },
 });
 const client2 = new MongoClient(uri2, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
+});
+
+const client3 = new MongoClient(uri3, {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
@@ -92,6 +101,10 @@ const getCollections = async () => {
     .db("forevision-digital")
     .collection("notifications");
 
+  const paymentsCollection = await client2
+    .db("forevision-digital")
+    .collection("payments");
+
   function customLog(...messages) {
     const err = new Error();
     const stackLine = err.stack.split("\n")[2]; // Adjust this line number based on where the error stack points to the correct caller
@@ -127,6 +140,7 @@ const getCollections = async () => {
     recordLabelsCollection,
     couponCodesCollection,
     notificationsCollections,
+    paymentsCollection,
   };
 };
 
