@@ -16,8 +16,7 @@ router.post("/", async (req, res) => {
 
   const users = await userExist.toArray();
 
-  // console.log();
-  if (users.length === 0) {
+  if (user === null) {
     bcrypt.hash(reqBody.password, 10, async function (err, hash) {
       if (hash.length) {
         // Store hash in your password DB.
