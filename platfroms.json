@@ -1,0 +1,56 @@
+[
+  {
+    "platformType": "Indian",
+    "platforms": [
+      {
+        "cat_name": "JioSaavn"
+      },
+      {
+        "cat_name": "Gaana"
+      },
+      {
+        "cat_name": "Hungama"
+      },
+      {
+        "cat_name": "Wynk Music"
+      }
+    ]
+  },
+  {
+    "platformType": "International",
+    "platforms": [
+      {
+        "cat_name": "Apple Music"
+      },
+
+      {
+        "cat_name": "Spotify"
+      },
+
+      {
+        "cat_name": "Meta"
+      },
+
+      {
+        "cat_name": "TikTok"
+      },
+      {
+        "cat_name": "YouTube"
+      },
+      {
+        "cat_name": "YouTube Music"
+      }
+    ]
+  },
+  {
+    "platformType": "Caller Tune",
+    "platforms": [
+      {
+        "cat_name": "BSNL"
+      },
+      {
+        "cat_name": "Airtel"
+      }
+    ]
+  }
+]
