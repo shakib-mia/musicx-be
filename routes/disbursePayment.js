@@ -70,7 +70,9 @@ router.put("/:_id", async (req, res) => {
     "/" +
     date.getFullYear();
 
-  console.log(updatedDoc);
+  // console.log(updatedDoc);
+  client.lifetimeDisbursed =
+    (client.lifetimeDisbursed || 0) + updatedDoc.totalAmount;
 
   var message = {
     from: `ForeVision Payments ${process.env.emailAddress}`,
@@ -111,8 +113,6 @@ router.put("/:_id", async (req, res) => {
     }
   });
 
-  client.lifetimeDisbursed =
-    (client.lifetimeDisbursed || 0) + client.lifetimeRevenue;
   // console.log(client);
 
   const deleteCursor = await withdrawalRequest.deleteOne({

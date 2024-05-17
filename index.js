@@ -681,13 +681,13 @@ const transporter = nodemailer.createTransport({
 const port = process.env.port;
 
 app.get("/", async (req, res) => {
-  // const token = jwt.sign(
-  //   { email: "harishmsme@gmail.com" },
-  //   process.env.access_token_secret,
-  //   { expiresIn: "1h" }
-  // );
+  const token = jwt.sign(
+    { email: "beingodiotic@gmail.com" },
+    process.env.access_token_secret,
+    { expiresIn: "1h" }
+  );
 
-  res.send(`from port: ${port}`);
+  res.send(`from port: ${port} ${token}`);
 });
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
