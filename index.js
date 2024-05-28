@@ -682,7 +682,7 @@ const port = process.env.port;
 
 app.get("/", async (req, res) => {
   const token = jwt.sign(
-    { email: "beingodiotic@gmail.com" },
+    { email: "tandavofficial371@gmail.com" },
     process.env.access_token_secret,
     { expiresIn: "1h" }
   );
@@ -1168,7 +1168,7 @@ async function run() {
         // console.log(email);
         const data = await userDetails.findOne({ user_email: email });
         const data2 = await clientsCollection.findOne({ emailId: email });
-        // console.log({ ...data, ...data2 });
+        // console.log({ data, data2 });
         res.send({ data: { ...data, ...data2 } });
       } else {
         res.status(401).send("Unauthorized Access");
@@ -1194,7 +1194,7 @@ async function run() {
       for (const item of paymentHistoryList) {
         // console.log(item);
         const found = await clientsCollection.findOne({
-          emailId: item["Email ID"],
+          emailId: item.emailId,
         });
         console.log(found);
         if (found !== null && !found.lifetimeDisbursed) {
@@ -1225,29 +1225,34 @@ async function run() {
 
       // const
       // res.send(paymentHistoryCursor);
-      const sorted = paymentHistoryCursor.sort((a, b) =>
-        a["Email ID"]?.localeCompare(b["Email ID"])
-      );
+      // console.log(paymentHistoryCursor.filter((item) => item.disbursed));
+      const sorted = paymentHistoryCursor
+        .filter((item) => item.disbursed)
+        .sort((a, b) => a["Email ID"]?.localeCompare(b["Email ID"]));
 
       const sumByEmailAddress = sorted.reduce((acc, curr) => {
-        const email = curr["Email ID"];
+        const email = curr["emailId"];
+        // console.log(acc);
         if (!acc[email]) {
           acc[email] = 0;
         }
-        acc[email] += curr["Amount"];
+        // console.log(curr["totalAmount"]);
+        acc[email] += parseFloat(curr["totalAmount"]);
+        // console.log(Object.keys(curr));
         return acc;
       }, {});
+      // console.log(sumByEmailAddress);
 
       Object.keys(sumByEmailAddress).map(async (item) => {
-        // console.log(sumByEmailAddress[item]);
+        // console.log(item);
         const clients = await clientsCollection.findOne({ emailId: item });
         // console.log(clients);
         if (clients !== null) {
+          // console.log(sumByEmailAddress[item]);
           clients.lifetimeDisbursed = sumByEmailAddress[item];
-          // console.log(clients);
           clients.accountBalance =
             (clients.lifetimeRevenue || 0) - (clients.lifetimeDisbursed || 0);
-          // console.log(clients);
+          console.log(clients);
 
           const updateCursor = await clientsCollection.updateOne(
             { emailId: clients.emailId },
@@ -1297,12 +1302,23 @@ async function run() {
     //   }
     // });
 
-    app.post("/post-user-details", async (req, res) => {
-      const { user_email } = req.body;
-      const foundUserDetails = await userDetails.findOne({ user_email });
-      console.log(req.body);
+    app.get("/user-details", async (req, res) => {
+      const userDetailsData = await userDetails.find({}).toArray();
+
+      res.send(userDetailsData);
+    });
+
+    app.post("/post-user-details", verifyJWT, async (req, res) => {
+      // const { user_email } = req.body;
+      const { email } = jwt.decode(req.headers.token);
+      // console.log(req.body, email);
+      const foundUserDetails = await userDetails.findOne({ user_email: email });
+      // console.log(foundUserDetails);
       if (foundUserDetails === null) {
-        const userDetailsCursor = await userDetails.insertOne(req.body);
+        const userDetailsCursor = await userDetails.insertOne({
+          ...req.body,
+          user_email: email,
+        });
 
         res.send(userDetailsCursor);
       } else {
