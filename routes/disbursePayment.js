@@ -72,7 +72,7 @@ router.put("/:_id", async (req, res) => {
 
   // console.log(updatedDoc);
   client.lifetimeDisbursed =
-    (client.lifetimeDisbursed || 0) + updatedDoc.totalAmount;
+    (client.lifetimeDisbursed || 0) + parseFloat(updatedDoc.totalAmount);
 
   var message = {
     from: `ForeVision Payments ${process.env.emailAddress}`,
