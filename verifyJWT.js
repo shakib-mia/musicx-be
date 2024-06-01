@@ -4,7 +4,7 @@ const verifyJWT = (req, res, next) => {
   const currentTime = new Date().getTime();
   const { token } = req.headers;
 
-  console.log(req.headers);
+  // console.log(req.headers);
   if (!token) {
     return res.status(401).send("Unauthorized: Token missing");
   }
