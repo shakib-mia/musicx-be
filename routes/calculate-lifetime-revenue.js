@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
 
     for (const client of clients) {
       let lifetimeRevenue = 0;
+      let accountBalance = 0;
 
       if (client.isrc) {
         const isrcs = client.isrc.split(",");

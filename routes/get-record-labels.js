@@ -18,9 +18,33 @@ router.get("/", verifyJWT, async (req, res) => {
 
   const names = recordLabels.map((item) => item["Sub-Label Name"]);
 
-  //   console.log(names);
+  // console.log(names);
 
   res.send([...names, "ForeVision Digital"]); // forevision digital is common for all
+});
+
+router.post("/", verifyJWT, async (req, res) => {
+  const { recordLabelsCollection } = await getCollections();
+
+  const { body } = req;
+
+  // console.log(body);
+
+  const recordLabels = await recordLabelsCollection.find({}).toArray();
+
+  const found = recordLabels.find(
+    (item) => item["Sub-Label Name"] === body["Sub-Label Name"]
+  );
+
+  // console.log(found);
+
+  if (!found) {
+    const postCursor = await recordLabelsCollection.insertOne(body);
+
+    res.send(postCursor);
+  } else {
+    res.status(409).send("Record Label Already Exists");
+  }
 });
 
 module.exports = router;

@@ -682,7 +682,7 @@ const port = process.env.port;
 
 app.get("/", async (req, res) => {
   const token = jwt.sign(
-    { email: "hs59507@gmail.com" },
+    { email: "sukiranastudios@gmail.com" },
     process.env.access_token_secret,
     { expiresIn: "1h" }
   );
@@ -916,6 +916,11 @@ async function run() {
       const salt = bcrypt.genSaltSync(10);
       const hash = bcrypt.hashSync("12345", salt);
       res.send(hash);
+    });
+
+    app.get("/clients", async (req, res) => {
+      const found = await clientsCollection.find({}).toArray();
+      res.send(found);
     });
 
     app.get("/generate-isrc", async (req, res) => {
