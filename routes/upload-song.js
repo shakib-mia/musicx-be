@@ -6,12 +6,14 @@ const cors = require("cors");
 const path = require("path");
 const jwt = require("jsonwebtoken");
 const verifyJWT = require("./../verifyJWT");
+const getCollections = require("../constants");
+const { ObjectId } = require("mongodb");
 
 // Ensure the directory exists before setting up the multer storage
 const uploadDir = "uploads/songs/";
-const tempDir = "uploads/temp/songs/";
+// const tempDir = "uploads/temp/songs/";
 fs.mkdirSync(uploadDir, { recursive: true });
-fs.mkdirSync(tempDir, { recursive: true });
+// fs.mkdirSync(tempDir, { recursive: true });
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -41,35 +43,8 @@ const storage = multer.diskStorage({
   },
 });
 
-const tempStorage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    // Now that the directory is guaranteed to exist, we can set it as the destination
-    cb(null, tempDir);
-  },
-  filename: function (req, file, cb) {
-    const { token } = req.headers;
-    // console.log(req.headers);
-
-    const fileName = file.originalname?.includes(" ")
-      ? file.originalname?.split(" ").join("_")
-      : file.originalname;
-
-    const { email } = jwt.decode(token);
-    cb(
-      null,
-      file.fieldname +
-        "-" +
-        email.split("@")[0] +
-        "-" +
-        Date.now() +
-        "-" +
-        fileName
-    );
-  },
-});
-
 const upload = multer({ storage: storage });
-const tempUpload = multer({ storage: tempStorage });
+// const tempUpload = multer({ storage: tempStorage });
 
 router.use(
   "/uploads/songs",
@@ -79,14 +54,36 @@ router.use(
   })
 );
 
-router.post("/", verifyJWT, tempUpload.single("file"), (req, res) => {
+router.post("/", verifyJWT, upload.single("file"), (req, res) => {
   // console.log(req.file, "aadhar");
   const fileName = req.file?.path?.includes(" ")
     ? req.file?.path?.split(" ").join("_")
     : req.file?.path;
+  // console.log(req.file);
   res.send({
     songUrl: `${req.protocol}://${req.get("host")}/${fileName}`,
   });
+});
+
+router.post("/upload-song-data", verifyJWT, async (req, res) => {
+  const data = req.body;
+  // console.log(data);
+  const { songs } = await getCollections();
+  const songsCursor = await songs.insertOne(data);
+  res.send(songsCursor);
+  // const
+});
+
+router.get("/", verifyJWT, async (req, res) => {
+  const { songs } = await getCollections();
+  const songsData = await songs.find({}).toArray();
+  res.send(songsData);
+});
+
+router.get("/:_id", async (req, res) => {
+  const { songs } = await getCollections();
+  const songsData = await songs.findOne({ _id: new ObjectId(req.params._id) });
+  res.send(songsData);
 });
 
 router.post("/delete/:fileName", (req, res) => {

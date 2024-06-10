@@ -25,7 +25,7 @@ router.post("/", async (req, res) => {
         return res.status(500).json(error);
       }
       console.clear();
-      console.log(order);
+      // console.log(order);
       res.send(order);
     });
   } catch (error) {
@@ -64,12 +64,14 @@ router.post("/verify", verifyJWT, async (req, res) => {
         ...req.body,
       };
 
-      console.log(data);
+      // console.log(data);
+      const insertCursor = await paymentsCollection.insertOne(data);
 
       return res.send({
         message: "Payment verified successfully",
         razorpay_order_id,
         razorpay_payment_id,
+        insertCursor,
       });
     }
   } catch (error) {
