@@ -56,6 +56,7 @@ const razorpay = require("./routes/payment");
 const updateDisbursed = require("./routes/update-disbursement");
 const checkRequested = require("./routes/checkRequested");
 const phonePe = require("./routes/handlePhonePePayment");
+const generateOrderId = require("./routes/generate-order-id");
 // const { customLog } = require("./constants");
 
 const paidData = [
@@ -907,6 +908,10 @@ async function run() {
       {
         path: "/check-requested",
         element: checkRequested,
+      },
+      {
+        path: "/generate-order-id",
+        element: generateOrderId,
       },
     ];
 
