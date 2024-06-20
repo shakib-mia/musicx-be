@@ -5,7 +5,7 @@
     "last_name": "Bhowal",
     "billing_city": "Cooch Behar",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "bhawal2013@gmail.com",
     "isrc": "INI112177816"
   },
@@ -14,7 +14,7 @@
     "first_name": "Sougata",
     "last_name": "Pharikal",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "panchmeshali14@gmail.com",
     "isrc": "INI112177815"
   },
@@ -24,7 +24,7 @@
     "last_name": "Agnihotri",
     "billing_city": "Lucknow",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "vipin.agnihotrijournalist@gmail.com"
   },
   {
@@ -33,7 +33,7 @@
     "last_name": "Sarkar",
     "billing_city": "Alipurduar",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "wrupsarkar@gmail.com",
     "isrc": "INF232100006"
   },
@@ -42,7 +42,7 @@
     "first_name": "Chandra",
     "last_name": "Mohan",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "music.chandramohan@gmail.com",
     "isrc": "INF232100001,INF232100002,INF232100003,INF232100004,INF232100005,INF232200515,INF232200554,INF232200712"
   },
@@ -52,7 +52,7 @@
     "last_name": "Chatterjee",
     "billing_city": "Kolkata",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "srijachatterjee22@gmail.com",
     "isrc": "INF232100007"
   },
@@ -68,7 +68,7 @@
     "first_name": "Riitu",
     "last_name": "Sood",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "bloomfairproduction@gmail.com",
     "isrc": "INF232100009,INF232100026"
   },
@@ -86,9 +86,10 @@
     "last_name": "Datta",
     "billing_city": "Cooch Behar",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
-    "emailId": "kalpakdatta200@gmail.com",
-    "isrc": "INF232100013,INF232100095,INF232100037,INF232100167,INF232100168,INF232100169,INF232100170,INF232200306,INF232301315,INF232301316,INF232301317,INF232301318,INF232301319"
+    "billing_country": "India",
+    "emailId": "kalpakdatta666@gmail.com",
+    "isrc": "INF232100013,INF232100095,INF232100037,INF232100167,INF232100168,INF232100169,INF232100170,INF232200306,INF232301315,INF232301316,INF232301317,INF232301318,INF232301319,INF232401979",
+    "Column13": "Nandesh Umap"
   },
   {
     "partner_name": "Emmanuel Yuwel",
@@ -103,7 +104,7 @@
     "last_name": "Gaikwad",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "kartiki.gaikwad5@gmail.com ",
     "isrc": "INF232100015"
   },
@@ -113,7 +114,7 @@
     "last_name": "Rai",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "solid.star.007@gmail.com",
     "isrc": "INF232100016"
   },
@@ -123,9 +124,9 @@
     "last_name": "Gang",
     "billing_city": "Cooch Behar",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "geekypkj@gmail.com",
-    "isrc": "SE6I32070523,INF232100017,INF232100018,INF232100019,INF232100020,INF232100021,INF232100098,INF232100198,INF232100257,INF232100258,INF232200424,INF232301377,INF232301448,SE6I32005063"
+    "isrc": "SE6I32070523,INF232100017,INF232100018,INF232100019,INF232100020,INF232100021,INF232100098,INF232100198,INF232100257,INF232100258,INF232200424,INF232301377,INF232301448,SE6I32005063,INF232402033"
   },
   {
     "partner_name": "Paras Goswami",
@@ -133,7 +134,7 @@
     "last_name": "Goswami",
     "billing_city": "Haridwar",
     "billing_state": "Uttarakhand",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "banparas4@gmail.com"
   },
   {
@@ -142,9 +143,9 @@
     "last_name": "Samundre",
     "billing_city": "Nagpur",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sammisamundre534@gmail.com",
-    "isrc": "INF232100027,INF232100023,INF232100024,INF232100025,INF232100123,INF232100237,INF232100239,INF232200287,INF232200348,INF232200391,INF232200639,INF232200713,INF232200800,INF232200877,INF232200952,INF232201056,INF232301141"
+    "isrc": "INF232100027,INF232100023,INF232100024,INF232100025,INF232100123,INF232100237,INF232100239,INF232200287,INF232200348,INF232200391,INF232200639,INF232200713,INF232200800,INF232200877,INF232200952,INF232201056,INF232301141,INF232401842,INF232401950"
   },
   {
     "partner_name": "Humanity-A Vision",
@@ -152,7 +153,7 @@
     "last_name": "MSVA",
     "billing_city": "Bulandshahr",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "akashthakurmsva@gmail.com",
     "isrc": "QZHN72077024,QZK6N2008036,QZK6K2063992,QZFZ62188434,QZNWR2091896,INF232100033,INF232100035,INF232100232,INF232200563,INF232301216,INF232301460"
   },
@@ -162,7 +163,7 @@
     "last_name": "Majumder",
     "billing_city": "Cooch Behar",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "kishorekmajumder@gmail.com",
     "isrc": "INF232100028,INF232100029,INF232100031,INF232100030,INF232100038,INF232100039,INF232100040,INF232100041,INF232100226,INF232200284,INF232200651,INF232200707,INF232200714,INF232200839,INF232301640"
   },
@@ -172,7 +173,7 @@
     "last_name": "Ali",
     "billing_city": "Barpeta",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ethayne.fa16@gmail.com"
   },
   {
@@ -181,7 +182,7 @@
     "last_name": "Sabharwal",
     "billing_city": "Jammu",
     "billing_state": "Jammu and Kashmir",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sahajsabharwal12345@gmail.com",
     "isrc": "INF232100034"
   },
@@ -191,7 +192,7 @@
     "last_name": "Saxena",
     "billing_city": "Mathura",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "shubhsaxena555@gmail.com",
     "isrc": "INF232100036"
   },
@@ -201,9 +202,9 @@
     "last_name": "Yadav",
     "billing_city": "Noida",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "harishmsme@gmail.com",
-    "isrc": "INF232100042,INF232201031"
+    "isrc": "INF232100042,INF232201031,INF232401866"
   },
   {
     "partner_name": "Rajendra Karode",
@@ -211,7 +212,7 @@
     "last_name": "Karode",
     "billing_city": "Shirpur",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rajendrakarode12@gmail.com",
     "isrc": "INF232100043"
   },
@@ -220,9 +221,9 @@
     "first_name": "Yugesh",
     "last_name": "Ganesh",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "behindshoots@gmail.com",
-    "isrc": "INF232100044,INF232100045,INF232100046,INF232100047,INF232100048,INF232100049,INF232100050,INF232100051,INF232100052,INF232100053,INF232100054,INF232100055,INF232100056,INF232100057,INF232100058,INF232100059,INF232100062,INF232100063"
+    "isrc": "INF232100044,INF232100045,INF232100046,INF232100047,INF232100048,INF232100049,INF232100050,INF232100051,INF232100052,INF232100053,INF232100054,INF232100055,INF232100056,INF232100057,INF232100058,INF232100059,INF232100063"
   },
   {
     "partner_name": "OP Rawat",
@@ -230,7 +231,7 @@
     "last_name": "Rawat",
     "billing_city": "Shimla",
     "billing_state": "Himachal Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "oprawat236@gmail.com",
     "isrc": "INF232100061,INF232100064"
   },
@@ -240,7 +241,7 @@
     "last_name": "Kumar",
     "billing_city": "Surat",
     "billing_state": "Gujarat",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "vishal.jp@live.com",
     "isrc": "GX38U2178119"
   },
@@ -249,7 +250,7 @@
     "first_name": "Prakash",
     "last_name": "Paliwal",
     "billing_state": "Delhi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "dlandmusic123@gmail.com",
     "isrc": "INF232100065,INF232100066,INF232100067,INF232100068,INF232100137,INF232100174,INF232100240,INF232200286,INF232200446,INF232200742,INF232301414,INF232301421,INF232301517"
   },
@@ -259,7 +260,7 @@
     "last_name": "King",
     "billing_city": "JAMSHEDPUR",
     "billing_state": "Jharkhand",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "deepakjsr456@gmail.com",
     "isrc": "INF232100070"
   },
@@ -276,7 +277,7 @@
     "last_name": "Roy",
     "billing_city": "Cooch Behar",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "tiston1216@gmail.com",
     "isrc": "INF232100075,INF232100101,INF232100187"
   },
@@ -286,15 +287,9 @@
     "last_name": "Debbarma",
     "billing_city": "Agartala",
     "billing_state": "Tripura",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "gupidebbarma@gmail.com",
     "isrc": "INF232100076,INF232100080"
-  },
-  {
-    "partner_name": "Wrup Sarkar",
-    "first_name": "Wrup",
-    "last_name": "Sarkar",
-    "emailId": "wrupsarkar@gmail.com"
   },
   {
     "partner_name": "Akhil K Nair",
@@ -302,7 +297,7 @@
     "last_name": "Nair",
     "billing_city": "TIRUR",
     "billing_state": "Kerala",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "creativemonkent@gmail.com",
     "isrc": "INF232100078,INF232200912"
   },
@@ -311,9 +306,9 @@
     "first_name": "Fahad",
     "last_name": "Mustafa Khan",
     "billing_state": "Delhi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "fahadamu1988@gmail.com",
-    "isrc": "INF232100079,INF232100139,INF232200822,INF232301508,INF232301653"
+    "isrc": "INF232100079,INF232100139,INF232200822,INF232301508,INF232301653,INF232402045"
   },
   {
     "partner_name": "Amrit Raj",
@@ -321,9 +316,9 @@
     "last_name": "Raj",
     "billing_city": "Pune",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "amrit.961@gmail.com",
-    "isrc": "INF232100081"
+    "isrc": "INF232100081,INF232402029"
   },
   {
     "partner_name": "Green Music Chhattisgarhi",
@@ -331,7 +326,7 @@
     "last_name": "Sahu",
     "billing_city": "Baloda Bazar",
     "billing_state": "Chhattisgarh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ajaysahu1450@gmail.com",
     "isrc": "INF232100082,INF232301386"
   },
@@ -342,7 +337,7 @@
     "billing_city": "Chennai",
     "billing_state": "Tamil Nadu",
     "emailId": "rohitextreme@gmail.com",
-    "isrc": "INF232100083,QZDA62192208,QZMEP2146557,INF232100153,QZNWV2107298,QZNWV2110848,INF232200394,INF232200853"
+    "isrc": "INF232100083,QZDA62192208,QZMEP2146557,INF232100153,QZNWV2107298,QZNWV2110848,INF232200394,INF232200853,QZHN32403240"
   },
   {
     "partner_name": "Luvinaft",
@@ -364,7 +359,7 @@
     "last_name": "G",
     "billing_state": "Karnataka",
     "emailId": "prashanthg147@gmail.com",
-    "isrc": "INF232100086,INF232100087,INF232100089,INF232100090,INF232100091,INF232100094,INF232100103,INF232100104,INF232100102,INF232100105,INF232100106,INF232100108,INF232100109,INF232100111,INF232100113,INF232100115,INF232100118,INF232100119,INF232100120,INF232100121,INF232100124,INF232100129,INF232100134,INF232100135,INF232100136,INF232100148,INF232100149,INF232100150,INF232100157,INF232200801,"
+    "isrc": "INF232100086,INF232100087,INF232100089,INF232100090,INF232100091,INF232100094,INF232100103,INF232100104,INF232100102,INF232100105,INF232100106,INF232100108,INF232100109,INF232100111,INF232100113,INF232100115,INF232100118,INF232100119,INF232100120,INF232100121,INF232100124,INF232100129,INF232100134,INF232100135,INF232100136,INF232100148,INF232100149,INF232100150,INF232100157,INF232200801"
   },
   {
     "partner_name": "Raja Mukherjee",
@@ -372,7 +367,7 @@
     "last_name": "Mukherjee",
     "billing_city": "Kolkata",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "mukherjeerajarshi1987@gmail.com",
     "isrc": "INF232100092"
   },
@@ -382,7 +377,7 @@
     "last_name": "Mukherjee",
     "billing_city": "Kolkata",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "tandavofficial371@gmail.com",
     "isrc": "GBSMU8982468,INF232100116,INF232100175,INF232100201,INF232200522,INF232100216,INF232200385,INF232200419,INF232200485,INF232200517"
   },
@@ -392,7 +387,7 @@
     "last_name": "Samanta",
     "billing_city": "Midnapore",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "dogtvhindi@gmail.com",
     "isrc": "NLHR52106707,NLHR52113545,INF232200769"
   },
@@ -402,7 +397,7 @@
     "last_name": "Vansadia",
     "billing_city": "Ahmedabad",
     "billing_state": "Gujarat",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "mrugrajsinh@gmail.com",
     "isrc": "INF232100093,INF232200326,INF232301147,INF232301320,INF232301652"
   },
@@ -412,7 +407,7 @@
     "last_name": "Debbarma",
     "billing_city": "AGARTALA",
     "billing_state": "Tripura",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "salkadebbarma91@gmail.com",
     "isrc": "QZDA42169369,INF232100224,INF232100235,INF232200307,INF232200480,INF232200562,INF232200607,INF232200702,INF232200841,INF232200847,INF232200867,INF232301437"
   },
@@ -422,7 +417,7 @@
     "last_name": "Khatri",
     "billing_city": "New Delhi",
     "billing_state": "Delhi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "media@indtaxes.in",
     "isrc": "INF232100100"
   },
@@ -432,7 +427,7 @@
     "last_name": "Brothers",
     "billing_city": "Jaipur",
     "billing_state": "Rajasthan",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "masterbadalpareek@gmail.com",
     "isrc": "INF232100107,INF232100130,INF232100140,INF232100191"
   },
@@ -442,7 +437,7 @@
     "last_name": "Beatz",
     "billing_city": "New Delhi",
     "billing_state": "Delhi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "kunal.kumar2107@gmail.com",
     "isrc": "INF232100110,INF232200296,INF232200369,INF232200804,INF232201067,INF232301733"
   },
@@ -459,7 +454,7 @@
     "last_name": "SG",
     "billing_city": "Chennai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "jayantho.15@gmail.com",
     "isrc": "TCAEJ1904991,TCAES2025852,INF232200447,INF232301459"
   },
@@ -469,7 +464,7 @@
     "last_name": "Roy",
     "billing_city": "Jalpaiguri",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "akashroy2001.jal@gmail.com",
     "isrc": "INF232100114"
   },
@@ -478,7 +473,7 @@
     "first_name": "Ishmohan",
     "last_name": "Singh",
     "billing_state": "New Delhi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ishmohansingh@gmail.com",
     "isrc": "INF232100117"
   },
@@ -488,7 +483,7 @@
     "last_name": "Akhouri",
     "billing_city": "Ranchi",
     "billing_state": "Jharkhand",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "mrinakhouri@gmail.com",
     "isrc": "QZAMM2169888"
   },
@@ -497,7 +492,7 @@
     "first_name": "Rohan",
     "last_name": "Barman",
     "billing_city": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "iamreveal810@gmail.com",
     "isrc": "INF232100122"
   },
@@ -505,9 +500,9 @@
     "partner_name": "Shampali Banerjee",
     "first_name": "SHAMPALI",
     "last_name": "BANERJEE",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "shampalibanerjee@gmail.com",
-    "isrc": "INF232100125,INF232100217,INF232200428,INF232200431,INF232200540,INF232201107"
+    "isrc": "INF232100125,INF232100217,INF232200428,INF232200431,INF232200540,INF232201107,INF232301821"
   },
   {
     "partner_name": "The Future Music",
@@ -515,7 +510,7 @@
     "last_name": "Parmar",
     "billing_city": "Una",
     "billing_state": "Himachal Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "viparmar5@gmail.com",
     "isrc": "INF232100126,INF232200292,INF232200324"
   },
@@ -525,7 +520,7 @@
     "last_name": "Ariyattummal",
     "billing_city": "Ernakulam, Kochi",
     "billing_state": "Kerala",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "pradeepbalusseri@gmail.com",
     "isrc": "INF232100127,INF232200743"
   },
@@ -535,7 +530,7 @@
     "last_name": "Gupta",
     "billing_city": "Siliguri",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sumitrdx17@gmail.com",
     "isrc": "INF232100128,INF232100223,INF232100234,INF232100256,INF232200289,INF232200328,INF232200729,INF232200909,INF232200942"
   },
@@ -552,7 +547,7 @@
     "last_name": "Sarkar",
     "billing_city": "Siliguri",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rohitsarkar.14.3.2001@gmail.com",
     "isrc": "INF232100132"
   },
@@ -560,7 +555,7 @@
     "partner_name": "MRD Films International",
     "first_name": "Chandu",
     "last_name": "Garg",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "itsofficialrk@gmail.com",
     "isrc": "INF232100133"
   },
@@ -568,7 +563,7 @@
     "partner_name": "EzeePay",
     "first_name": "Kalakaar",
     "last_name": "Records",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sameerahmad810@gmail.com",
     "isrc": "TCAFS2143063,INF232200523,INF232200572,INF232200577"
   },
@@ -578,7 +573,7 @@
     "last_name": "Hora",
     "billing_city": "Indore",
     "billing_state": "Madhya Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "jaydeep.hora@gmail.com",
     "isrc": "INF232100138,INF232100222"
   },
@@ -588,7 +583,7 @@
     "last_name": "SARAVANAN",
     "billing_city": "NAMAKKAL",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ashoksonsaravanan@gmail.com",
     "isrc": "INF232100193,INF232200489,INF232200931"
   },
@@ -598,7 +593,7 @@
     "last_name": "Soni",
     "billing_city": "Ara",
     "billing_state": "Bihar",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ss1848327@gmail.com",
     "isrc": "INF232100143"
   },
@@ -615,7 +610,7 @@
     "last_name": "Kumbar",
     "billing_city": "Belagavi",
     "billing_state": "Karnataka",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "basukumbar@gmail.com",
     "isrc": "INF232100145"
   },
@@ -625,14 +620,55 @@
     "last_name": "MEDIA",
     "billing_city": "AHMEDABAD",
     "billing_state": "Gujarat",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "info@koonal.com",
-    "isrc": "INF232100146,INF232100152,INF232100158,INF232100159"
+    "isrc": "INF232100146,INF232100152,INF232100158,INF232100159,INF232402024"
+  },
+  {
+    "partner_name": "Riya Sharma",
+    "billing_country": "India",
+    "emailId": "abcd@admin.com",
+    "isrc": "INF232201054,INF232201057,INF232201058,INF232201106,INF232201118,INF232201123,INF232301201,INF232301209,INF232301217,INF232301239,INF232301230,INF232301233,INF232301232,INF232301231,INF232301234,INF232301238,INF232301244,INF232301236,INF232200578,INF232200933,INF232200934,INF232200935,INF232200936,INF232200938,INF232100062,TCAGB2237400,INF232200570,INF232200719,INF232200785,INF232200906,INF232200910,INF232200943,INF232301270,TCAHJ2357162,INF232401928"
+  },
+  {
+    "partner_name": "Aman Thapa",
+    "billing_country": "India",
+    "emailId": "abc@admin.com",
+    "isrc": "INF232200425,INF232100022,INF232100147,INI112177818,INF232100032,INF232100060,INF232100069,INF232100077,INF232100088,INF232100096,INF232100097,INF232100112,INF232100141,INF232100142,INF232100163,INF232100172,INF232100171,INF232100194,INF232100218,INF232100261,INF232200285,INF232200308,INF232200309,INF232200330,INF232200337,INF232200362"
+  },
+  {
+    "partner_name": "mrinalini sanyal",
+    "billing_country": "India",
+    "emailId": "adbc@admin.com",
+    "isrc": "INF232200383,INF232200402,FRX282169346,INF232200412,INF232200415,INF232200433,FI5CK2001112,INF232200459,INF232200502,FR59R2246897,INF232200538,INF232200550,INF232200579,INF232200625,INF232200674,INF232200765,INF232200905,INF232200951,INF232200953,INF232200986,INF232201003"
+  },
+  {
+    "partner_name": "mrinal das",
+    "billing_country": "India",
+    "emailId": "unique@admin.com",
+    "isrc": "GX8KD2384434,GX8KD2372762,GX8KD2320861,INF232301610,GX5MY2242341,GX5MY2242372,GX5MY2242343,INF232301611,GX5MY2204169,GX5MY2273792,INF232301615,INF232301616,INF232301617,INF232301618,INF232301619,FI5CK2001120,GX5MX2342747,GX5MX2365717,GX5MX2365720,GX5MX2318436,GX5MX2303493,INF232301620,INF232301621,GX5MX2356046,GX5MX2386935,GX5MX2321896,GX5MX2300205,GX5MX2361032,GX5MX2373725,GX5MX2373589,QZW9M2280198,INF232301676,TCAFG2054382,QZS632334376,INF232200527"
+  },
+  {
+    "partner_name": "akbar hossain",
+    "billing_country": "India",
+    "emailId": "abdf@admin.com",
+    "isrc": "INF232301242,INF232301241,INF232301240,INF232301237,INF232301243,INF232301235,INF232301302,GX8KD2332317,INF232301425,INF232301153,GX5MY2242339,GX5MY2242345,GX5MY2242346,INF232301530,INF232301534,GX89G2241987,GX89G2241992"
+  },
+  {
+    "partner_name": "amar boral",
+    "billing_country": "India",
+    "emailId": "amar@admin.com",
+    "isrc": "GX89G2242063,INF232301537,INF232301538,INF232301539,INF232301540,INF232301544,INF232301545,INF232301546,INF232301547,INF232301549,INF232301551"
+  },
+  {
+    "partner_name": "nitam sen",
+    "billing_country": "India",
+    "emailId": "nitam@admin.com",
+    "isrc": "INF232301552,INF232301553,INF232301554,INF232301561,INF232301562,GX8KD2329512,GX8KD2354474,GX8KD2314447,GX8KD2385350,GX8KD2339877,GX8KD2311436,INF232301572,INF232301573,INF232301574,INF232301575,INF232301576,INF232301579,INF232301580,INF232301581"
   },
   {
     "partner_name": "Pulak Chakraborty",
-    "emailId": "pulakchakraborty9735@gmail.com",
-    "isrc": "INF232200425,INF232100022,INF232100147,INI112177818,INF232100032,INF232100060,INF232100069,INF232100077,INF232100088,INF232100096,INF232100097,INF232100112,INF232100141,INF232100142,INF232100163,INF232100172,INF232100171,INF232100194,INF232100218,INF232100261,INF232200285,INF232200308,INF232200309,INF232200330,INF232200337,INF232200362,INF232200383,INF232200402,FRX282169346,INF232200412,INF232200415,INF232200433,FI5CK2001112,inF232200459,INF232200502,FR59R2246897,INF232200538,INF232200550,INF232200579,INF232200625,INF232200674,INF232200765,INF232200905,INF232200951,INF232200953,INF232200986,INF232201003,INF232201054,INF232201057,INF232201058,INF232201106,INF232201118,INF232201123,QZHNC2097260,INF232301201,INF232301208,INF232301209,INF232301217,INF232301239,INF232301230,INF232301233,INF232301232,INF232301231,INF232301234,INF232301238,INF232301244,INF232301236,INF232301242,INF232301241,INF232301240,INF232301237,INF232301243,INF232301235,INF232301302,GX8KD2332317,INF232301425,INF232301153,GX5MY2242339,GX5MY2242345,GX5MY2242346,INF232301530,INF232301534,GX89G2241987,GX89G2241992,GX89G2242063,INF232301537,INF232301538,INF232301539,INF232301540,INF232301544,INF232301545,INF232301546,INF232301547,INF232301549,INF232301551,INF232301552,INF232301553,INF232301554,INF232301561,INF232301562,GX8KD2329512,GX8KD2354474,GX8KD2314447,GX8KD2385350,GX8KD2339877,GX8KD2311436,INF232301572,INF232301573,INF232301574,INF232301575,INF232301576,INF232301579,INF232301580,INF232301581,GX8KD2384434,GX8KD2372762,GX8KD2320861,INF232301610,GX5MY2242341,GX5MY2242372,GX5MY2242343,INF232301611,GX5MY2204169,GX5MY2273792,INF232301615,INF232301616,INF232301617,INF232301618,INF232301619,FI5CK2001120,GX5MX2342747,GX5MX2365717,GX5MX2365720,GX5MX2318436,GX5MX2303493,INF232301620,INF232301621,GX5MX2356046,GX5MX2386935,GX5MX2321896,GX5MX2300205,GX5MX2361032,GX5MX2373725,GX5MX2373589,QZW9M2280198,INF232301676,TCAFG2054382,QZS632334376,INF232200527"
+    "emailId": "pulakchakraborty9735@gmail.com"
   },
   {
     "partner_name": "Classplus",
@@ -671,7 +707,12 @@
     "billing_city": "Berhampur",
     "billing_state": "Odisha",
     "emailId": "beingodiotic@gmail.com",
-    "isrc": "INF232100160,INF232100164,INF232200293,TCAFP2179131,INF232200320,INF232200619,INF232200703,INF232200774,INF232200947,INF232301469,INF232100195,INF232100247,FRX872138399,INF232200423,INF232301403,INF232200549,INF232200732,INF232200559,INF232200716,INF232301214,INF232301402,INF232301578,INF232200828,INF232201091,INF232301680,INF232301731,INF232301805,INF232301808"
+    "isrc": "INF232100160,INF232100164,INF232200293,TCAFP2179131,INF232200320,INF232301469,FRX872138399,INF232200423,INF232301403,INF232200549,INF232200732,INF232200559,INF232200716,INF232301214,INF232301402,INF232301578,INF232200828,INF232201091,INF232301680,INF232301731,INF232301805,INF232301808,INF232401946"
+  },
+  {
+    "partner_name": "Ajit Kumar Films",
+    "emailId": "akpatro786@gmail.com",
+    "isrc": "INF232100195,INF232100247,INF232200619,INF232200947,INF232200774,INF232200703,INF232402040,INF232402053,INF232402040"
   },
   {
     "partner_name": "Sumeet Mohapatra",
@@ -713,9 +754,14 @@
     "last_name": "Rajani",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "piyush@piyushrajani.co.in",
     "isrc": "INF232100166,GBLLT2149964,GBLLT2149965,GBLLT2149966,GBLLT2149968,GBLLT2149969,GBLLT2150005,GBLLT2149967,GBLLT2150070,GBLLT2150071,GBLLT2150072,GBLLT2150073,GBLLT2150074,GBLLT2150075,GBLLT2150378,GBLLT2150382,GBLLT2150679,GBLLT2208271,GBLLT2334077,GBLLT2334078,GBLLT2334079,GBLLT2334080,GBLLT2334081,GBLLT2334082,GBLLT2346958,INF232301745"
+  },
+  {
+    "partner_name": "Jecin George",
+    "emailId": "jecin123@gmail.com",
+    "isrc": "INF232301208,QZHNC2097260"
   },
   {
     "partner_name": "Raunki Yaar Records",
@@ -773,7 +819,7 @@
     "first_name": "Eapen Zacharias",
     "last_name": "P",
     "emailId": "aertizinfo@gmail.com",
-    "isrc": "ESA011536986,ESA012200439,ESA012213962,ESA012228912,ESA012230194,ESA012205342,ESA012272411,QZNW72211801,QZNW72262699,INF232200865,AUMEV2358633,AUMEV2356153,AUMEV2356141,ESA011671832,ESA011526231,ESA012224046,AUGBT2242183,AUGBT2241874,AUGBT2364976"
+    "isrc": "ESA011536986,ESA012200439,ESA012213962,ESA012228912,ESA012230194,ESA012205342,ESA012272411,QZNW72211801,QZNW72262699,INF232200865,AUMEV2358633,AUMEV2356153,AUMEV2356141,ESA011671832,ESA011526231,ESA012224046,AUGBT2242183,AUGBT2241874,AUGBT2364976,AUGBT2365734,AUMEV2406972"
   },
   {
     "partner_name": "Brajvani Music",
@@ -782,16 +828,7 @@
     "billing_city": "Mathura",
     "billing_state": "Uttar Pradesh",
     "emailId": "brajvanimusic@gmail.com",
-    "isrc": "INF232100184,INF232200303,INF232200361,INF232200640,INF232200820,INF232200856,INF232200954,INF232200974,INF232301401,INF232301482,INF232301711"
-  },
-  {
-    "partner_name": "AERTIZ RECORDS",
-    "first_name": "Eapen",
-    "last_name": "Zacharias P",
-    "billing_city": "Kottayam",
-    "billing_state": "Kerala",
-    "billingCountry": "India",
-    "emailId": "aertizinfo@gmail.com"
+    "isrc": "INF232100184,INF232200303,INF232200361,INF232200640,INF232200820,INF232200856,INF232200954,INF232200974,INF232301401,INF232301482,INF232301711,INF232401857,INF232402028"
   },
   {
     "partner_name": "SHOROLIPI",
@@ -808,15 +845,9 @@
     "last_name": "Kumar",
     "billing_city": "Bangalore",
     "billing_state": "Karnataka",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "shiva_kumar7887@yahoo.com",
     "isrc": "INF232100189"
-  },
-  {
-    "partner_name": "Ashoksaravanan Digital Vision",
-    "first_name": "ASHOK",
-    "last_name": "SARAVANAN",
-    "emailId": "ashoksonsaravanan@gmail.com"
   },
   {
     "partner_name": "Crukces Studios",
@@ -834,10 +865,6 @@
     "billing_city": "Bhilwara",
     "billing_state": "Rajasthan",
     "emailId": "jaimaabadiya@gmail.com"
-  },
-  {
-    "partner_name": "Ajit Kumar Films",
-    "emailId": "beingodiotic@gmail.com"
   },
   {
     "partner_name": "Tanmay Nagwani",
@@ -872,7 +899,7 @@
     "last_name": "Varghese",
     "billing_city": "Waltham, MA",
     "billing_state": "Massachusetts",
-    "billingCountry": "U.S.A",
+    "billing_country": "U.S.A",
     "emailId": "anamusiccreations@gmail.com",
     "isrc": "INF232100202,INF232200726"
   },
@@ -890,7 +917,7 @@
     "first_name": "Balbir",
     "last_name": "Singh",
     "billing_city": "Pinjore",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "officialnullcreation@gmail.com",
     "isrc": "INF232100207"
   },
@@ -899,7 +926,7 @@
     "first_name": "Bhavan",
     "last_name": "Melkar",
     "billing_city": "Puttur",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "bhavan.m1601@gmail.com",
     "isrc": "INF232100209"
   },
@@ -949,15 +976,6 @@
     "isrc": "INF232100214"
   },
   {
-    "partner_name": "Imon Mukherjee",
-    "first_name": "Imon",
-    "last_name": "Mukherjee",
-    "billing_city": "Kolkata",
-    "billing_state": "West Bengal",
-    "billingCountry": "India",
-    "emailId": "tandavofficial371@gmail.com"
-  },
-  {
     "partner_name": "Santosh Parashetti",
     "first_name": "Santosh",
     "last_name": "Parashetti",
@@ -971,7 +989,7 @@
     "first_name": "Joby",
     "last_name": "Joseph",
     "billing_city": "Angamali",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "jobysmediaproduction@gmail.com",
     "isrc": "INF232100219,INF232100221"
   },
@@ -985,33 +1003,13 @@
     "isrc": "QZNWT2129481,QZNWT2129479,QZNWT2129480,QZNWT2129478,QZNWT2129477,QZNWT2129476,IELOI2122965"
   },
   {
-    "partner_name": "Laibuma Creation",
-    "first_name": "Salka",
-    "last_name": "Debbarma",
-    "emailId": "salkadebbarma91@gmail.com"
-  },
-  {
     "partner_name": "Anupam Dutta",
     "first_name": "Anupam",
     "last_name": "Dutta",
     "billing_city": "Kolkata",
     "billing_state": "West Bengal",
     "emailId": "duttaa494@gmail.com",
-    "isrc": "INF232100225,INF232200314,INF232200389,INF232200406,TCAGD2283818,TCAGR2220110,INF232301479,INF232301520"
-  },
-  {
-    "partner_name": "Young Wavz",
-    "first_name": "Young",
-    "last_name": "Wavz",
-    "billing_city": "Siliguri",
-    "billing_state": "West Bengal",
-    "emailId": "sumitrdx17@gmail.com"
-  },
-  {
-    "partner_name": "Digital Golgappa",
-    "first_name": "Abhishek",
-    "last_name": "Kapoor",
-    "emailId": "abhishekkapoorspotify@gmail.com"
+    "isrc": "INF232100225,INF232200314,INF232200389,INF232200406,TCAGD2283818,TCAGR2220110,INF232301479,INF232301520,INF232401940,INF232402021,INF232402022"
   },
   {
     "partner_name": "Vithal Vision",
@@ -1021,10 +1019,6 @@
     "billing_state": "Maharashtra",
     "emailId": "vithalvision@gmail.com",
     "isrc": "INF232100228"
-  },
-  {
-    "partner_name": "The Renditions Official",
-    "emailId": "beingodiotic@gmail.com"
   },
   {
     "partner_name": "Samprit Tigga",
@@ -1050,7 +1044,7 @@
     "last_name": "Joshua",
     "billing_city": "Gorakhpur",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ashishjoshua1987@gmail.com",
     "isrc": "INF232100233"
   },
@@ -1059,7 +1053,7 @@
     "first_name": "Sudarshan",
     "last_name": "Suddha",
     "emailId": "sudarshansiddh27@gmail.com",
-    "isrc": "QZTAS2101139,QZES92293573,QZK6H2210110,QZNWS2222249,QZTB32284975,INF232201075,INF232201079,QZHN52344751,QZK6J2326825,QZES92181475,QZNWW2367021,QZTAT2345323,QZTB72381821"
+    "isrc": "QZTAS2101139,QZES92293573,QZK6H2210110,QZNWS2222249,QZTB32284975,INF232201075,INF232201079,QZHN52344751,QZK6J2326825,QZES92181475,QZNWW2367021,QZTAT2345323,QZTB72381821,QZFYY2415891,QZHN62402383"
   },
   {
     "partner_name": "BHG Music World",
@@ -1076,7 +1070,7 @@
     "last_name": "Paul",
     "billing_city": "Howrah",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "contact.paulstudio@gmail.com",
     "isrc": "INF232100242"
   },
@@ -1137,7 +1131,7 @@
     "first_name": "Ravikumar",
     "last_name": "Gosala",
     "billing_city": "Mumbai",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ravigosalaofficial@gmail.com",
     "isrc": "INF232100249"
   },
@@ -1147,7 +1141,7 @@
     "last_name": "Bridges",
     "billing_city": "Mississauga ON",
     "billing_state": "Ontario",
-    "billingCountry": "Canada",
+    "billing_country": "Canada",
     "emailId": "burntbridgesto@gmail.com",
     "isrc": "INF232100250,INF232100264"
   },
@@ -1164,7 +1158,7 @@
     "last_name": "Shan",
     "billing_city": "Bengaluru",
     "billing_state": "Karnataka",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "yagnagayathri@gmail.com",
     "isrc": "INF232100251"
   },
@@ -1174,7 +1168,7 @@
     "last_name": "Jain",
     "billing_city": "Indore",
     "billing_state": "Madhya Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "indoriartist@gmail.com",
     "isrc": "INF232100253,INF232200405,QZNWR2076297"
   },
@@ -1192,7 +1186,7 @@
     "first_name": "KingBowDonTe",
     "billing_city": "Siliguri",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "chakraborty02tc@gmail.com",
     "isrc": "INF232100262"
   },
@@ -1202,7 +1196,7 @@
     "last_name": "Studios",
     "billing_city": "Delhi",
     "billing_state": "Delhi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ravestudios2021@gmail.com",
     "isrc": "INF232100263,INF232200282,INF232200295"
   },
@@ -1212,9 +1206,9 @@
     "last_name": "Singh",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "musicbykaransingh@gmail.com",
-    "isrc": "INF232100265,INF232200288,INF232200521,INF232200878"
+    "isrc": "INF232100265,INF232200288,INF232200521,INF232200878,INF232402015,INF232402016"
   },
   {
     "partner_name": "OIC Studios",
@@ -1222,16 +1216,16 @@
     "last_name": "Sharma",
     "billing_city": "Indore",
     "billing_state": "Madhya Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "originalindiancreatorsstudio@gmail.com",
-    "isrc": "INF232100267,INF232301512,INF232301800"
+    "isrc": "INF232100267,INF232301512,INF232301800,INF232401861"
   },
   {
     "partner_name": "Richard M Sangma",
     "first_name": "Richard M",
     "last_name": "Sangma",
     "billing_city": "Baghmara",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "richard.mriey.sangma@gmail.com",
     "isrc": "INF232100269"
   },
@@ -1248,7 +1242,7 @@
     "last_name": "Tv",
     "billing_city": "Chengalpattu",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "gracetv2016@gmail.com",
     "isrc": "INF232100271"
   },
@@ -1258,9 +1252,8 @@
     "last_name": "Kiran",
     "billing_city": "Mandya",
     "billing_state": "Karnataka",
-    "billingCountry": "India",
-    "emailId": "sukiranavisions@gmail.com",
-    "isrc": "INF232100272,INF232200528"
+    "billing_country": "India",
+    "emailId": "sukiranavisions@gmail.com"
   },
   {
     "partner_name": "Nitish Bhardwaj",
@@ -1268,7 +1261,7 @@
     "last_name": "Bhardwaj",
     "billing_city": "Meerut",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "bhardwajnitish525@gmail.com",
     "isrc": "INF232100273,INF232200487"
   },
@@ -1278,7 +1271,7 @@
     "last_name": "Sandhu",
     "billing_city": "Korba",
     "billing_state": "Chhattisgarh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "perfectsandhuofficial@gmail.com",
     "isrc": "INF232100275,INF232200322,INF232200334,INF232200390,INF232200631,INF232200679,INF232200875,INF232200885,INF232200917"
   },
@@ -1288,7 +1281,7 @@
     "last_name": "Kumbhar",
     "billing_city": "Dhule",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "pratikkumbhar07@gmail.com",
     "isrc": "INF232100276"
   },
@@ -1297,7 +1290,7 @@
     "first_name": "Sanghratna",
     "last_name": "Zende",
     "billing_city": "Mumbai",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "zende1962@gmail.com",
     "isrc": "INF232100277,INF232200466"
   },
@@ -1307,7 +1300,7 @@
     "last_name": "Dave",
     "billing_city": "Pune",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "dave96shivani@gmail.com",
     "isrc": "INF232200278"
   },
@@ -1317,7 +1310,7 @@
     "last_name": "Jain",
     "billing_city": "Golakganj",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "pritamsonawat7@gmail.com",
     "isrc": "INF232200279"
   },
@@ -1327,7 +1320,7 @@
     "last_name": "Nirmal",
     "billing_city": "Chennai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "srmithunnirmal@gmail.com",
     "isrc": "INF232200280,INF232200583,INF232200789,INF232200901,INF232301337,INF232301426,INF232301514,INF232301793"
   },
@@ -1344,7 +1337,7 @@
     "last_name": "Raj",
     "billing_city": "Cooch Behar",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rajabdulraj811@gmail.com",
     "isrc": "INF232200283,INF232200450"
   },
@@ -1354,7 +1347,7 @@
     "last_name": "Chheda",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "harshchheda36@gmail.com",
     "isrc": "INF232200290,INF232200297"
   },
@@ -1364,7 +1357,7 @@
     "last_name": "SINGHA",
     "billing_city": "HOWRAH",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "souranil9717@gmail.com",
     "isrc": "INF232200291"
   },
@@ -1374,7 +1367,7 @@
     "last_name": "Originals",
     "billing_city": "Chennai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "theeuphonicstudios@gmail.com",
     "isrc": "INF232200298"
   },
@@ -1384,7 +1377,7 @@
     "last_name": "S",
     "billing_city": "Bhimavaram",
     "billing_state": "Andhra Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "bharathproductionsbvrm.2019@gmail.com",
     "isrc": "INF232200299,INF232200313,INF232200370,INF232200584"
   },
@@ -1394,7 +1387,7 @@
     "last_name": "Shukla",
     "billing_city": "Noida",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ramanurag55@gmail.com",
     "isrc": "INF232200300"
   },
@@ -1404,7 +1397,7 @@
     "last_name": "Digital",
     "billing_city": "Madikeri",
     "billing_state": "Karnataka",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "popjdigital@gmail.com",
     "isrc": "INF232200301,INF232200310,INF232200311"
   },
@@ -1414,7 +1407,7 @@
     "last_name": "Sandhu",
     "billing_city": "Calgary AB",
     "billing_state": "Alberta",
-    "billingCountry": "Canada",
+    "billing_country": "Canada",
     "emailId": "iamarjunsandhu@gmail.com",
     "isrc": "INF232200302"
   },
@@ -1424,15 +1417,9 @@
     "last_name": "AH",
     "billing_city": "Thrissur",
     "billing_state": "Kerala",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ah.fazil@gmail.com",
     "isrc": "INF232200304"
-  },
-  {
-    "partner_name": "RB Music",
-    "first_name": "Rohil",
-    "last_name": "Bhatia",
-    "emailId": "rb.audioneers@gmail.com"
   },
   {
     "partner_name": "Upscale Entertaiment",
@@ -1440,7 +1427,7 @@
     "last_name": "Rasiwasia",
     "billing_city": "Kolkata",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rasiwasiarag18@gmail.com"
   },
   {
@@ -1449,7 +1436,7 @@
     "last_name": "Music",
     "billing_city": "Midnapore",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "treasuremusic0@gmail.com"
   },
   {
@@ -1458,9 +1445,9 @@
     "last_name": "Das",
     "billing_city": "Barddhaman",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sinchondas00@gmail.com",
-    "isrc": "INF232200312,INF232200620"
+    "isrc": "INF232200312,INF232200620,INF232401944"
   },
   {
     "partner_name": "Amit Thapliyal",
@@ -1468,7 +1455,7 @@
     "last_name": "Thapliyal",
     "billing_city": "Rishikesh",
     "billing_state": "Uttarakhand",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "hello.atmusic@gmail.com",
     "isrc": "QZ5AB2245308"
   },
@@ -1478,7 +1465,7 @@
     "last_name": "SAMTIYA",
     "billing_city": "Degana",
     "billing_state": "Rajasthan",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "nicementt@gmail.com",
     "isrc": "INF232200316"
   },
@@ -1488,7 +1475,7 @@
     "last_name": "Arvind Brahamnu",
     "billing_city": "Chhatriari",
     "billing_state": "Jammu and Kashmir",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "brahamnu17@gmail.com",
     "isrc": "INF232200318,INF232200892,INF232301158,INF232200792"
   },
@@ -1498,7 +1485,7 @@
     "last_name": "Patkar",
     "billing_city": "Mahoba",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rammilansinghfounder@gmail.com",
     "isrc": "INF232200319,INF232200414"
   },
@@ -1508,7 +1495,7 @@
     "last_name": "Verma",
     "billing_city": "Kangra",
     "billing_state": "Himachal Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "vermahirasingh@gmail.com",
     "isrc": "INF232200321"
   },
@@ -1518,7 +1505,7 @@
     "last_name": "Wardekar",
     "billing_city": "Navi Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "mailsuhrud@gmail.com",
     "isrc": "INF232200325"
   },
@@ -1528,7 +1515,7 @@
     "last_name": "Singh",
     "billing_city": "Indore",
     "billing_state": "Madhya Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "glaregaurav@gmail.com",
     "isrc": "INF232200327"
   },
@@ -1538,7 +1525,7 @@
     "last_name": "Dey",
     "billing_city": "bilaspur",
     "billing_state": "Chhattisgarh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "mishrasona589@gmail.com",
     "isrc": "INF232200329"
   },
@@ -1548,7 +1535,7 @@
     "last_name": "Hembram",
     "billing_city": "Rajnagar",
     "billing_state": "Jharkhand",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "chandarsekhar88hembram@gmail.com",
     "isrc": "INF232200333"
   },
@@ -1558,7 +1545,7 @@
     "last_name": "Surve",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "media@goodolddelight.com",
     "isrc": "INF232200336,INF232200335"
   },
@@ -1568,7 +1555,7 @@
     "last_name": "Bishai",
     "billing_city": "Medinipur",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "bishairaju13@gmail.com",
     "isrc": "INF232200338"
   },
@@ -1578,7 +1565,7 @@
     "last_name": "Kumar",
     "billing_city": "Kalka",
     "billing_state": "Haryana",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "emoshade7@gmail.com",
     "isrc": "INF232200339"
   },
@@ -1588,7 +1575,7 @@
     "last_name": "Gupta",
     "billing_city": "Ludhiana",
     "billing_state": "Punjab",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "vivek_gupta88@yahoo.com",
     "isrc": "INF232200340"
   },
@@ -1598,7 +1585,7 @@
     "last_name": "Films",
     "billing_city": "Pune",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "lumosfilmss@gmail.com",
     "isrc": "INF232200341"
   },
@@ -1608,7 +1595,7 @@
     "last_name": "CHOWDHURY",
     "billing_city": "kolkata",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "piudey0@gmail.com",
     "isrc": "INF232200342,INF232200404"
   },
@@ -1618,7 +1605,7 @@
     "last_name": "Vazirani",
     "billing_city": "Ahmedabad",
     "billing_state": "Gujarat",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "pooja_27@ymail.com",
     "isrc": "INF232200343,INF232301329"
   },
@@ -1628,7 +1615,7 @@
     "last_name": "Ee",
     "billing_city": "Hyderabad",
     "billing_state": "Telangana",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "cosmicaree@gmail.com",
     "isrc": "INF232200344"
   },
@@ -1638,7 +1625,7 @@
     "last_name": "Koley",
     "billing_city": "Tribeni",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "feedback.icchemoto@gmail.com",
     "isrc": "INF232200347"
   },
@@ -1648,7 +1635,7 @@
     "last_name": "Sangat",
     "billing_city": "Ranchi",
     "billing_state": "Jharkhand",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "saazesangatofficial@gmail.com",
     "isrc": "INF232200349,INF232200647,INF232200786,INF232201025,INF232301817"
   },
@@ -1658,7 +1645,7 @@
     "last_name": "Sarkar",
     "billing_city": "Coochbehar",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "kaustav.sarkar135781@gmail.com",
     "isrc": "INF232200350"
   },
@@ -1668,7 +1655,7 @@
     "last_name": "Sachin",
     "billing_city": "Guwahati",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sachinnath.nath@gmail.com",
     "isrc": "INF232200351"
   },
@@ -1678,7 +1665,7 @@
     "last_name": "Sharma",
     "billing_city": "Jammu",
     "billing_state": "Jammu and Kashmir",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "akshitsharma1043@gmail.com",
     "isrc": "INF232200352"
   },
@@ -1688,7 +1675,7 @@
     "last_name": "Creations",
     "billing_city": "Lucknow",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "pcreations555@gmail.com",
     "isrc": "INF232200353"
   },
@@ -1698,7 +1685,7 @@
     "last_name": "Fabers",
     "billing_city": "Darjeeling",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "fabersghetto@gmail.com",
     "isrc": "INF232200354,INF232200373,INF232200513,INF232200649,INF232301247"
   },
@@ -1708,7 +1695,7 @@
     "last_name": "R",
     "billing_city": "Trivandrum",
     "billing_state": "Kerala",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "arundasamma@gmail.com",
     "isrc": "INF232200355"
   },
@@ -1718,7 +1705,7 @@
     "last_name": "Sahab",
     "billing_city": "Panipat",
     "billing_state": "Haryana",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "romeogoswami55@gmail.com",
     "isrc": "INF232200356"
   },
@@ -1728,9 +1715,9 @@
     "last_name": "Raj",
     "billing_city": "Motihari",
     "billing_state": "Bihar",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "omshantiproduction7023@gmail.com",
-    "isrc": "INF232200357,INF232200704,INF232200780,INF232200903,INF232201037,INF232201062,INF232301179,INF232301215,INF232301220,INF232301229,INF232301455,INF232301525,INF232301535,INF232301565,INF232301571,INF232301604,INF232301693,INF232301709,INF232301718,INF232301726,INF232301769,INF232301799"
+    "isrc": "INF232200357,INF232200704,INF232200780,INF232200903,INF232201037,INF232201062,INF232301179,INF232301215,INF232301220,INF232301229,INF232301455,INF232301525,INF232301535,INF232301565,INF232301571,INF232301604,INF232301693,INF232301709,INF232301718,INF232301726,INF232301769,INF232301799,INF232401854,INF232401886"
   },
   {
     "partner_name": "Nikhil-Shantanu",
@@ -1738,7 +1725,7 @@
     "last_name": "Santanu",
     "billing_city": "Indore",
     "billing_state": "Madhya Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "nikhilshantanu5@gmail.com",
     "isrc": "INF232200358,INF232200359,INF232200360"
   },
@@ -1748,9 +1735,9 @@
     "last_name": "Jeswal",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ogres-yetis.0h@icloud.com",
-    "isrc": "TCAFZ2252305,TCAGB2237400,INF232200376,INF232200408,INF232200471,INF232200525,INF232200586"
+    "isrc": "TCAFZ2252305,INF232200376,INF232200408,INF232200471,INF232200525,INF232200586"
   },
   {
     "partner_name": "Together Hits Records",
@@ -1758,7 +1745,7 @@
     "last_name": "Dahiya",
     "billing_city": "Pinjore",
     "billing_state": "Haryana",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "togetherhitsrecords@gmail.com",
     "isrc": "INF232200363,INF232201039,INF232301438,INF232301432"
   },
@@ -1768,7 +1755,7 @@
     "last_name": "Tiwari",
     "billing_city": "New Delhi",
     "billing_state": "Delhi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "tpankaj4224@gmail.com",
     "isrc": "INF232200364,INF232200493"
   },
@@ -1778,7 +1765,7 @@
     "last_name": "Mohinani",
     "billing_city": "Rajkot",
     "billing_state": "Gujarat",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "apeksha.mohinani@gmail.com",
     "isrc": "INF232200365"
   },
@@ -1788,7 +1775,7 @@
     "last_name": "Singh",
     "billing_city": "jaitu",
     "billing_state": "Punjab",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "singhlvly827@gmail.com",
     "isrc": "INF232200366,SE5BU2233501,INF232200442,INF232200455,INF232200481"
   },
@@ -1798,7 +1785,7 @@
     "last_name": "Mukherjee",
     "billing_city": "BURDWAN",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "mukherjee914@gmail.com",
     "isrc": "INF232200367"
   },
@@ -1808,7 +1795,7 @@
     "last_name": "Bedardi",
     "billing_city": "Madhepura",
     "billing_state": "Bihar",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "raushanxyz16@gmail.com",
     "isrc": "INF232200368"
   },
@@ -1818,7 +1805,7 @@
     "last_name": "Chakma",
     "billing_city": "Kamalanagar",
     "billing_state": "Mizoram",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "digolchakma98@gmail.com",
     "isrc": "INF232200371,INF232200372"
   },
@@ -1828,9 +1815,9 @@
     "last_name": "Verma",
     "billing_city": "Nagpur",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "lavekush307@gmail.com",
-    "isrc": "INF232200374,INF232200460,INF232200787,INF232200916,INF232201104,INF232301521,INF232301715"
+    "isrc": "INF232200374,INF232200460,INF232200787,INF232200916,INF232201104,INF232301521,INF232301715,INF232401948"
   },
   {
     "partner_name": "Amit Kundal",
@@ -1838,7 +1825,7 @@
     "last_name": "KUNDAL",
     "billing_city": "Jammu",
     "billing_state": "Jammu and Kashmir",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "amit.kundal1995@gmail.com",
     "isrc": "QZFZ32211351"
   },
@@ -1848,7 +1835,7 @@
     "last_name": "Das",
     "billing_city": "Falakata",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "fkttubai744@gmail.com",
     "isrc": "INF232200375,INF232200629"
   },
@@ -1865,9 +1852,9 @@
     "last_name": "GUPTA",
     "billing_city": "ARANG",
     "billing_state": "Chhattisgarh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "aryan619gupta@gmail.com",
-    "isrc": "INF232200377,INF232200534,INF232200747,INF232200748,INF232200749,INF232200750,INF232200751,INF232200766,INF232200767,INF232301480"
+    "isrc": "INF232200377,INF232200534,INF232200747,INF232200748,INF232200749,INF232200750,INF232200751,INF232200766,INF232200767,INF232301480,INF232401862"
   },
   {
     "partner_name": "Sunil Devu",
@@ -1875,7 +1862,7 @@
     "last_name": "Devu",
     "billing_city": "Bengaluru",
     "billing_state": "Karnataka",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sunildevu66@gmail.com",
     "isrc": "INF232200379,INF232200690"
   },
@@ -1885,7 +1872,7 @@
     "last_name": "Patel",
     "billing_city": "Vadodara",
     "billing_state": "Gujarat",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rutesh.patel3@gmail.com",
     "isrc": "INF232200380,INF232200691"
   },
@@ -1895,9 +1882,9 @@
     "last_name": "Mind Yo!",
     "billing_city": "Bhawanigarh",
     "billing_state": "Punjab",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "muzicalmindyo@gmail.com",
-    "isrc": "INF232200381,INF232200596,INF232200864,INF232200589"
+    "isrc": "INF232200381,INF232200596,INF232200864,INF232200589,INF232401860,INF232402006"
   },
   {
     "partner_name": "Silent killer",
@@ -1905,7 +1892,7 @@
     "last_name": "Killer",
     "billing_city": "Siliguri",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "tanmoy.paul.1213986@gmail.com",
     "isrc": "INF232200382,INF232200590"
   },
@@ -1915,7 +1902,7 @@
     "last_name": "SINGH",
     "billing_city": "jammu",
     "billing_state": "Jammu and Kashmir",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "roohi.cgc@gmail.com"
   },
   {
@@ -1924,7 +1911,7 @@
     "last_name": "Dewangan",
     "billing_city": "Rajnandgaon",
     "billing_state": "Chhattisgarh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "opdewangan26@gmail.com",
     "isrc": "QZFYZ2131039,QZK6G2084002,QZNWS2172566,INF232200483,INF232200497,INF232200509,QZK6J2031286,QZK6G2194932,QZK6G2118423"
   },
@@ -1934,7 +1921,7 @@
     "last_name": "Mondal",
     "billing_city": "Kolkata",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "avirajaentertainments@gmail.com",
     "isrc": "INF232200384"
   },
@@ -1944,7 +1931,7 @@
     "last_name": "Shah",
     "billing_city": "Ahmedabad",
     "billing_state": "Gujarat",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "info@quickprime24.com",
     "isrc": "INF232200386"
   },
@@ -1954,7 +1941,7 @@
     "last_name": "Mondal",
     "billing_city": "Kolkata",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ae.anirban@gmail.com",
     "isrc": "INF232200387"
   },
@@ -1964,7 +1951,7 @@
     "last_name": "Aravindh",
     "billing_city": "Chennai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "amazingsriram27@gmail.com",
     "isrc": "INF232200392,INF232301420"
   },
@@ -1974,7 +1961,7 @@
     "last_name": "Sridhar",
     "billing_city": "Chennai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "music.jegankumar@gmail.com",
     "isrc": "INF232200393,INF232200443"
   },
@@ -1984,9 +1971,9 @@
     "last_name": "Das",
     "billing_city": "Chinsurah",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "studioin15@gmail.com",
-    "isrc": "INF232200395,INF232200580,INF232200613,INF232200721,INF232200734,INF232200760,INF232200808,INF232200817,INF232200973,INF232201059,INF232301165,INF232301166,INF232301218,INF232301245,INF232301364,INF232301365,TCAFP2136025,INF232301467,TCAFO2147024,INF232301509,INF232301533,INF232301568,INF232301586,INF232301646,INF232200664,INF232200663,INF232301355,INF232200681,INF232200763,INF232201094,INF232301667,INF232301699,INF232301703,INF232301768,INF232301804"
+    "isrc": "INF232200395,INF232200580,INF232200613,INF232200721,INF232200734,INF232200760,INF232200808,INF232200817,INF232200973,INF232201059,INF232301165,INF232301166,INF232301218,INF232301245,INF232301364,INF232301365,TCAFP2136025,INF232301467,TCAFO2147024,INF232301509,INF232301533,INF232301568,INF232301586,INF232301646,INF232200664,INF232200663,INF232301355,INF232200681,INF232200763,INF232201094,INF232301667,INF232301699,INF232301703,INF232301768,INF232301804,INF232401863,INF232401864,INF232401968,INF232401968,INF232402003"
   },
   {
     "partner_name": "BlueSky Production",
@@ -1994,7 +1981,7 @@
     "last_name": "Mandavi",
     "billing_city": "Jagdalpur",
     "billing_state": "Chhattisgarh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "vishallawrence3@gmail.com",
     "isrc": "INF232200396,INF232200398"
   },
@@ -2004,7 +1991,7 @@
     "last_name": "Tyagi",
     "billing_city": "noida",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "urbanpoetofficial@gmail.com",
     "isrc": "INF232200397"
   },
@@ -2014,7 +2001,7 @@
     "last_name": "Banoth",
     "billing_city": "Hyderabad",
     "billing_state": "Telangana",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "fimixmusic.in@gmail.com",
     "isrc": "INF232200399"
   },
@@ -2024,9 +2011,9 @@
     "last_name": "Bora",
     "billing_city": "Diphu",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rajlaxmibora24@gmail.com",
-    "isrc": "INF232200400,INF232201061"
+    "isrc": "INF232200400,INF232201061,INF232401844"
   },
   {
     "partner_name": "Hititdeju",
@@ -2034,7 +2021,7 @@
     "last_name": "Deju",
     "billing_city": "Guduvancheri",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "hititdeju143@gmail.com",
     "isrc": "INF232200401"
   },
@@ -2044,7 +2031,7 @@
     "last_name": "Art",
     "billing_city": "McKinney, TX",
     "billing_state": "Texas",
-    "billingCountry": "U.S.A",
+    "billing_country": "U.S.A",
     "emailId": "info@motionsart.com"
   },
   {
@@ -2053,7 +2040,7 @@
     "last_name": "Chhetri",
     "billing_city": "Alipurduar",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "the7thstringproject@gmail.com",
     "isrc": "INF232200403"
   },
@@ -2063,7 +2050,7 @@
     "last_name": "Saxena",
     "billing_city": "Hardoi",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "msofficial.biz@gmail.com",
     "isrc": "INF232200407,INF232301543"
   },
@@ -2073,7 +2060,7 @@
     "last_name": "Hembram",
     "billing_city": "Jamtara",
     "billing_state": "Jharkhand",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "pranalkumardev12@gmail.com"
   },
   {
@@ -2082,7 +2069,7 @@
     "last_name": "Roy",
     "billing_city": "Jalpaiguri",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "monsterpro492@gmail.com",
     "isrc": "INF232200409"
   },
@@ -2092,7 +2079,7 @@
     "last_name": "theWarrior",
     "billing_city": "Siliguri",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "infomonkandthewarriors@gmail.com",
     "isrc": "INF232200411,INF232200413,INF232200566,INF232200567,INF232200697"
   },
@@ -2102,7 +2089,7 @@
     "last_name": "Kumar",
     "billing_city": "Noida",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "shobhit.luv7@yahoo.com"
   },
   {
@@ -2111,7 +2098,7 @@
     "last_name": "H",
     "billing_city": "Thiruvananthapuram",
     "billing_state": "Kerala",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "cinegramsixthsense@gmail.com",
     "isrc": "INF232200416"
   },
@@ -2121,7 +2108,7 @@
     "last_name": "OINAM",
     "billing_city": "Hyderabad",
     "billing_state": "Telangana",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "mannachurchsafilguda@gmail.com",
     "isrc": "INF232200417,INF232200418,INF232200430,INF232200908"
   },
@@ -2131,7 +2118,7 @@
     "last_name": "Hembram",
     "billing_city": "Rourkela",
     "billing_state": "Odisha",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "bijoysing.hembram@gmail.com",
     "isrc": "INF232200420,INF232200427"
   },
@@ -2141,7 +2128,7 @@
     "last_name": "Aniket",
     "billing_city": "Nagpur",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "annyaniket150@gmail.com",
     "isrc": "INF232200421"
   },
@@ -2151,7 +2138,7 @@
     "last_name": "David",
     "billing_city": "chennai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "onlyforjesusglorification@gmail.com",
     "isrc": "TCAGB2287066"
   },
@@ -2161,13 +2148,9 @@
     "last_name": "Foujdar",
     "billing_city": "Karnal",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rnkiefoujdar@gmail.com",
     "isrc": "INF232200422"
-  },
-  {
-    "partner_name": "Utkala Music-OC",
-    "emailId": "beingodiotic@gmail.com"
   },
   {
     "partner_name": "PAVAN BHALERAO",
@@ -2175,7 +2158,7 @@
     "last_name": "BHALERAO",
     "billing_city": "NAVI MUMBAI",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "pavanbhalerao2001@gmail.com",
     "isrc": "QZDA42224178,QZNWQ2276828"
   },
@@ -2185,7 +2168,7 @@
     "last_name": "bhattacharya",
     "billing_city": "mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "riyaazwithpriyankaa@gmail.com",
     "isrc": "INF232200426"
   },
@@ -2195,7 +2178,7 @@
     "last_name": "Basu",
     "billing_city": "Kolkata",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "pratip.musik@gmail.com",
     "isrc": "INF232200429"
   },
@@ -2205,7 +2188,7 @@
     "last_name": "Entertainment",
     "billing_city": "Rourkela",
     "billing_state": "Odisha",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sadhikary683@gmail.com",
     "isrc": "INF232200432,INF232200582"
   },
@@ -2215,7 +2198,7 @@
     "last_name": "SAIKIA",
     "billing_city": "Guwahati",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "alaapdudulmusic@gmail.com"
   },
   {
@@ -2224,7 +2207,7 @@
     "last_name": "Raj",
     "billing_city": "Bengaluru",
     "billing_state": "Karnataka",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rajmukund@gmail.com",
     "isrc": "INF232200434"
   },
@@ -2234,7 +2217,7 @@
     "last_name": "Kashyap",
     "billing_city": "Rajnandgaon",
     "billing_state": "Chhattisgarh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "360meet@gmail.com",
     "isrc": "INF232200435,INF232200436,INF232200444,TCAFX2182663,QZNWR2104618,INF232200473,INF232200496,INF232200677"
   },
@@ -2244,7 +2227,7 @@
     "last_name": "Ali",
     "billing_city": "Noida",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "themajixxx.audioneers@gmail.com",
     "isrc": "INF232200437,INF232200794"
   },
@@ -2254,7 +2237,7 @@
     "last_name": "Records",
     "billing_city": "Delhi",
     "billing_state": "Delhi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "tashanmusiccompany@gmail.com",
     "isrc": "AUBEC2137574,AUBEC2137841,AUBEC2144450,AUBEC2181407"
   },
@@ -2271,7 +2254,7 @@
     "last_name": "Babbar",
     "billing_city": "Indore",
     "billing_state": "Madhya Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "igarvbabbar@gmail.com",
     "isrc": "QZDA42237759"
   },
@@ -2281,9 +2264,9 @@
     "last_name": "Banerjee",
     "billing_city": "Kolkata",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "pamelabanerjee21111990@gmail.com",
-    "isrc": "INF232200439,INF232200499,INF232200641,INF232200683,INF232200770,INF232200862,INF232301151,INF232301222,INF232301449,INF232301801"
+    "isrc": "INF232200439,INF232200499,INF232200641,INF232200683,INF232200770,INF232200862,INF232301151,INF232301222,INF232301449,INF232301801,INF232401850,INF232401904,INF232401920"
   },
   {
     "partner_name": "Harry Brar",
@@ -2291,7 +2274,7 @@
     "last_name": "Brar",
     "billing_city": "nalagarh",
     "billing_state": "Himachal Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ritik100395@gmail.com",
     "isrc": "INF232200440,INF232201009,INF232201014,INF232201017,INF232301226,INF232301254"
   },
@@ -2301,18 +2284,9 @@
     "last_name": "Sathe",
     "billing_city": "Kalyan",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rahulsatheofficial@gmail.com",
     "isrc": "INF232200441"
-  },
-  {
-    "partner_name": "Jegan Kumar Sridhar",
-    "first_name": "Jegan Kumar",
-    "last_name": "Sridhar",
-    "billing_city": "Chennai",
-    "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
-    "emailId": "music.jegankumar@gmail.com"
   },
   {
     "partner_name": "Hitesh Chohan",
@@ -2320,7 +2294,7 @@
     "last_name": "Chohan",
     "billing_city": "Dar es Salaam",
     "billing_state": "Dar es Salaam",
-    "billingCountry": "Tanzania",
+    "billing_country": "Tanzania",
     "emailId": "hjchohan@gmail.com",
     "isrc": "INF232200445,INF232200536,INF232201008,INF232301202"
   },
@@ -2330,7 +2304,7 @@
     "last_name": "KalyanaRaman",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ramanskr@gmail.com",
     "isrc": "INF232200448"
   },
@@ -2340,7 +2314,7 @@
     "last_name": "Music",
     "billing_city": "Hyderabad",
     "billing_state": "Telangana",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "dhanumusic4u@gmail.com",
     "isrc": "INF232200449"
   },
@@ -2350,7 +2324,7 @@
     "last_name": "Siaan",
     "billing_city": "chandigarh",
     "billing_state": "Punjab",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "amrinder1410@gmail.com",
     "isrc": "INF232200452,INF232200595,INF232200872"
   },
@@ -2360,7 +2334,7 @@
     "last_name": "Prasath",
     "billing_city": "Chennai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "venkateshprasathbusiness@gmail.com",
     "isrc": "INF232200453"
   },
@@ -2370,7 +2344,7 @@
     "last_name": "mmpcl",
     "billing_city": "sagar",
     "billing_state": "Madhya Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "neelmani.goswami@muktaamilk.com",
     "isrc": "INF232200454"
   },
@@ -2380,7 +2354,7 @@
     "last_name": "Kovil",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "zandrahealthcare@gmail.com",
     "isrc": "INF232200456"
   },
@@ -2390,7 +2364,7 @@
     "last_name": "Jacob",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "jaisonjacobofficial@gmail.com",
     "isrc": "INF232200457"
   },
@@ -2400,7 +2374,7 @@
     "last_name": "Patidar",
     "billing_city": "indore",
     "billing_state": "Madhya Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "mayank.patidar60@gmail.com",
     "isrc": "INF232200461"
   },
@@ -2410,7 +2384,7 @@
     "last_name": "Roy",
     "billing_city": "Kharagpur",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "anupamroy12@gmail.com",
     "isrc": "INF232200462"
   },
@@ -2420,7 +2394,7 @@
     "last_name": "Barman",
     "billing_city": "Janjgir",
     "billing_state": "Chhattisgarh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rameshkumarb011@gmail.com",
     "isrc": "INF232200463"
   },
@@ -2430,7 +2404,7 @@
     "last_name": "Shiv",
     "billing_city": "New Delhi",
     "billing_state": "Delhi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "deythakrecords@gmail.com",
     "isrc": "INF232200464"
   },
@@ -2440,7 +2414,7 @@
     "last_name": "laka",
     "billing_city": "Ga rankuwa",
     "billing_state": "Gauteng",
-    "billingCountry": "South Africa",
+    "billing_country": "South Africa",
     "emailId": "booklakajudedon@gmail.com",
     "isrc": "RUA1H2299480"
   },
@@ -2450,7 +2424,7 @@
     "last_name": "Sharma",
     "billing_city": "Guwahati",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ks.siddhartha@gmail.com",
     "isrc": "INF232200465,INF232301430"
   },
@@ -2460,9 +2434,9 @@
     "last_name": "Rahman",
     "billing_city": "Guwahati",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "chafikhur@gmail.com",
-    "isrc": "INF232200467,INF232200484,INF232200537,INF232200632,INF232200672,INF232200675,INF232200778,INF232200812,INF232200836,INF232200890,INF232200945,INF232200966,INF232200968,INF232200980,INF232200981,INF232200987,INF232200993,INF232201011,INF232201021,INF232201028,INF232201034,INF232201047,INF232201049,INF232201076,INF232201092,INF232201093,INF232201109,INF232201111,INF232201117,INF232301146,INF232301172,INF232301253,INF232301294,INF232301418,INF232301431,INF232301443,INF232301529,INF232301186,INF232301660"
+    "isrc": "INF232200467,INF232200484,INF232200537,INF232200632,INF232200672,INF232200675,INF232200778,INF232200812,INF232200836,INF232200890,INF232200945,INF232200966,INF232200968,INF232200980,INF232200981,INF232200987,INF232200993,INF232201011,INF232201021,INF232201028,INF232201034,INF232201047,INF232201049,INF232201076,INF232201092,INF232201093,INF232201109,INF232201111,INF232201117,INF232301146,INF232301172,INF232301253,INF232301294,INF232301418,INF232301431,INF232301443,INF232301529,INF232301186,INF232301660,INF232301829,INF232401859,INF232401923,INF232401936,INF232401941,INF232401975,INF232402038"
   },
   {
     "partner_name": "Yogesh Bedi",
@@ -2470,7 +2444,7 @@
     "last_name": "bedi",
     "billing_city": "delhi",
     "billing_state": "Delhi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "yogeshbedi1997@gmail.com",
     "isrc": "INF232200468,INF232201052"
   },
@@ -2480,7 +2454,7 @@
     "last_name": "Hembram",
     "billing_city": "Taldangra",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "marangburuhembram2001@gmail.com",
     "isrc": "INF232200469"
   },
@@ -2490,7 +2464,7 @@
     "last_name": "Sharma",
     "billing_city": "Jammu",
     "billing_state": "Jammu and Kashmir",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rajat94191@gmail.com",
     "isrc": "QZES62209046"
   },
@@ -2500,7 +2474,7 @@
     "last_name": "Das",
     "billing_city": "Neemrana",
     "billing_state": "Rajasthan",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "hindoldas11@gmail.com",
     "isrc": "INF232200470,QZTB32255641"
   },
@@ -2510,7 +2484,7 @@
     "last_name": "Medhi",
     "billing_city": "Nalbari",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "zumanjeetofficial@gmail.com",
     "isrc": "INF232200472"
   },
@@ -2520,7 +2494,7 @@
     "last_name": "Bisht",
     "billing_city": "Sundarnagar",
     "billing_state": "Himachal Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "lamanfolk@gmail.com",
     "isrc": "INF232200475,INF232200568"
   },
@@ -2530,7 +2504,7 @@
     "last_name": "Sahu",
     "billing_city": "Rajnandgaon",
     "billing_state": "Chhattisgarh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sahugitanjali138@gmail.com",
     "isrc": "INF232200476,INF232200477,INF232200494,INF232200518,INF232200569,INF232200650,QZK6M2350856,QZWFF2314231"
   },
@@ -2540,7 +2514,7 @@
     "last_name": "DEKA",
     "billing_city": "Jagiroad",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "niyorcreations620@gmail.com",
     "isrc": "INF232200478"
   },
@@ -2550,7 +2524,7 @@
     "last_name": "Gpr",
     "billing_city": "Tiruchengode",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "g.prasannaraj@yahoo.com",
     "isrc": "INF232200479"
   },
@@ -2567,7 +2541,7 @@
     "last_name": "Krishnan",
     "billing_city": "Davangere",
     "billing_state": "Karnataka",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "pixstacks@gmail.com",
     "isrc": "INF232200486"
   },
@@ -2577,7 +2551,7 @@
     "last_name": "Ramachandran",
     "billing_city": "Chennai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "info@9ten.in",
     "isrc": "INF232200488"
   },
@@ -2587,18 +2561,9 @@
     "last_name": "B",
     "billing_city": "Chennai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "bsangeeth.roeshan@gmail.com",
     "isrc": "INF232200490"
-  },
-  {
-    "partner_name": "Ni Se Nitesh",
-    "first_name": "L Nitesh",
-    "last_name": "Kumar",
-    "billing_city": "Deogarh",
-    "billing_state": "Odisha",
-    "billingCountry": "India",
-    "emailId": "9frequencies@gmail.com"
   },
   {
     "partner_name": "ANKIT NAVGWAL",
@@ -2606,7 +2571,7 @@
     "last_name": "NAVGWAL",
     "billing_city": "Noida",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ankitngwalfilms@gmail.com",
     "isrc": "INH412115273"
   },
@@ -2616,7 +2581,7 @@
     "last_name": "Malay",
     "billing_city": "Lucknow",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "er.kaushiksrivastava@gmail.com",
     "isrc": "QZHN52277108,INF232201121"
   },
@@ -2626,7 +2591,7 @@
     "last_name": "Chakraborty",
     "billing_city": "Siliguri",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "chakra51borty@gmail.com",
     "isrc": "INF232200495"
   },
@@ -2636,7 +2601,7 @@
     "last_name": "Vadageri",
     "billing_city": "Pune",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "avadageri@gmail.com",
     "isrc": "INF232200498"
   },
@@ -2646,7 +2611,7 @@
     "last_name": "Dutta",
     "billing_city": "Howrah",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "debtanudutta1271987@gmail.com",
     "isrc": "INF232200500,INF232200671,INF232200755,INF232200996"
   },
@@ -2656,9 +2621,9 @@
     "last_name": "Shukla",
     "billing_city": "Lucknow",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "djtraxeonofficial@gmail.com",
-    "isrc": "INF232200501,INF232200799,INF232200982"
+    "isrc": "INF232200501,INF232200799,INF232200982,INF232401903"
   },
   {
     "partner_name": "Vignesh Karuppasamy",
@@ -2666,7 +2631,7 @@
     "last_name": "Karuppasamy",
     "billing_city": "madurai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "passionofmusicfeel@gmail.com",
     "isrc": "TCAFS2118647"
   },
@@ -2676,7 +2641,7 @@
     "last_name": "Suryawanshi",
     "billing_city": "navi mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "suryawanshipankaj92@gmail.com",
     "isrc": "INF232200503,INF232200535"
   },
@@ -2686,7 +2651,7 @@
     "last_name": "Shelke",
     "billing_city": "Nagpur",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "pramodshelke077@gmail.com",
     "isrc": "INF232200504"
   },
@@ -2696,7 +2661,7 @@
     "last_name": "WILLI",
     "billing_city": "Visakhapatnam",
     "billing_state": "Andhra Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "whilliye@icloud.com",
     "isrc": "INF232200505"
   },
@@ -2706,7 +2671,7 @@
     "last_name": "Salma",
     "billing_city": "Titilagarh",
     "billing_state": "Odisha",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ccsalma1105@gmail.com",
     "isrc": "INF232200506"
   },
@@ -2716,7 +2681,7 @@
     "last_name": "Fernandes",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "jf2205noble@gmail.com",
     "isrc": "INF232200507"
   },
@@ -2726,7 +2691,7 @@
     "last_name": "A.P",
     "billing_city": "Thiruvananthapuram",
     "billing_state": "Kerala",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "aariyalap@gmail.com",
     "isrc": "INF232200508,INF232201112"
   },
@@ -2736,7 +2701,7 @@
     "last_name": "Golani",
     "billing_city": "Agra",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "arpitgolani9@gmail.com",
     "isrc": "INF232200510,INF232200555,INF232200642,CHF032400068,INF232301347,INF232301383,TCAGJ2228778,TCAGJ2229133"
   },
@@ -2746,7 +2711,7 @@
     "last_name": "Mohit",
     "billing_city": "saharanpur",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ladla.mohitgujjar@gmail.com",
     "isrc": "INF232200511,INF232200628,INF232301361,INF232301700"
   },
@@ -2756,7 +2721,7 @@
     "last_name": "SHAW",
     "billing_city": "kolkata",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "info@minshe.in",
     "isrc": "INF232200514,INF232200532"
   },
@@ -2766,18 +2731,9 @@
     "last_name": "Bhanawala",
     "billing_city": "Surat",
     "billing_state": "Gujarat",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "chaitanyabhanawala@gmail.com",
     "isrc": "QZFZ42257366"
-  },
-  {
-    "partner_name": "Saz Sargam Production",
-    "first_name": "Chandramohan",
-    "last_name": "Hangekar",
-    "billing_city": "PUNE",
-    "billing_state": "Maharashtra",
-    "billingCountry": "India",
-    "emailId": "music.chandramohan@gmail.com"
   },
   {
     "partner_name": "Balaswamy Vaddeman",
@@ -2785,7 +2741,7 @@
     "last_name": "Vaddeman",
     "billing_city": "hyderabad",
     "billing_state": "Telangana",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "vaddebalu@gmail.com",
     "isrc": "INF232200516"
   },
@@ -2802,9 +2758,9 @@
     "last_name": "Creations",
     "billing_city": "Rudraprayag",
     "billing_state": "Uttarakhand",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "hello@pandavaas.com",
-    "isrc": "INF232200519,INF232200561,INO132103267,INO132103266,INO131603198,INF232200588,INF232201038,INF232201045"
+    "isrc": "INF232200519,INF232200561,INO132103267,INO132103266,INO131603198,INF232200588,INF232201038,INF232201045,INF232200956,INF232200957,INF232200958,INF232200959,INF232200960"
   },
   {
     "partner_name": "Narendra Trilokani",
@@ -2812,7 +2768,7 @@
     "last_name": "Trilokani",
     "billing_city": "Agra",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "thakurfootwearcompany@gmail.com",
     "isrc": "INF232200520"
   },
@@ -2822,17 +2778,9 @@
     "last_name": "Music",
     "billing_city": "Karaikudi",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "trendanimusic@gmail.com",
     "isrc": "SE6HN2287466,SE6QE2200152,SE6XW2184728,SE6HN2258037,SE6SA2235437,SE6XW2245761,SE6XW2260734,SE6XY2212301,SE6XY2248614,SE5752329608,SE5752329605"
-  },
-  {
-    "partner_name": "Kalakaar Records",
-    "first_name": "Kalakaar",
-    "last_name": "Records",
-    "billing_city": "Shahjahanpur",
-    "billingCountry": "India",
-    "emailId": "sameerahmad810@gmail.com"
   },
   {
     "partner_name": "Water Bank",
@@ -2840,7 +2788,7 @@
     "last_name": "Kumar",
     "billing_city": "Ranchi",
     "billing_state": "Jharkhand",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "waterbankfoundation@gmail.com",
     "isrc": "INF232200524"
   },
@@ -2850,7 +2798,7 @@
     "last_name": "Jesu",
     "billing_city": "Tuticorin",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "amariajesu@gmail.com",
     "isrc": "INF232200526,INF232200597"
   },
@@ -2860,14 +2808,8 @@
     "last_name": "Sargam",
     "billing_city": "Bokaro Steel City",
     "billing_state": "Jharkhand",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sargam905@gmail.com"
-  },
-  {
-    "partner_name": "Sukirana Visions",
-    "first_name": "Rahul",
-    "last_name": "Kiran",
-    "emailId": "sukiranavisions@gmail.com"
   },
   {
     "partner_name": "Mamuni Production House",
@@ -2875,7 +2817,7 @@
     "last_name": "Patra",
     "billing_city": "Bhograi",
     "billing_state": "Odisha",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "bhograi00@gmail.com",
     "isrc": "INF232200531"
   },
@@ -2885,18 +2827,9 @@
     "last_name": "Singh",
     "billing_city": "Mohali",
     "billing_state": "Punjab",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "respectmusicrecords1@gmail.com",
-    "isrc": "INF232200533,INF232200725"
-  },
-  {
-    "partner_name": "Sanchit Khosla",
-    "first_name": "Sanchit",
-    "last_name": "Khosla",
-    "billing_city": "delhi",
-    "billing_state": "Delhi",
-    "billingCountry": "India",
-    "emailId": "khoslasanchit15@gmail.com"
+    "isrc": "INF232200533,INF232200725,INF232200802,INF232200848"
   },
   {
     "partner_name": "OMV Music Bhojpuri",
@@ -2904,7 +2837,7 @@
     "last_name": "PRASAD",
     "billing_city": "RISHRA",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "omvmusic2020@gmail.com"
   },
   {
@@ -2913,7 +2846,7 @@
     "last_name": "Sagar",
     "billing_city": "Kottayam",
     "billing_state": "Kerala",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sagarvsree@gmail.com",
     "isrc": "INF232200539"
   },
@@ -2923,7 +2856,7 @@
     "last_name": "ENTERPRISE",
     "billing_city": "Diphu",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "langnehstudios@gmail.com",
     "isrc": "QZSR42149062,QZSR42149065,QZSR42150228,QZSR42149064,QZSR42149063,QZSR42161389,QZSR42161421,QZSR42181810,QZSR42184268,QZAMM2157913,QZW9N2204753,QZSR42189049"
   },
@@ -2933,9 +2866,9 @@
     "last_name": "Sahu",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "entertainmentjinni@gmail.com",
-    "isrc": "INF232200541,INF232200617,INF232200654,INF232200722,INF232200724,INF232200849"
+    "isrc": "INF232200541,INF232200617,INF232200654,INF232200722,INF232200724,INF232200849,INF232401918,INF232401953"
   },
   {
     "partner_name": "Dream Shadow Records",
@@ -2943,7 +2876,7 @@
     "last_name": "Shadow",
     "billing_city": "Raipur",
     "billing_state": "Chhattisgarh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "dreamshadowrecords@gmail.com",
     "isrc": "INF232200547,INF232301523,INF232301810"
   },
@@ -2953,7 +2886,7 @@
     "last_name": "Samani",
     "billing_city": "Thane",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "nikunjsamani2@gmail.com",
     "isrc": "INF232200548"
   },
@@ -2963,13 +2896,9 @@
     "last_name": "Movies",
     "billing_city": "Pune",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "timelessmovies10@gmail.com",
     "isrc": "INF232200542,INF232200543,INF232200544,INF232200545,INF232200546"
-  },
-  {
-    "partner_name": "A Series Production",
-    "emailId": "beingodiotic@gmail.com"
   },
   {
     "partner_name": "KIRAN PANIGRAHI",
@@ -2977,7 +2906,7 @@
     "last_name": "PANIGRAHI",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "iamkiranpanigrahi@gmail.com",
     "isrc": "INF232200551"
   },
@@ -2987,7 +2916,7 @@
     "last_name": "Jaiswal",
     "billing_city": "Bhopal",
     "billing_state": "Madhya Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "pradeep.rcdesigns@gmail.com",
     "isrc": "INF232200552"
   },
@@ -2997,7 +2926,7 @@
     "last_name": "Singh",
     "billing_city": "ludhiana",
     "billing_state": "Punjab",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "harryalsk000@gmail.com",
     "isrc": "INF232200556"
   },
@@ -3007,7 +2936,7 @@
     "last_name": "MD",
     "billing_city": "Trichy",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "dspremkumar74@gmail.com",
     "isrc": "INF232200557"
   },
@@ -3017,13 +2946,9 @@
     "last_name": "Sahani",
     "billing_city": "Guwahati",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "r3zrxx@gmail.com",
     "isrc": "INF232200558,INF232200573"
-  },
-  {
-    "partner_name": "S Chakra Official",
-    "emailId": "beingodiotic@gmail.com"
   },
   {
     "partner_name": "Saurabh Salunke",
@@ -3031,7 +2956,7 @@
     "last_name": "Salunke",
     "billing_city": "Pune",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "saurabhpsalunke7@gmail.com",
     "isrc": "INF232200560"
   },
@@ -3048,7 +2973,7 @@
     "last_name": "SINGH",
     "billing_city": "Jalandhar",
     "billing_state": "Punjab",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "contact@black-rott.com",
     "isrc": "UKJ8H2204461"
   },
@@ -3057,16 +2982,7 @@
     "first_name": "Amar",
     "last_name": "Mane",
     "emailId": "manebs17@gmail.com",
-    "isrc": "INF232200570,INF232200578,INF232200719,INF232200910,INF232200911,INF232200933,INF232200934,INF232200935,INF232200936,INF232200937,INF232200938"
-  },
-  {
-    "partner_name": "Rock King",
-    "first_name": "Rock",
-    "last_name": "King",
-    "billing_city": "Rampur",
-    "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
-    "emailId": "technoplus9897@gmail.com"
+    "isrc": "INF232200911,INF232200937,INF232401902,INF232401915,INF232401916,INF232401930"
   },
   {
     "partner_name": "Honey Dubey",
@@ -3074,7 +2990,7 @@
     "last_name": "Dubey",
     "billing_city": "Bilaspur",
     "billing_state": "Chhattisgarh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "honeychoubey0194@gmail.com",
     "isrc": "INF232200574,INF232200686,INF232200835,INF232201115,INF232301293"
   },
@@ -3084,7 +3000,7 @@
     "last_name": "Asgar",
     "billing_city": "Faizabad",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sadiqasgar1@gmail.com",
     "isrc": "INF232200575"
   },
@@ -3094,7 +3010,7 @@
     "last_name": "Dutta",
     "billing_city": "Guwahati",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "gurudevproduction18@gmail.com",
     "isrc": "INF232200576"
   },
@@ -3104,7 +3020,7 @@
     "last_name": "Modi",
     "billing_city": "Bhilwara",
     "billing_state": "Rajasthan",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "modiabhilash308@gmail.com",
     "isrc": "INF232200581"
   },
@@ -3114,7 +3030,7 @@
     "last_name": "Kumar",
     "billing_city": "West Midland",
     "billing_state": "Birmingham",
-    "billingCountry": "United Kingdom",
+    "billing_country": "United Kingdom",
     "emailId": "rajeshkumar6@aol.com",
     "isrc": "INF232200585,INF232200861,INF232201102,INF232301385,INF232301415,INF232301555"
   },
@@ -3124,7 +3040,7 @@
     "last_name": "Sharma",
     "billing_city": "Indore",
     "billing_state": "Madhya Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "khusharma07@gmail.com",
     "isrc": "INF232200592"
   },
@@ -3134,7 +3050,7 @@
     "last_name": "Sudharsan",
     "billing_city": "Manamadurai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "lltsudharsan@gmail.com",
     "isrc": "INF232200593"
   },
@@ -3144,7 +3060,7 @@
     "last_name": "Mission",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "socialmedia@chinmayamission.com",
     "isrc": "INF232200594"
   },
@@ -3154,27 +3070,9 @@
     "last_name": "Thangiah",
     "billing_city": "Bangalore",
     "billing_state": "Karnataka",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "fgaginfo@gmail.com",
     "isrc": "INF232200587,INF232201010"
-  },
-  {
-    "partner_name": "The Musical Eyes",
-    "first_name": "Labh",
-    "last_name": "Rana",
-    "billing_city": "chandigarh",
-    "billing_state": "Punjab",
-    "billingCountry": "India",
-    "emailId": "amrinder1410@gmail.com"
-  },
-  {
-    "partner_name": "Muzical Mind Yo!",
-    "first_name": "Muzical",
-    "last_name": "Mind Yo!",
-    "billing_city": "Bhawanigarh",
-    "billing_state": "Punjab",
-    "billingCountry": "India",
-    "emailId": "muzicalmindyo@gmail.com"
   },
   {
     "partner_name": "Sanjeevani Hasabnis",
@@ -3182,7 +3080,7 @@
     "last_name": "Hasabnis",
     "billing_city": "Pune",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sanjeevanihasabnis@gmail.com",
     "isrc": "INF232200598"
   },
@@ -3192,7 +3090,7 @@
     "last_name": "Kushwaha",
     "billing_city": "Ganj Basoda",
     "billing_state": "Madhya Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "towards.amit@gmail.com",
     "isrc": "INF232200599"
   },
@@ -3202,7 +3100,7 @@
     "last_name": "Vedant",
     "billing_city": "Sangli",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "arvedant@gmail.com",
     "isrc": "INF232200600"
   },
@@ -3212,7 +3110,7 @@
     "last_name": "Records",
     "billing_city": "Delhi",
     "billing_state": "Delhi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "groovenexus@gmail.com",
     "isrc": "INF232200601,INF232200644,INF232200643,INF232200665,INF232200667,TCAGE2236561,TCAFM2127634,TCAGC2227307,TCAGE2283762,INF232200790,INF232200791,INF232200795,INF232200821,INF232200829,INF232200857,INF232200859,INF232200902,INF232200915,INF232200932,INF232200963,INF232200964,INF232200991,INF232201012,INF232201013,INF232201032,INF232201051,INF232201060,INF232201096,INF232201097,INF232201098,INF232201114,INF232301131,INF232301132,INF232301136,INF232301137,INF232301138,INF232201095,INF232301155,INF232301156,INF232301157"
   },
@@ -3222,7 +3120,7 @@
     "last_name": "RAINA",
     "billing_city": "Hyderabad",
     "billing_state": "Telangana",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rajesh.rainaa@gmail.com",
     "isrc": "INF232200602,INF232200635,INF232200636,INF232200637,INF232200659,INF232200658,INF232200660,INF232200661,INF232200657,INF232200676"
   },
@@ -3232,7 +3130,7 @@
     "last_name": "Durham",
     "billing_city": "New York, NY",
     "billing_state": "New York",
-    "billingCountry": "U.S.A",
+    "billing_country": "U.S.A",
     "emailId": "fusiarecordings@gmail.com",
     "isrc": "INF232200605,INF232200638,NL4NL2174471,NL4NL2209273,NL4NL2157007,NL4NL2207839,INF232201116,INF232301224,INF232301272,INF232301338,INF232301691,INF232301694,INF232301736"
   },
@@ -3242,7 +3140,7 @@
     "last_name": "Singh",
     "billing_city": "Ludhiana",
     "billing_state": "Punjab",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "impossiblecreations1@gmail.com",
     "isrc": "INF232200606"
   },
@@ -3252,7 +3150,7 @@
     "last_name": "Parmar",
     "billing_city": "Godhra",
     "billing_state": "Gujarat",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "contact@niravparmar.in",
     "isrc": "INF232200604,INF232200608"
   },
@@ -3262,7 +3160,7 @@
     "last_name": "Corona",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "creativecoronaofficial@gmail.com",
     "isrc": "FR2X42281958"
   },
@@ -3272,7 +3170,7 @@
     "last_name": "Pasula",
     "billing_city": "Hyderabad",
     "billing_state": "Telangana",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ranjithpasula@gmail.com",
     "isrc": "INF232200609"
   },
@@ -3282,7 +3180,7 @@
     "last_name": "SHAH",
     "billing_city": "Surat",
     "billing_state": "Gujarat",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "urbankirtan@gmail.com",
     "isrc": "INF232200610"
   },
@@ -3292,7 +3190,7 @@
     "last_name": "Netti",
     "billing_city": "Visakhapatnam",
     "billing_state": "Andhra Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "naninetti@gmail.com",
     "isrc": "INF232200611"
   },
@@ -3302,9 +3200,9 @@
     "last_name": "KRIZ",
     "billing_city": "CHENNAI",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "adykriz0316@gmail.com",
-    "isrc": "INF232200612,INF232200706,INF232200710,INF232200723,INF232200761,INF232200846,INF232301149,INF232301198,INF232301221,INF232301246,INF232301303,INF232301334,INF232301350,INF232301351,INF232301380,INF232301445,INF232301453,INF232301515,INF232301528,INF232301563,INF232200783,INF232200815,INF232200837,INF232200871,INF232200924,INF232200949,INF232201022,INF232201087,INF232201103,INF232301717"
+    "isrc": "INF232200612,INF232200706,INF232200710,INF232200723,INF232200761,INF232200846,INF232301149,INF232301198,INF232301221,INF232301246,INF232301303,INF232301334,INF232301350,INF232301351,INF232301380,INF232301445,INF232301453,INF232301515,INF232301528,INF232301563,INF232200783,INF232200815,INF232200837,INF232200871,INF232200924,INF232200949,INF232201022,INF232201087,INF232201103,INF232301717,INF232401898"
   },
   {
     "partner_name": "Vengala Creations",
@@ -3312,7 +3210,7 @@
     "last_name": "Creations",
     "billing_city": "hyderabad",
     "billing_state": "Telangana",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "vengalaprudviraj@gmail.com",
     "isrc": "INF232200614"
   },
@@ -3322,7 +3220,7 @@
     "last_name": "VISHWAKARMA",
     "billing_city": "Gorakhpur",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ays1098@gmail.com",
     "isrc": "INF232200615,INF232200741,INF232200873,INF232200874,INF232200895"
   },
@@ -3332,7 +3230,7 @@
     "last_name": "Lama",
     "billing_city": "Darjeeling",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rinchentamang66@gmail.com",
     "isrc": "INO132103338,INF232200618,INO132103651,INO132103068,INO132102193,INF232200941,INF232200999"
   },
@@ -3342,7 +3240,7 @@
     "last_name": "BHOWMIK",
     "billing_city": "coochbehar",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "gbhowmikanjb666@gmail.com",
     "isrc": "INF232200621"
   },
@@ -3352,7 +3250,7 @@
     "last_name": "KADAM",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "deepakkadam1.75@gmail.com",
     "isrc": "INF232200622"
   },
@@ -3362,7 +3260,7 @@
     "last_name": "Patra",
     "billing_city": "Mecheda",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "jamhubstudio@gmail.com",
     "isrc": "INF232200623,INF232200773,INF232200830,INF232200844,INF232201024,INF232301148,INF232301171,INF232301325,INF232301343,INF232301722"
   },
@@ -3372,7 +3270,7 @@
     "last_name": "Maratha",
     "billing_city": "Mandsaur",
     "billing_state": "Madhya Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ashish.bhonsle1992@gmail.com",
     "isrc": "INF232200624"
   },
@@ -3382,7 +3280,7 @@
     "last_name": "Haque",
     "billing_city": "Budaun",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "meetaffan@hotmail.com",
     "isrc": "INF232200626,INF232200930"
   },
@@ -3392,7 +3290,7 @@
     "last_name": "Baid",
     "billing_city": "Cooch Behar",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "pawan90don@gmail.com",
     "isrc": "INF232200627"
   },
@@ -3402,7 +3300,7 @@
     "last_name": "Rai",
     "billing_city": "THANE",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "anuratnrai05@gmail.com",
     "isrc": "QZK6J2248980"
   },
@@ -3412,7 +3310,7 @@
     "last_name": "Dash",
     "billing_city": "NABARANGPUR",
     "billing_state": "Odisha",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rajeshdash96@gmail.com",
     "isrc": "INF232200630"
   },
@@ -3422,7 +3320,7 @@
     "last_name": "Studio",
     "billing_city": "Chennai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "dhilipan.music@gmail.com",
     "isrc": "INF232200634"
   },
@@ -3432,7 +3330,7 @@
     "last_name": "Koley",
     "billing_city": "Tribeni",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "feedback.prasen@gmail.com",
     "isrc": "INF232200645,INF232200699,INF232200733,INF232200868,INF232201007"
   },
@@ -3442,7 +3340,7 @@
     "last_name": "Mukherjee",
     "billing_city": "Noida",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "iamssuperban@gmail.com",
     "isrc": "INF232200646"
   },
@@ -3452,7 +3350,7 @@
     "last_name": "Saraswat",
     "billing_city": "Ajmer",
     "billing_state": "Rajasthan",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "akshusaraswat2017@gmail.com",
     "isrc": "INF232200648"
   },
@@ -3470,7 +3368,7 @@
     "first_name": "Kiran",
     "last_name": "Baskaram",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "thejedahyu@gmail.com",
     "isrc": "INF232200653,INF232301134,INF232301144,INF232301212"
   },
@@ -3488,7 +3386,7 @@
     "last_name": "Basu",
     "billing_city": "Bhadreswar",
     "billing_state": "Hooghly",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "todebraj@hotmail.com",
     "isrc": "INF232200656,INF232201069"
   },
@@ -3497,7 +3395,7 @@
     "first_name": "Tanishq",
     "last_name": "Kapoor",
     "billing_city": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "tanishqkapoor25@gmail.com",
     "isrc": "INF232200662"
   },
@@ -3507,18 +3405,9 @@
     "last_name": "Bhattacharya",
     "billing_city": "Suri",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "invisiblebladeproductions@gmail.com",
     "isrc": "QZMEP2216033,QZMEP2239558"
-  },
-  {
-    "partner_name": "SouravSudeshna OriGinals",
-    "first_name": "Shounak",
-    "last_name": "Das",
-    "billing_city": "Chinsurah",
-    "billing_state": "West Bengal",
-    "billingCountry": "India",
-    "emailId": "studioin15@gmail.com"
   },
   {
     "partner_name": "Blue Sky Wonder Production",
@@ -3526,7 +3415,7 @@
     "last_name": "JAISWAL",
     "billing_city": "Nagpur",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "surajjaiswal77@yahoo.com",
     "isrc": "INF232200666,INF232200668"
   },
@@ -3536,7 +3425,7 @@
     "last_name": "SHARMA",
     "billing_city": "LUDHIANA",
     "billing_state": "Punjab",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "jagdeep.freunde@gmail.com",
     "isrc": "INF232200669,INF232200793"
   },
@@ -3546,7 +3435,7 @@
     "last_name": "Ahuja",
     "billing_city": "Noida",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ahujaambuj@gmail.com",
     "isrc": "QZMEN2297967"
   },
@@ -3556,9 +3445,9 @@
     "last_name": "Singh",
     "billing_city": "Rajpura",
     "billing_state": "Punjab",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sahibaaseesmusic@gmail.com",
-    "isrc": "INF232200673,INF232200785"
+    "isrc": "INF232200673"
   },
   {
     "partner_name": "Aviwadan Rai",
@@ -3566,17 +3455,8 @@
     "last_name": "rai",
     "billing_city": "darjeeling",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "netag734101@gmail.com"
-  },
-  {
-    "partner_name": "Halo Music",
-    "first_name": "Rutesh",
-    "last_name": "Patel",
-    "billing_city": "Vadodara",
-    "billing_state": "Gujarat",
-    "billingCountry": "India",
-    "emailId": "rutesh.patel3@gmail.com"
   },
   {
     "partner_name": "Shekhar Astitwa",
@@ -3584,7 +3464,7 @@
     "last_name": "Vardhan",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "yashvardhan.music@gmail.com",
     "isrc": "INF232200678"
   },
@@ -3594,7 +3474,7 @@
     "last_name": "Patel",
     "billing_city": "KORBA",
     "billing_state": "Chhattisgarh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "pranshupatel19@gmail.com",
     "isrc": "INF232200680"
   },
@@ -3604,7 +3484,7 @@
     "last_name": "Rodricks",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "zenorodricks@gmail.com",
     "isrc": "USCGJ2282997,INF232301440"
   },
@@ -3614,7 +3494,7 @@
     "last_name": "Nishant",
     "billing_city": "Adityapur",
     "billing_state": "Jharkhand",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "kumarnishantofficial@gmail.com",
     "isrc": "INF232200682,QZFZ42371866,INF232301498"
   },
@@ -3624,7 +3504,7 @@
     "last_name": "PRAJAPAT",
     "billing_city": "NAGAON",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "anurag_kr@ymail.com",
     "isrc": "INF232200684,INF232200739,INF232201029,INF232301473"
   },
@@ -3634,9 +3514,9 @@
     "last_name": "singh",
     "billing_city": "jaitu",
     "billing_state": "Punjab",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "pindhoodrecords@gmail.com",
-    "isrc": "INF232200685,INF232200889,INF232200994,INF232301605"
+    "isrc": "INF232200685,INF232200889,INF232200994,INF232301605,INF232402034,INF232402041"
   },
   {
     "partner_name": "Diwakar Singh Kachhawaha",
@@ -3644,7 +3524,7 @@
     "last_name": "Kachhawaha",
     "billing_city": "Jodhpur",
     "billing_state": "Rajasthan",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "diwakar.skachhawaha@gmail.com",
     "isrc": "TCAGG2257801,INF232200894"
   },
@@ -3654,15 +3534,9 @@
     "last_name": "bansal",
     "billing_city": "New Delhi",
     "billing_state": "Delhi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "mlbsurtaal@gmail.com",
     "isrc": "INF232200687,INF232200700,INF232200977,INF232201084,INF232201086"
-  },
-  {
-    "partner_name": "Bandish Diaryz",
-    "first_name": "Shounak",
-    "last_name": "Das",
-    "emailId": "studioin15@gmail.com"
   },
   {
     "partner_name": "Musicaholic Productions",
@@ -3670,7 +3544,7 @@
     "last_name": "Sharma",
     "billing_city": "Jalandhar",
     "billing_state": "Punjab",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "musicaholicproduction@gmail.com",
     "isrc": "INF232200688"
   },
@@ -3680,7 +3554,7 @@
     "last_name": "Studio",
     "billing_city": "chennai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "jsstudio2k19@gmail.com",
     "isrc": "INF232200692"
   },
@@ -3690,7 +3564,7 @@
     "last_name": "Ghosh",
     "billing_city": "Sagar",
     "billing_state": "Madhya Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "studioanashte@gmail.com",
     "isrc": "INF232200693"
   },
@@ -3700,7 +3574,7 @@
     "last_name": "BANERJEE",
     "billing_city": "THANE",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rananipun535@outlook.com",
     "isrc": "INF232200694"
   },
@@ -3710,16 +3584,16 @@
     "last_name": "Aldrin",
     "billing_city": "Thoothukudi",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "drjosephaldrin@gmail.com",
-    "isrc": "TCAGI2299975,INF232301183,INF232301276"
+    "isrc": "TCAGI2299975,INF232301183,INF232301276,INF232401967"
   },
   {
     "partner_name": "ED Music Company",
     "first_name": "Ekta",
     "last_name": "Agrawal",
     "billing_city": "Jhansi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ekta.vocal16@gmail.com",
     "isrc": "TCAGF2201051,INF232200718"
   },
@@ -3729,7 +3603,7 @@
     "last_name": "das",
     "billing_city": "vrindavan",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "atulkrishnadas770@gmail.com",
     "isrc": "INF232200696"
   },
@@ -3739,15 +3613,9 @@
     "last_name": "Bhardwaj",
     "billing_city": "MUMBAI",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "svandy48@gmail.com",
     "isrc": "INF232200698"
-  },
-  {
-    "partner_name": "MLB surtaal PVT LTD",
-    "first_name": "shailabh",
-    "last_name": "bansal",
-    "emailId": "mlbsurtaal@gmail.com"
   },
   {
     "partner_name": "Shashank Khedaskar",
@@ -3755,7 +3623,7 @@
     "last_name": "Khedaskar",
     "billing_city": "Kalyan",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "shashank.the.one@gmail.com",
     "isrc": "INF232200701"
   },
@@ -3765,7 +3633,7 @@
     "last_name": "Varma",
     "billing_city": "Bangalore",
     "billing_state": "Karnataka",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "adhimusics@gmail.com",
     "isrc": "INF232200705"
   },
@@ -3775,9 +3643,9 @@
     "last_name": "Khurana",
     "billing_city": "Fremont",
     "billing_state": "California",
-    "billingCountry": "U.S.A",
+    "billing_country": "U.S.A",
     "emailId": "sk.instant@gmail.com",
-    "isrc": "INF232200708,INF232200796,INF232200823,INF232200842,INF232200852,INF232200863"
+    "isrc": "INF232200708,INF232200796,INF232200823,INF232200842,INF232200852,INF232200863,INF232301464,INF232301465"
   },
   {
     "partner_name": "RAHUL HOTCHANDANI",
@@ -3785,7 +3653,7 @@
     "last_name": "HOTCHANDANI",
     "billing_city": "jalgaon",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rahulhotchandani26@gmail.com",
     "isrc": "INF232200709,INF232200717,INF232200728,INF232301152,INF232301389,INF232301434,INF232301442,INF232301557,INF232301558,INF232301559,INF232301589"
   },
@@ -3795,7 +3663,7 @@
     "last_name": "Shrivastava",
     "billing_city": "ujjain",
     "billing_state": "Madhya Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ramayentertainment@gmail.com",
     "isrc": "INF232200711"
   },
@@ -3805,7 +3673,7 @@
     "last_name": "Rasaily",
     "billing_city": "Darjeeling",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "damainrasailyd@gmail.com",
     "isrc": "INF232200715,INF232200818,INF232301352"
   },
@@ -3815,7 +3683,7 @@
     "last_name": "balsane",
     "billing_city": "mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "harishblsn@gmail.com",
     "isrc": "INF232200720"
   },
@@ -3825,7 +3693,7 @@
     "last_name": "McAdams",
     "billing_city": "Brandon, MS",
     "billing_state": "Mississippi",
-    "billingCountry": "U.S.A",
+    "billing_country": "U.S.A",
     "emailId": "jteen6589@gmail.com"
   },
   {
@@ -3834,9 +3702,9 @@
     "last_name": "Bhawanigarh",
     "billing_city": "Bhawanigarh",
     "billing_state": "Punjab",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "manibhawanigarh7860@gmail.com",
-    "isrc": "INF232200727,INF232200866,INF232201046,INF232301159,INF232301177,INF232301268,INF232301321,INF232301332,INF232301358,INF232301518,INF232301659,INF232301665,INF232301710"
+    "isrc": "INF232200727,INF232200866,INF232201046,INF232301159,INF232301177,INF232301268,INF232301321,INF232301332,INF232301358,INF232301518,INF232301659,INF232301665,INF232301710,INF232301690"
   },
   {
     "partner_name": "Shruti Music",
@@ -3844,7 +3712,7 @@
     "last_name": "Mukherjee",
     "billing_city": "Kolkata",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "shrutimusik@gmail.com",
     "isrc": "INF232200730"
   },
@@ -3854,7 +3722,7 @@
     "last_name": "Hafeez",
     "billing_city": "Nagpur",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "inspirationandfaith0608@gmail.com",
     "isrc": "INF232200735"
   },
@@ -3864,15 +3732,9 @@
     "last_name": "FILMS",
     "billing_city": "mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "yaarifilm@gmail.com",
     "isrc": "INF232200736"
-  },
-  {
-    "partner_name": "Sri Dharma Records",
-    "first_name": "ANIL",
-    "last_name": "PRAJAPAT",
-    "emailId": "anurag_kr@ymail.com"
   },
   {
     "partner_name": "Shahul Mubeen",
@@ -3880,7 +3742,7 @@
     "last_name": "Mubeen",
     "billing_city": "Madurai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "mysterixinfinity@gmail.com",
     "isrc": "INF232200731,INF232200893,INF232301746"
   },
@@ -3890,7 +3752,7 @@
     "last_name": "Shiladitya",
     "billing_city": "Halisahar",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "priyankana.shiladitya@gmail.com",
     "isrc": "INF232200744"
   },
@@ -3900,7 +3762,7 @@
     "last_name": "Dalai",
     "billing_city": "Brahmapur",
     "billing_state": "Odisha",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "arinndalai@gmail.com",
     "isrc": "INF232200745,INF232200914"
   },
@@ -3910,7 +3772,7 @@
     "last_name": "singh",
     "billing_city": "MOHALI",
     "billing_state": "Punjab",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sukhvinder9898@gmail.com",
     "isrc": "INF232200740,INF232200752"
   },
@@ -3920,7 +3782,7 @@
     "last_name": "Giri",
     "billing_city": "Darjeeling",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "dharyarajgiri0@gmail.com",
     "isrc": "INF232200753,INF232301773"
   },
@@ -3930,7 +3792,7 @@
     "last_name": "Barnala",
     "billing_city": "Barnala",
     "billing_state": "Punjab",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "simarbarnala34@gmail.com",
     "isrc": "INF232200756"
   },
@@ -3940,7 +3802,7 @@
     "last_name": "Gomes",
     "billing_city": "Kolkata",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "djsteveofficial@gmail.com",
     "isrc": "INF232200757"
   },
@@ -3950,7 +3812,7 @@
     "last_name": "MusicCo",
     "billing_city": "Jalandhar",
     "billing_state": "Punjab",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sunnlomusicstore@gmail.com",
     "isrc": "TCAGL2263347"
   },
@@ -3960,7 +3822,7 @@
     "last_name": "Mandaviya",
     "billing_city": "Bhavnagar",
     "billing_state": "Gujarat",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "madhavmotionpictures@gmail.com",
     "isrc": "INF232200762,INF232200833,INF232200834"
   },
@@ -3970,15 +3832,9 @@
     "last_name": "Khan",
     "billing_city": "MUMBAI",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "akhanfilmsofficial@gmail.com",
     "isrc": "INF232200758,INF232200759"
-  },
-  {
-    "partner_name": "Hooghly TV",
-    "first_name": "Shounak",
-    "last_name": "Das",
-    "emailId": "studioin15@gmail.com"
   },
   {
     "partner_name": "Sagar Saha",
@@ -3986,7 +3842,7 @@
     "last_name": "Saha",
     "billing_city": "Dakshin Batasat",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sagarsaha92@gmail.com",
     "isrc": "INF232200764"
   },
@@ -3996,14 +3852,8 @@
     "last_name": "Agrawal",
     "billing_city": "Indore",
     "billing_state": "Madhya Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "mohitajagrawal@gmail.com"
-  },
-  {
-    "partner_name": "Second Half Record",
-    "first_name": "Avijit",
-    "last_name": "Samanta",
-    "emailId": "dogtvhindi@gmail.com"
   },
   {
     "partner_name": "Saarathya Creations",
@@ -4011,7 +3861,7 @@
     "last_name": "Pandav",
     "billing_city": "Shahaopur",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "saarathyacreations@gmail.com",
     "isrc": "INF232200771"
   },
@@ -4021,7 +3871,7 @@
     "last_name": "Khakolia",
     "billing_city": "Nagpur",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ujjwalkhakolia.uk@gmail.com",
     "isrc": "INF232200772"
   },
@@ -4031,9 +3881,9 @@
     "last_name": "SAXENA",
     "billing_city": "PILANI",
     "billing_state": "Rajasthan",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rudraproductions19012015@gmail.com",
-    "isrc": "INF232200775,INF232301367,INF232301647,INF232301671,INF232301672,INF232301789,INF232301366"
+    "isrc": "INF232200775,INF232301367,INF232301647,INF232301671,INF232301672,INF232301789,INF232301366,INF232401919,INF232401947,INF232402004"
   },
   {
     "partner_name": "Rajat Bopalkar",
@@ -4041,7 +3891,7 @@
     "last_name": "Bopalkar",
     "billing_city": "Thane",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rajat.bopalkar@gmail.com",
     "isrc": "INF232200776"
   },
@@ -4051,7 +3901,7 @@
     "last_name": "Kapoor",
     "billing_city": 421004,
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "nikhilvines@gmail.com",
     "isrc": "INF232200777"
   },
@@ -4061,7 +3911,7 @@
     "last_name": "T G",
     "billing_city": "Bangalore",
     "billing_state": "Karnataka",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ekaaksharafilms@gmail.com",
     "isrc": "TCAFN2158153"
   },
@@ -4071,7 +3921,7 @@
     "last_name": "Sarkar",
     "billing_city": "Hooghly",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "dsmoumita15@gmail.com",
     "isrc": "INF232200779,INF232200869"
   },
@@ -4081,7 +3931,7 @@
     "last_name": "Basu",
     "billing_city": "Kolkata",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sayanbose290792@gmail.com",
     "isrc": "INF232200781,INF232301708"
   },
@@ -4091,18 +3941,9 @@
     "last_name": "Kar",
     "billing_city": "Kolkata",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "baishakhidattakar@gmail.com",
     "isrc": "INF232200782"
-  },
-  {
-    "partner_name": "ADY KRIZ",
-    "first_name": "ADY",
-    "last_name": "KRIZ",
-    "billing_city": "CHENNAI",
-    "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
-    "emailId": "adykriz0316@gmail.com"
   },
   {
     "partner_name": "Karangi brahmaiah",
@@ -4119,15 +3960,6 @@
     "isrc": "INF232200788"
   },
   {
-    "partner_name": "Subash Brahamnu Arvind Brahamnu",
-    "first_name": "Subash Brahamnu",
-    "last_name": "Arvind Brahamnu",
-    "billing_city": "Chhatriari",
-    "billing_state": "Jammu and Kashmir",
-    "billingCountry": "India",
-    "emailId": "brahamnu17@gmail.com"
-  },
-  {
     "partner_name": "Labanya Raag Official",
     "first_name": "Labanya",
     "last_name": "Raag",
@@ -4140,9 +3972,9 @@
     "last_name": "PREETISH",
     "billing_city": "Bangalore",
     "billing_state": "Karnataka",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "navneelkumar01@gmail.com",
-    "isrc": "INF232200798,INF232200809,INF232200810,INF232200811,INF232301176,INF232301249"
+    "isrc": "INF232200798,INF232200809,INF232200810,INF232200811,INF232301176,INF232301249,INF232401849"
   },
   {
     "partner_name": "HEEMA BASUMATARI",
@@ -4150,7 +3982,7 @@
     "last_name": "BASUMATARI",
     "billing_city": "Harisinga",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "heema.ebb@gmail.com",
     "isrc": "TCAFE2078232"
   },
@@ -4160,16 +3992,9 @@
     "last_name": "Limbu",
     "billing_city": "EH7 4RF",
     "billing_state": "Edinburgh",
-    "billingCountry": "United Kingdom",
+    "billing_country": "United Kingdom",
     "emailId": "avislimbu2@gmail.com",
     "isrc": "GX5EL2100001"
-  },
-  {
-    "partner_name": "Respect Music Records",
-    "first_name": "Gurjant",
-    "last_name": "Singh",
-    "emailId": "respectmusicrecords1@gmail.com",
-    "isrc": "INF232200802,INF232200848"
   },
   {
     "partner_name": "Shiv Mali",
@@ -4177,7 +4002,7 @@
     "last_name": "Mali",
     "billing_city": "Indore",
     "billing_state": "Madhya Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "shivmali4777@gmail.com",
     "isrc": "INF232200803"
   },
@@ -4186,7 +4011,7 @@
     "first_name": "Harnish",
     "last_name": "Dave",
     "emailId": "harnishdave.sal@gmail.com",
-    "isrc": "INF232200805,INF232200826,INF232301478,INF232301631"
+    "isrc": "INF232200805,INF232200826,INF232301478,INF232301631,INF232401883"
   },
   {
     "partner_name": "Kreative Krew Music",
@@ -4194,7 +4019,7 @@
     "last_name": "Alok",
     "billing_city": "Noida",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ashwinalok@gmail.com",
     "isrc": "INF232200806,QZTAT2254237,INF232301457"
   },
@@ -4204,7 +4029,7 @@
     "last_name": "India",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "drrashelindia@gmail.com",
     "isrc": "INF232200813"
   },
@@ -4214,9 +4039,9 @@
     "last_name": "Ahmed",
     "billing_city": "Bangalore",
     "billing_state": "Karnataka",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "javaadontherun@gmail.com",
-    "isrc": "TCAFZ2250802"
+    "isrc": "TCAFZ2250802,TCAGR2205865,TCAHX2449775,TCAIC2442519"
   },
   {
     "partner_name": "UKKMMS",
@@ -4224,7 +4049,7 @@
     "last_name": "Khan",
     "billing_city": "kolkata",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "asifkhan.tabla@gmail.com",
     "isrc": "INF232200814"
   },
@@ -4234,7 +4059,7 @@
     "last_name": "Kumar",
     "billing_city": "Badhra",
     "billing_state": "Haryana",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sureshmaanggn@gmail.com",
     "isrc": "INF232200816"
   },
@@ -4244,7 +4069,7 @@
     "last_name": "Bramhanapalli",
     "billing_city": "Bangalore",
     "billing_state": "Karnataka",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "friendsfundedfilms@gmail.com",
     "isrc": "INF232200819,INF232200851"
   },
@@ -4254,7 +4079,7 @@
     "last_name": "Naskar",
     "billing_city": "MADHYAMGRAM",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "kalpurushfbofficial@gmail.com",
     "isrc": "INF232200824"
   },
@@ -4264,7 +4089,7 @@
     "last_name": "Records",
     "billing_city": "Chennai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "historian.records@gmail.com",
     "isrc": "INF232200825,INF232301739,INF232301794,INF232301795"
   },
@@ -4274,7 +4099,7 @@
     "last_name": "GOHIL",
     "billing_city": "SURAT",
     "billing_state": "Gujarat",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "mikul.swaram86@gmail.com",
     "isrc": "INF232200827,INF232301359,INF232301369,INF232301370,INF232301371,INF232301372,INF232301373,INF232301374,INF232301375,INF232301376,INF232301392,INF232301393,INF232301394,INF232301395,INF232301396,INF232301397"
   },
@@ -4284,13 +4109,9 @@
     "last_name": "music",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "omoctavemusic@gmail.com",
     "isrc": "QZNWZ2218613"
-  },
-  {
-    "partner_name": "Black & White Motion Picturez",
-    "emailId": "beingodiotic@gmail.com"
   },
   {
     "partner_name": "Neil Milton",
@@ -4298,7 +4119,7 @@
     "last_name": "Milton",
     "billing_city": "Delhi",
     "billing_state": "Delhi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "neilaldrinmilton@gmail.com",
     "isrc": "INF232200831"
   },
@@ -4308,7 +4129,7 @@
     "last_name": "Garg",
     "billing_city": "Kaithal",
     "billing_state": "Haryana",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "iggarg999@gmail.com",
     "isrc": "INF232200832"
   },
@@ -4325,7 +4146,7 @@
     "last_name": "Dutta",
     "billing_city": "Guwahati",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "timestunerecords@gmail.com",
     "isrc": "INF232200840,INF232201077,INF232201100,INF232301601,INF232301664"
   },
@@ -4335,7 +4156,7 @@
     "last_name": "Ashirbad",
     "billing_city": "Kuchinda",
     "billing_state": "Odisha",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "babunimohanty40@gmail.com",
     "isrc": "INF232200843"
   },
@@ -4345,7 +4166,7 @@
     "last_name": "Singla",
     "billing_city": "Patiala",
     "billing_state": "Punjab",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "fueledbynature8@gmail.com",
     "isrc": "INF232200845"
   },
@@ -4355,7 +4176,7 @@
     "last_name": "Dutta",
     "billing_city": "Guwahati",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rishirocktimdutta@gmail.com",
     "isrc": "INF232200850,INF232200940,INF232301227"
   },
@@ -4365,7 +4186,7 @@
     "last_name": "Lalwani",
     "billing_city": "Jalgaon",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "mayurnew2@gmail.com",
     "isrc": "INF232200855"
   },
@@ -4382,7 +4203,7 @@
     "last_name": "Karteek",
     "billing_city": "Hyderabad",
     "billing_state": "Telangana",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "pavankarteek@gmail.com",
     "isrc": "INF232200858"
   },
@@ -4392,7 +4213,7 @@
     "last_name": "Raj",
     "billing_city": "Ramnagar",
     "billing_state": "Jammu and Kashmir",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rajdes549@gmail.com",
     "isrc": "INF232200860,INF232201089,INF232301168"
   },
@@ -4402,7 +4223,7 @@
     "last_name": "Thakor",
     "billing_city": "Visnagar",
     "billing_state": "Gujarat",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "bjthakore@gmail.com",
     "isrc": "INF232200870"
   },
@@ -4412,7 +4233,7 @@
     "last_name": "M",
     "billing_city": "Anantapur",
     "billing_state": "Andhra Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "omshankar.marati@gmail.com",
     "isrc": "INF232200876,INF232200879"
   },
@@ -4427,9 +4248,9 @@
     "last_name": "Vaity",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sandeep.vaity@gmail.com",
-    "isrc": "INF232200881,INF232301125,INF232301185,INF232301600,INF232301656"
+    "isrc": "INF232200881,INF232301125,INF232301185,INF232301600,INF232301656,INF232401841"
   },
   {
     "partner_name": "Harish Kasthuri",
@@ -4437,7 +4258,7 @@
     "last_name": "Kasthuri",
     "billing_city": "Siddipet",
     "billing_state": "Telangana",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "harikastoori@gmail.com",
     "isrc": "INF232200882,INF232200927,INF232200928,INF232200929"
   },
@@ -4447,7 +4268,7 @@
     "last_name": "Mohanan",
     "billing_city": "Angamaly",
     "billing_state": "Kerala",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "anandumohan788@gmail.com",
     "isrc": "INF232200883"
   },
@@ -4457,7 +4278,7 @@
     "last_name": "Naik",
     "billing_city": "Near townhall, ward no.10, Kesinga, Kalahandi",
     "billing_state": "Odisha",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "lilakanta27@gmail.com",
     "isrc": "INF232200884"
   },
@@ -4467,9 +4288,9 @@
     "last_name": "Noor",
     "billing_city": "Udhampur",
     "billing_state": "Jammu and Kashmir",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "neelamdevi44681@gmail.com",
-    "isrc": "INF232200886,INF232200906"
+    "isrc": "INF232200886"
   },
   {
     "partner_name": "Gurman Singh",
@@ -4484,7 +4305,7 @@
     "last_name": "Rabbani",
     "billing_city": "surat",
     "billing_state": "Gujarat",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "murshid.ghazirabbani@gmail.com",
     "isrc": "INF232200898,INF232200965"
   },
@@ -4494,7 +4315,7 @@
     "last_name": "Gupta",
     "billing_city": "New Delhi",
     "billing_state": "Delhi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sunilguptasinger@gmail.com",
     "isrc": "INF232200899,INF232200979,INF232201000,INF232201082,INF232201083,INF232301173,INF232301174,INF232301187,INF232301188,INF232301189,INF232301190,INF232301191,INF232301192,INF232301193,INF232301368,INF232301378,INF232301382"
   },
@@ -4504,9 +4325,9 @@
     "last_name": "Singh",
     "billing_city": "Bhawanigarh",
     "billing_state": "Punjab",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "hs59507@gmail.com",
-    "isrc": "INF232200900,FR96X2238039,FRX872291562,INF232201027,INF232301135,INF232301150,INF232301163,INF232301164,INF232301175,INF232301180,INF232301300,INF232301306,INF232301328,INF232301341,INF232301349,INF232301381,INF232301387,INF232301419,INF232301428,INF232301436,INF232301441,INF232301451,INF232301470,QZNWS2273735,INF232301527,INF232301536,INF232301599,INF232301625,INF232301634"
+    "isrc": "INF232200900,FR96X2238039,FRX872291562,INF232201027,INF232301135,INF232301150,INF232301163,INF232301164,INF232301175,INF232301180,INF232301300,INF232301306,INF232301328,INF232301341,INF232301349,INF232301381,INF232301387,INF232301419,INF232301428,INF232301436,INF232301441,INF232301451,INF232301470,QZNWS2273735,INF232301527,INF232301536,INF232301599,INF232301625,INF232301634,INF232401855,INF232401945"
   },
   {
     "partner_name": "Rekha MK Music",
@@ -4514,7 +4335,7 @@
     "last_name": "Koley",
     "billing_city": "Tribeni",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "prasen.tribeni@gmail.com",
     "isrc": "INF232200904,INF232200962"
   },
@@ -4524,7 +4345,7 @@
     "last_name": "Dabhi",
     "billing_city": "Surat",
     "billing_state": "Gujarat",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "jitendrakrishnadas.bcs@gmail.com",
     "isrc": "INF232200907,INF232201030"
   },
@@ -4534,7 +4355,7 @@
     "last_name": "Sharma",
     "billing_city": "Roorkee",
     "billing_state": "Uttarakhand",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ajay741974@gmail.com",
     "isrc": "INF232200913"
   },
@@ -4544,7 +4365,7 @@
     "last_name": "Records",
     "billing_city": "Chennai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "kynrecords@gmail.com",
     "isrc": "AUBEC2200609"
   },
@@ -4554,7 +4375,7 @@
     "last_name": "Bhattacharyya",
     "billing_city": "Nagaon",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "bhattacharyya.dipankar88@gmail.com",
     "isrc": "INF232200918"
   },
@@ -4564,7 +4385,7 @@
     "last_name": "Mukherjee",
     "billing_city": "Howrah",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rfm.originals@gmail.com",
     "isrc": "GX5MY2125808,GX5MY2282348,GX4R52115232,GX4R52194173,GX4R52241347,GX38U2243907,INF232301390"
   },
@@ -4574,7 +4395,7 @@
     "last_name": "Bhattacharjee",
     "billing_city": "Silchar",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sudipta.bhatta.2022@gmail.com",
     "isrc": "INF232200919"
   },
@@ -4584,7 +4405,7 @@
     "last_name": "Rangasamy",
     "billing_city": "Dharapuram",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "cheransubbu@gmail.com",
     "isrc": "INF232200920"
   },
@@ -4594,7 +4415,7 @@
     "last_name": "Srivastava",
     "billing_city": "Patna",
     "billing_state": "Bihar",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "saarthak2k@gmail.com",
     "isrc": "INF232200921"
   },
@@ -4604,7 +4425,7 @@
     "last_name": "Das",
     "billing_city": "Kolkata",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "tbasudas@gmail.com",
     "isrc": "INF232200923"
   },
@@ -4614,7 +4435,7 @@
     "last_name": "Mukherjee",
     "billing_city": "Howrah",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "mukherjeepallab278@gmail.com",
     "isrc": "INF232200925,INF232301507"
   },
@@ -4624,7 +4445,7 @@
     "last_name": "Bachare",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "universalblast432@gmail.com",
     "isrc": "INF232200926,INF232301716"
   },
@@ -4633,7 +4454,7 @@
     "first_name": "Mk",
     "last_name": "Gujjar",
     "emailId": "parthbhakti06@gmail.com",
-    "isrc": "INF232200922,INF232200943"
+    "isrc": "INF232200922"
   },
   {
     "partner_name": "Aman Krishna Satrasala",
@@ -4641,18 +4462,9 @@
     "last_name": "Satrasala",
     "billing_city": "Bengaluru",
     "billing_state": "Karnataka",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "s_amankrishna@yahoo.co.in",
     "isrc": "INF232200939"
-  },
-  {
-    "partner_name": "Pratidhwani Music",
-    "first_name": "Rocktim",
-    "last_name": "Dutta",
-    "billing_city": "Guwahati",
-    "billing_state": "Assam",
-    "billingCountry": "India",
-    "emailId": "rishirocktimdutta@gmail.com"
   },
   {
     "partner_name": "SVAKT Musicals",
@@ -4660,18 +4472,9 @@
     "last_name": "krishna",
     "billing_city": "Wentworthville",
     "billing_state": "New South Wales",
-    "billingCountry": "Australia",
+    "billing_country": "Australia",
     "emailId": "manilkrishna@gmail.com",
-    "isrc": "INF232200944"
-  },
-  {
-    "partner_name": "Labanya Raag",
-    "first_name": "Labanya",
-    "last_name": "Raag",
-    "billing_city": "TANGLA",
-    "billing_state": "Assam",
-    "billingCountry": "India",
-    "emailId": "lraaz85@gmail.com"
+    "isrc": "INF232200944,INF232401870,INF232401873,INF232401872,INF232401871"
   },
   {
     "partner_name": "VAID DILLI",
@@ -4679,7 +4482,7 @@
     "last_name": "DILLI",
     "billing_city": "DELHI",
     "billing_state": "Delhi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "yashvaiddu2017@gmail.com",
     "isrc": "INF232200948"
   },
@@ -4695,7 +4498,7 @@
     "last_name": "Jeyan",
     "billing_city": "Coimbatore",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rithick0730@gmail.com"
   },
   {
@@ -4704,7 +4507,7 @@
     "last_name": "Dutta",
     "billing_city": "Siliguri",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rickdtt9@gmail.com",
     "isrc": "INF232200955"
   },
@@ -4721,7 +4524,7 @@
     "last_name": "Naik",
     "billing_city": "panaji",
     "billing_state": "Goa",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "vaishnavienterprise19@gmail.com",
     "isrc": "INF232200967,INF232200978,INF232200984"
   },
@@ -4731,7 +4534,7 @@
     "last_name": "music",
     "billing_city": "PATNA",
     "billing_state": "Bihar",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "kshityiz2003@gmail.com",
     "isrc": "INF232200969"
   },
@@ -4741,7 +4544,7 @@
     "last_name": "Prop",
     "billing_city": "Virar",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "bluelionprod@gmail.com",
     "isrc": "INF232200970,INF232200998"
   },
@@ -4751,7 +4554,7 @@
     "last_name": "Records",
     "billing_city": "New Patel Nagar",
     "billing_state": "Delhi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "blackhitrecords@gmail.com",
     "isrc": "INF232200971,INF232200972"
   },
@@ -4760,20 +4563,14 @@
     "first_name": "Abhishek",
     "last_name": "Barman",
     "emailId": "barmana133@gmail.com",
-    "isrc": "INF232200975,INF232200976,INF232301661,INF232301662"
-  },
-  {
-    "partner_name": "MLB Surtaal Pvt. Ltd.",
-    "first_name": "shailabh",
-    "last_name": "bansal",
-    "emailId": "mlbsurtaal@gmail.com"
+    "isrc": "INF232200975,INF232200976,INF232301661,INF232301662,INF232401893"
   },
   {
     "partner_name": "Jashanpreet Singh Chattha",
     "first_name": "Jashanpreet Singh",
     "last_name": "Chattha",
     "billing_city": "Brampton",
-    "billingCountry": "Canada",
+    "billing_country": "Canada",
     "emailId": "jashanchatthaofficial1@gmail.com",
     "isrc": "INF232200983"
   },
@@ -4783,7 +4580,7 @@
     "last_name": "Junaidi",
     "billing_city": "Hyderabad",
     "billing_state": "Telangana",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ijunaidirecords@gmail.com",
     "isrc": "INF232200985,INF232201018,INF232301444"
   },
@@ -4797,7 +4594,7 @@
     "last_name": "Dave",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ankit.dave@houseofhiranandani.com",
     "isrc": "INF232200988"
   },
@@ -4807,7 +4604,7 @@
     "last_name": "Dubey",
     "billing_city": "Kanpur",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "shivam1004099@gmail.com",
     "isrc": "INF232200989,INF232201099,INF232301223"
   },
@@ -4817,7 +4614,7 @@
     "last_name": "V",
     "billing_city": "VELLORE",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "saravanakumarsonya@gmail.com",
     "isrc": "INF232200990"
   },
@@ -4827,7 +4624,7 @@
     "last_name": "Singh",
     "billing_city": "INDORE",
     "billing_state": "Madhya Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "beingsa4daar65@gmail.com",
     "isrc": "INF232200992,INF232301348,INF232301585"
   },
@@ -4837,7 +4634,7 @@
     "last_name": "Agarwal",
     "billing_city": "Kolkata",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "manish.u620@gmail.com",
     "isrc": "INF232200995"
   },
@@ -4847,7 +4644,7 @@
     "last_name": "Nath",
     "billing_city": 799155,
     "billing_state": "Tripura",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sooman2007@gmail.com",
     "isrc": "INF232200997"
   },
@@ -4857,7 +4654,7 @@
     "last_name": "SMP",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "cynthiasmp@rediffmail.com",
     "isrc": "INF232201001"
   },
@@ -4881,7 +4678,7 @@
     "last_name": "Mitra",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "itsantara@gmail.com",
     "isrc": "INF232201005"
   },
@@ -4891,7 +4688,7 @@
     "last_name": "Swamee",
     "billing_city": "Chennai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "nandhanisai@gmail.com",
     "isrc": "INF232201006,INF232201033,INF232301596,INF232301145"
   },
@@ -4901,7 +4698,7 @@
     "last_name": "BORA",
     "billing_city": "Nagaon",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "singerdkofficial@gmail.com",
     "isrc": "INF232201015,INF232301248,INF232301252,INF232301251,INF232301278,INF232301687,INF232301742,INF232301697"
   },
@@ -4911,7 +4708,7 @@
     "last_name": "Ajit",
     "billing_city": "chennai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "kavyaajitsymbiosis@gmail.com",
     "isrc": "INF232201020"
   },
@@ -4921,7 +4718,7 @@
     "last_name": "V",
     "billing_city": "Chennai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "vdeepikasinger@gmail.com",
     "isrc": "INF232201019"
   },
@@ -4931,9 +4728,9 @@
     "last_name": "Rawat",
     "billing_city": "Shimla",
     "billing_state": "Himachal Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "shekharrawatmusic@gmail.com",
-    "isrc": "INF232201023"
+    "isrc": "INF232201023,INF232401917"
   },
   {
     "partner_name": "VINEET SINGH HUKMANI",
@@ -4955,7 +4752,7 @@
     "last_name": "SUNUWAR",
     "billing_city": "Jalpaiguri",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "amansunuwarmukhia@gmail.com",
     "isrc": "INF232201036"
   },
@@ -4965,7 +4762,7 @@
     "last_name": "madaan",
     "billing_city": "delhi",
     "billing_state": "Delhi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "snehagoel230899@gmail.com",
     "isrc": "INF232201040"
   },
@@ -4975,7 +4772,7 @@
     "last_name": "Awasthi",
     "billing_city": "lucknow",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "chokureiproductions@gmail.com",
     "isrc": "INF232201041"
   },
@@ -4985,7 +4782,7 @@
     "last_name": "Chettri",
     "billing_city": "Rangpo",
     "billing_state": "Sikkim",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sidanthchettri@gmail.com",
     "isrc": "INF232201042"
   },
@@ -4995,7 +4792,7 @@
     "last_name": "Yadav",
     "billing_city": "Indore",
     "billing_state": "Madhya Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "creativeclick09@gmail.com",
     "isrc": "INF232201043"
   },
@@ -5005,7 +4802,7 @@
     "last_name": "Kemprai",
     "billing_city": "Haflong",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "botenkemprai6@gmail.com",
     "isrc": "INF232201044"
   },
@@ -5015,7 +4812,7 @@
     "last_name": "Mandal",
     "billing_city": "Maynaguri",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ittzjishu@gmail.com",
     "isrc": "QZNWR2185463"
   },
@@ -5030,7 +4827,7 @@
     "last_name": "R",
     "billing_city": "Tiruppur",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "someboysproductions@gmail.com",
     "isrc": "INF232201050,INF232301211"
   },
@@ -5040,7 +4837,7 @@
     "last_name": "Sahu",
     "billing_city": "Nuapada",
     "billing_state": "Odisha",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "bijayanandsahu2002@gmail.com",
     "isrc": "INF232201053"
   },
@@ -5050,7 +4847,7 @@
     "last_name": "Ministries",
     "billing_city": "Chennai",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rehobothdeliveranceministries@gmail.com",
     "isrc": "INF232201055,INF232301127,INF232301301"
   },
@@ -5060,7 +4857,7 @@
     "last_name": "Music",
     "billing_city": "Kakinada",
     "billing_state": "Andhra Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "chitralayamusic@gmail.com"
   },
   {
@@ -5069,7 +4866,7 @@
     "last_name": "mishra",
     "billing_city": "Loni",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "vm730636@gmail.com",
     "isrc": "QZDA62378711"
   },
@@ -5079,7 +4876,7 @@
     "last_name": "gupta",
     "billing_city": "mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "aditigupta1998@gmail.com",
     "isrc": "INF232201063,INF232201101"
   },
@@ -5089,7 +4886,7 @@
     "last_name": "PATOLE",
     "billing_city": "PANVEL",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sunilpatole99@gmail.com",
     "isrc": "GX8KD2387756,INF232301583,INF232301635,INF232301743"
   },
@@ -5106,9 +4903,9 @@
     "last_name": "Aryal",
     "billing_city": "Gandhi sagar",
     "billing_state": "Madhya Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "shunya7215@gmail.com",
-    "isrc": "INF232201070,INF232201122"
+    "isrc": "INF232201070,INF232201122,INF232401909"
   },
   {
     "partner_name": "Payal Shah",
@@ -5116,7 +4913,7 @@
     "last_name": "Shah",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "bodhiconnection@gmail.com",
     "isrc": "INF232201071"
   },
@@ -5126,7 +4923,7 @@
     "last_name": "Kumar",
     "billing_city": "Delhi",
     "billing_state": "Delhi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ss8894755@gmail.com",
     "isrc": "INF232201072"
   },
@@ -5136,7 +4933,7 @@
     "last_name": "kumbhar",
     "billing_city": "Kolhapur",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sociallyca@gmail.com",
     "isrc": "INF232201073"
   },
@@ -5146,7 +4943,7 @@
     "last_name": "Dutta",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sonalidutta10@gmail.com",
     "isrc": "INF232201074"
   },
@@ -5154,7 +4951,7 @@
     "partner_name": "kamekun",
     "first_name": "Marcos",
     "last_name": "Magalhaes",
-    "billingCountry": "Brazil",
+    "billing_country": "Brazil",
     "emailId": "marcosj20.mm@gmail.com",
     "isrc": "INF232201078"
   },
@@ -5164,7 +4961,7 @@
     "last_name": "bhagtani",
     "billing_city": "bilaspur",
     "billing_state": "Chhattisgarh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "bhagtanishubham23@gmail.com",
     "isrc": "INF232201080,INF232301456"
   },
@@ -5174,26 +4971,17 @@
     "last_name": "priyan",
     "billing_city": "Tindivanam",
     "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "priyan.keyboy@gmail.com",
     "isrc": "INF232201081"
-  },
-  {
-    "partner_name": "ADY KRIZ",
-    "first_name": "ADY",
-    "last_name": "KRIZ",
-    "billing_city": "CHENNAI",
-    "billing_state": "Tamil Nadu",
-    "billingCountry": "India",
-    "emailId": "adykriz0316@gmail.com"
   },
   {
     "partner_name": "Yuvi",
     "last_name": "Yuvi",
     "billing_state": "Bihar",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "yuvrajkr26@gmail.com",
-    "isrc": "INF232201088,INF232301360,INF232301463,INF232301663"
+    "isrc": "INF232201088,INF232301360,INF232301463,INF232301663,INF232402019"
   },
   {
     "partner_name": "AcousticA Productions",
@@ -5201,19 +4989,9 @@
     "last_name": "Vinay",
     "billing_city": "Trivandrum",
     "billing_state": "Kerala",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "v.s.amalvinay@gmail.com",
     "isrc": "INF232201090,INF232301391,INF232301550"
-  },
-  {
-    "partner_name": "Eben-Ezer Studio",
-    "emailId": "beingodiotic@gmail.com"
-  },
-  {
-    "partner_name": "Alokchitro Entertainment",
-    "first_name": "Shounak",
-    "last_name": "Das",
-    "emailId": "studioin15@gmail.com"
   },
   {
     "partner_name": "Joseph Littleton",
@@ -5221,7 +4999,7 @@
     "last_name": "Littleton",
     "billing_city": "Commerce Township",
     "billing_state": "Michigan",
-    "billingCountry": "U.S.A",
+    "billing_country": "U.S.A",
     "emailId": "joseph.littleton@4jlconsulting.com",
     "isrc": "QZTVS2200101"
   },
@@ -5231,7 +5009,7 @@
     "last_name": "Singh",
     "billing_city": "City",
     "billing_state": "Delhi",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "kamalsinghofficial78@gmail.com",
     "isrc": "INF232201105"
   },
@@ -5240,7 +5018,7 @@
     "first_name": "Paul",
     "last_name": "DescarrÃ©ga",
     "billing_city": "REIMS",
-    "billingCountry": "France",
+    "billing_country": "France",
     "emailId": "pauldesca@gmail.com"
   },
   {
@@ -5249,7 +5027,7 @@
     "last_name": "Nanda",
     "billing_city": "Chembur",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "nandaharsimran@gmail.com",
     "isrc": "INF232201108"
   },
@@ -5258,15 +5036,9 @@
     "first_name": "Srkv prasad",
     "last_name": "Vankina",
     "billing_state": "Andhra Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "vankinababu@gmail.com",
     "isrc": "INF232201110"
-  },
-  {
-    "partner_name": "Ariyal.A.P",
-    "first_name": "Ariyal",
-    "last_name": "A.P",
-    "emailId": "aariyalap@gmail.com"
   },
   {
     "partner_name": "Valuable Studio Productions",
@@ -5274,7 +5046,7 @@
     "last_name": "Srivastava",
     "billing_city": "RAE BARELI",
     "billing_state": "Uttar Pradesh",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "ksrivas09@gmail.com",
     "isrc": "INF232201113,INF232301142,INF232301314,INF232301614"
   },
@@ -5286,7 +5058,7 @@
     "partner_name": "Jagjeet Singh",
     "first_name": "Jagjeet",
     "last_name": "Singh",
-    "billingCountry": "Portugal",
+    "billing_country": "Portugal",
     "emailId": "jagjeetshivgarh@gmail.com",
     "isrc": "INF232201120"
   },
@@ -5295,7 +5067,7 @@
     "first_name": "Nayanabhiram RAJESH",
     "last_name": "IYER",
     "billing_city": "HONG KONG ISLAND",
-    "billingCountry": "Hong Kong",
+    "billing_country": "Hong Kong",
     "emailId": "shobhanarajeshiyer@gmail.com",
     "isrc": "INF232201119,INF232301143,INF232301345"
   },
@@ -5309,18 +5081,9 @@
     "last_name": "Poikkad",
     "billing_city": "Pampady",
     "billing_state": "Kerala",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "manusumamenon@gmail.com",
     "isrc": "INF232301124,INF232301466"
-  },
-  {
-    "partner_name": "Subtle Vibes Creations",
-    "first_name": "Sandeep",
-    "last_name": "Vaity",
-    "billing_city": "Mumbai",
-    "billing_state": "Maharashtra",
-    "billingCountry": "India",
-    "emailId": "sandeep.vaity@gmail.com"
   },
   {
     "partner_name": "Biki Roy",
@@ -5328,7 +5091,7 @@
     "last_name": "Roy",
     "billing_city": "Kolkata",
     "billing_state": "West Bengal",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "royb80814@gmail.com",
     "isrc": "INF232301126,INF232301481,INF232301807"
   },
@@ -5345,7 +5108,7 @@
     "last_name": "( Shalu)",
     "billing_city": "Mumbai",
     "billing_state": "Maharashtra",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "sanghmitra.s2003@gmail.com",
     "isrc": "INF232301129,INF232301130,INF232301228"
   },
@@ -5355,7 +5118,7 @@
     "last_name": "Abhilash",
     "billing_city": "Hyderabad",
     "billing_state": "Telangana",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "antonyedwardmoses04@gmail.com",
     "isrc": "INF232301133"
   },
@@ -5365,7 +5128,7 @@
     "last_name": "Gayan",
     "billing_city": "PURANIGUDAM",
     "billing_state": "Assam",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "kajupapon@gmail.com",
     "isrc": "QZHN32398727,INF232301326"
   },
@@ -5375,7 +5138,7 @@
     "last_name": "Abbas",
     "billing_city": "Bangalore",
     "billing_state": "Karnataka",
-    "billingCountry": "India",
+    "billing_country": "India",
     "emailId": "rehanabbas1995@gmail.com",
     "isrc": "INF232301140"
   },
@@ -5387,17 +5150,11 @@
     "isrc": "INF232301154"
   },
   {
-    "partner_name": "ASM Originals",
-    "first_name": "Aritra",
-    "last_name": "Mukherjee",
-    "emailId": "rfm.originals@gmail.com"
-  },
-  {
     "partner_name": "Prasanth Rai",
     "first_name": "Prasanth",
     "last_name": "Rai",
     "emailId": "prasanthrai79@gmail.com",
-    "isrc": "INF232301167"
+    "isrc": "INF232301167,INF232402011"
   },
   {
     "partner_name": "Biswas Bhujel",
@@ -5508,8 +5265,8 @@
     "partner_name": "Shrivan Samvaad",
     "first_name": "Amit",
     "last_name": "Hasija",
-    "emailId": "surshyamgaushala@gmail.com",
-    "isrc": "INF232301210,INF232301255,INF232301257,INF232301258,INF232301259,INF232301260,INF232301261,INF232301262,INF232301263,INF232301264,INF232301265,INF232301280,INF232301281,INF232301283,INF232301282,INF232301284,INF232301285,INF232301286,INF232301287,INF232301288,INF232301289,INF232301291,INF232301290,INF232301292,INF232301307,INF232301308,INF232301309,INF232301310,INF232301311,INF232301312,INF232301313,INF232301404,INF232301405,INF232301406,INF232301407,INF232301408,INF232301409,INF232301410,INF232301411,INF232301412,INF232301484,INF232301485,INF232301486,INF232301487,INF232301488,INF232301489,INF232301490,INF232301491,INF232301492,INF232301493,INF232301494"
+    "emailId": "hemangnangia@gmail.com",
+    "isrc": "INF232301210,INF232301255,INF232301257,INF232301258,INF232301259,INF232301260,INF232301261,INF232301262,INF232301263,INF232301264,INF232301265,INF232301280,INF232301281,INF232301283,INF232301282,INF232301284,INF232301285,INF232301286,INF232301287,INF232301288,INF232301289,INF232301291,INF232301290,INF232301292,INF232301307,INF232301308,INF232301309,INF232301310,INF232301311,INF232301312,INF232301313,INF232301404,INF232301405,INF232301406,INF232301407,INF232301408,INF232301409,INF232301410,INF232301411,INF232301412,INF232301484,INF232301485,INF232301486,INF232301487,INF232301488,INF232301489,INF232301490,INF232301491,INF232301492,INF232301493,INF232301494,INF232401931,INF232401932,INF232401933,INF232401942,INF232401943,INF232401955,INF232401956,INF232401957,INF232401958,INF232401959,INF232401960,INF232401961,INF232401962,INF232401963,INF232401964,INF232401965,INF232401970,INF232401971,INF232401959,INF232401964,INF232401971,INF232401965,INF232401970,INF232401980,INF232401981,INF232401982,INF232401994,INF232401983,INF232401993,INF232401984,INF232401985,INF232401986,INF232401987,INF232401988,INF232401995,INF232401996,INF232401997,INF232401998,INF232401999,INF232402000,INF232402001,"
   },
   {
     "partner_name": "Yahee Music",
@@ -5544,13 +5301,7 @@
     "first_name": "VIvek Kumar",
     "last_name": "Dhir",
     "emailId": "vivekjd.dhir@gmail.com",
-    "isrc": "INF232301275,INF232301299,INF232301333,INF232301398,INF232301399,INF232301424,INF232301429,INF232301666,INF232301256,INF232301797,INF232301798"
-  },
-  {
-    "partner_name": "Aafia Records",
-    "first_name": "VIvek Kumar",
-    "last_name": "Dhir",
-    "emailId": "vivekjd.dhir@gmail.com"
+    "isrc": "INF232301275,INF232301299,INF232301333,INF232301398,INF232301399,INF232301424,INF232301429,INF232301666,INF232301256,INF232301797,INF232301798,INF232401890,INF232401908,INF232401921,INF232401966,INF232401969,INF232401991,INF232402010,INF232402035"
   },
   {
     "partner_name": "Manoj K",
@@ -5563,14 +5314,7 @@
     "partner_name": "Sunil Kharat",
     "first_name": "Sunil",
     "last_name": "Kharat",
-    "emailId": "sunilkharatmaster@gmail.com",
-    "isrc": "INF232301270"
-  },
-  {
-    "partner_name": "WaaMusic Odia Rasa",
-    "first_name": "WaaMusic Odia",
-    "last_name": "Rasa",
-    "emailId": "waamusicodiarasa@gmail.com"
+    "emailId": "sunilkharatmaster@gmail.com"
   },
   {
     "partner_name": "Surya Singh",
@@ -5594,23 +5338,11 @@
     "isrc": "INF232301277"
   },
   {
-    "partner_name": "Alokchitro Entertainment",
-    "first_name": "Alokchitro",
-    "last_name": "Entertainment",
-    "emailId": "studioin15@gmail.com"
-  },
-  {
     "partner_name": "SivaPrasadaReddy M",
     "first_name": "SivaPrasadaReddy",
     "last_name": "M",
     "emailId": "sivaquest@gmail.com",
     "isrc": "INF232301274,INF232301295"
-  },
-  {
-    "partner_name": "Kamal Singh",
-    "first_name": "Kamal",
-    "last_name": "Singh",
-    "emailId": "kamalsinghofficial78@gmail.com"
   },
   {
     "partner_name": "Harsh Patidar",
@@ -5641,12 +5373,6 @@
     "isrc": "CACWV2322580"
   },
   {
-    "partner_name": "Jagjeet Singh",
-    "first_name": "Jagjeet",
-    "last_name": "Singh",
-    "emailId": "jagjeetshivgarh@gmail.com"
-  },
-  {
     "partner_name": "BIPLAB PAL",
     "first_name": "BIPLAB PAL",
     "last_name": "PAL",
@@ -5668,12 +5394,6 @@
     "isrc": "INF232301324"
   },
   {
-    "partner_name": "Nocturne Music",
-    "first_name": "Kaju",
-    "last_name": "Gayan",
-    "emailId": "kajupapon@gmail.com"
-  },
-  {
     "partner_name": "Manpreet Singh",
     "first_name": "Manpreet",
     "last_name": "Singh",
@@ -5692,7 +5412,7 @@
     "first_name": "Abhay",
     "last_name": "Thakur",
     "emailId": "abhaythakur3773@gmail.com",
-    "isrc": "INF232301322,INF232301323"
+    "isrc": "INF232301322,INF232301323,INF232401852,INF232401992"
   },
   {
     "partner_name": "RMF Music Bhojpuri",
@@ -5700,12 +5420,6 @@
     "last_name": "Bhojpuri",
     "emailId": "rmfmusicbhojpuri@gmail.com",
     "isrc": "INF232301331"
-  },
-  {
-    "partner_name": "Golani Records",
-    "first_name": "Arpit",
-    "last_name": "Golani",
-    "emailId": "arpitgolani9@gmail.com"
   },
   {
     "partner_name": "Yashi Shree",
@@ -5719,7 +5433,7 @@
     "first_name": "Ritesh",
     "last_name": "Nawani",
     "emailId": "ruhaangroup1india@gmail.com",
-    "isrc": "INF232301339,INF232301354,INF232301357,INF232301363,INF232301476,INF232301510,INF232301511,INF232301524,INF232301556,INF232301626,INF232301678,INF232301683,INF232301684,INF232301696,INF232301704,INF232301747,INF232301748,INF232301749,INF232301750,INF232301751,INF232301752,INF232301753,INF232301754,INF232301755,INF232301756,INF232301757,INF232301758,INF232301759,INF232301760,INF232301761,INF232301762,INF232301763,INF232301764,INF232301765,INF232301766,INF232301767,INF232301774,INF232301775,INF232301776,INF232301777,INF232301778,INF232301782,INF232301783,INF232301784,INF232301785,INF232301786,INF232301791,INF232301792,INF232301816"
+    "isrc": "INF232301339,INF232301354,INF232301357,INF232301363,INF232301476,INF232301510,INF232301511,INF232301524,INF232301556,INF232301626,INF232301678,INF232301683,INF232301684,INF232301696,INF232301704,INF232301747,INF232301748,INF232301749,INF232301750,INF232301751,INF232301752,INF232301753,INF232301754,INF232301755,INF232301756,INF232301757,INF232301758,INF232301759,INF232301760,INF232301761,INF232301762,INF232301763,INF232301764,INF232301765,INF232301766,INF232301767,INF232301774,INF232301775,INF232301776,INF232301777,INF232301778,INF232301782,INF232301783,INF232301784,INF232301785,INF232301786,INF232301791,INF232301792,INF232301816,INF232301650"
   },
   {
     "partner_name": "subham suna",
@@ -5771,42 +5485,18 @@
     "isrc": "INF232301356,INF232301681,INF232301818"
   },
   {
-    "partner_name": "mohit kumar",
-    "first_name": "Ladla",
-    "last_name": "Mohit",
-    "emailId": "ladla.mohitgujjar@gmail.com"
-  },
-  {
-    "partner_name": "Gear6 Recording Studio",
-    "first_name": "Debojit",
-    "last_name": "Das",
-    "emailId": "gear6recordingstudio@gmail.com"
-  },
-  {
-    "partner_name": "abhishek kapoor",
-    "first_name": "Abhishek",
-    "last_name": "Kapoor",
-    "emailId": "abhishekkapoorspotify@gmail.com"
-  },
-  {
-    "partner_name": "Hemant Ratre Official",
-    "first_name": "Yuvraj",
-    "last_name": "Sahu",
-    "emailId": "ajaysahu1450@gmail.com"
-  },
-  {
     "partner_name": "Sachin Gurgaon",
     "first_name": "Sachin",
     "last_name": "Kumar",
     "emailId": "sachinsach600@gmail.com",
-    "isrc": "INF232301384"
+    "isrc": "INF232301384,INF232401897"
   },
   {
     "partner_name": "Vincent Paul Pereira",
     "first_name": "Vincent Paul",
     "last_name": "Pereira",
     "emailId": "paul.vp@live.com",
-    "isrc": "INF232301400"
+    "isrc": "INF232301400,INF232401911,INF232401934"
   },
   {
     "partner_name": "Story Lab Creative Media",
@@ -5858,12 +5548,6 @@
     "isrc": "INF232301427,INF232301592,INF232301603"
   },
   {
-    "partner_name": "Ibrahim Khan Junaidi",
-    "first_name": "Ibrahim Khan",
-    "last_name": "Junaidi",
-    "emailId": "ijunaidirecords@gmail.com"
-  },
-  {
     "partner_name": "SILI KAVI",
     "first_name": "SILI",
     "last_name": "KAVI",
@@ -5896,12 +5580,7 @@
     "first_name": "Bhavini",
     "last_name": "Shah",
     "emailId": "bhavini2713@gmail.com",
-    "isrc": "INF232301452,INF232301771,INF232301770"
-  },
-  {
-    "partner_name": "SK Infinity World Media",
-    "emailId": "sk.instant@gmail.com",
-    "isrc": "INF232301464,INF232301465"
+    "isrc": "INF232301452,INF232301771,INF232301770,INF232401907,INF232402036"
   },
   {
     "partner_name": "Gagan Singh",
@@ -5946,10 +5625,6 @@
     "isrc": "INF232301461"
   },
   {
-    "partner_name": "Deba Kumar Barman",
-    "emailId": "evvmusicghy@gmail.com"
-  },
-  {
     "partner_name": "Farhan Ahmed",
     "emailId": "agaahiraahi@gmail.com",
     "isrc": "GBWUL2374694"
@@ -5982,7 +5657,7 @@
   {
     "partner_name": "Project Dhee",
     "emailId": "dhwaniharsha@gmail.com",
-    "isrc": "INF232301531"
+    "isrc": "INF232301531,INF232401867,INF232401868"
   },
   {
     "partner_name": "Kumkum Soni",
@@ -5992,7 +5667,7 @@
   {
     "partner_name": "Janaab",
     "emailId": "salabhsstar96@gmail.com",
-    "isrc": "INF232301564"
+    "isrc": "INF232301564,INF232401927"
   },
   {
     "partner_name": "Gurlal singh",
@@ -6023,14 +5698,6 @@
     "partner_name": "Narendra Suntwal",
     "emailId": "suntwalnarendra11@gmail.com",
     "isrc": "INF232301588"
-  },
-  {
-    "partner_name": "RJM Studio",
-    "emailId": "rajmondal812@gmail.com"
-  },
-  {
-    "partner_name": "Jassi sheron",
-    "emailId": "jassisheron22@gmail.com"
   },
   {
     "partner_name": "samuel Neil",
@@ -6080,7 +5747,7 @@
   {
     "partner_name": "Aarambh Music",
     "emailId": "nikhilindrakumar@gmail.com",
-    "isrc": "INF232301654"
+    "isrc": "INF232301654,INF232301835"
   },
   {
     "partner_name": "Phungreiso Shangrei",
@@ -6130,7 +5797,7 @@
   {
     "partner_name": "Prithviraj Singh Sisodiya",
     "emailId": "singerprathviraj302@gmail.com",
-    "isrc": "INF232301648,INF232301712"
+    "isrc": "INF232301648,INF232301712,INF232401951"
   },
   {
     "partner_name": "Rasiya Vibes",
@@ -6205,15 +5872,12 @@
   {
     "partner_name": "Prakhar Tiwari",
     "emailId": "shreeshyamdatar3515@gmail.com",
-    "isrc": "INF232301692"
+    "isrc": "INF232301692,INF232401865"
   },
   {
     "partner_name": "Sagar Kapoor",
     "emailId": "sagarkapoor.866@gmail.com",
     "isrc": "INF232301695"
-  },
-  {
-    "partner_name": "DK Bora Records"
   },
   {
     "partner_name": "Rutu Jathar",
@@ -6227,13 +5891,12 @@
   },
   {
     "partner_name": "Swaroop singh",
-    "emailId": "swarooprajpurohit6463@gmail.com",
-    "isrc": "TCAHJ2357162"
+    "emailId": "swarooprajpurohit6463@gmail.com"
   },
   {
     "partner_name": "Selexstar Kishan",
     "emailId": "kishanselexstar@gmail.com",
-    "isrc": "INF232301702"
+    "isrc": "INF232301702,INF232402013"
   },
   {
     "partner_name": "Gaurav Jha",
@@ -6246,12 +5909,9 @@
     "isrc": "INF232301707"
   },
   {
-    "partner_name": "Richa Agarwal"
-  },
-  {
     "partner_name": "gurmansa cineblitz",
     "emailId": "gurmansacineblitz@gmail.com",
-    "isrc": "INF232301713,INF232301714,INF232301796"
+    "isrc": "INF232301713,INF232301714,INF232301796,INF232301822"
   },
   {
     "partner_name": "Bablu Music Official",
@@ -6264,9 +5924,6 @@
     "isrc": "INF232301720"
   },
   {
-    "partner_name": "CG Creation Studio"
-  },
-  {
     "partner_name": "Yash Records Official",
     "emailId": "yash41414@gmail.com",
     "isrc": "INF232301723"
@@ -6274,7 +5931,7 @@
   {
     "partner_name": "Musical Explorers",
     "emailId": "manoramdb@gmail.com",
-    "isrc": "INF232301724"
+    "isrc": "INF232301724,INF232401843"
   },
   {
     "partner_name": "KAMAAL VIJAYANN",
@@ -6299,10 +5956,7 @@
   {
     "partner_name": "Ashwani Chadak",
     "emailId": "chadaksarman@gmail.com",
-    "isrc": "INF232301734,INF232301788"
-  },
-  {
-    "partner_name": "Debojit Das"
+    "isrc": "INF232301734,INF232301788,INF232401856,INF232401892,INF232401935,INF232402002"
   },
   {
     "partner_name": "Crescendo Production",
@@ -6327,7 +5981,7 @@
   {
     "partner_name": "Pavel Choudhury",
     "emailId": "pavelchoudhury1999@gmail.com",
-    "isrc": "INF232301781"
+    "isrc": "INF232301781,INF232401905"
   },
   {
     "partner_name": "Mohammad Laraib",
@@ -6355,17 +6009,14 @@
     "isrc": "INF232301806"
   },
   {
-    "partner_name": "Dreambox Picturez"
-  },
-  {
     "partner_name": "Ketan Patel",
     "emailId": "singerketanpatel@gmail.com",
-    "isrc": "INF232301809"
+    "isrc": "INF232301809,INF232401899,INF232401938,INF232401989,INF232401990"
   },
   {
     "partner_name": "King Kaashish",
     "emailId": "kingkaashishmusic@gmail.com",
-    "isrc": "INF232301811"
+    "isrc": "INF232301811,INF232301830"
   },
   {
     "partner_name": "swapnil choudhary",
@@ -6375,7 +6026,7 @@
   {
     "partner_name": "JD Creations",
     "emailId": "jdcreations@gmail.com",
-    "isrc": "INF232301813,INF232301814"
+    "isrc": "INF232301813,INF232301814,INF232401874,INF232401875"
   },
   {
     "partner_name": "Anushka Banerjee",
@@ -6385,9 +6036,241 @@
   {
     "partner_name": "HDMusic-xr4xn",
     "emailId": "sampatdarade51@gmail.com",
-    "isrc": "INF232301820"
+    "isrc": "INF232301820,INF232402017"
   },
   {
-    "partner_name": "Subtle Vibes Creation_"
+    "partner_name": "AK KING 3",
+    "emailId": "skk181310@gmail.com",
+    "isrc": "INF232301823"
+  },
+  {
+    "partner_name": "Pragyan Gurung",
+    "emailId": "pragyan.lemo010@gmail.com",
+    "isrc": "INF232301824,INF232301827"
+  },
+  {
+    "partner_name": "manjil subba",
+    "emailId": "emanualandmanjil@gmail.com",
+    "isrc": "INF232301825"
+  },
+  {
+    "partner_name": "bharatreddy palukuri",
+    "emailId": "palukuribharatreddy1509@gmail.com",
+    "isrc": "INF232301826"
+  },
+  {
+    "partner_name": "Rahul Reddy Devarampally",
+    "emailId": "mailrahul07@gmail.com",
+    "isrc": "INF232301828"
+  },
+  {
+    "partner_name": "Mohit Khajuria",
+    "emailId": "mohitkhajuria40@gmail.com",
+    "isrc": "INF232301831,INF232401869,INF232401900,INF232401906,IND382208802,IND382208803,IND382208804,IND382208805,IND382208806,IND382208807,IND382208808,IND382311692,IND382311693,IND382311694,IND382311695,IND382311696,INF232401924,INF232401937,INF232401952,INF232401952,INF232401974,INF232402023,INF232402032,INF232402008"
+  },
+  {
+    "partner_name": "Manodwip Banik",
+    "emailId": "romel.banik15@gmail.com",
+    "isrc": "INF232301832,INF232301833,INF232301834"
+  },
+  {
+    "partner_name": "Sukirana Studios",
+    "emailId": "sukiranastudios@gmail.com",
+    "isrc": "INF232401836,INF232100272,INF232200528"
+  },
+  {
+    "partner_name": "Priti Kumari",
+    "emailId": "kumaripriti84601@gmail.com",
+    "isrc": "INF232401837"
+  },
+  {
+    "partner_name": "Muiz Rohman",
+    "emailId": "muizrohman06@gmail.com",
+    "isrc": "INF232401838"
+  },
+  {
+    "partner_name": "Perros Blancos",
+    "emailId": "perrosblancosmenagments@gmail.com",
+    "isrc": "INF232401839"
+  },
+  {
+    "partner_name": "Bobby Films",
+    "emailId": "bobbyfilms5@gmail.com",
+    "isrc": "INF232401840,INF232401845,INF232401846,INF232401847,INF232401848"
+  },
+  {
+    "partner_name": "Oysta Music Studio",
+    "emailId": "piyushjain@oysterindia.com",
+    "isrc": "INF232401851,INF232401879,INF232402009,INF232402031"
+  },
+  {
+    "partner_name": "Kutulu Tudu",
+    "emailId": "kutulutudu45@gmail.com",
+    "isrc": "INF232401853"
+  },
+  {
+    "partner_name": "Saathi Music",
+    "emailId": "shibashishm@gmail.com",
+    "isrc": "INF232401858"
+  },
+  {
+    "partner_name": "Deepak Kumar Music",
+    "emailId": "dk073622@gmail.com",
+    "isrc": "INF232401876"
+  },
+  {
+    "partner_name": "Anju Dhingra",
+    "emailId": "a6anju@gmail.com",
+    "isrc": "INF232401877,INF232401878,INF232401949"
+  },
+  {
+    "partner_name": "Subash Mishra",
+    "emailId": "lekhanimusicodia@gmail.com",
+    "isrc": "INF232401880,INF232401881,INF232401885,INF232402014"
+  },
+  {
+    "partner_name": "Rahul Verma",
+    "emailId": "rv49470370@gmail.com",
+    "isrc": "INF232401882,INF232401926"
+  },
+  {
+    "partner_name": "Bhajan Gayak Lakshya Gupta",
+    "emailId": "vpriyanshu8965@gmail.com",
+    "isrc": "INF232401884"
+  },
+  {
+    "partner_name": "Reetss Production",
+    "emailId": "reetssproduction@gmail.com",
+    "isrc": "INF232401888"
+  },
+  {
+    "partner_name": "Dipankar Prosad Nath",
+    "emailId": "dipankarnath007@gmail.com",
+    "isrc": "INF232401889"
+  },
+  {
+    "partner_name": "Md Sameer",
+    "emailId": "skhan827141@gmail.com",
+    "isrc": "INF232401891"
+  },
+  {
+    "partner_name": "Mayur Kumar",
+    "emailId": "mayurkumar751@gmail.com",
+    "isrc": "INF232401894,INF232401914"
+  },
+  {
+    "partner_name": "Narayana Arts & Entertainment",
+    "emailId": "ashubhatt7787@gmail.com",
+    "isrc": "INF232401887,INF232402012"
+  },
+  {
+    "partner_name": "jayakumar nelapati",
+    "emailId": "drjk06@yahoo.co.in",
+    "isrc": "INF232401901"
+  },
+  {
+    "partner_name": "sagar kushwah",
+    "emailId": "sagarkushwsah744@gmail.com",
+    "isrc": "INF232401910"
+  },
+  {
+    "partner_name": "Celestial",
+    "emailId": "chadreshpatel26071997@gmail.com",
+    "isrc": "INF232401912"
+  },
+  {
+    "partner_name": "Kohri Husangsarwala",
+    "emailId": "kohrironny@gmail.com",
+    "isrc": "INF232401913,INF232402025"
+  },
+  {
+    "partner_name": "Youtune Music",
+    "emailId": "youtunemusic23@gmail.com",
+    "isrc": "INF232401922,INF232402039"
+  },
+  {
+    "partner_name": "Gaurav Sharma",
+    "emailId": "gauravsharma26111985@gmail.com",
+    "isrc": "INF232401925"
+  },
+  {
+    "partner_name": "Piyush Kumar",
+    "emailId": "piyushbasor666@gmail.com",
+    "isrc": "INF232401929"
+  },
+  {
+    "partner_name": "SR Official",
+    "emailId": "rk6112327@gmail.com",
+    "isrc": "INF232401939"
+  },
+  {
+    "partner_name": "Akash Manyala",
+    "emailId": "akashmanyala001@gmail.com ",
+    "isrc": "INF232401954"
+  },
+  {
+    "partner_name": "Om Pawar",
+    "emailId": "omprakashpawar2@gmail.com",
+    "isrc": "INF232401972"
+  },
+  {
+    "partner_name": "Trivarga Creations",
+    "emailId": "trivargacreations@gmail.com",
+    "isrc": "INF232401973"
+  },
+  {
+    "partner_name": "SM Creation Odia",
+    "emailId": "smcreations9040@gmail.com",
+    "isrc": "INF232401976"
+  },
+  {
+    "partner_name": "Manish Bairisal Music",
+    "emailId": "manishbairisal@gmail.com",
+    "isrc": "INF232401977,INF232402005"
+  },
+  {
+    "partner_name": "Noise Zone",
+    "emailId": "noisezonedevotional@gmail.com",
+    "isrc": "INF232401978"
+  },
+  {
+    "partner_name": "Aroop Gharai",
+    "emailId": "aroop4u@gmail.com",
+    "isrc": "INF232402007"
+  },
+  {
+    "partner_name": "DRD Music",
+    "emailId": "superstarabhinav24@gmail.com",
+    "isrc": "INF232402018"
+  },
+  {
+    "partner_name": "Nikhil Gazmer +91",
+    "emailId": "nikhilnamikaja@gmail.com",
+    "isrc": "INF232402020"
+  },
+  {
+    "partner_name": "Kunal Arya",
+    "emailId": "kunalarya21099@gmail.com",
+    "isrc": "DKD3Z0009584"
+  },
+  {
+    "partner_name": "parth gambhir",
+    "emailId": "parthgambhir91@gmail.com",
+    "isrc": "INF232402026"
+  },
+  {
+    "partner_name": "harsh chauhan",
+    "emailId": "harshchauhanmusic@gmail.com",
+    "isrc": "INF232402027"
+  },
+  {
+    "partner_name": "Santu Das",
+    "emailId": "vintagemusicproductionhouse@gmail.com",
+    "isrc": "INF232402030"
+  },
+  {
+    "partner_name": "Nilay Gajera",
+    "emailId": "gajeranilay@gmail.com",
+    "isrc": "INF232402042,INF232402043,INF232402044"
   }
 ]
