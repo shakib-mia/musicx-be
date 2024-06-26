@@ -19,7 +19,7 @@ router.get("/", verifyJWT, async (req, res) => {
 
   if (clientsCollection !== null) {
     if (clientsCursor !== null) {
-      clientsCursor.isrc?.split(",").map((item) => isrcs.push(item.trim()));
+      clientsCursor?.isrc?.split(",").map((item) => isrcs.push(item.trim()));
       res.send(isrcs);
     } else {
       res.send({ message: "No isrc found in clientsCursor" });
