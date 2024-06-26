@@ -1368,7 +1368,7 @@ async function run() {
 
         // console.log(user);
 
-        const isrcs = user.isrc.split(","); // Assuming ISRCs are provided as a comma-separated list
+        const isrcs = user?.isrc?.split(","); // Assuming ISRCs are provided as a comma-separated list
 
         const pipeline = [
           {

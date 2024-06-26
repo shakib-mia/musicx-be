@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
       let accountBalance = 0;
 
       if (client.isrc) {
-        const isrcs = client.isrc.split(",");
+        const isrcs = client?.isrc?.split(",");
         for (const isrc of isrcs) {
           const revenueItems = await revenueCollections
             .find({ isrc })
