@@ -57,6 +57,7 @@ const updateDisbursed = require("./routes/update-disbursement");
 const checkRequested = require("./routes/checkRequested");
 const phonePe = require("./routes/handlePhonePePayment");
 const generateOrderId = require("./routes/generate-order-id");
+const songs = require("./routes/songs");
 // const { customLog } = require("./constants");
 
 const paidData = [
@@ -688,7 +689,7 @@ app.get("/", async (req, res) => {
     { expiresIn: "1h" }
   );
 
-  res.send(`from port: ${port}`);
+  res.send(`from port: ${port} ${token}`);
 });
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -912,6 +913,10 @@ async function run() {
       {
         path: "/generate-order-id",
         element: generateOrderId,
+      },
+      {
+        path: "/songs",
+        element: songs,
       },
     ];
 
