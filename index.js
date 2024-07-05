@@ -58,6 +58,8 @@ const checkRequested = require("./routes/checkRequested");
 const phonePe = require("./routes/handlePhonePePayment");
 const generateOrderId = require("./routes/generate-order-id");
 const songs = require("./routes/songs");
+const recentUploads = require("./routes/recentUploads");
+const uploadFilmBanner = require("./routes/upload-film-banner");
 // const { customLog } = require("./constants");
 
 const paidData = [
@@ -917,6 +919,14 @@ async function run() {
       {
         path: "/songs",
         element: songs,
+      },
+      {
+        path: "/recent-uploads",
+        element: recentUploads,
+      },
+      {
+        path: "/upload-film-banner",
+        element: uploadFilmBanner,
       },
     ];
 

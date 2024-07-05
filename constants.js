@@ -99,6 +99,10 @@ const getCollections = async () => {
 
   const songs = await client2.db("forevision-digital").collection("songs");
 
+  const recentUploadsCollection = await client2
+    .db("forevision-digital")
+    .collection("recent-uploads");
+
   function customLog(...messages) {
     const err = new Error();
     const stackLine = err.stack.split("\n")[2]; // Adjust this line number based on where the error stack points to the correct caller
@@ -136,6 +140,7 @@ const getCollections = async () => {
     notificationsCollections,
     paymentsCollection,
     songs,
+    recentUploadsCollection,
   };
 };
 
