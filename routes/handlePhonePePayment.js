@@ -57,11 +57,11 @@ router.post("/pay", async function (req, res, next) {
       }
     )
     .then(function (response) {
-      console.log("response->", response.data);
+      // console.log("response->", response.data);
       res.send(response);
     })
     .catch(function (error) {
-      console.log("error->", error);
+      // console.log("error->", error);
       res.send(error);
     });
 });

@@ -26,7 +26,7 @@ router.get("/:filename", async (req, res) => {
   res.sendFile(filePath, (err) => {
     if (err) {
       // Handle errors, e.g., file not found
-      console.log(err);
+      // console.log(err);
       res.status(404).send("File not found.");
     }
   });

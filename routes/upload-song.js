@@ -68,13 +68,19 @@ router.post("/", verifyJWT, upload.single("file"), (req, res) => {
 router.post("/upload-song-data", verifyJWT, async (req, res) => {
   const data = req.body;
   // console.log(data);
-  const { songs } = await getCollections();
-  const songsCursor = await songs.insertOne(data);
+  const { recentUploadsCollection } = await getCollections();
+  const songsCursor = await recentUploadsCollection.insertOne(data);
   res.send(songsCursor);
   // const
 });
 
 router.get("/", verifyJWT, async (req, res) => {
+  const { recentUploadsCollection } = await getCollections();
+  const songsData = await recentUploadsCollection.find({}).toArray();
+  res.send(songsData);
+});
+
+router.get("/:email", verifyJWT, async (req, res) => {
   const { songs } = await getCollections();
   const songsData = await songs.find({}).toArray();
   res.send(songsData);

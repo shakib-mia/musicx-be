@@ -92,6 +92,16 @@ const getCollections = async () => {
   const notificationsCollections = await client2
     .db("forevision-digital")
     .collection("notifications");
+  const dummyRevenue = await client
+    .db("forevision-digital")
+    .collection("dummy-revenue");
+  const cutPercentages = await client
+    .db("forevision-digital")
+    .collection("cut-percentages");
+
+  const newSongs = await client2
+    .db("forevision-digital")
+    .collection("new-songs");
 
   const paymentsCollection = await client2
     .db("forevision-digital")
@@ -141,6 +151,8 @@ const getCollections = async () => {
     paymentsCollection,
     songs,
     recentUploadsCollection,
+    dummyRevenue,
+    cutPercentages,
   };
 };
 

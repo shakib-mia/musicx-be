@@ -5,15 +5,11 @@ const verifyJWT = require("../verifyJWT");
 const jwt = require("jsonwebtoken");
 
 router.get("/", verifyJWT, async (req, res) => {
-  //   console.log("object");
-  const { clientsCollection } = await getCollections();
+  const { clientsCollection, cutPercentages } = await getCollections();
   const { email } = jwt.decode(req.headers.token);
-  // console.log(email);
   const clientsCursor = await clientsCollection.findOne({
     emailId: email,
   });
-
-  // const
 
   const isrcs = [];
 
@@ -41,7 +37,8 @@ router.get("/", verifyJWT, async (req, res) => {
 });
 
 router.get("/:isrc", async (req, res) => {
-  const { revenueCollections } = await getCollections();
+  const { revenueCollections, dummyRevenue, cutPercentages } =
+    await getCollections();
   const pipeline = [
     {
       $match: { isrc: req.params.isrc },
@@ -66,18 +63,34 @@ router.get("/:isrc", async (req, res) => {
 
   const revenues = await revenueCollections.aggregate(pipeline).toArray();
 
-  const updatedArray = revenues.map((item) => {
-    // Destructure the item to separate uploadDate and the rest of the properties
+  const updatedArrayPromises = revenues.map(async (item) => {
+    const cutPercentage = await cutPercentages.findOne({ isrc: item.isrc });
+    // console.log(cutPercentage);
+
     const { uploadDate, ...rest } = item;
-    // Return a new object with the date property instead of uploadDate, and the rest of the original properties
+    item.finalRevenue =
+      item["after tds revenue"] *
+      (1 - (cutPercentage?.cut_percentage || 10) / 100);
+
+    // console.log(item, cutPercentage?.cut_percentage);
+
     if (uploadDate) {
-      return { ...rest, date: uploadDate };
+      return { ...item, date: uploadDate };
     } else {
       return item;
     }
   });
 
-  res.send({ revenues: updatedArray });
+  try {
+    const updatedArray = await Promise.all(updatedArrayPromises);
+    console.log(updatedArray);
+    res.send({ revenues: updatedArray });
+  } catch (error) {
+    console.error("Error processing revenues:", error);
+    res
+      .status(500)
+      .send({ error: "An error occurred while processing revenues" });
+  }
 });
 
 module.exports = router;

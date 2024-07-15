@@ -32,9 +32,9 @@ async function generateUniqueOrderId() {
     // Generate the next orderId
     orderId = await getNextOrderId();
     orderExists = await songs.findOne({ orderId });
-    if (orderExists) {
-      console.log(`Order ID ${orderId} already exists. Generating a new one.`);
-    }
+    // if (orderExists) {
+    //   console.log(`Order ID ${orderId} already exists. Generating a new one.`);
+    // }
   }
 
   // Store the orderId in songs collection

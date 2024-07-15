@@ -14,7 +14,7 @@ router.get("/", verifyJWT, async (req, res) => {
 router.post("/", verifyJWT, async (req, res) => {
   const { recentUploadsCollection } = await getCollections();
   const recentUploads = await recentUploadsCollection.insertOne(req.body);
-  console.log(req.body);
+  // console.log(req.body);
 
   res.send(recentUploads);
 });

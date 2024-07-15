@@ -687,7 +687,7 @@ const port = process.env.port;
 
 app.get("/", async (req, res) => {
   const token = jwt.sign(
-    { email: "sukiranastudios@gmail.com" },
+    { email: "bhawal2013@gmail.com" },
     process.env.access_token_secret,
     { expiresIn: "1h" }
   );
@@ -1046,7 +1046,7 @@ async function run() {
         },
       ];
       const cursor = await revenueCollections.aggregate(pipeline).toArray();
-      console.log(cursor.length);
+      // console.log(cursor.length);
 
       res.send(allIsrcs);
     });
@@ -1122,7 +1122,7 @@ async function run() {
 
             res.send({ token, details });
           } else {
-            console.log(err);
+            // console.log(err);
             res.status(401).send({ message: "incorrect password" });
           }
         });
@@ -1226,7 +1226,7 @@ async function run() {
         const found = await clientsCollection.findOne({
           emailId: item.emailId,
         });
-        console.log(found);
+        // console.log(found);
         if (found !== null && !found.lifetimeDisbursed) {
           found.lifetimeDisbursed = 0;
         }
@@ -1282,7 +1282,7 @@ async function run() {
           clients.lifetimeDisbursed = sumByEmailAddress[item];
           clients.accountBalance =
             (clients.lifetimeRevenue || 0) - (clients.lifetimeDisbursed || 0);
-          console.log(clients);
+          // console.log(clients);
 
           const updateCursor = await clientsCollection.updateOne(
             { emailId: clients.emailId },
