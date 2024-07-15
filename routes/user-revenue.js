@@ -64,13 +64,13 @@ router.get("/:isrc", async (req, res) => {
   const revenues = await revenueCollections.aggregate(pipeline).toArray();
 
   const updatedArrayPromises = revenues.map(async (item) => {
-    const cutPercentage = await cutPercentages.findOne({ isrc: item.isrc });
+    // const cutPercentage = await cutPercentages.findOne({ isrc: item.isrc });
     // console.log(cutPercentage);
 
     const { uploadDate, ...rest } = item;
-    item.finalRevenue =
-      item["after tds revenue"] *
-      (1 - (cutPercentage?.cut_percentage || 10) / 100);
+    // item.finalRevenue =
+    //   item["after tds revenue"] *
+    //   (1 - (cutPercentage?.cut_percentage || 10) / 100);
 
     // console.log(item, cutPercentage?.cut_percentage);
 
