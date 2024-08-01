@@ -83,7 +83,7 @@ router.get("/:isrc", async (req, res) => {
 
   try {
     const updatedArray = await Promise.all(updatedArrayPromises);
-    console.log(updatedArray);
+    // console.log(updatedArray);
     res.send({ revenues: updatedArray });
   } catch (error) {
     console.error("Error processing revenues:", error);

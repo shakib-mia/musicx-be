@@ -6,6 +6,16 @@ const jwt = require("jsonwebtoken");
 
 router.get("/", verifyJWT, async (req, res) => {
   const { recentUploadsCollection } = await getCollections();
+  const { email } = jwt.decode(req.headers.token);
+  const recentUploads = await recentUploadsCollection
+    .find({ userEmail: email })
+    .toArray();
+
+  res.send(recentUploads);
+});
+
+router.get("/admin", async (req, res) => {
+  const { recentUploadsCollection } = await getCollections();
   const recentUploads = await recentUploadsCollection.find({}).toArray();
 
   res.send(recentUploads);

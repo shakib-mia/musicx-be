@@ -2,10 +2,10 @@ const express = require("express");
 const getCollections = require("../constants");
 
 async function getNextOrderId() {
-  const { songs } = await getCollections();
+  const { recentUploadsCollection } = await getCollections();
 
   // Find the maximum existing orderId and extract the numeric part
-  const latestSong = await songs
+  const latestSong = await recentUploadsCollection
     .find({ orderId: { $regex: /^FVDO\d{5}$/ } })
     .sort({ orderId: -1 })
     .limit(1)
@@ -19,11 +19,13 @@ async function getNextOrderId() {
   // Pad the orderId to ensure it is 5 digits long and add the prefix
   const paddedOrderId = nextOrderId.toString().padStart(5, "0");
 
+  // console.log(paddedOrderId);
+
   return `FVDO${paddedOrderId}`;
 }
 
 async function generateUniqueOrderId() {
-  const { songs } = await getCollections();
+  const { recentUploadsCollection } = await getCollections();
 
   let orderId;
   let orderExists = true;
@@ -31,7 +33,7 @@ async function generateUniqueOrderId() {
   while (orderExists) {
     // Generate the next orderId
     orderId = await getNextOrderId();
-    orderExists = await songs.findOne({ orderId });
+    orderExists = await recentUploadsCollection.findOne({ orderId });
     // if (orderExists) {
     //   console.log(`Order ID ${orderId} already exists. Generating a new one.`);
     // }
@@ -39,7 +41,7 @@ async function generateUniqueOrderId() {
 
   // Store the orderId in songs collection
   // await songs.insertOne({ orderId });
-
+  // console.log(orderId);
   return orderId;
 }
 

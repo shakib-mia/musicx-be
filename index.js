@@ -61,6 +61,7 @@ const songs = require("./routes/songs");
 const recentUploads = require("./routes/recentUploads");
 const uploadFilmBanner = require("./routes/upload-film-banner");
 const handleFirebaseLogin = require("./routes/handle-firebase-login");
+const refund = require("./routes/refund");
 // const { customLog } = require("./constants");
 
 const paidData = [
@@ -932,6 +933,10 @@ async function run() {
       {
         path: "/handle-firebase-login",
         element: handleFirebaseLogin,
+      },
+      {
+        path: "/refund",
+        element: refund,
       },
     ];
 

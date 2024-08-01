@@ -107,6 +107,10 @@ const getCollections = async () => {
     .db("forevision-digital")
     .collection("payments");
 
+  const refundRequests = await client2
+    .db("forevision-digital")
+    .collection("refund-requests");
+
   const songs = await client2.db("forevision-digital").collection("songs");
 
   const recentUploadsCollection = await client2
@@ -153,6 +157,7 @@ const getCollections = async () => {
     recentUploadsCollection,
     dummyRevenue,
     cutPercentages,
+    refundRequests,
   };
 };
 

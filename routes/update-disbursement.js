@@ -40,7 +40,7 @@ router.get("/", async (req, res) => {
       }
     );
 
-    console.log(updatedCursor);
+    // console.log(updatedCursor);
   }
 
   res.send(await clientsCollection.find({}).toArray());
