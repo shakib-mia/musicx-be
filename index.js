@@ -62,7 +62,14 @@ const recentUploads = require("./routes/recentUploads");
 const uploadFilmBanner = require("./routes/upload-film-banner");
 const handleFirebaseLogin = require("./routes/handle-firebase-login");
 const refund = require("./routes/refund");
+const uploadLetterHeads = require("./routes/upload-letterhead");
 // const { customLog } = require("./constants");
+const editSong = require("./routes/edit-song");
+const handleSongStatus = require("./routes/handle-song-status");
+const kyc = require("./routes/kyc");
+const yearlyPlans = require("./routes/yearlyPlansRequest");
+const bulkUpload = require("./routes/bulkUpload");
+const takedownRequests = require("./routes/takedown-requests");
 
 const paidData = [
   {
@@ -688,7 +695,7 @@ const port = process.env.port;
 
 app.get("/", async (req, res) => {
   const token = jwt.sign(
-    { email: "bhawal2013@gmail.com" },
+    { email: "wrupsarkar@gmail.com" },
     process.env.access_token_secret,
     { expiresIn: "1h" }
   );
@@ -931,12 +938,43 @@ async function run() {
         element: uploadFilmBanner,
       },
       {
+        path: "/upload-letterhead",
+        element: uploadLetterHeads,
+      },
+      {
         path: "/handle-firebase-login",
         element: handleFirebaseLogin,
       },
       {
         path: "/refund",
         element: refund,
+      },
+      {
+        path: "/edit-song",
+        element: editSong,
+      },
+      {
+        path: "/handle-song-status",
+        element: handleSongStatus,
+      },
+      {
+        path: "/kyc",
+        element: kyc,
+      },
+
+      {
+        path: "/yearly-plans",
+        element: yearlyPlans,
+      },
+
+      {
+        path: "/bulk-upload",
+        element: bulkUpload,
+      },
+
+      {
+        path: "/takedown-requests",
+        element: takedownRequests,
       },
     ];
 

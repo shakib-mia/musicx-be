@@ -5,6 +5,7 @@ const crypto = require("crypto");
 const getCollections = require("../constants");
 const jwt = require("jsonwebtoken");
 const verifyJWT = require("../verifyJWT");
+const { ObjectId } = require("mongodb");
 
 router.post("/", async (req, res) => {
   try {
@@ -77,6 +78,34 @@ router.post("/verify", verifyJWT, async (req, res) => {
   } catch (error) {
     console.log(error);
   }
+});
+
+router.post("/send-link/:_id", async (req, res) => {
+  const { yearlyPlansCollection, notificationsCollections } =
+    await getCollections();
+
+  const { emailId } = await yearlyPlansCollection.findOne({
+    _id: new ObjectId(req.params._id),
+  });
+  const timeStamp = Math.floor(new Date().getTime() / 1000);
+
+  console.log(req.body);
+
+  const notification = {
+    email: emailId,
+    message: `Click <a style="color: blue" onClick="e => e.stopPropagation()" target="_blank" href="${
+      req.body.link.includes("https://")
+        ? req.body.link
+        : "https://" + req.body.link
+    }">here</a> to Pay for the yearly Plan`,
+    read: false,
+    date: timeStamp,
+  };
+
+  const notificationCursor = await notificationsCollections.insertOne(
+    notification
+  );
+  res.send(notification);
 });
 
 module.exports = router;

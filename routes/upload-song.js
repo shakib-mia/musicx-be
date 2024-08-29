@@ -86,9 +86,12 @@ router.get("/:email", verifyJWT, async (req, res) => {
   res.send(songsData);
 });
 
-router.get("/:_id", async (req, res) => {
-  const { songs } = await getCollections();
-  const songsData = await songs.findOne({ _id: new ObjectId(req.params._id) });
+router.get("/by-id/:_id", async (req, res) => {
+  const { recentUploadsCollection } = await getCollections();
+  const songsData = await recentUploadsCollection.findOne({
+    _id: new ObjectId(req.params._id),
+  });
+
   res.send(songsData);
 });
 

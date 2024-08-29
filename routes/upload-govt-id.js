@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const fs = require("fs");
+const jwt = require("jsonwebtoken");
 
 // Ensure the directory exists before setting up the multer storage
 const uploadDir = "uploads/govt-id/";
@@ -25,7 +26,8 @@ const storage = multer.diskStorage({
         "-" +
         Date.now() +
         "-" +
-        file.originalname.split(" ").join("-")    );
+        file.originalname.split(" ").join("-")
+    );
   },
 });
 

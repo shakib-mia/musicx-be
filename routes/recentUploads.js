@@ -29,4 +29,6 @@ router.post("/", verifyJWT, async (req, res) => {
   res.send(recentUploads);
 });
 
+router.put("/:_id", async (req, res) => {});
+
 module.exports = router;

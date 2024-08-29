@@ -99,6 +99,10 @@ const getCollections = async () => {
     .db("forevision-digital")
     .collection("cut-percentages");
 
+  const songUpdateRequestCollection = await client2
+    .db("forevision-digital")
+    .collection("song-update-requests");
+
   const newSongs = await client2
     .db("forevision-digital")
     .collection("new-songs");
@@ -111,11 +115,27 @@ const getCollections = async () => {
     .db("forevision-digital")
     .collection("refund-requests");
 
+  const kycCollection = await client2
+    .db("forevision-digital")
+    .collection("kyc");
+
+  const yearlyPlansCollection = await client2
+    .db("forevision-digital")
+    .collection("yearly-plan-requests");
+
+  const bulkUploadCollection = await client2
+    .db("forevision-digital")
+    .collection("bulk-upload");
+
   const songs = await client2.db("forevision-digital").collection("songs");
 
   const recentUploadsCollection = await client2
     .db("forevision-digital")
     .collection("recent-uploads");
+
+  const takedownRequestsCollection = await client2
+    .db("forevision-digital")
+    .collection("takedown-requests");
 
   function customLog(...messages) {
     const err = new Error();
@@ -158,6 +178,12 @@ const getCollections = async () => {
     dummyRevenue,
     cutPercentages,
     refundRequests,
+    songUpdateRequestCollection,
+    kycCollection,
+    yearlyPlansCollection,
+    bulkUploadCollection,
+    newSongs,
+    takedownRequestsCollection,
   };
 };
 

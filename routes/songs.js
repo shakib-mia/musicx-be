@@ -6,24 +6,29 @@ const jwt = require("jsonwebtoken");
 const { ObjectId } = require("mongodb");
 
 router.post("/", verifyJWT, async (req, res) => {
-  const { isrc } = req.body;
-  const { songs } = await getCollections();
-  const isrcs = isrc?.split(",");
+  const song = req.body;
+  const { newSongs, clientsCollection } = await getCollections();
+  delete song._id;
 
-  let songArray = [];
+  const user = await clientsCollection.findOne({ emailId: song.userEmail });
+  // console.log(user);
+  const isrcs = user.isrc.split(",");
+  isrcs.push(song.isrc);
 
-  for (const isrc of isrcs) {
-    // console.log(isrc);
-    const songData = await songs.findOne({ ISRC: isrc });
-    // console.log(songData);
-    if (songData !== null) {
-      songArray.push(songData);
-    }
-  }
+  user.isrc = isrcs.join(",");
 
-  console.log(songArray);
+  const newUser = { ...user };
+  delete newUser._id;
 
-  res.send(songArray);
+  const updateCursor = await clientsCollection.updateOne(
+    { _id: user._id },
+    { $set: newUser },
+    { upsert: true }
+  );
+
+  const insertCursor = await newSongs.insertOne(song);
+
+  res.send({ insertCursor, updateCursor });
 });
 
 router.get("/", verifyJWT, async (req, res) => {
@@ -46,6 +51,13 @@ router.get("/", verifyJWT, async (req, res) => {
   res.send(songsArray);
 });
 
+router.get("/all", verifyJWT, async (req, res) => {
+  const { songs } = await getCollections();
+
+  const songsList = await songs.find({}).toArray();
+  res.send(songsList);
+});
+
 router.put("/:_id", async (req, res) => {
   const { _id } = req.params;
   // const { recentUploadsCollection } = await getCollections();
@@ -56,7 +68,7 @@ router.put("/:_id", async (req, res) => {
   //   _id: new ObjectId(_id),
   // });
 
-  // data.paymentStatus = "paid";
+  // data.status = "paid";
 
   const updateCursor = await recentUploadsCollection.updateOne(
     { _id: new ObjectId(_id) },
@@ -82,7 +94,7 @@ router.put("/by-order-id/:orderId", async (req, res) => {
 
   const data = await recentUploadsCollection.findOne({ orderId });
   const updated = req.body;
-  updated.paymentStatus = "paid";
+  updated.status = "paid";
 
   delete updated._id;
 
@@ -97,6 +109,48 @@ router.put("/by-order-id/:orderId", async (req, res) => {
   );
 
   res.send(updateCursor);
+});
+
+router.get("/:_id", async (req, res) => {
+  const { songs, recentUploadsCollection } = await getCollections();
+  const { _id } = req.params;
+
+  try {
+    // Search in the 'songs' collection first
+    let song = await songs.findOne({ _id: new ObjectId(_id) });
+
+    // If not found, search in the 'recentUploadsCollection'
+    if (!song) {
+      song = await recentUploadsCollection.findOne({ _id: new ObjectId(_id) });
+    }
+
+    console.log(song);
+
+    // If the song is found in either collection, send it back
+    if (song) {
+      res.status(200).send(song);
+    } else {
+      res.status(404).send({ message: "Song not found" });
+    }
+  } catch (error) {
+    console.error("Error finding song:", error);
+    res.status(500).send({ message: "Internal Server Error" });
+  }
+});
+
+router.get("/by-isrc/:ISRC", async (req, res) => {
+  const { ISRC } = req.params;
+  const { songs } = await getCollections();
+
+  // const song = await songs.findOne({ ISRC });
+
+  // Case insensitive
+  const song = await songs.findOne({
+    ISRC: { $regex: `^${ISRC}$`, $options: "i" },
+  });
+  // console.log(song);
+
+  res.send(song);
 });
 
 module.exports = router;
