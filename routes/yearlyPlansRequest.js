@@ -111,7 +111,7 @@ router.post("/delete/:_id", async (req, res) => {
 
   const notification = {
     email: req.body.emailId,
-    message: `Your Request for yearly plan request for ${req.body.declineReason}`,
+    message: `Your Request for yearly plan request rejected for ${req.body.declineReason}`,
     date: timeStamp,
   };
 
