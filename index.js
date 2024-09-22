@@ -709,7 +709,11 @@ app.get("/", async (req, res) => {
     { expiresIn: "1d" }
   );
 
-  res.send(`from port: ${port} ${token}`);
+  bcrypt.hash("123456", 10, async function (err, hash) {
+    // Store hash in your password DB.
+
+    res.send(`from port: ${hash} ${port} ${token}`);
+  });
 });
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version

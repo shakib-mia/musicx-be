@@ -99,8 +99,8 @@ router.post("/", async (req, res) => {
   //   Set up email data
   let mailOptions = {
     from: process.env.emailAddress,
-    // to: userEmail,
-    to: "smdshakibmia2001@gmail.com",
+    to: userEmail,
+    // to: "smdshakibmia2001@gmail.com",
     subject: `Update on Your Music Distribution Status with ForeVision Digital`,
     html: emailContent,
   };
