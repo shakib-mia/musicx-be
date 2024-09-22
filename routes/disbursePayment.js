@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 const verifyJWT = require("../verifyJWT");
 const multer = require("multer");
 const { ObjectId } = require("mongodb");
@@ -106,7 +106,7 @@ router.put("/:_id", async (req, res) => {
   transporter.sendMail(message, async (error, info) => {
     if (error) {
       console.error(error);
-      res.status(500).send(error);
+      res.status(500).send({ message: "Error Sending Mail" });
     } else {
       // console.log("sent");
       res.send({ message: "Success" });
@@ -180,7 +180,7 @@ router.post("/:_id", async (req, res) => {
   transporter.sendMail(message, async (error, info) => {
     if (error) {
       console.error(error);
-      res.status(500).send(error);
+      res.status(500).send({ message: "Error Sending Mail" });
     } else {
       // console.log("sent");
       res.send({ message: "Success" });

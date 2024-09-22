@@ -1,5 +1,5 @@
 const express = require("express");
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 const router = express.Router();
 
 router.get("/:emailId", async (req, res) => {
@@ -7,6 +7,7 @@ router.get("/:emailId", async (req, res) => {
   const { withdrawalRequest } = await getCollections();
 
   const found = await withdrawalRequest.findOne({ emailId });
+  console.log(found);
 
   res.send(found);
 });

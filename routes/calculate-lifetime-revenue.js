@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 const { customLog } = require("../customlog");
 
 const router = Router();

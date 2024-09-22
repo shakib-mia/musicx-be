@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 
 router.get("/:platformName/:uploadDate", async (req, res) => {
   const { platformName, uploadDate } = req.params;

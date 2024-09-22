@@ -1,5 +1,5 @@
 const express = require("express");
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 const { ObjectId } = require("mongodb");
 const verifyJWT = require("../verifyJWT");
 const router = express.Router();

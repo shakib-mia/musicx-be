@@ -1,6 +1,6 @@
 const express = require("express");
 const verifyJWT = require("../verifyJWT");
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
 const { ObjectId } = require("mongodb");
@@ -31,8 +31,8 @@ router.post("/", verifyJWT, async (req, res) => {
   res.send({ insertCursor, updateCursor });
 });
 
-router.get("/", verifyJWT, async (req, res) => {
-  const { email } = jwt.decode(req.headers.token);
+router.get("/by-user-id/:user_id", async (req, res) => {
+  // const { email } = jwt.decode(req.headers.token);
   const { songs, clientsCollection } = await getCollections();
 
   // console.log(email);
@@ -40,13 +40,16 @@ router.get("/", verifyJWT, async (req, res) => {
   //   .find({ userEmail: email })
   //   .toArray();
 
-  const user = await clientsCollection.findOne({ emailId: email });
-  // console.log(user);
-  const isrcs = user.isrc.split(",");
+  const user = await clientsCollection.findOne({
+    "user-id": req.params.user_id,
+  });
+  console.log(user);
+  // console.log(req.params.user_id, "songs.js 46");
+  const isrcs = user?.isrc?.split(",");
   // console.log(isrcs);
 
   const songsArray = await songs.find({ ISRC: { $in: isrcs } }).toArray();
-  // console.log(songsArray);
+  console.log(songsArray);
 
   res.send(songsArray);
 });
@@ -60,6 +63,7 @@ router.get("/all", verifyJWT, async (req, res) => {
 
 router.put("/:_id", async (req, res) => {
   const { _id } = req.params;
+  console.log(_id);
   // const { recentUploadsCollection } = await getCollections();
   const { recentUploadsCollection } = await getCollections();
 
@@ -84,6 +88,7 @@ router.get("/by-order-id/:orderId", async (req, res) => {
   const { recentUploadsCollection } = await getCollections();
 
   const song = await recentUploadsCollection.findOne({ orderId });
+  console.log(song);
   res.send(song);
 });
 
@@ -114,7 +119,7 @@ router.put("/by-order-id/:orderId", async (req, res) => {
 router.get("/:_id", async (req, res) => {
   const { songs, recentUploadsCollection } = await getCollections();
   const { _id } = req.params;
-
+  // console.log(object);
   try {
     // Search in the 'songs' collection first
     let song = await songs.findOne({ _id: new ObjectId(_id) });

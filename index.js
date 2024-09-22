@@ -29,7 +29,7 @@ const userLogin = require("./routes/user-logn");
 const calculateLifetimeRevenue = require("./routes/calculate-lifetime-revenue");
 const getDisbursePayment = require("./routes/getDisbursePayment");
 const history = require("./routes/history");
-const getCollections = require("./constants");
+const { getCollections } = require("./constants");
 const userDetail = require("./routes/user-profile");
 const fbInstaWhitelisting = require("./routes/fb-insta-whitelisting");
 const fbInstaProfile = require("./routes/link-facebook-instagram-profile");
@@ -70,6 +70,15 @@ const kyc = require("./routes/kyc");
 const yearlyPlans = require("./routes/yearlyPlansRequest");
 const bulkUpload = require("./routes/bulkUpload");
 const takedownRequests = require("./routes/takedown-requests");
+const profile = require("./routes/profile");
+const generateUserId = require("./routes/generate-user-id");
+const uploadProfilePicture = require("./routes/upload-profile-picture");
+const uploadCoverPhoto = require("./routes/upload-cover-photos");
+const createEmployee = require("./routes/create-employee");
+const employeeLogin = require("./routes/employee-login");
+const submitForm = require("./routes/submit-forms");
+// const uploadPromotionalArtwork = require("./routes/upload-promotional-artwork");
+const sendSongStatus = require("./routes/send-song-status");
 
 const paidData = [
   {
@@ -695,9 +704,9 @@ const port = process.env.port;
 
 app.get("/", async (req, res) => {
   const token = jwt.sign(
-    { email: "wrupsarkar@gmail.com" },
+    { email: "abc@admin.com" },
     process.env.access_token_secret,
-    { expiresIn: "1h" }
+    { expiresIn: "1d" }
   );
 
   res.send(`from port: ${port} ${token}`);
@@ -820,14 +829,14 @@ async function run() {
         path: "/user-profile",
         element: userDetail,
       },
-      {
-        path: "/fb-insta-whitelisting",
-        element: fbInstaWhitelisting,
-      },
-      {
-        path: "/link-fb-insta-profile",
-        element: fbInstaProfile,
-      },
+      // {
+      //   path: "/fb-insta-whitelisting",
+      //   element: fbInstaWhitelisting,
+      // },
+      // {
+      //   path: "/link-fb-insta-profile",
+      //   element: fbInstaProfile,
+      // },
       {
         path: "/withdrawal-request",
         element: withdrawalRequest,
@@ -976,6 +985,43 @@ async function run() {
         path: "/takedown-requests",
         element: takedownRequests,
       },
+      {
+        path: "/profile",
+        element: profile,
+      },
+      {
+        path: "/generate-user-id",
+        element: generateUserId,
+      },
+      {
+        path: "/upload-profile-picture",
+        element: uploadProfilePicture,
+      },
+
+      {
+        path: "/upload-cover-photo",
+        element: uploadCoverPhoto,
+      },
+      {
+        path: "/admin",
+        element: createEmployee,
+      },
+      {
+        path: "/employee-login",
+        element: employeeLogin,
+      },
+      {
+        path: "/submit-form",
+        element: submitForm,
+      },
+      {
+        path: "/send-song-status",
+        element: sendSongStatus,
+      },
+      // {
+      //   path: "/upload-promotional-artwork",
+      //   element: uploadPromotionalArtwork,
+      // },
     ];
 
     apis.map(({ path, element }) => app.use(path, element));
@@ -986,7 +1032,7 @@ async function run() {
       res.send(hash);
     });
 
-    app.get("/clients", verifyJWT, async (req, res) => {
+    app.get("/clients", async (req, res) => {
       const found = await clientsCollection.find({}).toArray();
       res.send(found);
     });
@@ -1213,7 +1259,7 @@ async function run() {
         transporter.sendMail(message, async (error, info) => {
           if (error) {
             console.error(error);
-            res.status(500).send(error);
+            res.status(500).send({ message: "Error Sending Mail" });
           } else {
             bcrypt.hash(newPassword, 10, async function (err, hash) {
               // Store hash in your password DB.
@@ -1261,6 +1307,12 @@ async function run() {
      *
      *
      * */
+
+    app.get("/payments", async (req, res) => {
+      const paymentHistoryList = await paymentHistory.find({}).toArray();
+      res.send(paymentHistoryList);
+    });
+
     app.get("/calculate-account-balance", async (req, res) => {
       const clientsCursor = await clientsCollection.find({}).toArray();
       const paymentHistoryList = await paymentHistory.find({}).toArray();

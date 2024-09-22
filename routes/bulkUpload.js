@@ -1,5 +1,5 @@
 const express = require("express");
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 const verifyJWT = require("../verifyJWT");
 const router = express.Router();
 

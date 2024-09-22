@@ -1,6 +1,6 @@
 const express = require("express");
 const verifyJWT = require("../verifyJWT");
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 const { ObjectId } = require("mongodb");
 const Razorpay = require("razorpay");
 const router = express.Router();

@@ -1,5 +1,5 @@
 const express = require("express");
-// const getCollections = require("../constants");
+// const {getCollections }= require("../constants");
 const router = express.Router();
 const multer = require("multer");
 const fs = require("fs");

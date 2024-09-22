@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 
 router.get("/:isrc", async (req, res) => {
   const { revenueCollections } = await getCollections();

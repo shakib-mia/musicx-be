@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const verifyJWT = require("../verifyJWT"); // Make sure to provide the correct path
 const jwt = require("jsonwebtoken");
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({

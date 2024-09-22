@@ -1,5 +1,5 @@
 const express = require("express");
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 const { ObjectId } = require("mongodb");
 const router = express.Router();
 
@@ -20,6 +20,9 @@ router.put("/:_id", async (req, res) => {
       upsert: true,
     }
   );
+
+  if (updateCursor.acknowledged) {
+  }
 
   // console.log(updateCursor);
   res.send(updateCursor);

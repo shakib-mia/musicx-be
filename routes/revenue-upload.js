@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 const verifyJWT = require("../verifyJWT");
 
 router.post("/", verifyJWT, async (req, res) => {

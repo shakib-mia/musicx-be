@@ -1,7 +1,7 @@
 const cors = require("cors");
 const express = require("express");
 const router = express.Router();
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 
 router.post("/", cors(), async (req, res) => {
   const { revenueCollections } = await getCollections();

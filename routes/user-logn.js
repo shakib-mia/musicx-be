@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 
 const corsOptions = {
   origin: "*",

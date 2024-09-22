@@ -1,5 +1,5 @@
 const express = require("express");
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 const router = express.Router();
 
 router.get("/:isrc", async (req, res) => {

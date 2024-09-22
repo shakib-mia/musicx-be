@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 const { ObjectId } = require("mongodb");
 
 const router = Router();

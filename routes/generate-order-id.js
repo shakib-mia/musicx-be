@@ -1,5 +1,5 @@
 const express = require("express");
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 
 async function getNextOrderId() {
   const { recentUploadsCollection } = await getCollections();

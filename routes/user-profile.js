@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const verifyJWT = require("../verifyJWT"); // Make sure to provide the correct path
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 const jwt = require("jsonwebtoken");
 
 router.get("/", verifyJWT, async (req, res) => {

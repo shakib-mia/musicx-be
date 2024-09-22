@@ -6,7 +6,7 @@ const cors = require("cors");
 const path = require("path");
 const jwt = require("jsonwebtoken");
 const verifyJWT = require("./../verifyJWT");
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 const { ObjectId } = require("mongodb");
 
 // Ensure the directory exists before setting up the multer storage

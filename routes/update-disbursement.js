@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 const verifyJWT = require("../verifyJWT");
 const jwt = require("jsonwebtoken");
 const { ObjectId } = require("mongodb");

@@ -19,7 +19,7 @@ const verifyJWT = (req, res, next) => {
 
     next();
   } catch (err) {
-    res.status(401).send(err);
+    res.status(401).send("Internal Server Error");
     // console.log(err.name, err.message, err);
   }
 };

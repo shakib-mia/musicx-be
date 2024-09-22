@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 
 router.post("/", async (req, res) => {
   const { userDetails, usersCollection } = await getCollections();

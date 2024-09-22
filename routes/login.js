@@ -1,5 +1,5 @@
 const express = require("express");
-const getCollections = require("../constants");
+const { getCollections } = require("../constants");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -12,13 +12,17 @@ router.post("/", async (req, res) => {
 
   if (admin !== null) {
     if (bcrypt.compareSync(password, admin.password)) {
-      const token = jwt.sign({ email }, process.env.access_token_secret, {
-        expiresIn: "1h",
-      });
+      const token = jwt.sign(
+        { email, role: "admin" },
+        process.env.access_token_secret,
+        {
+          expiresIn: "1h",
+        }
+      );
 
-      res.send({ token });
+      res.send({ token, role: "admin" });
     } else {
-      res.status(401).send("Wrong Password");
+      res.status(401).send("Invalid Password");
     }
   } else {
     res.status(401).send({ message: "You are not Authorized to login" });

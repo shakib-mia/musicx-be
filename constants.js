@@ -136,6 +136,9 @@ const getCollections = async () => {
   const takedownRequestsCollection = await client2
     .db("forevision-digital")
     .collection("takedown-requests");
+  const employeesCollection = await client2
+    .db("forevision-digital")
+    .collection("employees");
 
   function customLog(...messages) {
     const err = new Error();
@@ -184,7 +187,9 @@ const getCollections = async () => {
     bulkUploadCollection,
     newSongs,
     takedownRequestsCollection,
+    employeesCollection,
   };
 };
 
-module.exports = getCollections;
+// module.exports = getCollections;
+module.exports = { client, client2, getCollections };
