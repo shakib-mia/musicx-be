@@ -79,6 +79,7 @@ const employeeLogin = require("./routes/employee-login");
 const submitForm = require("./routes/submit-forms");
 // const uploadPromotionalArtwork = require("./routes/upload-promotional-artwork");
 const sendSongStatus = require("./routes/send-song-status");
+const uploadAgreements = require("./routes/upload-agreements");
 
 const paidData = [
   {
@@ -953,6 +954,10 @@ async function run() {
       {
         path: "/upload-letterhead",
         element: uploadLetterHeads,
+      },
+      {
+        path: "/upload-agreemnts",
+        element: uploadAgreements,
       },
       {
         path: "/handle-firebase-login",
