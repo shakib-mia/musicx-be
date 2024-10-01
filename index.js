@@ -80,6 +80,7 @@ const submitForm = require("./routes/submit-forms");
 // const uploadPromotionalArtwork = require("./routes/upload-promotional-artwork");
 const sendSongStatus = require("./routes/send-song-status");
 const uploadAgreements = require("./routes/upload-agreements");
+const uploadRecordLabels = require("./routes/upload-record-labels");
 
 const paidData = [
   {
@@ -956,8 +957,12 @@ async function run() {
         element: uploadLetterHeads,
       },
       {
-        path: "/upload-agreemnts",
+        path: "/upload-agreements",
         element: uploadAgreements,
+      },
+      {
+        path: "/upload-record-labels",
+        element: uploadRecordLabels,
       },
       {
         path: "/handle-firebase-login",

@@ -5,6 +5,7 @@ const multer = require("multer");
 const fs = require("fs");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
+const { getCollections } = require("../constants");
 
 // Ensure the directory exists before setting up the multer storage
 const uploadDir = "uploads/agreements/";
@@ -45,8 +46,26 @@ router.post("/", upload.single("file"), (req, res) => {
     : req.file?.path;
 
   res.send({
-    artWorkUrl: `${req.protocol}://${req.get("host")}/${fileName}`,
+    agreementUrl: `${req.protocol}://${req.get("host")}/${fileName}`,
   });
+});
+
+router.post("/add-to-db", async (req, res) => {
+  const { emailId, agreementUrl, isrc } = req.body;
+  const data = { emailId, agreementUrl, isrc };
+
+  const { agreementsCollection } = await getCollections();
+
+  const insertCursor = await agreementsCollection.insertOne(data);
+  res.send(insertCursor);
+});
+
+router.get("/", async (req, res) => {
+  const { agreementsCollection } = await getCollections();
+
+  const agreements = await agreementsCollection.find({}).toArray();
+
+  res.send(agreements);
 });
 
 module.exports = router;

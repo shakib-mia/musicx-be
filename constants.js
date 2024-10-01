@@ -133,6 +133,13 @@ const getCollections = async () => {
     .db("forevision-digital")
     .collection("recent-uploads");
 
+  const agreementsCollection = await client2
+    .db("forevision-digital")
+    .collection("agreements");
+  const recordLabelFilesCollection = await client2
+    .db("forevision-digital")
+    .collection("record-label-files");
+
   const takedownRequestsCollection = await client2
     .db("forevision-digital")
     .collection("takedown-requests");
@@ -188,6 +195,8 @@ const getCollections = async () => {
     newSongs,
     takedownRequestsCollection,
     employeesCollection,
+    agreementsCollection,
+    recordLabelFilesCollection,
   };
 };
 
