@@ -81,6 +81,8 @@ const submitForm = require("./routes/submit-forms");
 const sendSongStatus = require("./routes/send-song-status");
 const uploadAgreements = require("./routes/upload-agreements");
 const uploadRecordLabels = require("./routes/upload-record-labels");
+const accountHistory = require("./routes/account-history");
+const plans = require("./routes/plans");
 
 const paidData = [
   {
@@ -1031,6 +1033,14 @@ async function run() {
       {
         path: "/send-song-status",
         element: sendSongStatus,
+      },
+      {
+        path: "/account-history",
+        element: accountHistory,
+      },
+      {
+        path: "/plans",
+        element: plans,
       },
       // {
       //   path: "/upload-promotional-artwork",

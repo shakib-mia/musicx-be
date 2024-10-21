@@ -64,9 +64,9 @@ router.put("/:_id", async (req, res) => {
 
   const date = new Date();
   const paymentDate =
-    date.getDate() +
+    String(date.getDate()).padStart(2, "0") +
     "/" +
-    (date.getMonth() > 9 ? date.getMonth() + 1 : "0" + (date.getMonth() + 1)) +
+    String(date.getMonth() + 1).padStart(2, "0") +
     "/" +
     date.getFullYear();
 
@@ -76,8 +76,8 @@ router.put("/:_id", async (req, res) => {
 
   var message = {
     from: `ForeVision Payments ${process.env.emailAddress}`,
-    to: updatedDoc.emailId,
-    // to: "smdshakibmia2001@gmail.com",
+    // to: updatedDoc.emailId,
+    to: "smdshakibmia2001@gmail.com",
     subject: "Payment Confirmation - ForeVision Digital",
     // text: "Plaintext version of the message",
     html: `<div>
@@ -88,8 +88,8 @@ router.put("/:_id", async (req, res) => {
     We trust this email finds you well.<br />
     We're writing to confirm that the payment for last invoice number raise has been successfully processed. The transaction details are as follows:
     <ul>
-      <li>Amount: ${(client.lifetimeRevenue - client.lifetimeDisbursed).toFixed(
-        2
+      <li>Amount: ${Math.abs(
+        (client.lifetimeRevenue - client.lifetimeDisbursed).toFixed(2)
       )}</li>
       <li>Date of Payment: ${paymentDate}</li>
       <li>Invoice Number: ${updatedDoc.invoiceNumber}</li>
@@ -102,6 +102,8 @@ router.put("/:_id", async (req, res) => {
     ForeVision Digital<br />
     </div>`,
   };
+
+  console.log(message);
 
   transporter.sendMail(message, async (error, info) => {
     if (error) {

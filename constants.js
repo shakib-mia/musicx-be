@@ -147,6 +147,10 @@ const getCollections = async () => {
     .db("forevision-digital")
     .collection("employees");
 
+  const plansCollection = await client2
+    .db("forevision-digital")
+    .collection("plans");
+
   function customLog(...messages) {
     const err = new Error();
     const stackLine = err.stack.split("\n")[2]; // Adjust this line number based on where the error stack points to the correct caller
@@ -197,6 +201,7 @@ const getCollections = async () => {
     employeesCollection,
     agreementsCollection,
     recordLabelFilesCollection,
+    plansCollection,
   };
 };
 
