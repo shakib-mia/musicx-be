@@ -1,5 +1,5 @@
 const express = require("express");
-const { getCollections } = require("../constants");
+const { getCollections, client } = require("../constants");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
 
@@ -35,7 +35,25 @@ router.get("/by-email-id/:user_email", async (req, res) => {
   // Combine to form the user ID
   const userId = `${firstNamePart}${lastNamePart}${uniqueNumber}`;
 
-  res.send(userId);
+  data2["user-id"] = userId;
+  // console.log(data2);
+  const newData = { ...data2 };
+  delete newData._id;
+  console.log(newData);
+
+  const updateCursor = await clientsCollection.updateOne(
+    { _id: data2._id },
+    {
+      $set: newData,
+    },
+    {
+      upsert: false,
+    }
+  );
+
+  res.send({ updateCursor, userId });
+
+  // res.send(userId);
 });
 
 // For updating the user ID

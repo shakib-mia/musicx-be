@@ -83,6 +83,7 @@ const uploadAgreements = require("./routes/upload-agreements");
 const uploadRecordLabels = require("./routes/upload-record-labels");
 const accountHistory = require("./routes/account-history");
 const plans = require("./routes/plans");
+const crbtCodes = require("./routes/crbt-codes");
 
 const paidData = [
   {
@@ -708,7 +709,7 @@ const port = process.env.port;
 
 app.get("/", async (req, res) => {
   const token = jwt.sign(
-    { email: "abc@admin.com" },
+    { email: "bloomfairproduction@gmail.com" },
     process.env.access_token_secret,
     { expiresIn: "1d" }
   );
@@ -1041,6 +1042,10 @@ async function run() {
       {
         path: "/plans",
         element: plans,
+      },
+      {
+        path: "/crbt-codes",
+        element: crbtCodes,
       },
       // {
       //   path: "/upload-promotional-artwork",

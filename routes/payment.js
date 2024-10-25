@@ -16,9 +16,11 @@ router.post("/", async (req, res) => {
 
     const options = {
       amount: req.body.amount,
-      currency: "INR",
+      currency: req.body.currency,
       receipt: crypto.randomBytes(10).toString("hex"),
     };
+    // console.clear();
+    console.log(req.body);
 
     instance.orders.create(options, (error, order) => {
       if (error) {

@@ -43,7 +43,7 @@ router.get("/by-user-id/:user_id", async (req, res) => {
   const user = await clientsCollection.findOne({
     "user-id": req.params.user_id,
   });
-  console.log(user);
+
   console.log(req.params.user_id, "songs.js 46");
   const isrcs = user?.isrc?.split(",");
   // console.log(isrcs);
