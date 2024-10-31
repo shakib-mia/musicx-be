@@ -39,12 +39,10 @@ router.put("/:user_email", async (req, res) => {
   const { user_email } = req.params;
   const { clientsCollection } = await getCollections();
 
-  // console.log(user_email, req.body);
   const newBody = { ...req.body };
-  // console.log(newBody);
   delete newBody._id;
   const updateCursor = await clientsCollection.updateOne(
-    { user_email },
+    { _id: new ObjectId(req.body._id) },
     { $set: newBody },
     { upsert: false }
   );
