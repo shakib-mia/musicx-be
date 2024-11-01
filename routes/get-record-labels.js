@@ -14,7 +14,6 @@ router.get("/", verifyJWT, async (req, res) => {
   const recordLabels = await recordLabelsCollection
     .find({
       "Email ID": email,
-      status: "Active",
     })
     .toArray();
 
