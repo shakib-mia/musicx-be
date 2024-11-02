@@ -1,11 +1,16 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
-const { getCollections } = require("../constants");
+const { getCollections, client } = require("../constants");
+const { ObjectId } = require("mongodb");
 const router = express.Router();
 
 router.post("/", async (req, res) => {
-  const { clientsCollection } = await getCollections();
-  console.log(req.body);
+  const {
+    clientsCollection,
+    notificationsCollections,
+    recentUploadsCollection,
+  } = await getCollections();
+  // console.log(req.body);
   //   const { recipientEmail, artistName, status, songName, additionalInfo } =
   //     req.body;
   const { userEmail, songName, status, reason } = req.body;
@@ -25,6 +30,14 @@ router.post("/", async (req, res) => {
       pass: process.env.emailPass,
     },
   });
+
+  const timeStamp = Math.floor(new Date().getTime() / 1000);
+
+  let notification = {
+    email: req.body.userEmail,
+    message: `Your content with order id ${req.body.orderId}'s status is ${status}.`,
+    date: timeStamp,
+  };
 
   // Define the email content based on the status
   let emailContent = "";
@@ -96,6 +109,10 @@ router.post("/", async (req, res) => {
       return res.status(400).send("Invalid status provided.");
   }
 
+  const notificationCursor = await notificationsCollections.insertOne(
+    notification
+  );
+
   //   Set up email data
   let mailOptions = {
     from: process.env.emailAddress,
@@ -105,14 +122,75 @@ router.post("/", async (req, res) => {
     html: emailContent,
   };
 
-  // Send the email
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.error("Error sending email:", error);
-      return res.status(500).send("Failed to send email.");
-    }
-    res.status(200).send("Email sent successfully!");
-  });
+  if (status === "Sent to Stores") {
+    // console.log(req.body);
+    const newBody = { ...req.body };
+    delete newBody._id;
+
+    // newBody.status = status;
+
+    const updateCursor = await recentUploadsCollection.updateOne(
+      {
+        _id: new ObjectId(req.body._id),
+      },
+      {
+        $set: { ...newBody, status },
+      },
+      {
+        upsert: false,
+      }
+    );
+
+    // Send the email
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error("Error sending email:", error);
+        return res.status(500).send("Failed to send email.");
+      }
+      // res.status(200).send("Email sent successfully!");
+    });
+
+    res.send(updateCursor);
+  }
+
+  if (status === "streaming") {
+    // console.log(req.body);
+    const newBody = { ...req.body };
+    delete newBody._id;
+
+    // console.log(req.body);
+
+    // newBody.status = status;
+
+    const updateCursor = await recentUploadsCollection.updateOne(
+      {
+        _id: new ObjectId(req.body._id),
+      },
+      {
+        $set: { ...newBody, status },
+      },
+      {
+        upsert: false,
+      }
+    );
+
+    // Send the email
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error("Error sending email:", error);
+        return res.status(500).send("Failed to send email.");
+      }
+      // res.status(200).send("Email sent successfully!");
+    });
+
+    const { isrc, userEmail } = req.body;
+
+    const client = await clientsCollection.findOne({ emailId: userEmail });
+
+    console.log(client.isrc);
+
+    res.send(updateCursor);
+  }
 });
 
 module.exports = router;

@@ -12,6 +12,7 @@ router.get("/", verifyJWT, async (req, res) => {
   //   .toArray();
   const recentUploads = await recentUploadsCollection
     .find({ userEmail: email })
+    .sort({ status: { $eq: "streaming" } ? -1 : 1 }) // Sort by "streaming" status first
     .toArray();
 
   res.send(recentUploads);
@@ -21,6 +22,7 @@ router.get("/admin", async (req, res) => {
   const { recentUploadsCollection } = await getCollections();
   const recentUploads = await recentUploadsCollection.find({}).toArray();
 
+  // console.log(recentUploads.length);
   res.send(recentUploads);
 });
 
