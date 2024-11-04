@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
         { email, role: "admin" },
         process.env.access_token_secret,
         {
-          expiresIn: "1h",
+          expiresIn: "30m",
         }
       );
 

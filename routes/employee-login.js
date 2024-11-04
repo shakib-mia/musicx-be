@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
     const token = jwt.sign(
       { employeeCode: found.employeeCode, role: found.role },
       process.env.access_token_secret, // Replace with your secret key
-      { expiresIn: "1h" }
+      { expiresIn: "30m" }
     );
 
     // Respond with the token

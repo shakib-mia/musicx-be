@@ -37,12 +37,17 @@ router.get("/:user_id", async (req, res) => {
 
 router.put("/:user_email", async (req, res) => {
   const { user_email } = req.params;
-  const { clientsCollection } = await getCollections();
+  const { clientsCollection, userDetails } = await getCollections();
 
   const newBody = { ...req.body };
   delete newBody._id;
-  const updateCursor = await clientsCollection.updateOne(
-    { _id: new ObjectId(req.body._id) },
+  // console.log(req.body);
+  // const user = await clientsCollection.findOne({
+  //   user_email: req.body.user_email,
+  // });
+  // console.log(user);
+  const updateCursor = await userDetails.updateOne(
+    { user_email: req.body.user_email },
     { $set: newBody },
     { upsert: false }
   );

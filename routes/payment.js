@@ -20,7 +20,7 @@ router.post("/", async (req, res) => {
       receipt: crypto.randomBytes(10).toString("hex"),
     };
     // console.clear();
-    console.log(req.body);
+    // console.log(req.body);
 
     instance.orders.create(options, (error, order) => {
       if (error) {
@@ -37,13 +37,9 @@ router.post("/", async (req, res) => {
 });
 
 router.post("/verify", verifyJWT, async (req, res) => {
-  const { paymentsCollection } = await getCollections();
+  const { paymentsCollection, plansCollection } = await getCollections();
 
   const { email } = jwt.decode(req.headers.token);
-
-  // const payments = await paymentsCollection.find({}).toArray();
-
-  // console.log(payments);
 
   try {
     const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
@@ -70,6 +66,25 @@ router.post("/verify", verifyJWT, async (req, res) => {
       // console.log(data);
       const insertCursor = await paymentsCollection.insertOne(data);
 
+      const currentDate = new Date();
+      const salesEntry = {
+        date: currentDate,
+        price: parseFloat(req.body.price),
+        userEmail: email,
+      }; // price in paisa
+
+      // Update the monthly-sales array (push new sales entry)
+      const plan = await plansCollection.findOne({
+        price: parseFloat(req.body.price),
+      });
+      plan["monthly-sales"].push(salesEntry);
+
+      // Save the updated plan back to the collection
+      await plansCollection.updateOne(
+        { _id: plan._id }, // find the plan by its unique ID
+        { $push: { "monthly-sales": salesEntry } } // push the new entry into 'monthly-sales'
+      );
+
       return res.send({
         message: "Payment verified successfully",
         razorpay_order_id,
@@ -90,8 +105,6 @@ router.post("/send-link/:_id", async (req, res) => {
     _id: new ObjectId(req.params._id),
   });
   const timeStamp = Math.floor(new Date().getTime() / 1000);
-
-  console.log(req.body);
 
   const notification = {
     email: emailId,
