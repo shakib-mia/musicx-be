@@ -33,7 +33,7 @@ router.post("/", verifyJWT, async (req, res) => {
 
 router.get("/by-user-id/:user_id", async (req, res) => {
   // const { email } = jwt.decode(req.headers.token);
-  const { songs, clientsCollection } = await getCollections();
+  const { songs, clientsCollection, newSongs } = await getCollections();
 
   // console.log(email);
   // const songs = await recentUploadsCollection
@@ -43,15 +43,13 @@ router.get("/by-user-id/:user_id", async (req, res) => {
   const user = await clientsCollection.findOne({
     "user-id": req.params.user_id,
   });
-
-  console.log(req.params.user_id, "songs.js 46");
   const isrcs = user?.isrc?.split(",");
-  // console.log(isrcs);
 
   const songsArray = await songs.find({ ISRC: { $in: isrcs } }).toArray();
-  console.log(songsArray);
+  // console.log(songsArray);
+  const newSongsArray = await newSongs.find({ ISRC: { $in: isrcs } }).toArray();
 
-  res.send(songsArray);
+  res.send([...songsArray, ...newSongsArray]);
 });
 
 router.get("/all", verifyJWT, async (req, res) => {

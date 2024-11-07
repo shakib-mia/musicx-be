@@ -17,9 +17,7 @@ router.post("/", verifyJWT, async (req, res) => {
 router.get("/", verifyJWT, async (req, res) => {
   const { songUpdateRequestCollection } = await getCollections();
 
-  const insertCursor = await songUpdateRequestCollection
-    .find({ updated: false })
-    .toArray();
+  const insertCursor = await songUpdateRequestCollection.find().toArray();
   res.send(insertCursor);
 });
 
@@ -59,6 +57,6 @@ router.put("/new/:_id", async (req, res) => {
   res.send({ updateCursor, updateCursor2, notification });
 });
 
-router.put("/old/:_id", async (req, res) => {});
+// router.put("/old/:_id", async (req, res) => {});
 
 module.exports = router;
