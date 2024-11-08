@@ -679,12 +679,14 @@ const paidData = [
   },
 ];
 
-app.use(express());
 const corsOptions = {
   origin: "*",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true, // Allow cookies and credentials
 };
+app.use(express());
+app.use(express.json({ limit: "200mb" }));
+app.use(express.urlencoded({ limit: "200mb", extended: true }));
 app.use(cors(corsOptions));
 app.options("*", cors());
 
