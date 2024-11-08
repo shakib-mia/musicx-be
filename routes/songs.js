@@ -32,13 +32,7 @@ router.post("/", verifyJWT, async (req, res) => {
 });
 
 router.get("/by-user-id/:user_id", async (req, res) => {
-  // const { email } = jwt.decode(req.headers.token);
   const { songs, clientsCollection, newSongs } = await getCollections();
-
-  // console.log(email);
-  // const songs = await recentUploadsCollection
-  //   .find({ userEmail: email })
-  //   .toArray();
 
   const user = await clientsCollection.findOne({
     "user-id": req.params.user_id,
@@ -46,8 +40,9 @@ router.get("/by-user-id/:user_id", async (req, res) => {
   const isrcs = user?.isrc?.split(",");
 
   const songsArray = await songs.find({ ISRC: { $in: isrcs } }).toArray();
-  // console.log(songsArray);
-  const newSongsArray = await newSongs.find({ ISRC: { $in: isrcs } }).toArray();
+  const newSongsArray = await newSongs
+    .find({ ISRC: { $in: isrcs }, status: "streaming" })
+    .toArray();
 
   res.send([...songsArray, ...newSongsArray]);
 });
