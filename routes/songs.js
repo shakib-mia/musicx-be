@@ -16,7 +16,6 @@ router.post("/", verifyJWT, async (req, res) => {
   isrcs.push(song.isrc);
 
   user.isrc = isrcs.join(",");
-
   const newUser = { ...user };
   delete newUser._id;
 
@@ -40,9 +39,7 @@ router.get("/by-user-id/:user_id", async (req, res) => {
   const isrcs = user?.isrc?.split(",");
 
   const songsArray = await songs.find({ ISRC: { $in: isrcs } }).toArray();
-  const newSongsArray = await newSongs
-    .find({ ISRC: { $in: isrcs }, status: "streaming" })
-    .toArray();
+  const newSongsArray = await newSongs.find({ isrc: { $in: isrcs } }).toArray();
 
   res.send([...songsArray, ...newSongsArray]);
 });

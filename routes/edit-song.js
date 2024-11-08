@@ -11,6 +11,7 @@ router.post("/", verifyJWT, async (req, res) => {
   delete newBody._id;
 
   const insertCursor = await songUpdateRequestCollection.insertOne(newBody);
+  console.log("requested");
   res.send(insertCursor);
 });
 
@@ -44,9 +45,9 @@ router.put("/new/:_id", async (req, res) => {
   );
 
   const timeStamp = Math.floor(new Date().getTime() / 1000);
-
+  console.log(req.body);
   const notification = {
-    email: req.body.userEmail,
+    email: req.body.emailId,
     message: `Your Update Request for ${newBody.songName} has been approved`,
     date: timeStamp,
   };
