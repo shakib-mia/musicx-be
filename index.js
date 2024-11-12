@@ -1319,7 +1319,7 @@ async function run() {
         const data = await userDetails.findOne({ user_email: email });
         const data2 = await clientsCollection.findOne({ emailId: email });
         // console.log({ data, data2 });
-        res.send({ data: { ...data, ...data2 } });
+        res.send({ data: { ...data2, ...data } });
       } else {
         res.status(401).send("Unauthorized Access");
       }

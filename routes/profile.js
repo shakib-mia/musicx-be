@@ -30,8 +30,6 @@ router.get("/:user_id", async (req, res) => {
   // console.log(user_id, user2);
 
   const user = await clientsCollection.findOne({ "user-id": user_id });
-  //   console.log(user, user2);
-  console.log({ ...user, ...user2 });
   res.send({ ...user, ...user2 });
 });
 
@@ -45,12 +43,18 @@ router.put("/:user_email", async (req, res) => {
   // const user = await clientsCollection.findOne({
   //   user_email: req.body.user_email,
   // });
-  // console.log(user);
+  // console.log(newBody);
   const updateCursor = await userDetails.updateOne(
     { user_email: req.body.user_email },
     { $set: newBody },
     { upsert: false }
   );
+
+  const foundUser = await userDetails.findOne({
+    user_email: req.body.user_email,
+  });
+
+  console.log(foundUser);
 
   res.send(updateCursor);
 });
