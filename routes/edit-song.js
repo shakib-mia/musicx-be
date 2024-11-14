@@ -38,11 +38,9 @@ router.put("/new/:_id", async (req, res) => {
     { upsert: false }
   );
 
-  const updateCursor2 = await songUpdateRequestCollection.updateOne(
-    { _id: new ObjectId(req.body._id) },
-    { $set: newBody },
-    { upsert: false }
-  );
+  const updateCursor2 = await songUpdateRequestCollection.deleteOne({
+    _id: new ObjectId(req.body._id),
+  });
 
   const timeStamp = Math.floor(new Date().getTime() / 1000);
 
@@ -51,6 +49,7 @@ router.put("/new/:_id", async (req, res) => {
     message: `Your Update Request for ${newBody.songName} has been approved`,
     date: timeStamp,
   };
+  console.log(notification);
   const notificationCursor = await notificationsCollections.insertOne(
     notification
   );
@@ -76,22 +75,32 @@ router.put("/old/:_id", async (req, res) => {
     songUpdateRequestCollection,
     recentUploadsCollection,
     newSongs,
+    notificationsCollections,
   } = await getCollections();
-  const song = await newSongs.findOne({ ISRC: req.body.ISRC });
+  const song = await songs.findOne({ ISRC: req.body.ISRC });
   if (req.body.S) {
     delete req.body.S;
   }
 
   console.log(song);
 
-  const updateCursor = await newSongs.updateOne(
+  const updateCursor = await songs.updateOne(
     { _id: song._id },
     { $set: req.body },
     { upsert: false }
   );
 
   await songUpdateRequestCollection.deleteOne({ _id: new ObjectId(_id) });
+  const timeStamp = Math.floor(new Date().getTime() / 1000);
 
+  const notification = {
+    email: req.body.emailId,
+    message: `Your Update Request for ${song.Song} has been approved`,
+    date: timeStamp,
+  };
+  const notificationCursor = await notificationsCollections.insertOne(
+    notification
+  );
   // console.log(song);
   res.send(updateCursor);
 });
