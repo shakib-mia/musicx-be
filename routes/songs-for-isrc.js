@@ -7,10 +7,14 @@ router.post("/", cors(), async (req, res) => {
   const { revenueCollections } = await getCollections();
   const { isrcs } = req.body;
 
-  const songs = await revenueCollections
-    .find({ isrc: { $in: isrcs } })
-    .toArray();
-  res.send(songs);
+  if (isrcs && isrcs.length) {
+    const songs = await revenueCollections
+      .find({ isrc: { $in: isrcs } })
+      .toArray();
+    res.send(songs);
+  } else {
+    res.send("no isrcs have been found");
+  }
 });
 
 module.exports = router;

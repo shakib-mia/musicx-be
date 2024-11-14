@@ -11,14 +11,14 @@ router.post("/", verifyJWT, async (req, res) => {
   delete newBody._id;
 
   const insertCursor = await songUpdateRequestCollection.insertOne(newBody);
-  console.log("requested");
+  // console.log("requested");
   res.send(insertCursor);
 });
 
 router.get("/", verifyJWT, async (req, res) => {
   const { songUpdateRequestCollection } = await getCollections();
 
-  const insertCursor = await songUpdateRequestCollection.find().toArray();
+  const insertCursor = await songUpdateRequestCollection.find({}).toArray();
   res.send(insertCursor);
 });
 
@@ -45,7 +45,7 @@ router.put("/new/:_id", async (req, res) => {
   );
 
   const timeStamp = Math.floor(new Date().getTime() / 1000);
-  console.log(req.body);
+
   const notification = {
     email: req.body.emailId,
     message: `Your Update Request for ${newBody.songName} has been approved`,
@@ -58,6 +58,42 @@ router.put("/new/:_id", async (req, res) => {
   res.send({ updateCursor, updateCursor2, notification });
 });
 
-// router.put("/old/:_id", async (req, res) => {});
+/**
+ *
+ *
+ * for old songs use the collections `songs`
+ *
+ *
+ * */
+
+router.put("/old/:_id", async (req, res) => {
+  const { _id } = req.params;
+
+  // console.log(_id);
+
+  const {
+    songs,
+    songUpdateRequestCollection,
+    recentUploadsCollection,
+    newSongs,
+  } = await getCollections();
+  const song = await newSongs.findOne({ ISRC: req.body.ISRC });
+  if (req.body.S) {
+    delete req.body.S;
+  }
+
+  console.log(song);
+
+  const updateCursor = await newSongs.updateOne(
+    { _id: song._id },
+    { $set: req.body },
+    { upsert: false }
+  );
+
+  await songUpdateRequestCollection.deleteOne({ _id: new ObjectId(_id) });
+
+  // console.log(song);
+  res.send(updateCursor);
+});
 
 module.exports = router;

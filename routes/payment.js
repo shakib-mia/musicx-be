@@ -101,13 +101,17 @@ router.post("/send-link/:_id", async (req, res) => {
   const { yearlyPlansCollection, notificationsCollections } =
     await getCollections();
 
-  const { emailId } = await yearlyPlansCollection.findOne({
+  const plan = await yearlyPlansCollection.findOne({
     _id: new ObjectId(req.params._id),
   });
+
   const timeStamp = Math.floor(new Date().getTime() / 1000);
+  delete plan._id;
+
+  plan.linkSent = true;
 
   const notification = {
-    email: emailId,
+    email: plan.emailId,
     message: `Click <a style="color: blue" onClick="e => e.stopPropagation()" target="_blank" href="${
       req.body.link.includes("https://")
         ? req.body.link

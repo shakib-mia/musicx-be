@@ -38,17 +38,29 @@ router.get("/by-user-id/:user_id", async (req, res) => {
   });
   const isrcs = user?.isrc?.split(",");
 
-  const songsArray = await songs.find({ ISRC: { $in: isrcs } }).toArray();
-  const newSongsArray = await newSongs.find({ isrc: { $in: isrcs } }).toArray();
+  if (isrcs && isrcs.length) {
+    const songsArray = await songs.find({ ISRC: { $in: isrcs } }).toArray();
+    const newSongsArray = await newSongs
+      .find({ isrc: { $in: isrcs } })
+      .toArray();
 
-  res.send([...songsArray, ...newSongsArray]);
+    res.send([...songsArray, ...newSongsArray]);
+  } else {
+    res.send("no isrcs have been found");
+  }
 });
 
-router.get("/all", verifyJWT, async (req, res) => {
-  const { songs } = await getCollections();
+router.get("/all", async (req, res) => {
+  const { songs, recentUploadsCollection } = await getCollections();
 
   const songsList = await songs.find({}).toArray();
-  res.send(songsList);
+  const recentSongs = await recentUploadsCollection
+    .find({
+      isrc: { $exists: true },
+    })
+    .toArray();
+
+  res.send([...songsList, ...recentSongs]);
 });
 
 router.put("/:_id", async (req, res) => {
@@ -135,7 +147,7 @@ router.get("/:_id", async (req, res) => {
 
 router.get("/by-isrc/:ISRC", async (req, res) => {
   const { ISRC } = req.params;
-  const { songs } = await getCollections();
+  const { songs, recentUploadsCollection } = await getCollections();
 
   // const song = await songs.findOne({ ISRC });
 
@@ -144,8 +156,16 @@ router.get("/by-isrc/:ISRC", async (req, res) => {
     ISRC: { $regex: `^${ISRC}$`, $options: "i" },
   });
   // console.log(song);
-
-  res.send(song);
+  // console.log(song);
+  if (song === null) {
+    const song2 = await recentUploadsCollection.findOne({
+      isrc: ISRC,
+    });
+    console.log(song2);
+    res.send(song2);
+  } else {
+    res.send(song);
+  }
 });
 
 module.exports = router;

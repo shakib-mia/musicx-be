@@ -1515,42 +1515,46 @@ async function run() {
         // console.log(user);
 
         const isrcs = user?.isrc?.split(","); // Assuming ISRCs are provided as a comma-separated list
-
-        const pipeline = [
-          {
-            $match: { isrc: { $in: isrcs } },
-          },
-          {
-            $project: {
-              _id: 0,
-              "final revenue": 1,
+        if (isrcs && isrcs.length) {
+          const pipeline = [
+            {
+              $match: { isrc: { $in: isrcs } },
             },
-          },
-        ];
-        const revenues = (
-          await revenueCollections.aggregate(pipeline).toArray()
-        ).map((item) => item["final revenue"]);
+            {
+              $project: {
+                _id: 0,
+                "final revenue": 1,
+              },
+            },
+          ];
+          const revenues = (
+            await revenueCollections.aggregate(pipeline).toArray()
+          ).map((item) => item["final revenue"]);
 
-        for (const rev of revenues) {
-          if (parseFloat(rev) === NaN) {
-            // console.log("object");
+          for (const rev of revenues) {
+            if (parseFloat(rev) === NaN) {
+              // console.log("object");
+            }
           }
+
+          const sum = revenues.reduce(
+            (accumulator, currentValue) =>
+              accumulator + parseFloat(currentValue),
+            0
+          );
+
+          const updateCursor = await demoClients.updateOne(
+            { _id: new ObjectId(req.params.userId) },
+            { $set: { ...user, lifeTimeRevenue: sum } },
+            {
+              upsert: true,
+            }
+          );
+
+          res.send(revenues);
+        } else {
+          res.send("no isrcs have been found");
         }
-
-        const sum = revenues.reduce(
-          (accumulator, currentValue) => accumulator + parseFloat(currentValue),
-          0
-        );
-
-        const updateCursor = await demoClients.updateOne(
-          { _id: new ObjectId(req.params.userId) },
-          { $set: { ...user, lifeTimeRevenue: sum } },
-          {
-            upsert: true,
-          }
-        );
-
-        res.send(revenues);
         // res.send(updateCursor);
       } catch (error) {
         console.error(error);
