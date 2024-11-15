@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
     const data = await userDetails.findOne({ user_email: email });
     const data2 = await clientsCollection.findOne({ emailId: email });
     // console.log({ data, data2 });
-    res.send({ data: { ...data, ...data2 } });
+    res.send({ data: { ...data2, ...data } });
   } else {
     res.status(401).send("Unauthorized Access");
   }
@@ -29,8 +29,8 @@ router.get("/:user_id", async (req, res) => {
 
   // console.log(user_id, user2);
 
-  const user = await clientsCollection.findOne({ "user-id": user_id });
-  res.send({ ...user, ...user2 });
+  const user = await userDetails.findOne({ user_email: user2.emailId });
+  res.send({ ...user2, ...user });
 });
 
 router.put("/:user_email", async (req, res) => {
