@@ -26,6 +26,16 @@ router.get("/admin", async (req, res) => {
   res.send(recentUploads);
 });
 
+router.get("/admin/album", async (req, res) => {
+  const { recentUploadsCollection } = await getCollections();
+  const recentUploads = await recentUploadsCollection
+    .find({ price: 99900 })
+    .toArray();
+
+  // console.log(recentUploads.length);
+  res.send(recentUploads);
+});
+
 router.post("/", verifyJWT, async (req, res) => {
   const { recentUploadsCollection } = await getCollections();
   const recentUploads = await recentUploadsCollection.insertOne(req.body);
