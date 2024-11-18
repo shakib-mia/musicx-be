@@ -1483,10 +1483,10 @@ async function run() {
     });
 
     app.get("/all-users", async (req, res) => {
-      const usersCursor = await clientsCollection.find({});
-      const users = await usersCursor.toArray();
+      const usersCursor = await clientsCollection.find({}).toArray();
+      const userDetailsData = await userDetails.find({}).toArray();
 
-      res.send(users);
+      res.send([...userDetailsData, ...usersCursor]);
     });
 
     app.get("/all-users/:cat/:data", async (req, res) => {
