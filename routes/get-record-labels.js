@@ -17,7 +17,9 @@ router.get("/", verifyJWT, async (req, res) => {
     })
     .toArray();
 
-  const names = recordLabels.map((item) => item["Sub-Label Name"]);
+  const names = recordLabels
+    .map((item) => item["Sub-Label Name"])
+    .filter((item) => item !== "__________");
 
   // console.log(names);
 

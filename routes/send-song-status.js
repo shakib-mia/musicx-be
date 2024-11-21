@@ -33,9 +33,37 @@ router.post("/", async (req, res) => {
 
   const timeStamp = Math.floor(new Date().getTime() / 1000);
 
+  let notificationContent = "";
+
+  switch (status) {
+    case "Sent to Stores":
+      notificationContent = `Your music has been successfully distributed to our partner platforms.`;
+      break;
+    case "streaming":
+      notificationContent = `Your music has been successfully distributed to our partner platforms.`;
+      break;
+    case "Copyright infringed":
+      notificationContent = `We've received a copyright infringement claim regarding your song "${songName}"`;
+      break;
+    case "Taken Down":
+      notificationContent = `Your song "${songName}" has been removed from distribution due to ${reason}.`;
+      break;
+    case "Rejected":
+      notificationContent = `Your submission for "${songName}" has been rejected due to ${reason}.`;
+      break;
+    case "On Hold":
+      notificationContent = `Your distribution for "${songName}" is currently on hold due to ${reason}.`;
+      break;
+    case "paid":
+      notificationContent = `Your song has been marked as paid.`;
+      break;
+    default:
+      return res.status(400).send("Invalid status provided.");
+  }
+
   let notification = {
     email: req.body.userEmail,
-    message: `Your content with order id ${req.body.orderId}'s status is ${status}.`,
+    message: notificationContent,
     date: timeStamp,
   };
 
@@ -109,6 +137,7 @@ router.post("/", async (req, res) => {
       return res.status(400).send("Invalid status provided.");
   }
 
+  // Send Notification
   const notificationCursor = await notificationsCollections.insertOne(
     notification
   );
@@ -116,17 +145,27 @@ router.post("/", async (req, res) => {
   //   Set up email data
   let mailOptions = {
     from: process.env.emailAddress,
-    to: userEmail,
-    // to: "smdshakibmia2001@gmail.com",
+    // to: userEmail,
+    to: "smdshakibmia2001@gmail.com",
     subject: `Update on Your Music Distribution Status with ForeVision Digital`,
     html: emailContent,
   };
 
-  if (status === "Sent to Stores") {
-    // console.log(req.body);
-    const newBody = { ...req.body };
-    delete newBody._id;
+  // Send Mail
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.error("Error sending email:", error);
+      return res.status(500).send("Failed to send email.");
+    }
+    // res.status(200).send("Email sent successfully!");
+  });
 
+  // When Sent To Stores
+  // console.log(req.body);
+  const newBody = { ...req.body };
+  delete newBody._id;
+
+  if (status === "Sent to Stores") {
     // newBody.status = status;
 
     const updateCursor = await recentUploadsCollection.updateOne(
@@ -134,30 +173,19 @@ router.post("/", async (req, res) => {
         _id: new ObjectId(req.body._id),
       },
       {
-        $set: { ...newBody, status },
+        $set: { ...newBody },
       },
       {
         upsert: false,
       }
     );
-
-    // Send the email
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.error("Error sending email:", error);
-        return res.status(500).send("Failed to send email.");
-      }
-      // res.status(200).send("Email sent successfully!");
-    });
 
     res.send(updateCursor);
   }
 
-  if (status === "streaming") {
-    // console.log(req.body);
-    const newBody = { ...req.body };
-    delete newBody._id;
+  // When Streaming
 
+  if (status === "streaming") {
     // console.log(req.body);
 
     // newBody.status = status;
@@ -174,20 +202,62 @@ router.post("/", async (req, res) => {
       }
     );
 
-    // Send the email
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.error("Error sending email:", error);
-        return res.status(500).send("Failed to send email.");
-      }
-      // res.status(200).send("Email sent successfully!");
-    });
-
     const { isrc, userEmail } = req.body;
 
     const client = await clientsCollection.findOne({ emailId: userEmail });
+    console.log(client);
 
-    console.log(client.isrc);
+    console.log(updateCursor);
+    res.send(updateCursor);
+  }
+
+  // When on hold
+
+  if (status === "On Hold") {
+    const updateCursor = await recentUploadsCollection.updateOne(
+      {
+        _id: new ObjectId(req.body._id),
+      },
+      {
+        $set: { ...newBody, status },
+      },
+      {
+        upsert: false,
+      }
+    );
+
+    res.send(updateCursor);
+  }
+
+  if (status === "Copyright infringed") {
+    const updateCursor = await recentUploadsCollection.updateOne(
+      {
+        _id: new ObjectId(req.body._id),
+      },
+      {
+        $set: { ...newBody, status },
+      },
+      {
+        upsert: false,
+      }
+    );
+
+    res.send(updateCursor);
+  }
+
+  if (status === "Taken Down") {
+    console.log(req.body);
+    const updateCursor = await recentUploadsCollection.updateOne(
+      {
+        _id: new ObjectId(req.body._id),
+      },
+      {
+        $set: { ...newBody, status },
+      },
+      {
+        upsert: false,
+      }
+    );
 
     res.send(updateCursor);
   }

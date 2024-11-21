@@ -1,6 +1,6 @@
 const express = require("express");
 const verifyJWT = require("../verifyJWT");
-const { getCollections } = require("../constants");
+const { getCollections, client } = require("../constants");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
 const { ObjectId } = require("mongodb");
@@ -18,6 +18,8 @@ router.post("/", verifyJWT, async (req, res) => {
   user.isrc = isrcs.join(",");
   const newUser = { ...user };
   delete newUser._id;
+
+  console.log(req.body);
 
   const updateCursor = await clientsCollection.updateOne(
     { _id: user._id },
@@ -64,17 +66,53 @@ router.get("/all", async (req, res) => {
 });
 
 router.put("/:_id", async (req, res) => {
+  const { clientsCollection } = await getCollections();
   const { _id } = req.params;
   console.log(_id);
   // const { recentUploadsCollection } = await getCollections();
   const { recentUploadsCollection } = await getCollections();
-
+  delete req.body._id;
   // for adding paid in song
   // const data = await recentUploadsCollection.findOne({
   //   _id: new ObjectId(_id),
   // });
 
   // data.status = "paid";
+
+  const foundIsrc = req.body.songs.find(
+    (song) => song.status === "copyright-infringed"
+  ).isrc;
+
+  // console.log(req.body);
+  const { emailId, userEmail } = req.body;
+
+  const user = await clientsCollection.findOne({
+    emailId: emailId || userEmail,
+  });
+  // console.log(user);
+  // ;
+
+  const updatedISRCList = user.isrc
+    .split(",")
+    .slice(0, user.isrc.split(",").length - 1);
+
+  user.isrc = updatedISRCList.join(",");
+
+  // console.log(user);
+  const newUser = { ...user };
+
+  delete newUser._id;
+
+  console.log(newUser);
+
+  // const updatedCursor = await
+  await clientsCollection.updateOne(
+    { _id: new ObjectId(user._id) },
+    { $set: newUser },
+    { upsert: true }
+  );
+
+  // console.log("songs.js 80");
 
   const updateCursor = await recentUploadsCollection.updateOne(
     { _id: new ObjectId(_id) },
