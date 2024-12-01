@@ -33,22 +33,44 @@ router.post("/", verifyJWT, async (req, res) => {
 });
 
 router.get("/by-user-id/:user_id", async (req, res) => {
-  const { songs, clientsCollection, newSongs } = await getCollections();
+  const { songs, clientsCollection, newSongs, splitRoyalties } =
+    await getCollections();
 
+  // Get the user data using user_id from the URL params
   const user = await clientsCollection.findOne({
     "user-id": req.params.user_id,
   });
+
+  // Extract ISRCs (if any) from the user's record
   const isrcs = user?.isrc?.split(",");
 
   if (isrcs && isrcs.length) {
+    // Fetch songs from the songs collection that match the ISRCs
     const songsArray = await songs.find({ ISRC: { $in: isrcs } }).toArray();
     const newSongsArray = await newSongs
       .find({ isrc: { $in: isrcs } })
       .toArray();
 
-    res.send([...songsArray, ...newSongsArray]);
+    // Combine both songs and new songs into one array
+    const allSongs = [...songsArray, ...newSongsArray];
+
+    // Loop through all the songs and check if their ISRC exists in the splitRoyalties collection
+    for (const song of allSongs) {
+      const found = await splitRoyalties.findOne({ isrc: song.ISRC });
+
+      // If the ISRC is found in the splitRoyalties, add splitAvailable: true
+      if (found !== null) {
+        song.splitAvailable = true;
+      } else {
+        // Optionally, set splitAvailable to false if not found
+        song.splitAvailable = false;
+      }
+    }
+
+    // Send the updated list of songs as the response
+    res.send(allSongs);
   } else {
-    res.send("no isrcs have been found");
+    res.send("No ISRCs have been found");
   }
 });
 

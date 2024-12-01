@@ -16,6 +16,7 @@ router.get("/", verifyJWT, async (req, res) => {
   if (clientsCollection !== null) {
     if (clientsCursor !== null) {
       clientsCursor?.isrc?.split(",").map((item) => isrcs.push(item.trim()));
+      console.log(isrcs);
       res.send(isrcs);
     } else {
       res.send({ message: "No isrc found in clientsCursor" });
@@ -37,7 +38,7 @@ router.get("/", verifyJWT, async (req, res) => {
 });
 
 router.get("/:isrc", async (req, res) => {
-  const { revenueCollections, dummyRevenue, cutPercentages } =
+  const { revenueCollections, dummyRevenue, splitRoyalties, cutPercentages } =
     await getCollections();
   const pipeline = [
     {
@@ -62,17 +63,33 @@ router.get("/:isrc", async (req, res) => {
   ];
 
   const revenues = await revenueCollections.aggregate(pipeline).toArray();
+  const { email } = jwt.decode(req.headers.token);
 
   const updatedArrayPromises = revenues.map(async (item) => {
-    // const cutPercentage = await cutPercentages.findOne({ isrc: item.isrc });
-    // console.log(cutPercentage);
+    const cutPercentage = await cutPercentages.findOne({ isrc: item.isrc });
+    const splitsList = await splitRoyalties.findOne({ isrc: item.isrc });
 
     const { uploadDate, ...rest } = item;
-    // item.finalRevenue =
-    //   item["after tds revenue"] *
-    //   (1 - (cutPercentage?.cut_percentage || 10) / 100);
 
-    // console.log(item, cutPercentage?.cut_percentage);
+    const revenueAfterForeVisionCut =
+      item["after tds revenue"] *
+      (1 - (cutPercentage?.cut_percentage || 10) / 100);
+
+    // const revenueAfterSplits
+
+    item.finalRevenue = revenueAfterForeVisionCut;
+    const confirmed = true;
+
+    if (splitsList !== null) {
+      const { splits } = splitsList;
+      const found = splits.find(
+        ({ emailId }) => email === emailId && confirmed
+      );
+      // console.log(found);
+      item.splitPercentage = found.percentage;
+      item.revenueAfterSplit =
+        revenueAfterForeVisionCut * (parseFloat(found.percentage) / 100);
+    }
 
     if (uploadDate) {
       return { ...item, date: uploadDate };

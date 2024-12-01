@@ -84,6 +84,7 @@ const uploadRecordLabels = require("./routes/upload-record-labels");
 const accountHistory = require("./routes/account-history");
 const plans = require("./routes/plans");
 const crbtCodes = require("./routes/crbt-codes");
+const royaltySplits = require("./routes/split-royalties");
 
 const paidData = [
   {
@@ -1048,6 +1049,10 @@ async function run() {
       {
         path: "/crbt-codes",
         element: crbtCodes,
+      },
+      {
+        path: "/royalty-splits",
+        element: royaltySplits,
       },
       // {
       //   path: "/upload-promotional-artwork",
