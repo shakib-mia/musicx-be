@@ -6,17 +6,18 @@ const jwt = require("jsonwebtoken");
 const { ObjectId } = require("mongodb");
 
 router.get("/", verifyJWT, async (req, res) => {
-  const { recentUploadsCollection, newSongs } = await getCollections();
+  const { recentUploadsCollection } = await getCollections();
   const { email } = jwt.decode(req.headers.token);
-  // const recentUploads = await recentUploadsCollection
-  //   .find({ userEmail: email })
-  //   .toArray();
-  const recentUploads = await recentUploadsCollection
-    .find({ userEmail: email })
-    .sort({ status: { $eq: "streaming" } ? -1 : 1 }) // Sort by "streaming" status first
+
+  // Fetch documents where the "songs" key exists and matches the user's email
+  const singleSongs = await recentUploadsCollection
+    .find({ userEmail: email }) // Filter only documents with the "songs" key
+    .sort({ status: { $eq: "streaming" } ? -1 : 1 }) // Sort by "streaming" status
     .toArray();
 
-  res.send(recentUploads);
+  console.log(singleSongs);
+
+  res.send(singleSongs);
 });
 
 router.get("/album", verifyJWT, async (req, res) => {
