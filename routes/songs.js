@@ -101,9 +101,9 @@ router.put("/:_id", async (req, res) => {
 
   // data.status = "paid";
 
-  const foundIsrc = req.body.songs.find(
-    (song) => song.status === "copyright-infringed"
-  ).isrc;
+  // const foundIsrc = req.body.songs.find(
+  //   (song) => song.status === "copyright-infringed"
+  // ).isrc;
 
   // console.log(req.body);
   const { emailId, userEmail } = req.body;

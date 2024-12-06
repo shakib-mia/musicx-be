@@ -27,9 +27,34 @@ router.put("/new/:_id", async (req, res) => {
     recentUploadsCollection,
     songUpdateRequestCollection,
     notificationsCollections,
+    newSongs,
+    songs,
   } = await getCollections();
   // delete req.body
   const newBody = { ...req.body };
+  newBody.updated = true;
+
+  const newSongForProfile = await newSongs.findOne({ isrc: newBody.isrc });
+  // const songForProfile = await songs.findOne({ ISRC: newBody.isrc });
+  // console.log(songForProfile);
+  const copy = { ...newSongForProfile };
+  // const copy2 = { ...songForProfile };
+
+  delete newSongForProfile._id;
+  // delete songForProfile._id;
+
+  await newSongs.updateOne(
+    { _id: new ObjectId(copy._id) },
+    { $set: { ...newBody } },
+    { upsert: false }
+  );
+  // await songs.updateOne(
+  //   { _id: new ObjectId(copy2._id) },
+  //   { $set: { ...songForProfile } },
+  //   { upsert: false }
+  // )
+  // console.log({ newSongForProfilee });
+
   delete newBody._id;
 
   const updateCursor = await recentUploadsCollection.updateOne(

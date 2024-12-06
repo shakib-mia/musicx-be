@@ -1074,29 +1074,30 @@ async function run() {
     });
 
     app.get("/generate-isrc", async (req, res) => {
-      const { isrcWithIDCollection } = await getCollections();
-      const pipeline = [{ $project: { _id: 0, isrc: 1 } }];
-      const isrcs = (
-        await isrcWithIDCollection.aggregate(pipeline).toArray()
-      ).map((doc) => doc.isrc.trim());
+      try {
+        const { clientsCollection } = await getCollections();
 
-      let newIsrc;
-      let startNum = 1;
-      do {
-        newIsrc = generateIsrc(startNum);
-        startNum++;
-      } while ([...isrcs].includes(newIsrc));
+        // Fetch all existing ISRCs
+        const pipeline = [{ $project: { _id: 0, isrc: 1 } }];
+        const isrcDocs = await clientsCollection.aggregate(pipeline).toArray();
 
-      // Now `newIsrc` is guaranteed to be unique
-      // console.log("Unique ISRC generated:", newIsrc);
-      // const insertCursor = await isrcWithIDCollection.insertOne({
-      //   isrc: newIsrc,
-      // });
+        // Extract ISRCs into a simple array
+        const existingIsrcs = isrcDocs.map((doc) => doc.isrc);
 
-      // Proceed with saving `newIsrc` to your collection or whatever your next step is
-      // ...
+        // Generate a unique ISRC
+        let newIsrc;
+        let startNum = 1; // Starting point for ISRC generation
+        do {
+          newIsrc = generateIsrc(startNum);
+          startNum++;
+        } while (existingIsrcs.includes(newIsrc)); // Check if the generated ISRC is unique
 
-      res.send({ newIsrc, existingIsrc: isrcs });
+        // Respond with the generated ISRC and existing ISRCs for debugging (optional)
+        res.send({ newIsrc, existingIsrcs });
+      } catch (error) {
+        console.error("Error generating ISRC:", error);
+        res.status(500).send({ error: "Failed to generate ISRC" });
+      }
     });
 
     app.get("/get2025", async (req, res) => {
@@ -1488,10 +1489,46 @@ async function run() {
     });
 
     app.get("/all-users", async (req, res) => {
-      const usersCursor = await clientsCollection.find({}).toArray();
-      const userDetailsData = await userDetails.find({}).toArray();
+      try {
+        const usersCursor = await clientsCollection.find({}).toArray();
+        const userDetailsData = await userDetails.find({}).toArray();
 
-      res.send([...userDetailsData, ...usersCursor]);
+        // Normalize the keys to 'emailId' for both collections
+        const normalizedUsers = [
+          ...userDetailsData.map((user) => ({
+            ...user,
+            emailId: user.user_email, // Rename user_email to emailId
+            user_email: undefined, // Remove the original key
+          })),
+          ...usersCursor.map((user) => ({
+            ...user,
+            emailId: user.emailId, // Ensure emailId key is used
+          })),
+        ];
+
+        // Create a Map to store unique users based on emailId
+        const emailMap = new Map();
+
+        for (const user of normalizedUsers) {
+          // Add user to the map only if their emailId is not already present and has both lifetimeDisbursed and lifetimeRevenue
+          if (
+            user.emailId &&
+            !emailMap.has(user.emailId) &&
+            user.lifetimeDisbursed &&
+            user.lifetimeRevenue
+          ) {
+            emailMap.set(user.emailId, user);
+          }
+        }
+
+        // Convert the map values back to an array
+        const uniqueUsers = Array.from(emailMap.values());
+
+        res.send(uniqueUsers);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+        res.status(500).send({ error: "Internal Server Error" });
+      }
     });
 
     app.get("/all-users/:cat/:data", async (req, res) => {
