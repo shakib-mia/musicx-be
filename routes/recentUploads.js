@@ -49,6 +49,24 @@ router.get("/album/:_id", verifyJWT, async (req, res) => {
   res.send(album);
 });
 
+router.get("/admin/album/live", verifyJWT, async (req, res) => {
+  const { recentUploadsCollection } = await getCollections();
+  const { email } = jwt.decode(req.headers.token);
+
+  // Fetch the album where all songs have the "streaming" status
+  const album = await recentUploadsCollection
+    .find({
+      price: 99900,
+      songs: {
+        $not: { $elemMatch: { status: { $ne: "streaming" } } }, // No song with a non-"streaming" status
+      },
+    })
+    .toArray();
+  console.log("finding live...");
+  console.log(album);
+  res.send(album);
+});
+
 router.get("/admin", async (req, res) => {
   const { recentUploadsCollection } = await getCollections();
   const recentUploads = await recentUploadsCollection.find({}).toArray();
@@ -59,12 +77,22 @@ router.get("/admin", async (req, res) => {
 
 router.get("/admin/album", async (req, res) => {
   const { recentUploadsCollection } = await getCollections();
-  const recentUploads = await recentUploadsCollection
-    .find({ price: 99900 })
+  // const { email } = jwt.decode(req.headers.token);
+
+  // Fetch all albums based on price and user email
+  const albums = await recentUploadsCollection
+    .find({
+      price: 99900,
+      // userEmail: email,
+    })
     .toArray();
 
-  // console.log(recentUploads.length);
-  res.send(recentUploads);
+  // Filter out albums where all songs have the status "streaming"
+  const filteredAlbums = albums.filter(
+    (album) => !album.songs?.every((song) => song.status === "streaming")
+  );
+
+  res.send(filteredAlbums);
 });
 
 router.post("/", verifyJWT, async (req, res) => {

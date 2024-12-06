@@ -67,7 +67,10 @@ router.get("/:isrc", async (req, res) => {
 
   const updatedArrayPromises = revenues.map(async (item) => {
     const cutPercentage = await cutPercentages.findOne({ isrc: item.isrc });
-    const splitsList = await splitRoyalties.findOne({ isrc: item.isrc });
+    const splitsList = await splitRoyalties.findOne({
+      isrc: item.isrc,
+      confirmed: true,
+    });
 
     const { uploadDate, ...rest } = item;
 

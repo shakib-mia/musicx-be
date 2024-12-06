@@ -179,27 +179,31 @@ router.put("/by-order-id/:orderId", async (req, res) => {
 });
 
 router.get("/:_id", async (req, res) => {
-  const { songs, recentUploadsCollection } = await getCollections();
-  const { _id } = req.params;
-  // console.log(object);
   try {
-    // Search in the 'songs' collection first
+    // Retrieve the collections from the database
+    const { songs, recentUploadsCollection } = await getCollections();
+    const { _id } = req.params;
+
+    // Search for the song in the 'songs' collection
     let song = await songs.findOne({ _id: new ObjectId(_id) });
 
-    // If not found, search in the 'recentUploadsCollection'
-    if (!song) {
+    // If the song is not found in the 'songs' collection, check the 'recentUploadsCollection'
+    if (song === null) {
       song = await recentUploadsCollection.findOne({ _id: new ObjectId(_id) });
+      console.log(song);
     }
 
-    console.log(song);
+    // Log the song data (for debugging purposes)
+    // console.log(song + " from songs.js:196");
 
-    // If the song is found in either collection, send it back
-    if (song) {
+    // If the song is found, send it back as the response
+    if (song !== null && song.songName) {
       res.status(200).send(song);
     } else {
       res.status(404).send({ message: "Song not found" });
     }
   } catch (error) {
+    // Log the error and send a 500 status in case of a server error
     console.error("Error finding song:", error);
     res.status(500).send({ message: "Internal Server Error" });
   }

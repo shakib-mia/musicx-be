@@ -1081,8 +1081,12 @@ async function run() {
         const pipeline = [{ $project: { _id: 0, isrc: 1 } }];
         const isrcDocs = await clientsCollection.aggregate(pipeline).toArray();
 
-        // Extract ISRCs into a simple array
-        const existingIsrcs = isrcDocs.map((doc) => doc.isrc);
+        // Process ISRCs into a clean array of strings
+        const existingIsrcs = isrcDocs
+          .map((doc) => doc.isrc) // Extract 'isrc' field
+          .filter(Boolean) // Remove null, undefined, or empty strings
+          .flatMap((isrc) => isrc.split(",")) // Split comma-separated ISRCs into individual strings
+          .map((isrc) => isrc.trim()); // Trim whitespace around each ISRC
 
         // Generate a unique ISRC
         let newIsrc;
@@ -1092,7 +1096,7 @@ async function run() {
           startNum++;
         } while (existingIsrcs.includes(newIsrc)); // Check if the generated ISRC is unique
 
-        // Respond with the generated ISRC and existing ISRCs for debugging (optional)
+        // Respond with the generated ISRC
         res.send({ newIsrc, existingIsrcs });
       } catch (error) {
         console.error("Error generating ISRC:", error);
