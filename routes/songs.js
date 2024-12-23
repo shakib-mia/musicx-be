@@ -19,7 +19,7 @@ router.post("/", verifyJWT, async (req, res) => {
   const newUser = { ...user };
   delete newUser._id;
 
-  console.log(req.body);
+  // console.log(req.body);
 
   const updateCursor = await clientsCollection.updateOne(
     { _id: user._id },
@@ -27,50 +27,62 @@ router.post("/", verifyJWT, async (req, res) => {
     { upsert: true }
   );
 
-  const insertCursor = await newSongs.insertOne(song);
+  res.send({ updateCursor });
+});
 
-  res.send({ insertCursor, updateCursor });
+router.put("/update-upload-list/:_id", verifyJWT, async (req, res) => {
+  const { _id } = req.params;
+  const { recentUploadsCollection, newSongs } = await getCollections();
+  const updateCursor = await recentUploadsCollection.updateOne(
+    { _id: new ObjectId(_id) },
+    { $set: req.body },
+    { upsert: false }
+  );
+  console.log(req.body);
+  const insertCursor = await newSongs.insertOne(req.body);
+
+  res.send({ updateCursor, insertCursor });
 });
 
 router.get("/by-user-id/:user_id", async (req, res) => {
-  const { songs, clientsCollection, newSongs, splitRoyalties } =
-    await getCollections();
+  try {
+    const { songs, clientsCollection, newSongs, splitRoyalties } =
+      await getCollections();
 
-  // Get the user data using user_id from the URL params
-  const user = await clientsCollection.findOne({
-    "user-id": req.params.user_id,
-  });
+    // Retrieve the user and their ISRCs in a single step
+    const user = await clientsCollection.findOne(
+      { "user-id": req.params.user_id },
+      { projection: { isrc: 1 } } // Fetch only the `isrc` field
+    );
 
-  // Extract ISRCs (if any) from the user's record
-  const isrcs = user?.isrc?.split(",");
-
-  if (isrcs && isrcs.length) {
-    // Fetch songs from the songs collection that match the ISRCs
-    const songsArray = await songs.find({ ISRC: { $in: isrcs } }).toArray();
-    const newSongsArray = await newSongs
-      .find({ isrc: { $in: isrcs } })
-      .toArray();
-
-    // Combine both songs and new songs into one array
-    const allSongs = [...songsArray, ...newSongsArray];
-
-    // Loop through all the songs and check if their ISRC exists in the splitRoyalties collection
-    for (const song of allSongs) {
-      const found = await splitRoyalties.findOne({ isrc: song.ISRC });
-
-      // If the ISRC is found in the splitRoyalties, add splitAvailable: true
-      if (found !== null) {
-        song.splitAvailable = true;
-      } else {
-        // Optionally, set splitAvailable to false if not found
-        song.splitAvailable = false;
-      }
+    if (!user?.isrc) {
+      return res.status(404).send("No ISRCs have been found");
     }
 
-    // Send the updated list of songs as the response
+    const isrcs = user.isrc.split(",");
+
+    // Fetch songs, newSongs, and splitRoyalties in parallel
+    const [songsArray, newSongsArray, splitRoyaltiesISRCs] = await Promise.all([
+      songs.find({ ISRC: { $in: isrcs } }).toArray(),
+      newSongs.find({ ISRC: { $in: isrcs } }).toArray(),
+      splitRoyalties
+        .find({ isrc: { $in: isrcs } }, { projection: { isrc: 1 } })
+        .toArray(),
+    ]);
+
+    // Create a Set for fast lookup of splitRoyalties ISRCs
+    const splitRoyaltiesSet = new Set(splitRoyaltiesISRCs.map((sr) => sr.isrc));
+
+    // Combine songs and newSongs, adding the `splitAvailable` field
+    const allSongs = [...songsArray, ...newSongsArray].map((song) => ({
+      ...song,
+      splitAvailable: splitRoyaltiesSet.has(song.ISRC),
+    }));
+
     res.send(allSongs);
-  } else {
-    res.send("No ISRCs have been found");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
   }
 });
 
@@ -90,7 +102,7 @@ router.get("/all", async (req, res) => {
 router.put("/:_id", async (req, res) => {
   const { clientsCollection } = await getCollections();
   const { _id } = req.params;
-  console.log(_id);
+
   // const { recentUploadsCollection } = await getCollections();
   const { recentUploadsCollection } = await getCollections();
   delete req.body._id;
@@ -125,8 +137,6 @@ router.put("/:_id", async (req, res) => {
 
   delete newUser._id;
 
-  console.log(newUser);
-
   // const updatedCursor = await
   await clientsCollection.updateOne(
     { _id: new ObjectId(user._id) },
@@ -150,7 +160,6 @@ router.get("/by-order-id/:orderId", async (req, res) => {
   const { recentUploadsCollection } = await getCollections();
 
   const song = await recentUploadsCollection.findOne({ orderId });
-  console.log(song);
   res.send(song);
 });
 
@@ -167,8 +176,6 @@ router.put("/by-order-id/:orderId", async (req, res) => {
 
   // console.log({ data, req: req.body, updated });
 
-  console.log(updated);
-
   const updateCursor = await recentUploadsCollection.updateOne(
     { _id: data._id },
     { $set: updated },
@@ -181,7 +188,7 @@ router.put("/by-order-id/:orderId", async (req, res) => {
 router.get("/:_id", async (req, res) => {
   try {
     // Retrieve the collections from the database
-    const { songs, recentUploadsCollection } = await getCollections();
+    const { songs, recentUploadsCollection, newSongs } = await getCollections();
     const { _id } = req.params;
 
     // Search for the song in the 'songs' collection
@@ -190,18 +197,20 @@ router.get("/:_id", async (req, res) => {
     // If the song is not found in the 'songs' collection, check the 'recentUploadsCollection'
     if (song === null) {
       song = await recentUploadsCollection.findOne({ _id: new ObjectId(_id) });
-      console.log(song);
+      if (song === null) {
+        song = await newSongs.findOne({ _id: new ObjectId(_id) });
+      }
     }
 
     // Log the song data (for debugging purposes)
-    // console.log(song + " from songs.js:196");
-
     // If the song is found, send it back as the response
-    if (song !== null && song.songName) {
+    if (song !== null && (song.songName || song.Song)) {
       res.status(200).send(song);
     } else {
       res.status(404).send({ message: "Song not found" });
     }
+
+    console.log(song);
   } catch (error) {
     // Log the error and send a 500 status in case of a server error
     console.error("Error finding song:", error);
@@ -225,7 +234,7 @@ router.get("/by-isrc/:ISRC", async (req, res) => {
     const song2 = await recentUploadsCollection.findOne({
       isrc: ISRC,
     });
-    console.log(song2);
+    // console.log(song2);
     res.send(song2);
   } else {
     res.send(song);
