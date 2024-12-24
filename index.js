@@ -3,6 +3,7 @@ const cors = require("cors");
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const uri = `mongodb+srv://${process.env.db_username}:${process.env.db_password}@cluster0.i4vpazx.mongodb.net/?retryWrites=true&w=majority`;
 const uri2 = `mongodb+srv://${process.env.user_db}:${process.env.user_db_pass}@cluster0.ynlqa8v.mongodb.net/?retryWrites=true&w=majority`;
+const revenueUri = `mongodb+srv://${process.env.revenue_db}:${process.env.revenue_password}@cluster0.ynlqa8v.mongodb.net/?retryWrites=true&w=majority`;
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -741,10 +742,19 @@ const client2 = new MongoClient(uri2, {
   },
 });
 
+const revenueClient = new MongoClient(revenueUri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
+});
+
 async function run() {
   try {
     await client.connect();
     await client2.connect();
+    await revenueClient.connect();
 
     const clientsCollection = await client
       .db("forevision-digital")
@@ -754,9 +764,9 @@ async function run() {
       .db("forevision-digital")
       .collection("isrcs"); // ISRC collection
 
-    const revenueCollections = await client
+    const revenueCollections = await revenueClient
       .db("forevision-digital")
-      .collection("demo-revenue"); // demo-revenue
+      .collection("revenue"); // demo-revenue
     const usersCollection = await client
       .db("forevision-digital")
       .collection("user-credentials-db");
