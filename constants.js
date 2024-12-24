@@ -2,6 +2,7 @@ const { MongoClient, ServerApiVersion } = require("mongodb");
 const uri = `mongodb+srv://${process.env.db_username}:${process.env.db_password}@cluster0.i4vpazx.mongodb.net/?retryWrites=true&w=majority`;
 const uri2 = `mongodb+srv://${process.env.user_db}:${process.env.user_db_pass}@cluster0.ynlqa8v.mongodb.net/?retryWrites=true&w=majority`;
 const uri3 = `mongodb+srv://${process.env.payment_db}:${process.env.payment_db_pass}@cluster0.ynlqa8v.mongodb.net/?retryWrites=true&w=majority`;
+const revenueUri = `mongodb+srv://${process.env.revenue_db}:${process.env.revenue_password}@cluster0.ynlqa8v.mongodb.net/?retryWrites=true&w=majority`;
 
 const client = new MongoClient(uri, {
   serverApi: {
@@ -11,6 +12,13 @@ const client = new MongoClient(uri, {
   },
 });
 const client2 = new MongoClient(uri2, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
+});
+const revenueClient = new MongoClient(revenueUri, {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
@@ -46,9 +54,9 @@ const getCollections = async () => {
     .db("forevision-digital")
     .collection("platform-name"); // platform-name
 
-  const revenueCollections = await client
+  const revenueCollections = await revenueClient
     .db("forevision-digital")
-    .collection("demo-revenue"); // demo-revenue
+    .collection("revenue"); // demo-revenue
   const usersCollection = await client
     .db("forevision-digital")
     .collection("user-credentials-db");
