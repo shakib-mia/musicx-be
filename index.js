@@ -86,6 +86,7 @@ const accountHistory = require("./routes/account-history");
 const plans = require("./routes/plans");
 const crbtCodes = require("./routes/crbt-codes");
 const royaltySplits = require("./routes/split-royalties");
+const customCutAPI = require("./routes/custom-cut");
 
 const paidData = [
   {
@@ -775,6 +776,10 @@ async function run() {
       .db("forevision-digital")
       .collection("user-details");
 
+    const customCut = await client
+      .db("forevision-digital")
+      .collection("custom-cut");
+
     const demoClients = await client
       .db("forevision-digital")
       .collection("demo-clients");
@@ -1063,6 +1068,11 @@ async function run() {
       {
         path: "/royalty-splits",
         element: royaltySplits,
+      },
+
+      {
+        path: "/custom-cut",
+        element: customCutAPI,
       },
       // {
       //   path: "/upload-promotional-artwork",

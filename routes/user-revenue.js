@@ -39,8 +39,7 @@ router.get("/", verifyJWT, async (req, res) => {
 
 router.get("/:isrc", async (req, res) => {
   try {
-    const { revenueCollections, splitRoyalties, cutPercentages } =
-      await getCollections();
+    const { revenueCollections, splitRoyalties } = await getCollections();
 
     const isrc = req.params.isrc;
     const { email } = jwt.decode(req.headers.token);
@@ -73,32 +72,21 @@ router.get("/:isrc", async (req, res) => {
 
     const isrcList = revenues.map((item) => item.isrc);
 
-    // Step 2: Fetch cut percentages and splits in batches
-    const cutPercentagesData = await cutPercentages
-      .find({ isrc: { $in: isrcList } })
-      .toArray();
+    // Step 2: Fetch splits in batches
     const splitRoyaltiesData = await splitRoyalties
       .find({ isrc: { $in: isrcList }, confirmed: true })
       .toArray();
 
-    const cutPercentageMap = new Map(
-      cutPercentagesData.map((item) => [item.isrc, item.cut_percentage])
-    );
     const splitRoyaltiesMap = new Map(
       splitRoyaltiesData.map((item) => [item.isrc, item.splits])
     );
 
     // Step 3: Process the revenues and calculate fields
     const updatedArray = revenues.map((item) => {
-      const cutPercentage = cutPercentageMap.get(item.isrc) || 10; // Default to 10% if not found
       const splits = splitRoyaltiesMap.get(item.isrc);
-
-      const revenueAfterForeVisionCut =
-        item["after tds revenue"] * (1 - cutPercentage / 100);
 
       const result = {
         ...item,
-        finalRevenue: revenueAfterForeVisionCut,
       };
 
       if (splits) {
@@ -108,7 +96,7 @@ router.get("/:isrc", async (req, res) => {
         if (userSplit) {
           result.splitPercentage = userSplit.percentage;
           result.revenueAfterSplit =
-            revenueAfterForeVisionCut *
+            item["after tds revenue"] *
             (parseFloat(userSplit.percentage) / 100);
         }
       }
