@@ -65,6 +65,7 @@ router.get("/:isrc", async (req, res) => {
   ];
 
   const revenues = await revenueCollections.aggregate(pipeline).toArray();
+  console.log(revenues);
   const { email } = jwt.decode(req.headers.token);
 
   const updatedArrayPromises = revenues.map(async (item) => {

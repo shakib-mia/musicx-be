@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
     emailId: userEmail,
   });
 
-  // console.log(process.env.emailAddress, process.env.emailPass);
+  console.log(process.env.emailAddress, process.env.emailPass);
 
   //   Create a transport instance with your email configuration
   const transporter = nodemailer.createTransport({
@@ -40,7 +40,7 @@ router.post("/", async (req, res) => {
       notificationContent = `Your music has been successfully distributed to our partner platforms.`;
       break;
     case "streaming":
-      notificationContent = `Your music has been successfully distributed to our partner platforms.`;
+      notificationContent = `Your music is streaming now to platforms you have selected. Check you profile for the live link(s)`;
       break;
     case "Copyright infringed":
       notificationContent = `We've received a copyright infringement claim regarding your song "${songName}"`;

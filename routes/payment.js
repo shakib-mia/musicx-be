@@ -77,6 +77,7 @@ router.post("/verify", verifyJWT, async (req, res) => {
       const plan = await plansCollection.findOne({
         price: parseFloat(req.body.price),
       });
+      console.log(plan, req.body.price);
       plan["monthly-sales"].push(salesEntry);
 
       // Save the updated plan back to the collection

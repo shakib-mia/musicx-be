@@ -81,6 +81,16 @@ router.put("/:_id", async (req, res) => {
       }
     }
 
+    const updateCursor = await splitRoyalties.updateOne(
+      { _id: new ObjectId(req.params._id) },
+      {
+        $set: req.body,
+      },
+      {
+        upsert: false,
+      }
+    );
+
     res.send({
       message: "Clients updated successfully, emails sent as needed.",
     });

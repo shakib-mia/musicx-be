@@ -3,6 +3,7 @@ const { getCollections } = require("../constants");
 const verifyJWT = require("../verifyJWT");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
+const { ObjectId } = require("mongodb");
 
 router.post("/", verifyJWT, async (req, res) => {
   const { couponCodesCollection } = await getCollections();
@@ -41,10 +42,15 @@ router.get("/:couponCode", async (req, res) => {
   }
 });
 
-router.delete("/:id", verifyJWT, async (req, res) => {
-  const { id } = req.params;
+router.delete("/:_id", verifyJWT, async (req, res) => {
+  const { _id } = req.params;
+  const { couponCodesCollection } = await getCollections();
 
-  console.log(object);
+  const deletedCursor = await couponCodesCollection.deleteOne({
+    _id: new ObjectId(_id),
+  });
+  // console.log(id);
+  res.send(deletedCursor);
 });
 
 module.exports = router;

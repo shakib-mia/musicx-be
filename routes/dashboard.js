@@ -9,58 +9,34 @@ router.get("/", async (req, res) => {
     demoClientsCollection,
     revenueCollections,
     demoClients,
-    // demoClientsCollection,
   } = await getCollections();
+
   try {
-    const usersCursor = await clientsCollection.find({});
-    const clientsCursor = await demoClientsCollection.find({});
-    const clients = await clientsCursor.toArray();
-
+    // Fetch users and clients
     const users = await clientsCollection.find({}).toArray();
-    // const pipeline = [
-    //   {
-    //     $project: {
-    //       _id: 0,
-    //       lifeTimeRevenue: 1,
-    //       "final revenue": 1,
-    //     },
-    //   },
-    // ];
+    const clients = await demoClientsCollection.find({}).toArray();
 
-    // const revenues = (
-    //   await demoClientsCollection.aggregate(pipeline).toArray()
-    // ).map((item) => item.lifeTimeRevenue);
-
-    const pipeline = [
+    // Pipeline for revenue calculation
+    const revenuePipeline = [
       {
         $project: {
           _id: 0,
-          lifeTimeRevenue: 1,
           royality: 1,
         },
       },
     ];
 
     const revenues = (
-      await revenueCollections.aggregate(pipeline).toArray()
+      await revenueCollections.aggregate(revenuePipeline).toArray()
     ).map((item) => item.royality);
 
-    // console.log(revenues);
+    // Calculate final revenue
+    const finalRevenue = revenues.reduce((sum, value) => {
+      return sum + (value ? parseFloat(value) : 0);
+    }, 0);
 
-    // create a variable for the sum and initialize it
-    let finalRevenue = 0;
-
-    // iterate over each item in the array
-    for (let i = 0; i < revenues.length; i++) {
-      // console.log(revenues);
-      if (revenues[i]) {
-        finalRevenue += parseFloat(revenues[i]);
-      }
-    }
-
-    // console.log(sum);
-
-    const result = await clientsCollection
+    // Aggregation pipeline to count ISRCs
+    const isrcCountResult = await clientsCollection
       .aggregate([
         {
           $match: {
@@ -69,35 +45,25 @@ router.get("/", async (req, res) => {
         },
         {
           $project: {
-            isrcs: { $split: ["$isrc", ","] }, // Split the ISRCs into arrays
+            isrcs: { $split: ["$isrc", ","] },
           },
+        },
+        {
+          $unwind: "$isrcs", // Unwind the ISRC arrays into individual values
         },
         {
           $group: {
             _id: null,
-            allISRCs: {
-              $push: "$isrcs", // Push the array of ISRCs for each document
-            },
-          },
-        },
-        {
-          $project: {
-            _id: 0,
-            allISRCs: {
-              $reduce: {
-                input: "$allISRCs",
-                initialValue: [],
-                in: { $concatArrays: ["$$value", "$$this"] }, // Concatenate all arrays into a single array
-              },
-            },
+            count: { $sum: 1 }, // Count total ISRCs
           },
         },
       ])
       .toArray();
 
-    // console.log(result);
+    const isrcCount = isrcCountResult[0]?.count || 0;
 
-    const rev = await demoClients
+    // Revenue aggregation for demo clients
+    const demoRevenue = await demoClients
       .aggregate([
         {
           $match: {
@@ -115,11 +81,11 @@ router.get("/", async (req, res) => {
                     { $lt: ["$final revenue", 0] },
                   ],
                 },
-                then: 0, // Replace NaN or negative values with 0
+                then: 0,
                 else: "$final revenue",
               },
             },
-            amount: 1, // Include the 'amount' field in the projection
+            amount: 1,
           },
         },
         {
@@ -132,25 +98,23 @@ router.get("/", async (req, res) => {
       ])
       .toArray();
 
-    // const due = finalRevenue - rev[0].totalPaid;
+    const totalPaid = demoRevenue[0]?.totalPaid || 0;
 
+    // Find the top contributor based on the number of ISRCs
     const topContributor = users.reduce(
       (max, obj) =>
         obj.isrc?.split(",").length > max.isrc?.split(",").length ? obj : max,
       users[0]
     );
 
-    // console.log(result[0]);
-
+    // Send the response
     res.send({
       usersCount: users.length,
-      isrcCount: result[0].allISRCs.length,
-      // topContributor,
+      clientsCount: clients.length,
+      isrcCount,
       finalRevenue,
-      isrcs: result[0].allISRCs,
-
-      // isrcs: result[0].allISRCs,
-      // due,
+      totalPaid,
+      topContributor,
     });
   } catch (error) {
     console.error("Error:", error);

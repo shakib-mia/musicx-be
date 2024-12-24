@@ -7,8 +7,14 @@ const { client2 } = require("../constants");
 router.use(cors());
 router.use(express.json()); // Add this line to parse JSON bodies
 
-router.get("/", async (req, res) => {
-  res.send("From submit forms");
+router.get("/:id", async (req, res) => {
+  // res.send("From submit forms");
+  const { id } = req.params;
+
+  const collection = await client2.db("forevision-digital").collection(id);
+  const data = await collection.find({}).toArray();
+
+  res.send(data);
 });
 
 router.post("/", async (req, res) => {
@@ -31,7 +37,7 @@ router.post("/", async (req, res) => {
     delete formData.id;
     // console.log(id, formData);
     const collection = await client2.db("forevision-digital").collection(id);
-    console.log(dataToInsert);
+
     const insertCursor = await collection.insertOne(dataToInsert);
 
     res.json(insertCursor);

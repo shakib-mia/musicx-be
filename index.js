@@ -3,7 +3,7 @@ const cors = require("cors");
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const uri = `mongodb+srv://${process.env.db_username}:${process.env.db_password}@cluster0.i4vpazx.mongodb.net/?retryWrites=true&w=majority`;
 const uri2 = `mongodb+srv://${process.env.user_db}:${process.env.user_db_pass}@cluster0.ynlqa8v.mongodb.net/?retryWrites=true&w=majority`;
-const revenueUri = `mongodb+srv://${process.env.revenue_db}:${process.env.revenue_password}@cluster0.jmgru.mongodb.net/?retryWrites=true&w=majority`;
+const revenueUri = `mongodb+srv://adztronaut:${process.env.revenue_password}@cluster0.jmgru.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 const express = require("express");
 const app = express();
 const path = require("path");
