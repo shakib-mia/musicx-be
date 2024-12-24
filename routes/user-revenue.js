@@ -38,75 +38,88 @@ router.get("/", verifyJWT, async (req, res) => {
 });
 
 router.get("/:isrc", async (req, res) => {
-  const { revenueCollections, dummyRevenue, splitRoyalties, cutPercentages } =
-    await getCollections();
+  try {
+    const { revenueCollections, splitRoyalties, cutPercentages } =
+      await getCollections();
 
-  console.log("from new db");
-  const pipeline = [
-    {
-      $match: { isrc: req.params.isrc },
-    },
-    {
-      $project: {
-        _id: 0,
-        "final revenue": 1,
-        song_name: 1,
-        platformName: 1,
-        album: 1,
-        track_artist: 1,
-        label: 1,
-        isrc: 1,
-        total: 1,
-        "after tds revenue": 1,
-        date: 1,
-        uploadDate: 1,
+    const isrc = req.params.isrc;
+    const { email } = jwt.decode(req.headers.token);
+
+    // Step 1: Pre-fetch data in batches for all related documents
+    const pipeline = [
+      { $match: { isrc } },
+      {
+        $project: {
+          _id: 0,
+          "final revenue": 1,
+          song_name: 1,
+          platformName: 1,
+          album: 1,
+          track_artist: 1,
+          label: 1,
+          isrc: 1,
+          total: 1,
+          "after tds revenue": 1,
+          date: 1,
+          uploadDate: 1,
+        },
       },
-    },
-  ];
+    ];
 
-  const revenues = await revenueCollections.aggregate(pipeline).toArray();
-  console.log(revenues);
-  const { email } = jwt.decode(req.headers.token);
+    const revenues = await revenueCollections.aggregate(pipeline).toArray();
+    if (!revenues.length) {
+      return res.status(404).send({ error: "No revenues found for this ISRC" });
+    }
 
-  const updatedArrayPromises = revenues.map(async (item) => {
-    const cutPercentage = await cutPercentages.findOne({ isrc: item.isrc });
-    const splitsList = await splitRoyalties.findOne({
-      isrc: item.isrc,
-      confirmed: true,
+    const isrcList = revenues.map((item) => item.isrc);
+
+    // Step 2: Fetch cut percentages and splits in batches
+    const cutPercentagesData = await cutPercentages
+      .find({ isrc: { $in: isrcList } })
+      .toArray();
+    const splitRoyaltiesData = await splitRoyalties
+      .find({ isrc: { $in: isrcList }, confirmed: true })
+      .toArray();
+
+    const cutPercentageMap = new Map(
+      cutPercentagesData.map((item) => [item.isrc, item.cut_percentage])
+    );
+    const splitRoyaltiesMap = new Map(
+      splitRoyaltiesData.map((item) => [item.isrc, item.splits])
+    );
+
+    // Step 3: Process the revenues and calculate fields
+    const updatedArray = revenues.map((item) => {
+      const cutPercentage = cutPercentageMap.get(item.isrc) || 10; // Default to 10% if not found
+      const splits = splitRoyaltiesMap.get(item.isrc);
+
+      const revenueAfterForeVisionCut =
+        item["after tds revenue"] * (1 - cutPercentage / 100);
+
+      const result = {
+        ...item,
+        finalRevenue: revenueAfterForeVisionCut,
+      };
+
+      if (splits) {
+        const userSplit = splits.find(
+          ({ emailId, confirmed }) => email === emailId && confirmed
+        );
+        if (userSplit) {
+          result.splitPercentage = userSplit.percentage;
+          result.revenueAfterSplit =
+            revenueAfterForeVisionCut *
+            (parseFloat(userSplit.percentage) / 100);
+        }
+      }
+
+      if (item.uploadDate) {
+        result.date = item.uploadDate;
+      }
+
+      return result;
     });
 
-    const { uploadDate, ...rest } = item;
-
-    const revenueAfterForeVisionCut =
-      item["after tds revenue"] *
-      (1 - (cutPercentage?.cut_percentage || 10) / 100);
-
-    // const revenueAfterSplits
-
-    item.finalRevenue = revenueAfterForeVisionCut;
-    const confirmed = true;
-
-    if (splitsList !== null) {
-      const { splits } = splitsList;
-      const found = splits.find(
-        ({ emailId }) => email === emailId && confirmed
-      );
-      // console.log(found);
-      item.splitPercentage = found.percentage;
-      item.revenueAfterSplit =
-        revenueAfterForeVisionCut * (parseFloat(found.percentage) / 100);
-    }
-
-    if (uploadDate) {
-      return { ...item, date: uploadDate };
-    } else {
-      return item;
-    }
-  });
-
-  try {
-    const updatedArray = await Promise.all(updatedArrayPromises);
-    // console.log(updatedArray);
     res.send({ revenues: updatedArray });
   } catch (error) {
     console.error("Error processing revenues:", error);
