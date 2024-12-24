@@ -40,6 +40,8 @@ router.get("/", verifyJWT, async (req, res) => {
 router.get("/:isrc", async (req, res) => {
   const { revenueCollections, dummyRevenue, splitRoyalties, cutPercentages } =
     await getCollections();
+
+  console.log("from new db");
   const pipeline = [
     {
       $match: { isrc: req.params.isrc },
