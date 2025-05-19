@@ -75,10 +75,10 @@ router.put("/:_id", async (req, res) => {
     (client.lifetimeDisbursed || 0) + parseFloat(updatedDoc.totalAmount);
 
   var message = {
-    from: `ForeVision Payments ${process.env.emailAddress}`,
+    from: `BackVision Payments ${process.env.emailAddress}`,
     to: updatedDoc.emailId,
     // to: "smdshakibmia2001@gmail.com",
-    subject: "Payment Confirmation - ForeVision Digital",
+    subject: "Payment Confirmation - BackVision Digital",
     // text: "Plaintext version of the message",
     html: `<div>
     Dear ${
@@ -99,7 +99,7 @@ router.put("/:_id", async (req, res) => {
     We appreciate your trust in us and look forward to serving you.<br />
     <br />
     Best regards,<br />
-    ForeVision Digital<br />
+    BackVision Digital<br />
     </div>`,
   };
 
@@ -157,7 +157,7 @@ router.post("/:_id", async (req, res) => {
   );
 
   var message = {
-    from: `ForeVision Payments ${process.env.emailAddress}`,
+    from: `BackVision Payments ${process.env.emailAddress}`,
     to: req.body.emailId,
     // to: "smdshakibmia2001@gmail.com",
     subject: "Payment Rejection Notification and Resubmission Request",
@@ -175,7 +175,7 @@ router.post("/:_id", async (req, res) => {
     Incase of any assistance, you can reach us at your earliest convenience.<br />
     
     Best regards<br />
-    Team ForeVision Digital
+    Team BackVision Digital
     </div>`,
   };
 

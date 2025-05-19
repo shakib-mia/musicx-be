@@ -57,11 +57,11 @@ router.post("/", verifyJWT, async (req, res) => {
 
     You will receive your payment within few days from the Invoice date. Once the payment is done we will share the payment details with you.<br />
     
-    Thank you for choosing ForeVision Digital.<br />
+    Thank you for choosing BackVision Digital.<br />
     We appreciate your trust in us and look forward to serving you.<br />
     <br />
     Best regards,<br />
-    ForeVision Digital<br />
+    BackVision Digital<br />
     </div>`,
   };
 

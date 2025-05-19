@@ -75,7 +75,7 @@ router.put("/:_id", async (req, res) => {
       Thank you for reaching out to us.<br />
       Your Yearly Plan Request is Approved
       <br />
-      Team ForeVision Digital
+      Team BackVision Digital
     </div>`,
   };
 
@@ -144,7 +144,7 @@ router.post("/delete/:_id", async (req, res) => {
       Thank you for reaching out to us.<br />
       Your Yearly Plan Request is Approved
       <br />
-      Team ForeVision Digital
+      Team BackVision Digital
     </div>`,
   };
 

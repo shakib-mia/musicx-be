@@ -1,9 +1,11 @@
 require("dotenv").config();
 const cors = require("cors");
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
-const uri = `mongodb+srv://${process.env.db_username}:${process.env.db_password}@cluster0.i4vpazx.mongodb.net/?retryWrites=true&w=majority`;
-const uri2 = `mongodb+srv://${process.env.user_db}:${process.env.user_db_pass}@cluster0.ynlqa8v.mongodb.net/?retryWrites=true&w=majority`;
-const revenueUri = `mongodb+srv://adztronaut:${process.env.revenue_password}@cluster0.jmgru.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.up5jmeq.mongodb.net/?retryWrites=true&w=majority`;
+const uri2 = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.up5jmeq.mongodb.net/?retryWrites=true&w=majority`;
+const revenueUri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.up5jmeq.mongodb.net/?retryWrites=true&w=majority`;
+// const uri2 = `mongodb+srv://${process.env.user_db}:${process.env.user_db_pass}@cluster0.ynlqa8v.mongodb.net/?retryWrites=true&w=majority`;
+// const revenueUri = `mongodb+srv://adztronaut:${process.env.revenue_password}@cluster0.jmgru.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -26,7 +28,6 @@ const postRevenue = require("./routes/post-revenue");
 const disbursePayment = require("./routes/disbursePayment");
 const songsForIsrc = require("./routes/songs-for-isrc");
 const adminRevenue = require("./routes/adminRevenue");
-const userLogin = require("./routes/user-logn");
 const calculateLifetimeRevenue = require("./routes/calculate-lifetime-revenue");
 const getDisbursePayment = require("./routes/getDisbursePayment");
 const history = require("./routes/history");
@@ -62,7 +63,7 @@ const songs = require("./routes/songs");
 const recentUploads = require("./routes/recentUploads");
 const uploadFilmBanner = require("./routes/upload-film-banner");
 const handleFirebaseLogin = require("./routes/handle-firebase-login");
-const refund = require("./routes/refund");
+// const refund = require("./routes/refund");
 const uploadLetterHeads = require("./routes/upload-letterhead");
 // const { customLog } = require("./constants");
 const editSong = require("./routes/edit-song");
@@ -87,6 +88,10 @@ const plans = require("./routes/plans");
 const crbtCodes = require("./routes/crbt-codes");
 const royaltySplits = require("./routes/split-royalties");
 const customCutAPI = require("./routes/custom-cut");
+const userLogin = require("./routes/user-logn");
+const tokenize = require("./routes/tokenize");
+const resetPassword = require("./routes/resetPassword");
+const fs = require("fs");
 
 const paidData = [
   {
@@ -714,7 +719,7 @@ const port = process.env.port;
 
 app.get("/", async (req, res) => {
   const token = jwt.sign(
-    { email: "geekypkj@gmail.com" },
+    { email: "abc@admin.com" },
     process.env.access_token_secret,
     { expiresIn: "1d" }
   );
@@ -735,7 +740,7 @@ const client = new MongoClient(uri, {
   },
 });
 
-const client2 = new MongoClient(uri2, {
+const client2 = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
@@ -743,7 +748,7 @@ const client2 = new MongoClient(uri2, {
   },
 });
 
-const revenueClient = new MongoClient(revenueUri, {
+const revenueClient = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
@@ -754,37 +759,37 @@ const revenueClient = new MongoClient(revenueUri, {
 async function run() {
   try {
     await client.connect();
-    await client2.connect();
-    await revenueClient.connect();
+    // await client2.connect();
+    // await revenueClient.connect();
 
     const clientsCollection = await client
-      .db("forevision-digital")
+      .db("backvision-digital")
       .collection("client-with-isrc-collection"); // users collection
 
     const isrcCollection = await client
-      .db("forevision-digital")
+      .db("backvision-digital")
       .collection("isrcs"); // ISRC collection
 
-    const revenueCollections = await revenueClient
-      .db("forevision-digital")
+    const revenueCollections = await client
+      .db("backvision-digital")
       .collection("revenue"); // demo-revenue
     const usersCollection = await client
-      .db("forevision-digital")
+      .db("backvision-digital")
       .collection("user-credentials-db");
 
     const userDetails = await client
-      .db("forevision-digital")
+      .db("backvision-digital")
       .collection("user-details");
 
     const customCut = await client
-      .db("forevision-digital")
+      .db("backvision-digital")
       .collection("custom-cut");
 
     const demoClients = await client
-      .db("forevision-digital")
+      .db("backvision-digital")
       .collection("demo-clients");
     const paymentHistory = await client
-      .db("forevision-digital")
+      .db("backvision-digital")
       .collection("payment-history");
 
     const apis = [
@@ -855,6 +860,10 @@ async function run() {
       {
         path: "/user-profile",
         element: userDetail,
+      },
+      {
+        path: "/user-login",
+        element: userLogin,
       },
       // {
       //   path: "/fb-insta-whitelisting",
@@ -989,10 +998,10 @@ async function run() {
         path: "/handle-firebase-login",
         element: handleFirebaseLogin,
       },
-      {
-        path: "/refund",
-        element: refund,
-      },
+      // {
+      //   path: "/refund",
+      //   element: refund,
+      // },
       {
         path: "/edit-song",
         element: editSong,
@@ -1074,6 +1083,15 @@ async function run() {
         path: "/custom-cut",
         element: customCutAPI,
       },
+
+      {
+        path: "/tokenize",
+        element: tokenize,
+      },
+      {
+        path: "/reset-password",
+        element: resetPassword,
+      },
       // {
       //   path: "/upload-promotional-artwork",
       //   element: uploadPromotionalArtwork,
@@ -1082,102 +1100,102 @@ async function run() {
 
     apis.map(({ path, element }) => app.use(path, element));
 
-    app.get("/fake-pass", async (req, res) => {
-      const salt = bcrypt.genSaltSync(10);
-      const hash = bcrypt.hashSync("12345", salt);
-      res.send(hash);
-    });
+    //     app.get("/fake-pass", async (req, res) => {
+    //       const salt = bcrypt.genSaltSync(10);
+    //       const hash = bcrypt.hashSync("12345", salt);
+    //       res.send(hash);
+    //     });
 
-    app.get("/clients", async (req, res) => {
-      const found = await clientsCollection.find({}).toArray();
-      res.send(found);
-    });
+    //     app.get("/clients", async (req, res) => {
+    //       const found = await clientsCollection.find({}).toArray();
+    //       res.send(found);
+    //     });
 
-    app.get("/generate-isrc", async (req, res) => {
-      try {
-        const { clientsCollection } = await getCollections();
+    //     app.get("/generate-isrc", async (req, res) => {
+    //       try {
+    //         const { clientsCollection } = await getCollections();
 
-        // Fetch all existing ISRCs
-        const pipeline = [{ $project: { _id: 0, isrc: 1 } }];
-        const isrcDocs = await clientsCollection.aggregate(pipeline).toArray();
+    //         // Fetch all existing ISRCs
+    //         const pipeline = [{ $project: { _id: 0, isrc: 1 } }];
+    //         const isrcDocs = await clientsCollection.aggregate(pipeline).toArray();
 
-        // Process ISRCs into a clean array of strings
-        const existingIsrcs = isrcDocs
-          .map((doc) => doc.isrc) // Extract 'isrc' field
-          .filter(Boolean) // Remove null, undefined, or empty strings
-          .flatMap((isrc) => isrc.split(",")) // Split comma-separated ISRCs into individual strings
-          .map((isrc) => isrc.trim()); // Trim whitespace around each ISRC
+    //         // Process ISRCs into a clean array of strings
+    //         const existingIsrcs = isrcDocs
+    //           .map((doc) => doc.isrc) // Extract 'isrc' field
+    //           .filter(Boolean) // Remove null, undefined, or empty strings
+    //           .flatMap((isrc) => isrc.split(",")) // Split comma-separated ISRCs into individual strings
+    //           .map((isrc) => isrc.trim()); // Trim whitespace around each ISRC
 
-        // Generate a unique ISRC
-        let newIsrc;
-        let startNum = 1; // Starting point for ISRC generation
-        do {
-          newIsrc = generateIsrc(startNum);
-          startNum++;
-        } while (existingIsrcs.includes(newIsrc)); // Check if the generated ISRC is unique
+    //         // Generate a unique ISRC
+    //         let newIsrc;
+    //         let startNum = 1; // Starting point for ISRC generation
+    //         do {
+    //           newIsrc = generateIsrc(startNum);
+    //           startNum++;
+    //         } while (existingIsrcs.includes(newIsrc)); // Check if the generated ISRC is unique
 
-        // Respond with the generated ISRC
-        res.send({ newIsrc, existingIsrcs });
-      } catch (error) {
-        console.error("Error generating ISRC:", error);
-        res.status(500).send({ error: "Failed to generate ISRC" });
-      }
-    });
+    //         // Respond with the generated ISRC
+    //         res.send({ newIsrc, existingIsrcs });
+    //       } catch (error) {
+    //         console.error("Error generating ISRC:", error);
+    //         res.status(500).send({ error: "Failed to generate ISRC" });
+    //       }
+    //     });
 
-    app.get("/get2025", async (req, res) => {
-      const pipeline = [
-        {
-          $match: { isrc: req.params.isrc },
-        },
-        {
-          $project: {
-            _id: 0,
-            uploadDate: 1,
-          },
-        },
-      ];
+    //     app.get("/get2025", async (req, res) => {
+    //       const pipeline = [
+    //         {
+    //           $match: { isrc: req.params.isrc },
+    //         },
+    //         {
+    //           $project: {
+    //             _id: 0,
+    //             uploadDate: 1,
+    //           },
+    //         },
+    //       ];
 
-      const revenueData = await revenueCollections.find({}).toArray();
-      res.send(revenueData);
-    });
+    //       const revenueData = await revenueCollections.find({}).toArray();
+    //       res.send(revenueData);
+    //     });
 
-    const storage = multer.diskStorage({
-      destination: function (req, file, cb) {
-        cb(null, "uploads/"); // Specify the destination folder
-      },
-      filename: function (req, file, cb) {
-        const originalname = file.originalname.split(".")[0]; // Extract the filename without the extension
-        const timestamp = Date.now(); // Get the current timestamp
-        const uniqueFilename = `${originalname}_${timestamp}${path.extname(
-          file.originalname
-        )}`;
-        cb(null, uniqueFilename);
-      },
-    });
+    //     const storage = multer.diskStorage({
+    //       destination: function (req, file, cb) {
+    //         cb(null, "uploads/"); // Specify the destination folder
+    //       },
+    //       filename: function (req, file, cb) {
+    //         const originalname = file.originalname.split(".")[0]; // Extract the filename without the extension
+    //         const timestamp = Date.now(); // Get the current timestamp
+    //         const uniqueFilename = `${originalname}_${timestamp}${path.extname(
+    //           file.originalname
+    //         )}`;
+    //         cb(null, uniqueFilename);
+    //       },
+    //     });
 
-    const upload = multer({ storage: storage });
+    //     const upload = multer({ storage: storage });
 
-    // Serve static files from the 'uploads' folder
-    app.use("/uploads", express.static("uploads"));
+    //     // Serve static files from the 'uploads' folder
+    //     app.use("/uploads", express.static("uploads"));
 
-    // Define a route for file upload
-    app.post("/upload", upload.single("file"), (req, res) => {
-      // 'file' in upload.single('file') should match the name attribute in your form
+    //     // Define a route for file upload
+    //     app.post("/upload", upload.single("file"), (req, res) => {
+    //       // 'file' in upload.single('file') should match the name attribute in your form
 
-      if (!req.file) {
-        return res.status(400).send("No file uploaded.");
-      }
+    //       if (!req.file) {
+    //         return res.status(400).send("No file uploaded.");
+    //       }
 
-      res.send("File uploaded successfully!");
-    });
+    //       res.send("File uploaded successfully!");
+    //     });
 
-    // app.get("/demo-clients", async (req, res) => {
-    //   const { demoClientsCollection } = await getCollections();
+    //     // app.get("/demo-clients", async (req, res) => {
+    //     //   const { demoClientsCollection } = await getCollections();
 
-    //   const data = await demoClientsCollection.find({}).toArray();
+    //     //   const data = await demoClientsCollection.find({}).toArray();
 
-    //   res.send(data);
-    // });
+    //     //   res.send(data);
+    //     // });
 
     app.get("/getAllIsrcs", async (req, res) => {
       let isrcs = "";
@@ -1258,88 +1276,28 @@ async function run() {
       }
     );
 
-    app.post("/user-login", cors(), async (req, res) => {
-      const { email, password } = req.body;
-      const userCursor = await usersCollection.findOne({ user_email: email });
-      const details = await userDetails.findOne({ user_email: email });
-      if (userCursor !== null) {
-        bcrypt.compare(password, userCursor.user_password, (err, result) => {
-          if (result) {
-            // res.send({ message: "success" });
-            const token = jwt.sign({ email }, process.env.access_token_secret, {
-              expiresIn: "2h",
-            });
+    // app.post("/user-login", cors(), async (req, res) => {
+    //   const { email, password } = req.body;
+    //   const userCursor = await usersCollection.findOne({ user_email: email });
+    //   const details = await userDetails.findOne({ user_email: email });
+    //   if (userCursor !== null) {
+    //     bcrypt.compare(password, userCursor.user_password, (err, result) => {
+    //       if (result) {
+    //         // res.send({ message: "success" });
+    //         const token = jwt.sign({ email }, process.env.access_token_secret, {
+    //           expiresIn: "2h",
+    //         });
 
-            res.send({ token, details });
-          } else {
-            // console.log(err);
-            res.status(401).send({ message: "incorrect password" });
-          }
-        });
-      } else {
-        res.status(401).send({ message: "no user found" });
-      }
-    });
-
-    app.post("/reset-password", async (req, res) => {
-      const { user_email } = req.body;
-      const usersCursor = await usersCollection.findOne({ user_email });
-
-      function generatePassword() {
-        var length = 8,
-          charset =
-            "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-          retVal = "";
-        for (var i = 0, n = charset.length; i < length; ++i) {
-          retVal += charset.charAt(Math.floor(Math.random() * n));
-        }
-        return retVal;
-      }
-      if (usersCursor !== null) {
-        const newPassword = generatePassword();
-
-        var message = {
-          from: process.env.emailAddress,
-          to: user_email,
-          subject: "Password Reset Request",
-          // text: "Plaintext version of the message",
-          html: `<div>
-            Dear ${usersCursor.display_name} <br />
-
-            Thank you for reaching out to us.<br />
-            Here is your password - <h2>${newPassword}</h2>
-         
-            If you have any further questions or need assistance, feel free to reach out to our support team. 
-            We're here to help! <br /><br />
-            Best regards,
-            <br />
-            Team ForeVision Digital
-          </div>`,
-        };
-
-        transporter.sendMail(message, async (error, info) => {
-          if (error) {
-            console.error(error);
-            res.status(500).send({ message: "Error Sending Mail" });
-          } else {
-            bcrypt.hash(newPassword, 10, async function (err, hash) {
-              // Store hash in your password DB.
-              if (hash.length) {
-                const updateCursor = await usersCollection.updateOne(
-                  { user_email },
-                  { $set: { ...usersCursor, user_password: hash } },
-                  { upsert: false }
-                );
-                res.send(updateCursor);
-                // res.status(200).send("message sent successfully");
-              }
-            });
-          }
-        });
-      } else {
-        res.status(401).send({ message: "no user found" });
-      }
-    });
+    //         res.send({ token, details });
+    //       } else {
+    //         // console.log(err);
+    //         res.status(401).send({ message: "incorrect password" });
+    //       }
+    //     });
+    //   } else {
+    //     res.status(401).send({ message: "no user found" });
+    //   }
+    // });
 
     app.get("/getUserData", async (req, res) => {
       const { token } = req.headers;
@@ -1349,9 +1307,133 @@ async function run() {
         const data = await userDetails.findOne({ user_email: email });
         const data2 = await clientsCollection.findOne({ emailId: email });
 
+        console.log({ data: { ...data2, ...data } });
+
         res.send({ data: { ...data2, ...data } });
       } else {
         res.status(401).send("Unauthorized Access");
+      }
+    });
+
+    app.get("/generate-password", async (req, res) => {
+      bcrypt.hash("123456", 10, async function (err, hash) {
+        if (hash.length) {
+          res.send(hash);
+        }
+      });
+    });
+
+    const songsDir = path.join(__dirname, "uploads", "songs");
+
+    app.get("/all-songs-file", async (req, res) => {
+      // Get MongoDB collection reference
+      const { recentUploadsCollection } = await getCollections();
+
+      try {
+        // Read all files from the server's songs directory
+        const files = await fs.promises.readdir(songsDir);
+
+        // Filter only audio files based on extension
+        const songFiles = files.filter((file) =>
+          /\.(mp3|wav|m4a|ogg)$/i.test(file)
+        );
+
+        // Construct base URL for songs (e.g., http://localhost:3000/uploads/songs/)
+        const protocol = req.protocol;
+        const host = req.get("host");
+        const baseUrl = `${protocol}://${host}/uploads/songs/`;
+
+        // Create a Set of available filenames (in lowercase for case-insensitive matching)
+        const availableFilesSet = new Set(
+          songFiles.map((f) => f.toLowerCase())
+        );
+
+        // Fetch all documents that contain either:
+        // - a single songUrl field OR
+        // - an array of songs (albums) each having songUrl
+        const songsFromDb = await recentUploadsCollection
+          .find({
+            $or: [
+              { songUrl: { $exists: true } },
+              { "songs.0": { $exists: true } },
+            ],
+          })
+          .toArray();
+
+        // Initialize array to hold processed song data including availability status
+        const songs = [];
+
+        // Loop through each document to extract song URLs and check file availability
+        songsFromDb.forEach((doc) => {
+          if (doc.songUrl) {
+            // For single songs, extract filename from the URL
+            const filename = decodeURIComponent(
+              doc.songUrl.split("/").pop() || ""
+            ).toLowerCase();
+
+            // Check if the file physically exists in the songs folder
+            const isAvailable = availableFilesSet.has(filename);
+
+            // Push song data along with availability and filename info
+            songs.push({
+              ...doc,
+              available: isAvailable, // true if file found, false if missing
+              fileName: filename, // extracted filename
+              fileUrl: doc.songUrl, // full URL to access the song
+            });
+          } else if (Array.isArray(doc.songs)) {
+            // For albums containing multiple songs
+            doc.songs.forEach((song) => {
+              if (song.songUrl) {
+                // Extract filename from each song's URL inside the album
+                const filename = decodeURIComponent(
+                  song.songUrl.split("/").pop() || ""
+                ).toLowerCase();
+
+                // Check if this file is physically present
+                const isAvailable = availableFilesSet.has(filename);
+
+                // Push individual song info with parent album reference and availability
+                songs.push({
+                  ...song,
+                  parentAlbumId: doc._id, // reference to the album document
+                  available: isAvailable, // availability flag
+                  fileName: filename, // filename extracted
+                  fileUrl: song.songUrl, // full song URL
+                });
+              }
+            });
+          }
+        });
+
+        // Filter songs to include only those physically available on the server
+        const availableSongsOnly = songs.filter((s) => s.available);
+
+        // Respond with JSON containing only available songs
+        res.json(availableSongsOnly);
+      } catch (err) {
+        // Log error and respond with 500 Internal Server Error
+        console.error(err);
+        res.status(500).json({ error: "Internal server error" });
+      }
+    });
+
+    app.delete("/delete-song/:filename", async (req, res) => {
+      const { filename } = req.params;
+
+      // console.log(path);
+
+      const filePath = path.join(__dirname, "uploads", "songs", filename);
+      if (!fs.existsSync(filePath))
+        return res.status(404).json({ error: "File not found" });
+
+      try {
+        fs.unlinkSync(filePath);
+        // Also delete from database if needed
+        return res.status(200).json({ message: "Deleted successfully" });
+      } catch (err) {
+        console.error(err);
+        return res.status(500).json({ error: "Deletion failed" });
       }
     });
 

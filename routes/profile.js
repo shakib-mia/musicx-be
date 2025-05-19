@@ -23,14 +23,54 @@ router.get("/", async (req, res) => {
 
 router.get("/:user_id", async (req, res) => {
   const { user_id } = req.params;
-  const { userDetails, clientsCollection } = await getCollections();
+  const { userDetails, clientsCollection, revenueCollections } =
+    await getCollections();
 
-  const user2 = await clientsCollection.findOne({ "user-id": user_id });
+  try {
+    const user2 = await clientsCollection.findOne({ "user-id": user_id });
 
-  // console.log(user_id, user2);
+    if (!user2) {
+      return res
+        .status(404)
+        .send({ error: "User not found in clientsCollection" });
+    }
 
-  const user = await userDetails.findOne({ user_email: user2.emailId });
-  res.send({ ...user2, ...user });
+    // Split ISRCs
+    const isrcs = user2?.isrc
+      ?.split(",")
+      ?.map((i) => i.trim())
+      .filter(Boolean);
+
+    let lifetimeRevenue = 0;
+
+    if (isrcs?.length > 0) {
+      const revenueResult = await revenueCollections
+        .aggregate([
+          { $match: { isrc: { $in: isrcs } } },
+          {
+            $group: {
+              _id: null,
+              totalRevenue: { $sum: "$final revenue" },
+            },
+          },
+        ])
+        .toArray();
+
+      lifetimeRevenue = revenueResult[0]?.totalRevenue || 0;
+    }
+
+    // Optional: Fetch additional user details
+    const user = await userDetails.findOne({ user_email: user2.emailId });
+
+    res.send({
+      ...user2,
+      ...user,
+      totalRevenue: lifetimeRevenue,
+    });
+  } catch (err) {
+    console.error("Error fetching user and revenue data:", err);
+    res.status(500).send({ error: "Internal Server Error" });
+  }
 });
 
 router.put("/:user_email", async (req, res) => {
@@ -54,7 +94,7 @@ router.put("/:user_email", async (req, res) => {
     user_email: req.body.user_email,
   });
 
-  console.log(foundUser);
+  console.log({ foundUser });
 
   res.send(updateCursor);
 });

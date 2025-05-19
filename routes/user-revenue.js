@@ -24,17 +24,67 @@ router.get("/", verifyJWT, async (req, res) => {
   } else {
     res.send({ message: "clientsCollection is null" });
   }
+});
 
-  // isrcs.map((isrc) => {
-  //   const revenueCursor = revenueCollections.findOne({ isrc });
-  // });
-  // for (const isrc of isrcs) {
-  //   const revenueCursor = await revenueCollections.find({ isrc });
-  //   const allRevenues = await revenueCursor.toArray();
+router.get("/monthly", verifyJWT, async (req, res) => {
+  try {
+    const { clientsCollection, revenueCollections } = await getCollections();
+    const { email } = jwt.decode(req.headers.token);
 
-  //   // res.send(allRevenues);
-  //   // revenueCursor !== null && revenues.push(revenueCursor);
-  // }
+    const user = await clientsCollection.findOne({ emailId: email });
+
+    if (!user || !user.isrc) {
+      return res.status(404).send({ error: "ISRCs not found for this user." });
+    }
+
+    const isrcList = user.isrc.split(",").map((i) => i.trim());
+
+    const revenues = await revenueCollections
+      .find({ isrc: { $in: isrcList } })
+      .project({
+        "after tds revenue": 1,
+        uploadDate: 1,
+      })
+      .toArray();
+
+    if (!revenues.length) {
+      return res.status(404).send({ error: "No revenue data found." });
+    }
+
+    // Group by month
+    const monthlyRevenue = {};
+
+    revenues.forEach((item) => {
+      const date = new Date(item.uploadDate);
+      const yearMonth = `${date.getFullYear()}-${(date.getMonth() + 1)
+        .toString()
+        .padStart(2, "0")}`;
+
+      const revenue = parseFloat(item["after tds revenue"]) || 0;
+
+      if (!monthlyRevenue[yearMonth]) {
+        monthlyRevenue[yearMonth] = 0;
+      }
+
+      monthlyRevenue[yearMonth] += revenue;
+    });
+
+    // Convert to sorted array
+    const monthlyRevenueArray = Object.keys(monthlyRevenue)
+      .sort()
+      .map((month) => ({
+        month,
+        revenue: parseFloat(monthlyRevenue[month].toFixed(2)),
+      }));
+
+    res.send({
+      email,
+      lifetimeRevenue: monthlyRevenueArray,
+    });
+  } catch (err) {
+    console.error("Monthly revenue error:", err);
+    res.status(500).send({ error: "Server error while calculating revenue" });
+  }
 });
 
 router.get("/:isrc", async (req, res) => {
@@ -42,7 +92,7 @@ router.get("/:isrc", async (req, res) => {
     const { revenueCollections, splitRoyalties } = await getCollections();
 
     const isrc = req.params.isrc;
-    const { email } = jwt.decode(req.headers.token);
+    // const { email } = jwt.decode(req.headers.token);
 
     // Step 1: Pre-fetch data in batches for all related documents
     const pipeline = [
@@ -89,17 +139,17 @@ router.get("/:isrc", async (req, res) => {
         ...item,
       };
 
-      if (splits) {
-        const userSplit = splits.find(
-          ({ emailId, confirmed }) => email === emailId && confirmed
-        );
-        if (userSplit) {
-          result.splitPercentage = userSplit.percentage;
-          result.revenueAfterSplit =
-            item["after tds revenue"] *
-            (parseFloat(userSplit.percentage) / 100);
-        }
-      }
+      // if (splits) {
+      //   const userSplit = splits.find(
+      //     ({ emailId, confirmed }) => email === emailId && confirmed
+      //   );
+      //   if (userSplit) {
+      //     result.splitPercentage = userSplit.percentage;
+      //     result.revenueAfterSplit =
+      //       item["after tds revenue"] *
+      //       (parseFloat(userSplit.percentage) / 100);
+      //   }
+      // }
 
       if (item.uploadDate) {
         result.date = item.uploadDate;

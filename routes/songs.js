@@ -4,6 +4,9 @@ const { getCollections, client } = require("../constants");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
 const { ObjectId } = require("mongodb");
+const fs = require("fs");
+const path = require("path");
+const songsDir = path.join(__dirname, "uploads", "songs");
 
 router.post("/", verifyJWT, async (req, res) => {
   const song = req.body;
@@ -46,13 +49,22 @@ router.put("/update-upload-list/:_id", verifyJWT, async (req, res) => {
 
 router.get("/by-user-id/:user_id", async (req, res) => {
   try {
-    const { songs, clientsCollection, newSongs, splitRoyalties } =
-      await getCollections();
+    const {
+      songs,
+      clientsCollection,
+      newSongs,
+      splitRoyalties,
+      revenueCollections,
+      userDetails,
+    } = await getCollections();
 
-    // Retrieve the user and their ISRCs in a single step
+    // 1. Fetch ISRCs of the user
+    const userdata = await userDetails.findOne({
+      "user-id": req.params.user_id,
+    });
     const user = await clientsCollection.findOne(
-      { "user-id": req.params.user_id },
-      { projection: { isrc: 1 } } // Fetch only the `isrc` field
+      { emailId: userdata.user_email },
+      { projection: { isrc: 1 } }
     );
 
     if (!user?.isrc) {
@@ -61,23 +73,49 @@ router.get("/by-user-id/:user_id", async (req, res) => {
 
     const isrcs = user.isrc.split(",");
 
-    // Fetch songs, newSongs, and splitRoyalties in parallel
-    const [songsArray, newSongsArray, splitRoyaltiesISRCs] = await Promise.all([
-      songs.find({ ISRC: { $in: isrcs } }).toArray(),
-      newSongs.find({ ISRC: { $in: isrcs } }).toArray(),
-      splitRoyalties
-        .find({ isrc: { $in: isrcs } }, { projection: { isrc: 1 } })
-        .toArray(),
-    ]);
+    // 2. Fetch related data in parallel
+    const [songsArray, newSongsArray, splitRoyaltiesISRCs, revenueDataArray] =
+      await Promise.all([
+        songs.find({ ISRC: { $in: isrcs } }).toArray(),
+        newSongs.find({ ISRC: { $in: isrcs } }).toArray(),
+        splitRoyalties
+          .find({ isrc: { $in: isrcs } }, { projection: { isrc: 1 } })
+          .toArray(),
+        revenueCollections
+          .aggregate([
+            { $match: { isrc: { $in: isrcs } } },
+            {
+              $group: {
+                _id: "$isrc",
+                totalRevenue: { $sum: "$final revenue" },
+              },
+            },
+            {
+              $project: {
+                isrc: "$_id",
+                totalRevenue: 1,
+                _id: 0,
+              },
+            },
+          ])
+          .toArray(),
+      ]);
 
-    // Create a Set for fast lookup of splitRoyalties ISRCs
+    // 3. Build lookup maps
     const splitRoyaltiesSet = new Set(splitRoyaltiesISRCs.map((sr) => sr.isrc));
+    const revenueMap = new Map(
+      revenueDataArray.map((r) => [r.isrc, r.totalRevenue])
+    );
 
-    // Combine songs and newSongs, adding the `splitAvailable` field
-    const allSongs = [...songsArray, ...newSongsArray].map((song) => ({
-      ...song,
-      splitAvailable: splitRoyaltiesSet.has(song.ISRC),
-    }));
+    // 4. Merge all data
+    const allSongs = [...songsArray, ...newSongsArray].map((song) => {
+      const songISRC = song.ISRC || song.isrc;
+      return {
+        ...song,
+        splitAvailable: splitRoyaltiesSet.has(songISRC),
+        revenue: revenueMap.get(songISRC) || 0,
+      };
+    });
 
     res.send(allSongs);
   } catch (error) {
@@ -99,6 +137,44 @@ router.get("/all", async (req, res) => {
   res.send([...songsList, ...recentSongs]);
 });
 
+router.put("/update-like-dislike", async (req, res) => {
+  console.clear();
+  try {
+    const { _id, ...rest } = req.body;
+    const { songs, newSongs } = await getCollections();
+
+    // Try updating in 'songs' collection first
+    const updateSongs = await songs.updateOne(
+      { _id: new ObjectId(_id) },
+      { $set: rest }
+    );
+
+    if (updateSongs.matchedCount > 0) {
+      return res.status(200).json({ message: "Updated in songs collection" });
+    }
+
+    // If not found, try 'newSongs'
+    const updateNewSongs = await newSongs.updateOne(
+      { _id: new ObjectId(_id) },
+      { $set: rest }
+    );
+
+    if (updateNewSongs.matchedCount > 0) {
+      return res
+        .status(200)
+        .json({ message: "Updated in newSongs collection" });
+    }
+
+    // Not found in either
+    return res
+      .status(404)
+      .json({ message: "Song not found in any collection" });
+  } catch (error) {
+    console.error("Error updating like/dislike:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 router.put("/:_id", async (req, res) => {
   const { clientsCollection } = await getCollections();
   const { _id } = req.params;
@@ -106,18 +182,6 @@ router.put("/:_id", async (req, res) => {
   // const { recentUploadsCollection } = await getCollections();
   const { recentUploadsCollection } = await getCollections();
   delete req.body._id;
-  // for adding paid in song
-  // const data = await recentUploadsCollection.findOne({
-  //   _id: new ObjectId(_id),
-  // });
-
-  // data.status = "paid";
-
-  // const foundIsrc = req.body.songs.find(
-  //   (song) => song.status === "copyright-infringed"
-  // ).isrc;
-
-  // console.log(req.body);
   const { emailId, userEmail } = req.body;
 
   const user = await clientsCollection.findOne({
@@ -126,7 +190,7 @@ router.put("/:_id", async (req, res) => {
   // console.log(user);
   // ;
 
-  const updatedISRCList = user.isrc
+  const updatedISRCList = user?.isrc
     .split(",")
     .slice(0, user.isrc.split(",").length - 1);
 

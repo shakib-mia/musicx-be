@@ -21,14 +21,16 @@ router.get("/", async (req, res) => {
       {
         $project: {
           _id: 0,
-          royality: 1,
+          "final revenue": 1,
         },
       },
     ];
 
     const revenues = (
       await revenueCollections.aggregate(revenuePipeline).toArray()
-    ).map((item) => item.royality);
+    ).map((item) => item["final revenue"]);
+
+    console.log(revenues);
 
     // Calculate final revenue
     const finalRevenue = revenues.reduce((sum, value) => {
@@ -107,19 +109,52 @@ router.get("/", async (req, res) => {
       users[0]
     );
 
-    // Send the response
-    res.send({
+    const data = {
       usersCount: users.length,
       clientsCount: clients.length,
       isrcCount,
       finalRevenue,
       totalPaid,
       topContributor,
-    });
+    };
+
+    console.log(data);
+
+    // Send the response
+    res.send(data);
   } catch (error) {
     console.error("Error:", error);
     res.status(500).send("Internal Server Error");
   }
+});
+
+router.get("/graph", async (req, res) => {
+  const { revenueCollections } = await getCollections();
+
+  const data = await revenueCollections
+    .aggregate([
+      {
+        $group: {
+          _id: "$date", // Group by the "date" field (month)
+          totalFinalRevenue: { $sum: "$final revenue" }, // Sum of final revenue for each month
+        },
+      },
+      {
+        $project: {
+          _id: 0, // Remove _id field from output
+          date: "$_id", // Rename _id to date
+          totalFinalRevenue: 1, // Keep the totalFinalRevenue field
+        },
+      },
+      {
+        $sort: { date: 1 }, // Sort by date ascending (optional)
+      },
+    ])
+    .toArray();
+
+  console.log(data);
+
+  res.send(data);
 });
 
 module.exports = router;

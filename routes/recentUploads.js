@@ -28,10 +28,23 @@ router.get("/album", verifyJWT, async (req, res) => {
   // console.log(email);
   const album = await recentUploadsCollection
     .find({
-      price: 99900,
       userEmail: email,
+      songs: { $type: "array" }, // filters where 'songs' is an array
     })
     .toArray();
+
+  res.send(album);
+});
+
+router.get("/by-order-id/:_id", verifyJWT, async (req, res) => {
+  const { recentUploadsCollection } = await getCollections();
+  // const album =await recentUploadsCollection.find({price: 99900, })
+  const { email } = jwt.decode(req.headers.token);
+
+  // console.log(email);
+  const album = await recentUploadsCollection.findOne({
+    orderId: req.params._id,
+  });
   res.send(album);
 });
 
@@ -42,8 +55,6 @@ router.get("/album/:_id", verifyJWT, async (req, res) => {
 
   // console.log(email);
   const album = await recentUploadsCollection.findOne({
-    price: 99900,
-    userEmail: email,
     _id: new ObjectId(req.params._id),
   });
   res.send(album);

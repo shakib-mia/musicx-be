@@ -14,6 +14,8 @@ router.post("/", cors(corsOptions), async (req, res) => {
   const { email, password } = req.body;
   const { usersCollection, userDetails } = await getCollections();
 
+  console.log({ email, password });
+
   const userCursor = await usersCollection.findOne({ user_email: email });
   const details = await userDetails.findOne({ user_email: email });
   // console.log(req.body);

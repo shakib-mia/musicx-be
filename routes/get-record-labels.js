@@ -23,7 +23,7 @@ router.get("/", verifyJWT, async (req, res) => {
 
   // console.log(names);
 
-  res.send([...names, "ForeVision Digital"]); // forevision digital is common for all
+  res.send([...names, "BackVision Digital"]); // forevision digital is common for all
 });
 
 // For Admin

@@ -73,11 +73,11 @@ router.get("/monthly-sales", async (req, res) => {
         }
 
         // Accumulate sales for each plan
-        if (plan.planName === "ForeVision-social") {
+        if (plan.planName === "BackVision-social") {
           salesByMonth[monthKey].ForevisionSocial += sale.price;
         } else if (plan.planName === "CRBT+") {
           salesByMonth[monthKey].ForevisionCRBTPlus += sale.price;
-        } else if (plan.planName === "ForeVision Pro") {
+        } else if (plan.planName === "BackVision Pro") {
           salesByMonth[monthKey].ForevisionPro += sale.price;
         } else if (plan.planName === "CRBT") {
           salesByMonth[monthKey].ForevisionCRBT += sale.price;

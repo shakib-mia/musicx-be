@@ -77,7 +77,7 @@ router.post("/", async (req, res) => {
           Your music has been successfully distributed to our partner platforms.
           You can expect it to appear on major platforms within the next 2 business days.<br/><br/>
           Best regards,<br/>
-          Team ForeVision Digital
+          Team BackVision Digital
         `;
       break;
     case "streaming":
@@ -86,7 +86,7 @@ router.post("/", async (req, res) => {
           Your music has been successfully distributed to our partner platforms.
           You can expect it to appear on major platforms within the next 2 business days.<br/><br/>
           Best regards,<br/>
-          Team ForeVision Digital
+          Team BackVision Digital
         `;
       break;
     case "Copyright infringed":
@@ -95,7 +95,7 @@ router.post("/", async (req, res) => {
           We've received a copyright infringement claim regarding your song "${songName}".
           Please provide documentation of your rights to this content within 5 business days to prevent removal.<br/><br/>
           Best regards,<br/>
-          Team ForeVision Digital
+          Team BackVision Digital
         `;
       break;
     case "Taken Down":
@@ -104,7 +104,7 @@ router.post("/", async (req, res) => {
           Your song "${songName}" has been removed from distribution due to ${reason}.
           If you believe this is an error, please contact our support team immediately.<br/><br/>
           Best regards,<br/>
-          Team ForeVision Digital
+          Team BackVision Digital
         `;
       break;
     case "Rejected":
@@ -113,7 +113,7 @@ router.post("/", async (req, res) => {
           Your submission for "${songName}" has been rejected due to ${reason}.
           Please address these issues and resubmit.<br/><br/>
           Best regards,<br/>
-          Team ForeVision Digital
+          Team BackVision Digital
         `;
       break;
     case "On Hold":
@@ -122,7 +122,7 @@ router.post("/", async (req, res) => {
           Your distribution for "${songName}" is currently on hold due to ${reason}.
           We'll update you once we have more information.<br/><br/>
           Best regards,<br/>
-          Team ForeVision Digital
+          Team BackVision Digital
         `;
       break;
     case "paid":
@@ -130,7 +130,7 @@ router.post("/", async (req, res) => {
           Dear ${first_name} ${last_name}, <br/><br/>
           Your song has been marked as paid.<br/><br/>
           Best regards,<br/>
-          Team ForeVision Digital
+          Team BackVision Digital
         `;
       break;
     default:
@@ -147,7 +147,7 @@ router.post("/", async (req, res) => {
     from: process.env.emailAddress,
     to: userEmail,
     // to: "smdshakibmia2001@gmail.com",
-    subject: `Update on Your Music Distribution Status with ForeVision Digital`,
+    subject: `Update on Your Music Distribution Status with BackVision Digital`,
     html: emailContent,
   };
 
