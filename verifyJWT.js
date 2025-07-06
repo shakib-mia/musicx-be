@@ -4,14 +4,14 @@ const verifyJWT = (req, res, next) => {
   const currentTime = new Date().getTime();
   const { token } = req.headers;
 
-  // console.log(req.headers);
+  console.log(req.headers);
   if (!token) {
     return res.status(401).send("Unauthorized: Token missing");
   }
 
   try {
     const user = jwt.verify(token, process.env.access_token_secret);
-    // console.log(user.header);
+    console.log(user);
 
     if (currentTime >= user.exp * 1000) {
       return res.status(401).send({ message: "Token has expired" });

@@ -94,4 +94,21 @@ router.get("/monthly-sales", async (req, res) => {
   res.send(monthlySalesByPlan);
 });
 
+router.get("/pie-data", async (req, res) => {
+  try {
+    const { plansCollection } = await getCollections();
+    const plans = await plansCollection.find({}).toArray();
+
+    const pieData = plans.map((plan) => ({
+      name: plan.planName || plan.name, // fallback if planName doesn't exist
+      value: plan["monthly-sales"]?.length || 0,
+    }));
+
+    res.send(pieData);
+  } catch (error) {
+    console.error("Error generating pie chart data:", error);
+    res.status(500).send({ message: "Server error" });
+  }
+});
+
 module.exports = router;

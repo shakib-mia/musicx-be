@@ -3,7 +3,28 @@
     "name": "BackVision CRBT",
     "planName": "CRBT",
     "price": 49900,
-    "monthly-sales": [],
+    "monthly-sales": [
+      {
+        "date": "2025-04-24T14:12:45.349Z",
+        "price": 0,
+        "userEmail": "smdshakibmia2001@gmail.com"
+      },
+      {
+        "date": "2025-04-24T14:12:45.782Z",
+        "price": 0,
+        "userEmail": "smdshakibmia2001@gmail.com"
+      },
+      {
+        "date": "2025-03-20T11:34:23.101Z",
+        "price": 0,
+        "userEmail": "user1@example.com"
+      },
+      {
+        "date": "2025-02-15T09:10:15.202Z",
+        "price": 0,
+        "userEmail": "user2@example.com"
+      }
+    ],
     "features": [
       "All Indian Apps Covered: Gaana, Hungama, Wynk & Jiosaavn",
       "Caller Tunes On JIO, Vi, BSNL & Airtel",
@@ -24,7 +45,18 @@
     "name": "BackVision Pro",
     "planName": "BackVision Pro",
     "price": 49800,
-    "monthly-sales": [],
+    "monthly-sales": [
+      {
+        "date": "2025-04-02T12:01:45.123Z",
+        "price": 69900,
+        "userEmail": "user3@example.com"
+      },
+      {
+        "date": "2025-03-12T16:18:22.789Z",
+        "price": 69900,
+        "userEmail": "user4@example.com"
+      }
+    ],
     "features": [
       "All Indian Apps Covered: Gaana, Hungama, Wynk & Jiosaavn",
       "All International Apps Covered",
@@ -46,7 +78,18 @@
     "name": "BackVision Social",
     "planName": "BackVision-social",
     "price": 0,
-    "monthly-sales": [],
+    "monthly-sales": [
+      {
+        "date": "2025-05-01T08:00:00.000Z",
+        "price": 49800,
+        "userEmail": "prouser@example.com"
+      },
+      {
+        "date": "2025-04-10T13:14:45.222Z",
+        "price": 49800,
+        "userEmail": "user5@example.com"
+      }
+    ],
     "features": [
       "YouTube Content ID, YouTube Music & YouTube Shorts Covered",
       "Monetize Your Music in Facebook & Instagram",
@@ -65,7 +108,18 @@
     "name": "BackVision Album",
     "planName": "BackVision-Album",
     "price": 99900,
-    "monthly-sales": [],
+    "monthly-sales": [
+      {
+        "date": "2025-03-22T17:22:33.011Z",
+        "price": 49900,
+        "userEmail": "crbtlover@example.com"
+      },
+      {
+        "date": "2025-02-10T10:05:40.654Z",
+        "price": 49900,
+        "userEmail": "user7@example.com"
+      }
+    ],
     "features": [
       "Unlimited song under 1 (one) UPC",
       "All Indian Apps Covered: Gaana, Hungama, Wynk & Jiosaavn",
@@ -98,7 +152,13 @@
     "name": "BackVision CRBT+",
     "planName": "CRBT+",
     "price": 69900,
-    "monthly-sales": [],
+    "monthly-sales": [
+      {
+        "date": "2025-01-15T07:00:00.000Z",
+        "price": 249900,
+        "userEmail": "bigartist@example.com"
+      }
+    ],
     "features": [
       "All Indian Apps Covered: Gaana, Hungama, Wynk & Jiosaavn",
       "Caller Tunes On JIO, Vi, BSNL & Airtel",
@@ -124,7 +184,13 @@
     "name": "BackVision Yearly Plan",
     "planName": "BackVision-Yearly-Plan",
     "price": 249900,
-    "monthly-sales": [],
+    "monthly-sales": [
+      {
+        "date": "2025-02-25T21:00:00.000Z",
+        "price": 99900,
+        "userEmail": "albumuser@example.com"
+      }
+    ],
     "features": [
       "COMING SOON...",
       "Unlimited song under 1 (one) UPC",

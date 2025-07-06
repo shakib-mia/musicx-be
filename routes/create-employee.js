@@ -56,7 +56,7 @@ router.post("/create-employee", async (req, res) => {
       employeeCode,
       name,
       role,
-      password: password,
+      password,
     };
 
     // Insert into the database
@@ -74,6 +74,33 @@ router.post("/create-employee", async (req, res) => {
   } catch (error) {
     console.error("Error creating employee:", error);
     res.status(500).send("Internal Server Error");
+  }
+});
+
+router.delete("/:_id", async (req, res) => {
+  try {
+    const { _id } = req.params;
+    const { employeesCollection } = await getCollections();
+
+    const result = await employeesCollection.deleteOne({
+      _id: new ObjectId(_id),
+    });
+
+    if (result.deletedCount > 0) {
+      res.send({
+        acknowledged: true,
+        message: "Employee deleted successfully",
+      });
+    } else {
+      res
+        .status(404)
+        .send({ acknowledged: false, message: "Employee not found" });
+    }
+  } catch (error) {
+    console.error("Error deleting employee:", error);
+    res
+      .status(500)
+      .send({ acknowledged: false, message: "Internal Server Error" });
   }
 });
 

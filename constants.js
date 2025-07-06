@@ -168,6 +168,14 @@ const getCollections = async () => {
     .db("backvision-digital")
     .collection("split-royalties");
 
+  const tokenTransferHistory = await client
+    .db("backvision-digital")
+    .collection("token-transfer-history");
+
+  const tokenizationHistory = await client
+    .db("backvision-digital")
+    .collection("tokenization-history");
+
   const cutsCollection = await client
     .db("backvision-digital")
     .collection("custom-cut");
@@ -225,6 +233,8 @@ const getCollections = async () => {
     plansCollection,
     crbtCodes,
     splitRoyalties,
+    tokenTransferHistory,
+    tokenizationHistory,
   };
 };
 

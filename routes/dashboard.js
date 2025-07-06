@@ -152,8 +152,6 @@ router.get("/graph", async (req, res) => {
     ])
     .toArray();
 
-  console.log(data);
-
   res.send(data);
 });
 

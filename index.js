@@ -719,7 +719,7 @@ const port = process.env.port;
 
 app.get("/", async (req, res) => {
   const token = jwt.sign(
-    { email: "abc@admin.com" },
+    { email: "info.gskillz@gmail.com" },
     process.env.access_token_secret,
     { expiresIn: "1d" }
   );
@@ -1099,103 +1099,6 @@ async function run() {
     ];
 
     apis.map(({ path, element }) => app.use(path, element));
-
-    //     app.get("/fake-pass", async (req, res) => {
-    //       const salt = bcrypt.genSaltSync(10);
-    //       const hash = bcrypt.hashSync("12345", salt);
-    //       res.send(hash);
-    //     });
-
-    //     app.get("/clients", async (req, res) => {
-    //       const found = await clientsCollection.find({}).toArray();
-    //       res.send(found);
-    //     });
-
-    //     app.get("/generate-isrc", async (req, res) => {
-    //       try {
-    //         const { clientsCollection } = await getCollections();
-
-    //         // Fetch all existing ISRCs
-    //         const pipeline = [{ $project: { _id: 0, isrc: 1 } }];
-    //         const isrcDocs = await clientsCollection.aggregate(pipeline).toArray();
-
-    //         // Process ISRCs into a clean array of strings
-    //         const existingIsrcs = isrcDocs
-    //           .map((doc) => doc.isrc) // Extract 'isrc' field
-    //           .filter(Boolean) // Remove null, undefined, or empty strings
-    //           .flatMap((isrc) => isrc.split(",")) // Split comma-separated ISRCs into individual strings
-    //           .map((isrc) => isrc.trim()); // Trim whitespace around each ISRC
-
-    //         // Generate a unique ISRC
-    //         let newIsrc;
-    //         let startNum = 1; // Starting point for ISRC generation
-    //         do {
-    //           newIsrc = generateIsrc(startNum);
-    //           startNum++;
-    //         } while (existingIsrcs.includes(newIsrc)); // Check if the generated ISRC is unique
-
-    //         // Respond with the generated ISRC
-    //         res.send({ newIsrc, existingIsrcs });
-    //       } catch (error) {
-    //         console.error("Error generating ISRC:", error);
-    //         res.status(500).send({ error: "Failed to generate ISRC" });
-    //       }
-    //     });
-
-    //     app.get("/get2025", async (req, res) => {
-    //       const pipeline = [
-    //         {
-    //           $match: { isrc: req.params.isrc },
-    //         },
-    //         {
-    //           $project: {
-    //             _id: 0,
-    //             uploadDate: 1,
-    //           },
-    //         },
-    //       ];
-
-    //       const revenueData = await revenueCollections.find({}).toArray();
-    //       res.send(revenueData);
-    //     });
-
-    //     const storage = multer.diskStorage({
-    //       destination: function (req, file, cb) {
-    //         cb(null, "uploads/"); // Specify the destination folder
-    //       },
-    //       filename: function (req, file, cb) {
-    //         const originalname = file.originalname.split(".")[0]; // Extract the filename without the extension
-    //         const timestamp = Date.now(); // Get the current timestamp
-    //         const uniqueFilename = `${originalname}_${timestamp}${path.extname(
-    //           file.originalname
-    //         )}`;
-    //         cb(null, uniqueFilename);
-    //       },
-    //     });
-
-    //     const upload = multer({ storage: storage });
-
-    //     // Serve static files from the 'uploads' folder
-    //     app.use("/uploads", express.static("uploads"));
-
-    //     // Define a route for file upload
-    //     app.post("/upload", upload.single("file"), (req, res) => {
-    //       // 'file' in upload.single('file') should match the name attribute in your form
-
-    //       if (!req.file) {
-    //         return res.status(400).send("No file uploaded.");
-    //       }
-
-    //       res.send("File uploaded successfully!");
-    //     });
-
-    //     // app.get("/demo-clients", async (req, res) => {
-    //     //   const { demoClientsCollection } = await getCollections();
-
-    //     //   const data = await demoClientsCollection.find({}).toArray();
-
-    //     //   res.send(data);
-    //     // });
 
     app.get("/getAllIsrcs", async (req, res) => {
       let isrcs = "";
