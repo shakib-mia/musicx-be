@@ -9,15 +9,19 @@ router.get("/", verifyJWT, async (req, res) => {
   const { recentUploadsCollection } = await getCollections();
   const { email } = jwt.decode(req.headers.token);
 
-  // Fetch documents where the "songs" key exists and matches the user's email
-  const singleSongs = await recentUploadsCollection
-    .find({ userEmail: email }) // Filter only documents with the "songs" key
-    .sort({ status: { $eq: "streaming" } ? -1 : 1 }) // Sort by "streaming" status
+  // Streaming গানগুলো
+  const streamingSongs = await recentUploadsCollection
+    .find({ userEmail: email, status: "streaming" })
     .toArray();
 
-  console.log(singleSongs);
+  // Not streaming গানগুলো (status "streaming" না)
+  const notStreamingSongs = await recentUploadsCollection
+    .find({ userEmail: email, status: { $ne: "streaming" } })
+    .toArray();
 
-  res.send(singleSongs);
+  // console.log({ streamingSongs });
+
+  res.send({ streamingSongs, notStreamingSongs });
 });
 
 router.get("/album", verifyJWT, async (req, res) => {
@@ -26,14 +30,23 @@ router.get("/album", verifyJWT, async (req, res) => {
   const { email } = jwt.decode(req.headers.token);
 
   // console.log(email);
-  const album = await recentUploadsCollection
+  const streamingAlbum = await recentUploadsCollection
     .find({
       userEmail: email,
       songs: { $type: "array" }, // filters where 'songs' is an array
+      status: "streaming",
     })
     .toArray();
 
-  res.send(album);
+  const notStreamingAlbum = await recentUploadsCollection
+    .find({
+      userEmail: email,
+      songs: { $type: "array" }, // filters where 'songs' is an array
+      status: { $ne: "streaming" },
+    })
+    .toArray();
+
+  res.send({ streamingAlbum, notStreamingAlbum });
 });
 
 router.get("/by-order-id/:_id", verifyJWT, async (req, res) => {
