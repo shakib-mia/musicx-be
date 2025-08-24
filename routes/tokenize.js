@@ -201,6 +201,40 @@ router.post("/verify-otp", async (req, res) => {
   }
 });
 
+router.post("/charge/:orderId", verifyJWT, async (req, res) => {
+  try {
+    const { amount } = req.body;
+    const { userDetails, recentUploadsCollection } = await getCollections();
+    const { email } = jwt.decode(req.headers.token);
+    const user = await userDetails.findOne({ emailId: email });
+    if (!user) {
+      return res.status(404).send({ error: "User not found." });
+    }
+    const chargeAmount = parseFloat(amount);
+    if (isNaN(chargeAmount) || chargeAmount <= 0) {
+      return res.status(400).send({ error: "Invalid amount." });
+    }
+    await userDetails.updateOne(
+      { emailId: email },
+      { $inc: { tokenized: -chargeAmount } }
+    );
+    await recentUploadsCollection.updateOne(
+      { orderId: req.params.orderId },
+      {
+        $set: {
+          status: "paid",
+          chargedAmount: chargeAmount,
+          chargedAt: new Date(),
+        },
+      }
+    );
+    res.send({ success: true, message: "Account charged successfully." });
+  } catch (error) {
+    console.error("Error charging account:", error);
+    res.status(500).send({ error: "Failed to charge account." });
+  }
+});
+
 // router.post("/verify-otp", async (req, res) => {
 //   try {
 //     const { otp, hashedOtp, amount, to } = req.body;
