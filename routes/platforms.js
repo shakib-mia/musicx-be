@@ -3,7 +3,7 @@ const router = express.Router();
 const { getCollections } = require("../constants");
 const verifyJWT = require("../verifyJWT");
 
-router.get("/", verifyJWT, async (req, res) => {
+router.get("/", async (req, res) => {
   const { platformsCollection } = await getCollections();
   const platformsCursor = await platformsCollection.find({});
   const platforms = await platformsCursor.toArray();
@@ -25,7 +25,7 @@ router.get("/all", async (req, res) => {
   // Add the logo_url field to each platform
   const platformsWithLogos = platforms.map((platform) => {
     const formattedName = platform.cat_name.toLowerCase().replace(/\s+/g, "-"); // Replace spaces with dashes and convert to lowercase
-    const logo_url = `https://api.forevisiondigital.in/uploads/platforms/${formattedName}.png`; // Adjust the path and file extension as needed
+    const logo_url = `https://musicx-be.onrender.com/uploads/platforms/${formattedName}.png`; // Adjust the path and file extension as needed
 
     return { ...platform, logo_url };
   });
