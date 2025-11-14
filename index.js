@@ -63,7 +63,7 @@ const generateOrderId = require("./routes/generate-order-id");
 const songs = require("./routes/songs");
 const recentUploads = require("./routes/recentUploads");
 const uploadFilmBanner = require("./routes/upload-film-banner");
-const handleFirebaseLogin = require("./routes/handle-firebase-login");
+const handleFirebaseLogin = require("./routes/handle-google-login");
 // const refund = require("./routes/refund");
 const uploadLetterHeads = require("./routes/upload-letterhead");
 // const { customLog } = require("./constants");
@@ -92,6 +92,7 @@ const customCutAPI = require("./routes/custom-cut");
 const userLogin = require("./routes/user-logn");
 const tokenize = require("./routes/tokenize");
 const resetPassword = require("./routes/resetPassword");
+const handleChat = require("./routes/handleChat");
 const fs = require("fs");
 
 const paidData = [
@@ -720,7 +721,7 @@ const port = process.env.port;
 
 app.get("/", async (req, res) => {
   const token = jwt.sign(
-    { email: "info.gskillz@gmail.com" },
+    { email: "admin@swardist.com" },
     process.env.access_token_secret,
     { expiresIn: "1d" }
   );
@@ -996,7 +997,7 @@ async function run() {
         element: uploadRecordLabels,
       },
       {
-        path: "/handle-firebase-login",
+        path: "/handle-google-login",
         element: handleFirebaseLogin,
       },
       // {
@@ -1097,6 +1098,10 @@ async function run() {
       //   path: "/upload-promotional-artwork",
       //   element: uploadPromotionalArtwork,
       // },
+      {
+        path: "/chat",
+        element: handleChat,
+      },
     ];
 
     apis.map(({ path, element }) => app.use(path, element));
@@ -1498,43 +1503,76 @@ async function run() {
       }
     });
 
+    // app.get("/all-users", async (req, res) => {
+    //   try {
+    //     const clients = await clientsCollection.find({}).toArray();
+    //     const userDetailsData = await userDetails.find({}).toArray();
+    //     const users = await usersCollection.find({}).toArray();
+
+    //     // Normalize email keys but keep original keys for full response
+    //     const normalizedUsers = [
+    //       ...userDetailsData.map((user) => ({
+    //         ...user,
+    //         emailId: user.user_email, // Add normalized emailId
+    //       })),
+    //       ...clients.map((user) => ({
+    //         ...user,
+    //         emailId: user.emailId, // Already exists
+    //       })),
+    //       ...users.map((user) => ({
+    //         ...user,
+    //         emailId: user.user_email, // Add normalized emailId
+    //       })),
+    //     ];
+
+    //     res.send(normalizedUsers);
+
+    //     // Deduplicate users based on emailId and lifetime fields
+    //     // const emailMap = new Map();
+    //     // for (const user of normalizedUsers) {
+    //     //   if (
+    //     //     user.emailId &&
+    //     //     !emailMap.has(user.emailId) &&
+    //     //     user.lifetimeDisbursed != null &&
+    //     //     user.lifetimeRevenue != null
+    //     //   ) {
+    //     //     emailMap.set(user.emailId, user);
+    //     //   }
+    //     // }
+
+    //     // const uniqueUsers = Array.from(emailMap.values());
+    //     // console.log("Unique users count:", uniqueUsers.length);
+
+    //     // res.send(uniqueUsers); // All original keys + normalized emailId will be sent
+    //   } catch (error) {
+    //     console.error("Error fetching users:", error);
+    //     res.status(500).send({ error: "Internal Server Error" });
+    //   }
+    // });
+
     app.get("/all-users", async (req, res) => {
       try {
-        const usersCursor = await clientsCollection.find({}).toArray();
+        const clients = await clientsCollection.find({}).toArray();
         const userDetailsData = await userDetails.find({}).toArray();
+        const users = await usersCollection.find({}).toArray();
 
-        // Normalize the keys to 'emailId' for both collections
+        // Normalize email keys for all collections
         const normalizedUsers = [
           ...userDetailsData.map((user) => ({
             ...user,
-            emailId: user.user_email, // Rename user_email to emailId
-            user_email: undefined, // Remove the original key
+            emailId: user.user_email, // Standardized field
           })),
-          ...usersCursor.map((user) => ({
+          ...clients.map((user) => ({
             ...user,
-            emailId: user.emailId, // Ensure emailId key is used
+            emailId: user.emailId, // Standardized field
+          })),
+          ...users.map((user) => ({
+            ...user,
+            emailId: user.user_email, // Standardized field
           })),
         ];
 
-        // Create a Map to store unique users based on emailId
-        const emailMap = new Map();
-
-        for (const user of normalizedUsers) {
-          // Add user to the map only if their emailId is not already present and has both lifetimeDisbursed and lifetimeRevenue
-          if (
-            user.emailId &&
-            !emailMap.has(user.emailId) &&
-            user.lifetimeDisbursed &&
-            user.lifetimeRevenue
-          ) {
-            emailMap.set(user.emailId, user);
-          }
-        }
-
-        // Convert the map values back to an array
-        const uniqueUsers = Array.from(emailMap.values());
-
-        res.send(uniqueUsers);
+        res.send(normalizedUsers); // All users have 'emailId' field now
       } catch (error) {
         console.error("Error fetching users:", error);
         res.status(500).send({ error: "Internal Server Error" });

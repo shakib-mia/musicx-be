@@ -39,6 +39,66 @@ router.post("/", verifyJWT, async (req, res) => {
   res.send(updateCursor);
 });
 
+router.post("/admin-tokenize", verifyJWT, async (req, res) => {
+  try {
+    const { email: adminEmail, role } = jwt.decode(req.headers.token); // Admin info
+
+    // Optional: check if requester is admin
+    if (role !== "admin") {
+      return res.status(403).send({ error: "Unauthorized" });
+    }
+
+    const { targetEmail, tokenizedINR } = req.body; // Admin specifies user email
+    if (!targetEmail || !tokenizedINR || tokenizedINR <= 0) {
+      return res.status(400).send({ error: "Invalid input" });
+    }
+
+    const { clientsCollection, userDetails, tokenizationHistory } =
+      await getCollections();
+
+    // Fetch user from collections
+    const client = await clientsCollection.findOne({ emailId: targetEmail });
+    const client2 = await userDetails.findOne({ user_email: targetEmail });
+    if (!client && !client2) {
+      return res.status(404).send({ error: "User not found" });
+    }
+
+    // Merge user data, remove _id
+    const { _id, ...rest } = { ...client, ...client2 };
+
+    // Initialize tokenized if missing
+    rest.tokenized = rest.tokenized || 0;
+
+    // Add tokens
+    rest.tokenized += Number(tokenizedINR);
+
+    // Log tokenization
+    await tokenizationHistory.insertOne({
+      adminEmail,
+      targetEmail,
+      amount: Number(tokenizedINR),
+      date: new Date(),
+      status: "success",
+    });
+
+    // Update userDetails collection
+    await userDetails.updateOne(
+      { user_email: targetEmail },
+      { $set: rest },
+      { upsert: false }
+    );
+
+    res.send({
+      success: true,
+      message: `${tokenizedINR} tokens added to ${targetEmail}`,
+      updatedTokens: rest.tokenized,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ error: "Internal Server Error" });
+  }
+});
+
 router.get("/history", verifyJWT, async (req, res) => {
   try {
     const token = req.headers.token;

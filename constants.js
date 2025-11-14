@@ -179,6 +179,12 @@ const getCollections = async () => {
   const cutsCollection = await client
     .db("backvision-digital")
     .collection("custom-cut");
+  const chatsCollection = await client
+    .db("backvision-digital")
+    .collection("chats-with-bot");
+  const chatbotParams = await client
+    .db("backvision-digital")
+    .collection("chatbot-params");
 
   function customLog(...messages) {
     const err = new Error();
@@ -235,6 +241,8 @@ const getCollections = async () => {
     splitRoyalties,
     tokenTransferHistory,
     tokenizationHistory,
+    chatsCollection,
+    chatbotParams,
   };
 };
 

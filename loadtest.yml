@@ -1,0 +1,9 @@
+config:
+  target: "http://localhost:5000"
+  phases:
+    - duration: 60 # 60 সেকেন্ডের জন্য
+      arrivalRate: 10 # প্রতি সেকেন্ডে 10 concurrent requests
+scenarios:
+  - flow:
+      - get:
+          url: "/"

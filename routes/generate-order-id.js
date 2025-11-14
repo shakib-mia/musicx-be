@@ -21,7 +21,7 @@ async function getNextOrderId() {
 
   // console.log(paddedOrderId);
 
-  return `FVDO${paddedOrderId}`;
+  return `GBO${paddedOrderId}`;
 }
 
 async function generateUniqueOrderId() {

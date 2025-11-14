@@ -14,8 +14,6 @@ router.post("/", cors(corsOptions), async (req, res) => {
   const { email, password } = req.body;
   const { usersCollection, userDetails } = await getCollections();
 
-  console.log({ email, password });
-
   const userCursor = await usersCollection.findOne({ user_email: email });
   const details = await userDetails.findOne({ user_email: email });
   // console.log(req.body);
@@ -34,6 +32,19 @@ router.post("/", cors(corsOptions), async (req, res) => {
     });
   } else {
     res.status(401).send({ message: "no user found" });
+  }
+});
+
+router.post("google-login/:token", async (req, res) => {
+  const { token } = req.params;
+  const { usersCollection, userDetails } = await getCollections();
+
+  try {
+    const decoded = jwt.verify(token, process.env.GOOGLE_CLIENT_SECRET);
+
+    console.log(decoded);
+  } catch (error) {
+    res.status(401).send({ message: "invalid token" });
   }
 });
 
